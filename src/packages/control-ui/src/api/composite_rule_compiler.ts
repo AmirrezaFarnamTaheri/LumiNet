@@ -19,7 +19,7 @@ export class CompositeRuleCompiler {
     const parts = trimmed.split(',').map((s) => s.trim());
     if (parts.length < 3) return false;
 
-    const rType = parts[0]!.toUpperCase() as any;
+    const rType = parts[0]!.toUpperCase();
     const pattern = parts[1]!;
     const action = parts[2]!.toUpperCase() as ControlRuleAction;
 

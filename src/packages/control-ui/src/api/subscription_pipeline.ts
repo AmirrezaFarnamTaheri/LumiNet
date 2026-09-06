@@ -10,8 +10,11 @@ export function parseSubscriptionPayload(content: string): IngestedProxyNode[] {
     // Attempt base64 decode
     if (typeof atob === 'function') {
       decoded = atob(decoded);
-    } else if (typeof (globalThis as any).Buffer !== 'undefined') {
-      decoded = (globalThis as any).Buffer.from(decoded, 'base64').toString('utf-8');
+    } else {
+      const buf = nodeGlobalBuffer();
+      if (buf) {
+        decoded = buf.from(decoded, 'base64').toString('utf-8');
+      }
     }
   } catch {
     // Fallback to plain string
