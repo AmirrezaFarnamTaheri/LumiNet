@@ -1,9 +1,10 @@
-export enum SystemProxyMode {
-  Direct = 'direct',
-  Pac = 'pac',
-  Global = 'global',
-  Manual = 'manual',
-}
+export const SystemProxyMode = {
+  Direct: 'direct',
+  Pac: 'pac',
+  Global: 'global',
+  Manual: 'manual',
+} as const;
+export type SystemProxyMode = (typeof SystemProxyMode)[keyof typeof SystemProxyMode];
 
 export interface DesktopStatus {
   mode: SystemProxyMode;
@@ -11,7 +12,7 @@ export interface DesktopStatus {
   httpPort: number;
   socks5Port: number;
   isConnected: boolean;
-  pacUrl?: string;
+  pacUrl?: string | undefined;
 }
 
 export class DesktopClientManager {
