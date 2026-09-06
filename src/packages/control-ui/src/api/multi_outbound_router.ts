@@ -20,7 +20,7 @@ export class MultiOutboundRouter {
     this.defaultPolicy = defaultPolicy;
   }
 
-  addRule(pattern: string, isSuffix: Boolean, policy: OutboundPolicyDecision): void {
+  addRule(pattern: string, isSuffix: boolean, policy: OutboundPolicyDecision): void {
     this.rules.push({
       pattern: pattern.trim().toLowerCase(),
       isSuffix: Boolean(isSuffix),

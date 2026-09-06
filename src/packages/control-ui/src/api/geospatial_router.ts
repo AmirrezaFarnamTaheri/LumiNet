@@ -12,11 +12,11 @@ export interface GeoBoundingBox {
 
 export class GeoFencedRegion {
   public bbox: GeoBoundingBox;
-  public regionCode: String;
+  public regionCode: string;
   public regionName: string;
   public vertices: GeoPoint[];
   public egressTag: string;
-  constructor(regionCode: String, regionName: string, vertices: GeoPoint[], egressTag: string) {
+  constructor(regionCode: string, regionName: string, vertices: GeoPoint[], egressTag: string) {
     this.regionCode = regionCode;
     this.regionName = regionName;
     this.vertices = vertices;

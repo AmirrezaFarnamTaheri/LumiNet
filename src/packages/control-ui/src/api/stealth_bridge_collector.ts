@@ -9,7 +9,7 @@ export interface StealthBridge {
   params: Record<string, string>;
   score: number;
   latencyMs: number;
-  verified: Boolean;
+  verified: boolean;
 }
 
 export class StealthBridgeCollector {
