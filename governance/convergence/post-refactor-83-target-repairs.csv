@@ -1,0 +1,7 @@
+repair_id,repair,resolution,target_paths,semantic_record_ids
+PR83-R001,F-015 SSH host identity,shared strict SHA-256 host-key trust module used by provisioning and SSH tunnel,src/apps/daemon/internal/platform/sshtrust/host_identity.go;src/apps/daemon/internal/integrations/provision/vps.go;src/apps/daemon/internal/runtime/proxy/ssh_tunnel.go,n/a
+PR83-R002,F-016 bootstrap provenance,signed apt candidate pin replaces mutable remote root installer,src/apps/daemon/internal/integrations/provision/vps.go,n/a
+PR83-R003,F-017 Rust FFI ownership,owned raw input + typed errors + shared panic envelope while preserving 42-symbol C ABI,src/packages/lumicore/src/ffi/json_bridge.rs;src/packages/lumicore/src/ffi/exports.rs;src/packages/lumicore/src/ffi/async_exports.rs,n/a
+PR83-R004,F-018 relay connection semantics,"bounded buffers, real deadlines, wakeups and rollback in shared state",src/apps/daemon/internal/integrations/relayclient/relay_conn_state.go,n/a
+PR83-R005,unobserved endpoint dispatch,endpoint pool requires at least one successful observation for dispatch eligibility,src/apps/daemon/internal/analysis/diagnostics/endpoint_pool_plan.go,PR83-S001
+PR83-R006,relay outage hammering,shared capped exponential polling failure backoff resets on success and honors cancellation,src/apps/daemon/internal/integrations/relayclient/relay_conn_state.go;src/apps/daemon/internal/integrations/relayclient/serverless_dialer.go;src/apps/daemon/internal/integrations/relayclient/gsa_relay.go,PR83-S002

@@ -1,0 +1,25 @@
+# src/apps/daemon/internal/networking/proxyconfig
+
+## Purpose
+Canonical per-node proxy configuration types and URI parsers. Other modules consume these types instead of maintaining parser facades.
+
+## Architectural role
+- Daemon dependency band: `networking` (rank 2; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (25): `core_compat.go`, `direct.go`, `finalmask.go`, `hysteria2_fields.go`, `parser_anytls.go`, `parser_contract_test.go`, `parser_dnstt.go`, `parser_hy2.go`, `parser_juicity.go`, `parser_kcp.go`, `parser_naive.go`, `parser_nipo.go` …
+
+## Interfaces and dependencies
+- Go package: `proxyconfig`.
+- Notable exported surface: `BuildXrayHysteria2Settings`, `BuildXrayTLSSettings`, `BuildXrayXHTTPSettings`, `CanonicalXHTTPTransport`, `DecodeFinalMask`, `EvaluateExternalCoreCompatibility`, `ExternalCoreCompatibility`, `ExtractRealityParams`, `IsSuspicious`, `MaxFinalMaskBytes` …
+- Daemon-local dependencies: none.
+- Direct daemon callers: `cmd`, `internal/adapters/api`, `internal/analysis/diagnostics`, `internal/integrations/sub`, `internal/runtime/proxy`, `internal/workflows/jobs`.
+
+## Invariants
+- This is the canonical per-node parser/type owner; parser compatibility facades must not return.
+- `networking` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

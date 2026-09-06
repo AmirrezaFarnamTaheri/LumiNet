@@ -1,0 +1,16 @@
+# third_party/gaio
+
+## Purpose
+Preserved local fork/module for `github.com/xtaci/gaio`, kept outside LumiNet live source.
+
+## Contents
+- The upstream Go module is rooted directly in this directory.
+- `LUMINET.md` documents why LumiNet carries the local fork.
+- Upstream examples, assets, CI metadata, license, and README remain otherwise intact.
+
+## Interfaces and dependencies
+- `src/apps/daemon/go.mod` maps `github.com/xtaci/gaio` here with a `replace` directive.
+
+## Invariants
+- Treat upstream files as third-party provenance, not LumiNet-owned modules.
+- Do not inject LumiNet metadata into nested upstream folders.

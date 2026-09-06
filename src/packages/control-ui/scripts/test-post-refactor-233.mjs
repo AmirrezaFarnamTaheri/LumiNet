@@ -1,0 +1,33 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url));
+const root=path.resolve(here,'..');
+const daemon=path.resolve(root,'../../apps/daemon');
+const read=(...p)=>fs.readFileSync(path.join(...p),'utf8');
+const operations=read(root,'src/pages/Operations.tsx');
+const pkg=JSON.parse(read(root,'package.json'));
+const routes=read(daemon,'internal/adapters/api/routes_system.go');
+const handlers=read(daemon,'internal/adapters/api/handlers_post_refactor_233_planners.go');
+const plans=read(daemon,'internal/analysis/diagnostics/post_refactor_233_plans.go');
+const tests=read(daemon,'internal/analysis/diagnostics/post_refactor_233_plans_test.go');
+let checks=0; const ok=(c,m)=>{checks++;if(!c)throw new Error(m)};
+const pairs=[['dns-refiner-plan','PlanDNSRefiner'],['https-upgrade-ruleset-plan','PlanHTTPSUpgradeRuleset'],['tor-exit-scan-plan','PlanTorExitScan'],['mobile-tor-lifecycle-plan','PlanMobileTorLifecycle'],['security-posture-plan','PlanSecurityPosture'],['traffic-shaper-plan','PlanTrafficShaper'],['endpoint-location-evidence-plan','PlanEndpointLocationEvidence']];
+for(const [ep,h] of pairs){ok(routes.includes(`"/${ep}"`),`route ${ep}`);ok(handlers.includes(`func (s *Server) ${h}`),`handler ${h}`)}
+for(const bad of ['http.Get(','http.Post(','net.Dial(','exec.Command(','os.WriteFile(','os.Remove(','os.MkdirAll(','os.Chmod(']) ok(!handlers.includes(bad),`hidden handler side effect ${bad}`);
+for(const fn of ['BuildDNSRefinerPlan','BuildHTTPSUpgradeRulesetPlan','BuildTorExitScanPlan','BuildMobileTorLifecyclePlan','BuildSecurityPosturePlan','BuildTrafficShaperPlan','BuildEndpointLocationEvidencePlan']) ok(plans.includes(`func ${fn}`),`planner ${fn}`);
+for(const token of ['observation count exceeds 4096','output_order must be ASC, DESC, or HASH','credential values are never accepted or emitted','no subscription is fetched and no export directory is written']) ok(plans.includes(token),`dns refiner semantic ${token}`);
+for(const token of ['rule count exceeds 10000','audit never installs browser rules or redirects traffic','targets are treated as data; donor regex is not executed','DuplicateTargets']) ok(plans.includes(token),`https audit semantic ${token}`);
+for(const token of ['planned exits exceed 1000','build_delay_ms must be 50..60000','parallelism must be 1..32','planner does not control Tor or build circuits','"rtt"','"dnspoison"','"cloudflared"']) ok(plans.includes(token),`exit scan semantic ${token}`);
+for(const token of ['stopped','bootstrapping','ShouldRemainResident','UI/app lifecycle state cannot directly grant Tor process authority','network loss never converts bootstrapping evidence into ready']) ok(plans.includes(token),`mobile Tor semantic ${token}`);
+for(const token of ['checks must contain 1..256 records','unknown is never treated as pass','WeightedCoveragePercent','PriorityGaps']) ok(plans.includes(token),`posture semantic ${token}`);
+for(const token of ['rate_bytes_per_second out of range','burst/queue exceeds bounds','padding bounds invalid','leaky-bucket sizing is planning evidence only','WorstCasePaddingBytes']) ok(plans.includes(token),`shaper semantic ${token}`);
+for(const token of ['observation count exceeds 1024','geolocation is evidence, never endpoint-selection authority','low-confidence or missing country evidence remains unknown','SelectionAuthority']) ok(plans.includes(token),`location semantic ${token}`);
+for(const field of ['FetchesSubscriptions','WritesExports','InstallsBrowserRules','RedirectsRequests','ControlsTor','BuildsCircuits','WritesVPNConfiguration','InspectsHost','ChangesSettings','AppliesShaping','GeneratesPadding','SelectionAuthority']) ok(new RegExp(field+'\\s+bool').test(plans),`authority field ${field}`);
+for(const option of ['dnsRefiner','httpsUpgradeAudit','torExitScan','mobileTorLifecycle','securityPosture','trafficShaper','endpointLocation']){ok(operations.includes(`value="${option}"`),`Operations option ${option}`);ok(operations.includes(`${option}:`),`Operations example ${option}`)}
+for(const ep of pairs.map(x=>`/api/system/${x[0]}`)) ok(operations.includes(ep),`Operations endpoint ${ep}`);
+ok(operations.includes('DNS refinement, HTTPS upgrade audit, Tor exit scheduling, mobile Tor lifecycle, security posture, traffic shaping and endpoint-location evidence'),'planning-only copy includes 233 surfaces');
+for(const fn of ['TestPostRefactor233DNSRefinerDeterministicAndRedacted','TestPostRefactor233HTTPSRulesetAudit','TestPostRefactor233TorExitScanBounds','TestPostRefactor233MobileTorLifecycle','TestPostRefactor233SecurityPostureUnknownIsNotPass','TestPostRefactor233TrafficShaperIsPlanningOnly','TestPostRefactor233LocationEvidence']) ok(tests.includes(`func ${fn}`),`Go test ${fn}`);
+ok(pkg.scripts['test:233']==='node scripts/test-post-refactor-233.mjs','package test:233 script');
+ok(pkg.scripts.test.includes('&& npm run test:233'),'aggregate includes test:233');
+console.log(`post-refactor-233 product/security convergence characterization passed: ${checks} checks`);

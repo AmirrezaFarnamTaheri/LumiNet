@@ -1,0 +1,26 @@
+# src/apps/daemon/internal/platform/mobilehost
+
+## Purpose
+Shared mobile platform seam: socket protection, process lookup, and protected dialing used by both proxy and mobile runtime owners.
+
+## Architectural role
+- Daemon dependency band: `platform` (rank 1; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (5): `captive_portal.go`, `host.go`, `host_test.go`, `tun2socks_adapter.go`, `tun2socks_test.go`
+
+## Interfaces and dependencies
+- Go package: `mobilehost`.
+- Notable exported surface: `Dial`, `DialContext`, `Dialer`, `FindProcessConnection`, `ProcessFinder`, `ProtectSocket`, `RegisterProcessFinder`, `RegisterSocketProtector`, `SetCaptivePortalCallback`, `SocketProtector` …
+- Daemon-local dependencies: `internal/platform/system/nat`.
+- Direct daemon callers: `internal/adapters/mobilebind`, `internal/platform/system`, `internal/runtime/mobilecore`, `internal/runtime/proxy`.
+
+## Invariants
+- Platform socket/process hooks have one owner shared by proxy and mobile runtime.
+- Protected dialing propagates caller context rather than creating detached lifetime.
+- `platform` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

@@ -1,0 +1,22 @@
+{
+  "definitions": 94715,
+  "high_signal_surfaces": 43518,
+  "module_records": 3108,
+  "release": "post-refactor-236",
+  "surfaces": 85563,
+  "ui_product_surfaces": 3418,
+  "unique_donors": 123,
+  "wave_236": {
+    "archive_members": 1197,
+    "archived_symlinks": 6,
+    "directory_merkle_records": 245,
+    "focused_semantic_records": 59,
+    "high_signal_surfaces": 721,
+    "indexed_definitions": 5653,
+    "module_groups": 142,
+    "outer_donors": 20,
+    "regular_files": 938,
+    "semantic_records": 79,
+    "ui_product_surfaces": 223
+  }
+}

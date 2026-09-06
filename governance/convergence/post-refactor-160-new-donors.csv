@@ -1,0 +1,20 @@
+donor,file_surfaces,directories,symbols,nested_archives,manifests,license_note
+LEGION2-main,1087,64,3089,0,package.json;src-tauri/Cargo.toml,GPL-family scanner/application; no source copied; security-sensitive scanner corpus rejected from product authority
+OnionHop-master,212,43,195,0,n/a,GPL-3.0; semantics independently rederived into target-native diagnostics
+SIMORGH-main,58,29,1422,0,app/build.gradle.kts;app/settings.gradle.kts,"no root license identified; evidence/reference only, no source copying"
+Xray-core-main,992,184,8490,0,go.mod;.github/docker/Dockerfile,MPL-2.0; target already owns runtime boundary; no wholesale core transplant
+Xray-docs-next-main,506,59,60,0,package.json,documentation license/source knowledge only; no direct runtime source reuse
+Xray-tun-main,810,147,5611,0,go.mod,MPL-2.0; target-native TUN/runtime ownership retained
+iperf-master,113,10,374,0,docs/Makefile;contrib/Dockerfile,"MIT; protocol semantics adopted through external iperf3 client execution, not embedded C source"
+lantern-main,1029,210,1073,0,go.mod;Makefile;Dockerfile;android/settings.gradle;android/build.gradle;scripts/requirements.txt;android/app/build.gradle,"GPL-3.0 family; underlay behavior independently rederived, no source copied"
+metacubexd-main,180,36,1110,0,package.json;Dockerfile,MIT; product/operator reference; target UI remains authoritative
+nexvpn-main,193,68,906,1,package.json;src-tauri/Cargo.toml;src-tauri/gen/android/settings.gradle;src-tauri/gen/android/build.gradle.kts;src-tauri/gen/android/buildSrc/build.gradle.kts;src-tauri/gen/android/app/build.gradle.kts,GPL-family; mobile policy/recovery ideas independently rederived
+rethink-app-main,1247,240,14569,1,settings.gradle;build.gradle;app/build.gradle,Apache-2.0; per-app mode semantics independently rederived
+sing-box-testing,1264,173,8298,0,go.mod;Makefile;Dockerfile;test/go.mod,GPL-3.0 family; remote rule refresh semantics independently rederived into subscription owner
+v2board-master,362,77,215,0,composer.json,MIT; commerce/account control plane rejected as non-LumiNet authority
+v2ray-core-main,1065,216,7189,0,go.mod,"GPL-family; older/alternate core semantics compared, no wholesale transplant"
+v2ray-core-master,1450,300,10242,0,go.mod,MIT; selected STUN evidence independently implemented in target diagnostics
+v2ray-go-main,817,150,5429,0,go.mod,AGPL-family; core/runtime reference only where target already supersedes
+v2rayA-main,413,105,1514,0,Dockerfile;ngui/package.json;service/go.mod;gui/package.json;core/go.mod,"AGPL-family; control-plane/runtime reference, existing LumiNet owners retained"
+v2rayN-master,407,57,394,0,n/a,GPL-family; selected STUN/operator evidence independently rederived
+v2ray_client-master,80,17,414,0,requirements.txt,no root code license identified; reference/inspiration only

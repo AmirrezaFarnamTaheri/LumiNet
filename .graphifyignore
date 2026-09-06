@@ -1,0 +1,11 @@
+third_party/
+labs/
+governance/
+docs/
+scripts/vendor/
+node_modules/
+target/
+.git/
+dist/
+build/
+.gradle/

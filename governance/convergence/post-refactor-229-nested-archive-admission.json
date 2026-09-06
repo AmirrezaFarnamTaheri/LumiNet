@@ -1,0 +1,13 @@
+[
+  {
+    "archive": "mitmengine-master.zip",
+    "directories": 1304,
+    "max_ratio": 24.14,
+    "members": 2781,
+    "regular_files": 1477,
+    "sha256": "d1a9ea21875e190cd181897bde798331188a9aefe20f7afaf302cc68e6d64dc5",
+    "single_root": "mitmengine-master",
+    "symlinks": 0,
+    "uncompressed_bytes": 126436668
+  }
+]

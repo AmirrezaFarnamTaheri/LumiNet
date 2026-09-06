@@ -1,0 +1,23 @@
+/* Design System Tokens: Sovereign Glass Command Cockpit */
+:root {
+  --color-void: #0a0e1a;
+  --color-surface: rgba(15, 20, 37, 0.80);
+  --color-surface-hover: rgba(25, 32, 56, 0.85);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-glow: rgba(59, 130, 246, 0.4);
+
+  --color-blue: #3b82f6;
+  --color-green: #10b981;
+  --color-amber: #f59e0b;
+  --color-red: #ef4444;
+  --color-cyan: #06b6d4;
+  --color-purple: #8b5cf6;
+
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --blur-glass: blur(20px) saturate(180%);
+  --radius-card: 12px;
+  --radius-badge: 6px;
+  --transition-fast: 150ms ease;
+}

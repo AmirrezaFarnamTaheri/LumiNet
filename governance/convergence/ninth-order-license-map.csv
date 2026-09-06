@@ -1,0 +1,21 @@
+donor,license_posture,source_reuse_policy
+3xui-telegram-bot-main,MIT,direct adaptation permitted with attribution
+Auto_Tor_IP_changer-master(2),no explicit license; exact-byte duplicate of sixth-order donor archive,no source copying; evidence/reference/independent rederivation only
+bia-pain-bache-main,GPL-2.0; evidence/independent comparison only,no source copying; evidence/reference/independent rederivation only
+BPB-Warp-Scanner-main,"GPL-3.0; selected semantics independently rederived, no source copied",no source copying; evidence/reference/independent rederivation only
+BWLimiter-main,no explicit license; negative/guardrail evidence only,no source copying; evidence/reference/independent rederivation only
+caddy-master,Apache-2.0,direct adaptation permitted with attribution
+defyxVPN-main(1),MIT,direct adaptation permitted with attribution
+ev-master (1),no explicit license; evidence only,no source copying; evidence/reference/independent rederivation only
+eve-xui-manager-main,no explicit license; evidence only,no source copying; evidence/reference/independent rederivation only
+gologin-main,MIT,direct adaptation permitted with attribution
+GoodbyeDPI-master,Apache-2.0,direct adaptation permitted with attribution
+incy-platforms-main,no explicit license; descriptive reference only,no source copying; evidence/reference/independent rederivation only
+Marzban-master,"AGPL-3.0; selected semantics independently rederived, no source copied",no source copying; evidence/reference/independent rederivation only
+nahan-main(1),no explicit license; new revision evidence only,no source copying; evidence/reference/independent rederivation only
+Proxy-client-collection-main,no explicit license; descriptive reference only,no source copying; evidence/reference/independent rederivation only
+Serverless-for-Iran-main,"GPL-3.0; preset concepts only, no source/config copied",no source copying; evidence/reference/independent rederivation only
+snowbox-master,no explicit license; test-environment reference only,no source copying; evidence/reference/independent rederivation only
+torrequest-master,metadata declares MIT,no source copying; evidence/reference/independent rederivation only
+x-ui-pro-master,no explicit license; operational guardrail/reference only,no source copying; evidence/reference/independent rederivation only
+zeus-main(1),no explicit license; selected concepts independently rederived only,no source copying; evidence/reference/independent rederivation only

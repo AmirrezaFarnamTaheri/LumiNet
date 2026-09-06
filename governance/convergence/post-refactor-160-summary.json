@@ -1,0 +1,36 @@
+{
+  "wave": "post-refactor-160",
+  "target": "LumiNet",
+  "prior_peer_denominator": 141,
+  "new_donors": 19,
+  "cumulative_peer_denominator": 160,
+  "new_surfaces": 12285,
+  "new_directories": 2185,
+  "new_modules": 44,
+  "new_symbols": 70594,
+  "new_nested_archives": 2,
+  "hash_overlap_groups": 584,
+  "semantic_tags": 24,
+  "ledger_records": 410,
+  "donor_root_records": 19,
+  "category_records": 382,
+  "fine_peer_records": 9,
+  "target_native_decisions": 4,
+  "implemented_planes": [
+    "bounded configuration mutation retry",
+    "Android per-app VPN policy",
+    "passive Android physical-underlay metadata",
+    "shared public endpoint admission",
+    "front-aware Tor bridge diagnostics",
+    "real iperf3 diagnostics",
+    "RFC5389 evidence-bounded STUN mapping",
+    "subscription validate-before-swap conditional refresh"
+  ],
+  "authority_rejections": [
+    "parallel long-lived proxy runtime",
+    "parallel DNS owner",
+    "parallel subscription owner",
+    "broad exploit/scanner corpus",
+    "commerce/reseller/account control plane"
+  ]
+}

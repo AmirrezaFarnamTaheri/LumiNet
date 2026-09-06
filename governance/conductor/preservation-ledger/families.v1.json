@@ -1,0 +1,795 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "source_ref": "source:luminet-repository",
+      "kind": "repository",
+      "locator": "."
+    }
+  ],
+  "path_policies": {
+    "generated_roots": [
+      "conductor/preservation-ledger/generated"
+    ],
+    "generated_outputs": [
+      {
+        "policy_id": "policy:generated-ledger-reports",
+        "pattern": "conductor/preservation-ledger/generated/reports/**"
+      }
+    ],
+    "temporary_outputs": [
+      {
+        "policy_id": "policy:validator-temporary-output",
+        "pattern": "tmp/preservation-ledger/**"
+      }
+    ]
+  },
+  "families": [
+    {
+      "family_id": "family:rust-http-relay-mitm-variants",
+      "status": "characterized",
+      "disposition": "compose",
+      "canonical_peer_id": "peer:rust-mitm-fronting-buffer",
+      "peers": [
+        {
+          "peer_id": "peer:rust-mitm-fronting-buffer",
+          "source_ref": "source:luminet-repository",
+          "path": "src/packages/lumicore/src/proxy/mitm_fronting_buffer.rs",
+          "state": "live",
+          "role": "canonical bounded flow-control primitive",
+          "preserved_details": [
+            "64KiB capacity",
+            "4KiB chunks",
+            "FIFO order",
+            "atomic overflow",
+            "shutdown metrics"
+          ],
+          "consumers": [
+            "core/src/proxy/mod.rs"
+          ],
+          "verification_evidence": [
+            "cargo test proxy::mitm_fronting_buffer --lib"
+          ],
+          "disposition": "compose",
+          "provenance": {
+            "evidence": [
+              "repository path and Rust module registration"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "No retirement in this program; require field/default parity and static plus packaged reachability evidence.",
+      "field_default_matrix": [
+        {
+          "field": "buffer_capacity",
+          "peer_values": {
+            "peer:rust-mitm-fronting-buffer": "65536 bytes"
+          },
+          "decision": "Retain the bounded primitive default and characterize every adapter override."
+        },
+        {
+          "field": "chunk_size",
+          "peer_values": {
+            "peer:rust-mitm-fronting-buffer": "4096 bytes"
+          },
+          "decision": "Retain FIFO chunk behavior as the canonical primitive contract."
+        }
+      ]
+    },
+    {
+      "family_id": "family:go-mitm-fronting",
+      "status": "characterized",
+      "disposition": "compose",
+      "canonical_peer_id": "peer:go-mitm-bandwidth-shaper",
+      "peers": [
+        {
+          "peer_id": "peer:go-mitm-bandwidth-shaper",
+          "source_ref": "source:luminet-repository",
+          "path": "labs/daemon/modules/mitm/mitm_fronting_bandwidth_shaper.go",
+          "state": "live",
+          "role": "Go traffic-policy controller variant",
+          "preserved_details": [
+            "rate semantics",
+            "configuration fields",
+            "runtime controller behavior"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "go test ./internal/proxy"
+          ],
+          "disposition": "compose",
+          "provenance": {
+            "evidence": [
+              "repository path and package ownership"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "No retirement in this program; every generated helper must delegate and preserve accepted fields and defaults.",
+      "field_default_matrix": [
+        {
+          "field": "rate_limit",
+          "peer_values": {
+            "peer:go-mitm-bandwidth-shaper": "controller-defined"
+          },
+          "decision": "Preserve rate semantics behind the composed traffic-policy contract."
+        },
+        {
+          "field": "configuration_defaults",
+          "peer_values": {
+            "peer:go-mitm-bandwidth-shaper": "constructor-owned"
+          },
+          "decision": "Capture constructor defaults before any generated wrapper convergence."
+        }
+      ]
+    },
+    {
+      "family_id": "family:scanner-probe-diagnostics",
+      "status": "inventory",
+      "disposition": "compose",
+      "canonical_peer_id": "peer:scanner-package",
+      "peers": [
+        {
+          "peer_id": "peer:scanner-package",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/analysis/scanner",
+          "state": "live",
+          "role": "protocol scanning and diagnostic observations",
+          "preserved_details": [
+            "protocol observations",
+            "partial-result behavior",
+            "cancellation boundaries"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "go test ./internal/scanner"
+          ],
+          "disposition": "compose",
+          "provenance": {
+            "evidence": [
+              "repository package"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Preserve every observation type until scheduling, cancellation, and result fixtures prove composition."
+    },
+    {
+      "family_id": "family:warp",
+      "status": "inventory",
+      "disposition": "canonicalize",
+      "canonical_peer_id": "peer:warp-scanner",
+      "peers": [
+        {
+          "peer_id": "peer:warp-scanner",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/runtime/warp/warp_scanner.go",
+          "state": "live",
+          "role": "WARP domain scanner",
+          "preserved_details": [
+            "endpoint probing",
+            "registration",
+            "partial results"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "go test ./internal/warp"
+          ],
+          "disposition": "canonicalize",
+          "provenance": {
+            "evidence": [
+              "repository path"
+            ]
+          }
+        },
+        {
+          "peer_id": "peer:proxy-warp-scanner",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/runtime/proxy/warp_scanner.go",
+          "state": "historical",
+          "role": "retired API-facing WARP registration and endpoint probing adapter",
+          "preserved_details": [
+            "Cloudflare registration and reserved-byte conversion",
+            "legacy WireGuard export fields",
+            "configured endpoint and port handling",
+            "optional noise and IFPM payload policy",
+            "timeout and partial-result reporting"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "deep-module prune ledger records retirement after canonical WARP ownership converged"
+          ],
+          "disposition": "quarantine",
+          "provenance": {
+            "immutable_ref": "sha256:31dd0785dc6a2e0f1af82ca54a1a6ff5859a1245ddf268d7ab4e8cd2f38a2b0a",
+            "evidence": [
+              "immutable baseline content and deep-module retirement record"
+            ]
+          }
+        }
+      ],
+      "field_default_matrix": [
+        {
+          "field": "handshake success evidence",
+          "peer_values": {
+            "peer:warp-scanner": "Noise IK response validation",
+            "peer:proxy-warp-scanner": "WireGuard message-type response with timeout failure"
+          },
+          "decision": "Canonical WARP ownership requires cryptographic handshake validation; the retired proxy peer remains immutable historical evidence only."
+        },
+        {
+          "field": "registration and export",
+          "peer_values": {
+            "peer:warp-scanner": "domain scanner options and candidate generation",
+            "peer:proxy-warp-scanner": "Cloudflare registration, reserved conversion, and legacy export fields"
+          },
+          "decision": "Registration and export semantics are owned by the canonical WARP module; the retired proxy peer is not a live adapter."
+        }
+      ],
+      "deletion_predicate": "The canonical WARP peer must retain registration, endpoint, handshake, cancellation, export, and partial-result behavior; the retired proxy peer remains historical evidence."
+    },
+    {
+      "family_id": "family:subscription-ingestion",
+      "status": "characterized",
+      "disposition": "compose",
+      "canonical_peer_id": "peer:subscription-profile-service",
+      "peers": [
+        {
+          "peer_id": "peer:subscription-profile-service",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/integrations/sub/profile_service.go",
+          "state": "live",
+          "role": "canonical local profile service",
+          "preserved_details": [
+            "metadata",
+            "snapshot isolation",
+            "stale-refresh rejection"
+          ],
+          "consumers": [
+            "server/internal/api/handlers_subscription_profiles.go"
+          ],
+          "verification_evidence": [
+            "go test ./internal/sub -run ProfileService"
+          ],
+          "disposition": "compose",
+          "provenance": {
+            "evidence": [
+              "repository path and API consumer"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Parser compatibility, local export, and opt-in fetch policy fixtures must pass; peer retirement is separate."
+    },
+    {
+      "family_id": "family:provider-corpus",
+      "status": "inventory",
+      "disposition": "canonicalize",
+      "canonical_peer_id": "peer:proxy-provider-corpus",
+      "peers": [
+        {
+          "peer_id": "peer:proxy-provider-corpus",
+          "source_ref": "source:luminet-repository",
+          "path": "labs/daemon/proxy-alternates/provider_corpus.go",
+          "state": "live",
+          "role": "provider corpus compatibility peer",
+          "preserved_details": [
+            "schema-v1 compatibility",
+            "priority ordering",
+            "longest-prefix lookup"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "go test ./internal/proxy"
+          ],
+          "disposition": "canonicalize",
+          "provenance": {
+            "evidence": [
+              "tracked repository path retained in git history"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Canonical parsing and golden lookup fixtures are required; missing worktree files remain protected by repository-diff validation."
+    },
+    {
+      "family_id": "family:traffic-shaping-flow-control",
+      "status": "inventory",
+      "disposition": "extract-primitive",
+      "canonical_peer_id": "peer:qos-shaper",
+      "peers": [
+        {
+          "peer_id": "peer:qos-shaper",
+          "source_ref": "source:luminet-repository",
+          "path": "labs/daemon/modules/qos/shaper.go",
+          "state": "live",
+          "role": "shared QoS shaping primitive",
+          "preserved_details": [
+            "rate enforcement",
+            "queue semantics",
+            "concurrency behavior"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "go test ./internal/qos"
+          ],
+          "disposition": "extract-primitive",
+          "provenance": {
+            "evidence": [
+              "repository path"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Extracted primitives must pass rate, fairness, shutdown, and race characterization; no peer is retired here."
+    },
+    {
+      "family_id": "family:telemetry-metrics-events",
+      "status": "inventory",
+      "disposition": "compose",
+      "canonical_peer_id": "peer:telemetry-ring-buffer",
+      "peers": [
+        {
+          "peer_id": "peer:telemetry-ring-buffer",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/platform/system/telemetry_ring_buffer.go",
+          "state": "live",
+          "role": "bounded telemetry event storage",
+          "preserved_details": [
+            "bounded retention",
+            "ordering",
+            "concurrent readers"
+          ],
+          "consumers": [
+            "server/internal/system/telemetry_server.go"
+          ],
+          "verification_evidence": [
+            "go test ./internal/system -run TelemetryRingBuffer"
+          ],
+          "disposition": "compose",
+          "provenance": {
+            "evidence": [
+              "repository path and server consumer"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Typed events, ownership, retention, and consumer migration must be proven before a separate retirement review."
+    },
+    {
+      "family_id": "family:certificate-storage-runtime",
+      "status": "inventory",
+      "disposition": "compose",
+      "canonical_peer_id": "peer:certificate-store",
+      "peers": [
+        {
+          "peer_id": "peer:certificate-store",
+          "source_ref": "source:luminet-repository",
+          "path": "labs/daemon/modules/certs/certmagic_store.go",
+          "state": "live",
+          "role": "certificate storage adapter",
+          "preserved_details": [
+            "storage contract",
+            "CA material lifecycle",
+            "error semantics"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "go test ./internal/certs"
+          ],
+          "disposition": "compose",
+          "provenance": {
+            "evidence": [
+              "repository path"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Storage and CA lifecycle tests must cover rollback and platform installation; no artifact retirement in this program."
+    },
+    {
+      "family_id": "family:dns",
+      "status": "historical",
+      "disposition": "quarantine",
+      "peers": [
+        {
+          "peer_id": "peer:dns-scanner",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/analysis/scanner/doh_dot_scanner.go",
+          "state": "historical",
+          "role": "retired DoH and DoT observation peer",
+          "preserved_details": [
+            "resolver probing",
+            "protocol distinction",
+            "failure observations"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "deep-module prune ledger records zero-consumer retirement"
+          ],
+          "disposition": "quarantine",
+          "provenance": {
+            "immutable_ref": "sha256:0ba8deed1b63a9efa438d42cc63c9d022a6d141560c8df77e49f907c0f84f5ae",
+            "evidence": [
+              "immutable retired content and deep-module prune record"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Historical DoH/DoT scanner evidence remains quarantined; any future resolver-scanner family must be characterized from live consumers before becoming canonical."
+    },
+    {
+      "family_id": "family:routing-rules-policy",
+      "status": "historical",
+      "disposition": "quarantine",
+      "peers": [
+        {
+          "peer_id": "peer:routing-rule-store",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/networking/routing/rule_store.go",
+          "state": "historical",
+          "role": "retired routing rule persistence owner",
+          "preserved_details": [
+            "rule ordering",
+            "persistence semantics",
+            "per-app policy inputs"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "deep-module prune ledger records exact zero-consumer retirement"
+          ],
+          "disposition": "quarantine",
+          "provenance": {
+            "immutable_ref": "sha256:7eb188ddb1d3763b343e1aa4d9d0f00b199e6fd435ea97d517d5969816f0df64",
+            "evidence": [
+              "immutable retired content and deep-module prune record"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Historical rule-store evidence remains quarantined; live routing policy ownership must be characterized from current consumers rather than reviving the retired store."
+    },
+    {
+      "family_id": "family:external-core-lifecycle",
+      "status": "inventory",
+      "disposition": "canonicalize",
+      "canonical_peer_id": "peer:xray-process-manager",
+      "peers": [
+        {
+          "peer_id": "peer:xray-process-manager",
+          "source_ref": "source:luminet-repository",
+          "path": "labs/daemon/modules/xray/process_manager.go",
+          "state": "live",
+          "role": "external-core process lifecycle peer",
+          "preserved_details": [
+            "start and stop lifecycle",
+            "health state",
+            "process ownership"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "go test ./internal/xray"
+          ],
+          "disposition": "canonicalize",
+          "provenance": {
+            "evidence": [
+              "repository path"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "A single lifecycle owner must prove start, health, shutdown, rollback, and degraded states."
+    },
+    {
+      "family_id": "family:ffi-abi",
+      "status": "inventory",
+      "disposition": "canonicalize",
+      "canonical_peer_id": "peer:go-ffi-bridge",
+      "peers": [
+        {
+          "peer_id": "peer:go-ffi-bridge",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/native/bridge/ffi.go",
+          "state": "live",
+          "role": "Go native bridge surface",
+          "preserved_details": [
+            "ABI layout",
+            "allocation ownership",
+            "error translation"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "go test ./internal/bridge"
+          ],
+          "disposition": "canonicalize",
+          "provenance": {
+            "evidence": [
+              "repository path"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Generated ABI parity, allocation/free stress, mismatch, and packaged-load tests must pass."
+    },
+    {
+      "family_id": "family:tun-userspace-networking",
+      "status": "inventory",
+      "disposition": "compose",
+      "canonical_peer_id": "peer:tun-system-handler",
+      "peers": [
+        {
+          "peer_id": "peer:tun-system-handler",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/adapters/api/handlers_system_tun.go",
+          "state": "live",
+          "role": "TUN control-plane API peer",
+          "preserved_details": [
+            "lifecycle controls",
+            "capability reporting",
+            "failure states"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "go test ./internal/api -run Tun"
+          ],
+          "disposition": "compose",
+          "provenance": {
+            "evidence": [
+              "repository path"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Platform lifecycle, userspace stack, socket protection, and rollback conformance must pass."
+    },
+    {
+      "family_id": "family:desktop-runtime-transport",
+      "status": "characterized",
+      "disposition": "canonicalize",
+      "canonical_peer_id": "peer:desktop-control-transport",
+      "peers": [
+        {
+          "peer_id": "peer:desktop-control-transport",
+          "source_ref": "source:luminet-repository",
+          "path": "src/packages/control-ui/src/api/ControlTransport.ts",
+          "state": "live",
+          "role": "canonical desktop control transport",
+          "preserved_details": [
+            "Wails preference",
+            "environment overrides",
+            "8470 fallback",
+            "derived WebSocket URL"
+          ],
+          "consumers": [
+            "desktop/frontend/src/api/TelemetryService.ts"
+          ],
+          "verification_evidence": [
+            "npm run lint",
+            "npm run build"
+          ],
+          "disposition": "canonicalize",
+          "provenance": {
+            "evidence": [
+              "repository path and frontend consumer"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Desktop contract and packaged-session smoke tests must pass; deprecated peer retirement remains separate."
+    },
+    {
+      "family_id": "family:android-mobile",
+      "status": "inventory",
+      "disposition": "retain-specialization",
+      "canonical_peer_id": "peer:android-platform-source",
+      "peers": [
+        {
+          "peer_id": "peer:android-platform-source",
+          "source_ref": "source:luminet-repository",
+          "path": "labs/desktop/platform-alternates/android",
+          "state": "live",
+          "role": "Android platform specialization",
+          "preserved_details": [
+            "platform lifecycle",
+            "native hooks",
+            "mobile packaging constraints"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "platform contract compile lane"
+          ],
+          "disposition": "retain-specialization",
+          "provenance": {
+            "evidence": [
+              "repository platform directory"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Retain platform specialization until generated contracts, lifecycle, socket protection, and package smoke all pass."
+    },
+    {
+      "family_id": "family:redaction-preview",
+      "status": "inventory",
+      "disposition": "extract-primitive",
+      "canonical_peer_id": "peer:redaction-primitive",
+      "peers": [
+        {
+          "peer_id": "peer:redaction-primitive",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/foundation/redact/redact.go",
+          "state": "live",
+          "role": "shared redaction primitive",
+          "preserved_details": [
+            "secret masking",
+            "preview safety",
+            "deterministic output"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "go test ./internal/redact"
+          ],
+          "disposition": "extract-primitive",
+          "provenance": {
+            "evidence": [
+              "repository path"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Every public and operator preview must pass deterministic redaction fixtures before migration."
+    },
+    {
+      "family_id": "family:socket-mark-tag-protection",
+      "status": "characterized",
+      "disposition": "compose",
+      "canonical_peer_id": "peer:mobilehost-socket-protector",
+      "peers": [
+        {
+          "peer_id": "peer:mobilehost-socket-protector",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/platform/mobilehost/host.go",
+          "state": "live",
+          "role": "canonical mobile host socket-protection owner",
+          "preserved_details": [
+            "platform protection callback",
+            "unregistered fail-closed behavior",
+            "protected dialer socket lifecycle"
+          ],
+          "consumers": [
+            "src/apps/daemon/internal/adapters/mobilebind/mobilebind.go"
+          ],
+          "verification_evidence": [
+            "go test ./internal/platform/mobilehost"
+          ],
+          "disposition": "compose",
+          "provenance": {
+            "evidence": [
+              "repository path, mobile binding adapter, and host tests"
+            ]
+          }
+        },
+        {
+          "peer_id": "peer:client-socket-protector",
+          "source_ref": "source:luminet-repository",
+          "path": "src/packages/client-go/sys/socket_protector.go",
+          "state": "historical",
+          "role": "retired standalone client socket protection contract",
+          "preserved_details": [
+            "platform protection hook",
+            "unsupported-state behavior",
+            "socket lifecycle"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "Pass 4 client-go retirement evidence"
+          ],
+          "disposition": "quarantine",
+          "provenance": {
+            "immutable_ref": "sha256:070430dabd687719fc83184c0fcfc6d7a8d46c5cb7a76013fe53d8de8f02a654",
+            "evidence": [
+              "immutable baseline content and Pass 4 retirement record"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Supported and unsupported platform lanes must prove tag, mark, and protection behavior."
+    },
+    {
+      "family_id": "family:capabilities-plugins-registries",
+      "status": "inventory",
+      "disposition": "compose",
+      "canonical_peer_id": "peer:capability-registry",
+      "peers": [
+        {
+          "peer_id": "peer:capability-registry",
+          "source_ref": "source:luminet-repository",
+          "path": "src/apps/daemon/internal/foundation/capabilities/registry.go",
+          "state": "live",
+          "role": "runtime capability registry",
+          "preserved_details": [
+            "derived state",
+            "public-safe view",
+            "operator evidence"
+          ],
+          "consumers": [
+            "server/internal/api/handlers_capabilities.go"
+          ],
+          "verification_evidence": [
+            "go test ./internal/capabilities",
+            "go test ./internal/api -run Capabilities"
+          ],
+          "disposition": "compose",
+          "provenance": {
+            "evidence": [
+              "repository path and API consumer"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Initialization evidence, authorization, redaction, and deterministic views must pass."
+    },
+    {
+      "family_id": "family:build-workspace-native-artifacts",
+      "status": "inventory",
+      "disposition": "canonicalize",
+      "canonical_peer_id": "peer:workspace-build-script",
+      "peers": [
+        {
+          "peer_id": "peer:workspace-build-script",
+          "source_ref": "source:luminet-repository",
+          "path": "scripts/build-all.ps1",
+          "state": "live",
+          "role": "Windows workspace build orchestration peer",
+          "preserved_details": [
+            "workspace ordering",
+            "native artifact ownership",
+            "platform build inputs"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "build and packaging smoke"
+          ],
+          "disposition": "canonicalize",
+          "provenance": {
+            "evidence": [
+              "repository path"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Manifest, checksum, ABI, SBOM, license, install, rollback, and uninstall evidence must pass."
+    },
+    {
+      "family_id": "family:historical-porting-records",
+      "status": "inventory",
+      "disposition": "quarantine",
+      "canonical_peer_id": "peer:porting-progress-record",
+      "peers": [
+        {
+          "peer_id": "peer:porting-progress-record",
+          "source_ref": "source:luminet-repository",
+          "path": "docs/porting/archive/porting_progress.json",
+          "state": "live",
+          "role": "historical porting tracker",
+          "preserved_details": [
+            "project aliases",
+            "target claims",
+            "historical status evidence"
+          ],
+          "consumers": [],
+          "verification_evidence": [
+            "deterministic provenance generation"
+          ],
+          "disposition": "quarantine",
+          "provenance": {
+            "evidence": [
+              "repository historical artifact"
+            ]
+          }
+        }
+      ],
+      "deletion_predicate": "Historical evidence is append-only or quarantined; no tracker or compendium is retired by this program."
+    }
+  ]
+}

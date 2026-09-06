@@ -1,0 +1,290 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master, dev ]
+  pull_request:
+    branches: [ main, master, dev ]
+
+env:
+  GO_VERSION: '1.26.5'
+  GRAPHIFY_VERSION: '0.9.26'
+  GRAPHIFY_WHEEL_SHA256: '2184c5891b71f6b9cea127eb0e92fdd33ab8ee5c254c99312227fc6c5af3ada5'
+
+jobs:
+  ci:
+    name: Build and Test (Linux)
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Verify repository purity
+        run: |
+          bad="$(git ls-files | grep -E '\.(dll|sys|syso|exe|db|db-shm|db-wal)$' || true)"
+          if [ -n "$bad" ]; then
+            echo "Tracked generated/native/runtime artifacts are not allowed:"
+            echo "$bad"
+            exit 1
+          fi
+          nested_cargo="$(find src/apps/daemon -name Cargo.toml -print || true)"
+          if [ -n "$nested_cargo" ]; then
+            echo "Rust workspaces outside src/packages/lumicore/ are not allowed:"
+            echo "$nested_cargo"
+            exit 1
+          fi
+
+      - name: Setup Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@4360b52568e2003a75bf9bc1d59f33a8e3fc893c # pinned action
+        with:
+          toolchain: 1.97.1
+          components: clippy, rustfmt
+
+      - name: Setup Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '22.16.0'
+          cache: npm
+          cache-dependency-path: src/packages/control-ui/package-lock.json
+
+      - name: Install pinned dependency-audit tools
+        run: |
+          go install golang.org/x/vuln/cmd/govulncheck@v1.6.0
+          cargo install cargo-audit --version 0.22.2 --locked
+
+      - name: Resolve preservation base
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PUSH_BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          case "$EVENT_NAME" in
+            pull_request)
+              base_sha="$PR_BASE_SHA"
+              ;;
+            push)
+              if [[ "$PUSH_BEFORE_SHA" =~ ^[0-9a-f]{40}$ ]] &&
+                 [[ "$PUSH_BEFORE_SHA" != "0000000000000000000000000000000000000000" ]]; then
+                base_sha="$PUSH_BEFORE_SHA"
+              else
+                base_sha="$(git hash-object -t tree -w --stdin </dev/null)"
+              fi
+              ;;
+            *)
+              echo "Unsupported release-admission event: $EVENT_NAME" >&2
+              exit 1
+              ;;
+          esac
+          if [[ ! "$base_sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Invalid preservation base SHA: $base_sha" >&2
+            exit 1
+          fi
+          if ! git cat-file -e "$base_sha^{object}" 2>/dev/null; then
+            git fetch --no-tags --depth=1 origin "$base_sha"
+          fi
+          echo "PRESERVATION_BASE_SHA=$base_sha" >> "$GITHUB_ENV"
+
+      - name: Verify release admission
+        run: make verify-release
+
+      - name: Full Host Product Build Check
+        run: make build-all
+
+  graphify:
+    name: Graphify Code Graph
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned Graphify
+        shell: bash
+        run: |
+          python -m venv "$RUNNER_TEMP/graphify-venv"
+          source "$RUNNER_TEMP/graphify-venv/bin/activate"
+          wheel_dir="$RUNNER_TEMP/graphify-wheel"
+          mkdir -p "$wheel_dir"
+          python -m pip download --disable-pip-version-check --no-deps --only-binary=:all: \
+            --dest "$wheel_dir" "graphifyy==${GRAPHIFY_VERSION}"
+          mapfile -t wheels < <(find "$wheel_dir" -maxdepth 1 -type f \
+            -name "graphifyy-${GRAPHIFY_VERSION}-*.whl" -print)
+          if (( ${#wheels[@]} != 1 )); then
+            echo "Expected exactly one Graphify wheel, found ${#wheels[@]}" >&2
+            exit 1
+          fi
+          printf '%s  %s\n' "$GRAPHIFY_WHEEL_SHA256" "${wheels[0]}" | sha256sum -c -
+          python -m pip install --disable-pip-version-check "${wheels[0]}"
+          python -m pip check
+          python - <<'PY'
+          import os
+          from importlib.metadata import version
+
+          expected = os.environ["GRAPHIFY_VERSION"]
+          actual = version("graphifyy")
+          if actual != expected:
+              raise SystemExit(f"Graphify version mismatch: expected {expected}, got {actual}")
+          print(f"Graphify package version: {actual}")
+          PY
+          graphify --version
+
+      - name: Build and validate code-only graph
+        shell: bash
+        env:
+          GRAPHIFY_QUERY_LOG_DISABLE: '1'
+        run: |
+          source "$RUNNER_TEMP/graphify-venv/bin/activate"
+          ./scripts/graphify.sh
+
+  daemon-macos-nocgo:
+    name: Test Go Daemon (macOS arm64 / Non-CGO)
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Test daemon without CGO
+        run: |
+          cd src/apps/daemon
+          CGO_ENABLED=0 go test ./... -count=1
+
+  android:
+    name: Build and Test (Android)
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Setup Java 17
+        uses: actions/setup-java@03ad4de0992f5dab5e18fcb136590ce7c4a0ac95 # v5.6.0
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Gradle 9.5.0
+        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
+        with:
+          gradle-version: '9.5.0'
+          cache-provider: basic
+
+      - name: Setup Android SDK/NDK
+        uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407 # v3
+
+      - name: Install Android platform and NDK
+        shell: bash
+        run: |
+          sdkmanager "platforms;android-37" "build-tools;36.0.0" "ndk;28.2.13676358"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/28.2.13676358" >> "$GITHUB_ENV"
+
+      - name: Install gomobile
+        run: |
+          go install golang.org/x/mobile/cmd/gomobile@v0.0.0-20260709172247-6129f5bee9d5
+          gomobile init
+
+      - name: Build generated AAR
+        env:
+          CGO_ENABLED: '1'
+        run: |
+          mkdir -p build src/apps/android/app/libs
+          (cd src/apps/daemon && gomobile bind -v -o ../../../build/luminet.aar -javapkg=com.luminet -target=android github.com/maybeknott/luminet/internal/adapters/mobilebind)
+          cp build/luminet.aar src/apps/android/app/libs/luminet.aar
+
+      - name: Build linked Android APK
+        run: |
+          cd src/apps/android
+          gradle --no-daemon :app:assembleDebug
+
+  windows:
+    name: Build and Test (Windows)
+    runs-on: windows-2025
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@4360b52568e2003a75bf9bc1d59f33a8e3fc893c # pinned action
+        with:
+          toolchain: 1.97.1
+
+      - name: Build Rust Core
+        shell: bash
+        run: |
+          rustup target add x86_64-pc-windows-gnu
+          cargo build --release --locked --target x86_64-pc-windows-gnu --manifest-path src/packages/lumicore/Cargo.toml
+
+      - name: Resolve LumiCore static link flags
+        shell: bash
+        run: echo "CGO_LDFLAGS=$(python scripts/checks/lumicore_link.py --profile release --target x86_64-pc-windows-gnu)" >> "$GITHUB_ENV"
+
+      # The privileged Windows code paths (system DNS/proxy/NCSI/startup) are
+      # guarded by //go:build windows and are never compiled on Linux. This job
+      # exists to compile and test exactly those paths, including the DNS
+      # argument-injection validation.
+      - name: Vet Go Server (Windows, CGO)
+        shell: bash
+        env:
+          CGO_ENABLED: '1'
+        run: |
+          cd src/apps/daemon
+          go vet ./...
+
+      - name: Test Go Server (Windows, CGO)
+        shell: bash
+        env:
+          CGO_ENABLED: '1'
+        run: |
+          cd src/apps/daemon
+          go test ./... -count=1
+
+  macos-secrets:
+    name: Native Secret Store (macOS)
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      # This compiles the Security.framework bridge and exercises an isolated
+      # Keychain lifecycle. It is intentionally not replaced by a cross-build.
+      - name: Test Keychain provider
+        run: |
+          cd src/apps/daemon
+          CGO_ENABLED=1 go test -count=1 ./internal/foundation/secrets

@@ -1,0 +1,21 @@
+wave,donor,license_posture,source_reuse_policy
+post-refactor-20b,serenity-dev,GPL-3.x,no direct source reuse; independently rederive concepts/tests only
+post-refactor-20b,shadow-main,BSD-style,source reuse legally possible with attribution; this release uses evaluation/reference semantics only
+post-refactor-20b,shadowsocks-libev-master,GPL-3.x,no direct source reuse; protocol/reference evidence only
+post-refactor-20b,simple-obfs-android-master,GPL-3.x,no direct source reuse; packaging/lifecycle reference only
+post-refactor-20b,sing-box-dashboard-main,GPL-3.x plus project naming/association restriction,no direct source reuse; UI/protocol concepts only
+post-refactor-20b,sing-box-dev-next,GPL-3.x plus project naming/association restriction,no direct source reuse; mechanism/test evidence only
+post-refactor-20b,sing-box-extended-extended,GPL-3.x,no direct source reuse; mechanism/negative evidence only
+post-refactor-20b,sing-box-for-android-dev,GPL-3.x,no direct source reuse; Android lifecycle/negative evidence only
+post-refactor-20b,sing-cloudflared-main,GPL-3.x,no direct source reuse; protocol/negative evidence only
+post-refactor-20b,tun2proxy-master,MIT,direct reuse permitted with attribution; target-native adaptation chosen to preserve existing authority
+post-refactor-20b,tun2socks-main,MIT,direct reuse permitted with attribution; target-native adaptation chosen to preserve existing NAT owner
+post-refactor-20b,tun2socks-python-main,MIT plus vendored pybind11 separate license,binding concepts only; embedded tun2socks-go semantics deduplicated against tun2socks-main
+post-refactor-20b,uquic-master,MIT,direct reuse permitted with attribution; reference only because target retains quic-go owner
+post-refactor-20b,vanguards-master,MIT,direct reuse permitted with attribution; Tor-defense reference only
+post-refactor-20b,water-master,Apache-2.0,direct reuse legally possible with notice; executable transport-module authority rejected
+post-refactor-20b,water-rs-main,Apache-2.0 OR MIT,direct reuse legally possible under chosen license; executable transport-module authority rejected
+post-refactor-20b,website-master,Tor Project BSD-style plus bundled third-party notices,measurement/reference evidence only; no legacy deployment reuse
+post-refactor-20b,websocket-main,BSD-style,direct reuse legally possible with attribution; target-native adaptation chosen
+post-refactor-20b,wgsocks-main,GPL-3.x,no direct source reuse; WireGuard/SOCKS reference only
+post-refactor-20b,wsnet-master,GPL-2.0,no direct source reuse; API/lifecycle/negative evidence only

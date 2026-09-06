@@ -1,0 +1,18 @@
+plane,decision,peer_evidence,target_owner,invariant_or_reason
+flow-observability,promoted,IPRadar2ForLinux; Yacd-meta; Throne,foundation/flowregistry + Connections,one canonical registry; owner-declared visibility/close/process/destination coverage; no close-all
+passive-network-state,promoted,tailscale-rs; Lantern,platform/system.NetworkMonitor,monotonic epochs; bounded history; MTU/flags/link/address/egress fingerprint; no route mutation/network acquisition
+derived-network-intelligence,promoted,IPRadar2ForLinux; tailscale-rs; mylg,analysis/netintel + Connections,flow/provider/protocol/owner/handoff synthesis only; no DNS/GeoIP fetch/scan/process execution
+profile-compatibility,promoted,subconverter; V2RayDAR; v2rayN; sing-box,integrations/sub conversion + Compatibility Lab,five targets; exact loss report; local input only; strict generated-output re-ingest
+profile-shaping,promoted,subconverter,integrations/sub.TransformConfigs,bounded regex/protocol/filter/rename/dedupe/sort/limit; detour-safe; no scripts/remote includes
+interrupted-job-recovery,promoted-with-guardrails,Scrapling,workflows/jobs recovery + Operations,credential-redacted persisted intent; whitelist reconstructibility; explicit new descendant; no boot replay
+automatic-config-mutation-retry,preserved-mandatory,post-refactor-160 target-native,foundation/config.Manager.Mutate,fresh snapshot on revision conflict; default 3/max 8; explicit revision one attempt; side effects after commit
+arbitrary-process-kill,rejected,IPRadar2ForLinux; Throne,n/a,observation metadata is insufficient authority to terminate arbitrary host processes
+generic-firewall-blocking,rejected,IPRadar2ForLinux,n/a,would create a second host-network/firewall authority without snapshot/apply/verify/rollback ownership
+raw-sni/fake-tcp-injection,rejected,SNI-Spoofing-Go; SNI-Spoofing-Pro,n/a,second low-level packet injection authority; negative evidence only
+legacy-ssh-obfuscation-fork,rejected,obfuscated-openssh,n/a,protocol fork is not a coherent LumiNet runtime responsibility
+multi-user-xray-server-admin,rejected,Sanaei-3xui-v2ray,n/a,separate server/account authority; operational ideas retained only as reference
+general-oidc-provider,rejected,tsidp,n/a,separate identity-provider product authority
+second-gtk-ui-toolchain,rejected,gotk4,n/a,shared React/Wails/Android product surfaces remain canonical
+scraped-public-proxy-corpus,rejected,Shin-TG-V2ray-Collector,n/a,untrusted mutable public corpus is not promoted into trusted product data
+external-runtime-config-oracle,reference/optional,V2RayDAR,release verification only when runtime is available,internal local re-ingest proof is always-on; external runtime execution must not become a second runtime owner
+capability-coverage-center,promoted,Yacd-meta; Throne; IPRadar2ForLinux; tailscale-rs,capabilities registry/API + Capabilities UI,"read-only synthesis; capability availability, flow participation, passive network epoch, native linkage and provider-corpus freshness stay separate evidence dimensions; missing evidence is not availability"

@@ -1,0 +1,503 @@
+{
+  "version": "v2rayn-pro-iran",
+  "description": "Iran routing preset for V2RayN-PRO. Iranian TLDs and CDN ranges resolve direct; Tor/.onion/privacy TLDs go through tunnel; everything else follows defaultStrategy.",
+  "author": "LumiNet",
+  "lastUpdated": "2026-08-27",
+  "defaultStrategy": "proxy",
+  "rules": [
+    {
+      "type": "domain",
+      "value": ["*.ir", "*.xn--mgbayh7gpa", "*.xn--fiqs8s", "*.xn--fiqz9s"],
+      "outbound": "direct",
+      "description": "Iran TLDs: resolve locally for in-country IPs"
+    },
+    {
+      "type": "domain",
+      "value": ["*.com.ir", "*.org.ir", "*.net.ir", "*.ac.ir", "*.gov.ir", "*.sch.ir", "*.net.ir"],
+      "outbound": "direct",
+      "description": "Iranian second-level domains commonly used"
+    },
+    {
+      "type": "domain",
+      "value": ["*.tn.aliyun.com", "*.w.t nailap.com", "*.shaparak.ir", "*.bpi.ir"],
+      "outbound": "direct",
+      "description": "Iranian domestic CDN and payment gateways"
+    },
+    {
+      "type": "domain",
+      "value": ["*.bit", "*.bzz", "*. ETH", "*.loki", "*.i2p", "*.key", "*.coin"],
+      "outbound": "proxy",
+      "description": "Blockchain and privacy TLDs must tunnel"
+    },
+    {
+      "type": "domain",
+      "value": ["onion"],
+      "outbound": "proxy",
+      "description": "Tor .onion — always tunnel"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:category-aggregate-ir"],
+      "outbound": "direct",
+      "description": "V2Ray geoip category for Iranian domains"
+    },
+    {
+      "type": "geoip",
+      "value": ["ir"],
+      "outbound": "direct",
+      "description": "Iran IP ranges — direct"
+    },
+    {
+      "type": "geoip",
+      "value": ["private"],
+      "outbound": "direct",
+      "description": "Private IP ranges — always direct"
+    },
+    {
+      "type": "ip-cidr",
+      "value": ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "127.0.0.0/8"],
+      "outbound": "direct",
+      "description": "RFC 1918 private ranges"
+    },
+    {
+      "type": "ip-cidr",
+      "value": ["224.0.0.0/4", "255.255.255.255/32"],
+      "outbound": "direct",
+      "description": "Multicast and broadcast — direct"
+    },
+    {
+      "type": "ip-cidr",
+      "value": ["169.254.0.0/16"],
+      "outbound": "direct",
+      "description": "Link-local — direct"
+    },
+    {
+      "type": "domain",
+      "value": ["telegram.org", "t.me", "tdlib.org", "telegram.me"],
+      "outbound": "proxy",
+      "description": "Telegram infrastructure"
+    },
+    {
+      "type": "domain",
+      "value": ["google.com", "googleapis.com", "googleusercontent.com", "googlevideo.com"],
+      "outbound": "proxy",
+      "description": "Google services (YouTube, Drive, etc.)"
+    },
+    {
+      "type": "domain",
+      "value": ["twitter.com", "twimg.com", "t.co", "x.com"],
+      "outbound": "proxy",
+      "description": "Twitter / X"
+    },
+    {
+      "type": "domain",
+      "value": ["youtube.com", "googlevideo.com", "ytimg.com", "youtube-nocookie.com"],
+      "outbound": "proxy",
+      "description": "YouTube"
+    },
+    {
+      "type": "domain",
+      "value": ["instagram.com", "cdninstagram.com", "i.instagram.com"],
+      "outbound": "proxy",
+      "description": "Instagram"
+    },
+    {
+      "type": "domain",
+      "value": ["facebook.com", "fbcdn.net", "fb.com", "messenger.com"],
+      "outbound": "proxy",
+      "description": "Facebook / Messenger"
+    },
+    {
+      "type": "domain",
+      "value": ["netflix.com", "nflxvideo.net", "nflximg.net", "nflxso.net"],
+      "outbound": "proxy",
+      "description": "Netflix"
+    },
+    {
+      "type": "domain",
+      "value": ["openai.com", "ai.com", "chat.openai.com", "openaai.com"],
+      "outbound": "proxy",
+      "description": "OpenAI / ChatGPT"
+    },
+    {
+      "type": "domain",
+      "value": ["whatsapp.com", "wa.me", "whatsapp.net"],
+      "outbound": "proxy",
+      "description": "WhatsApp"
+    },
+    {
+      "type": "domain",
+      "value": ["tiktok.com", "tiktokcdn.com", "tiktokv.com"],
+      "outbound": "proxy",
+      "description": "TikTok"
+    },
+    {
+      "type": "domain",
+      "value": ["reddit.com", "redd.it", "redditmedia.com"],
+      "outbound": "proxy",
+      "description": "Reddit"
+    },
+    {
+      "type": "domain",
+      "value": ["discord.com", "discordapp.com", "discord.media"],
+      "outbound": "proxy",
+      "description": "Discord"
+    },
+    {
+      "type": "domain",
+      "value": ["spotify.com", "scdn.co", "spoti.fi"],
+      "outbound": "proxy",
+      "description": "Spotify"
+    },
+    {
+      "type": "domain",
+      "value": ["wikipedia.org", "wikimedia.org", "wiktionary.org"],
+      "outbound": "proxy",
+      "description": "Wikipedia / Wikimedia"
+    },
+    {
+      "type": "domain",
+      "value": ["linkedin.com", "licdn.com"],
+      "outbound": "proxy",
+      "description": "LinkedIn"
+    },
+    {
+      "type": "domain",
+      "value": ["medium.com", "m.medium.com"],
+      "outbound": "proxy",
+      "description": "Medium"
+    },
+    {
+      "type": "domain",
+      "value": ["imdb.com", "media-amazon.com"],
+      "outbound": "proxy",
+      "description": "IMDb / Amazon Video"
+    },
+    {
+      "type": "domain",
+      "value": ["store.steampowered.com", "steamcontent.com", "steamstatic.com"],
+      "outbound": "proxy",
+      "description": "Steam"
+    },
+    {
+      "type": "domain",
+      "value": ["github.com", "githubusercontent.com", "avatars.githubusercontent.com"],
+      "outbound": "proxy",
+      "description": "GitHub"
+    },
+    {
+      "type": "domain",
+      "value": ["gitlab.com", "gitlab.io"],
+      "outbound": "proxy",
+      "description": "GitLab"
+    },
+    {
+      "type": "domain",
+      "value": ["cloudflare.com", "cloudflare.net", "1.1.1.1"],
+      "outbound": "proxy",
+      "description": "Cloudflare CDN"
+    },
+    {
+      "type": "domain",
+      "value": ["googledomains.com", "domains.google"],
+      "outbound": "proxy",
+      "description": "Google Domains"
+    },
+    {
+      "type": "domain",
+      "value": ["zoom.us", "zoomgov.com"],
+      "outbound": "proxy",
+      "description": "Zoom"
+    },
+    {
+      "type": "domain",
+      "value": ["amazonaws.com", "aws"],
+      "outbound": "proxy",
+      "description": "AWS endpoints"
+    },
+    {
+      "type": "domain",
+      "value": ["digitalocean.com", "digitaloceanspaces.com"],
+      "outbound": "proxy",
+      "description": "DigitalOcean"
+    },
+    {
+      "type": "domain",
+      "value": ["dropbox.com", "dropboxusercontent.com"],
+      "outbound": "proxy",
+      "description": "Dropbox"
+    },
+    {
+      "type": "domain",
+      "value": ["mega.nz", "mega.co.nz"],
+      "outbound": "proxy",
+      "description": "MEGA"
+    },
+    {
+      "type": "domain",
+      "value": ["pCloud.com", "pcloud.com"],
+      "outbound": "proxy",
+      "description": "pCloud"
+    },
+    {
+      "type": "domain",
+      "value": ["archive.org", "waybackmachine.org"],
+      "outbound": "proxy",
+      "description": "Internet Archive"
+    },
+    {
+      "type": "domain",
+      "value": ["nytimes.com", " NYT"],
+      "outbound": "proxy",
+      "description": "New York Times"
+    },
+    {
+      "type": "domain",
+      "value": ["bbc.com", "bbc.co.uk", "bbci.co.uk"],
+      "outbound": "proxy",
+      "description": "BBC"
+    },
+    {
+      "type": "domain",
+      "value": ["voachinese.com", "voa.gov"],
+      "outbound": "proxy",
+      "description": "VOA"
+    },
+    {
+      "type": "domain",
+      "value": ["rfa.org", "radiofreeasia.org"],
+      "outbound": "proxy",
+      "description": "Radio Free Asia"
+    },
+    {
+      "type": "domain",
+      "value": ["rferl.org"],
+      "outbound": "proxy",
+      "description": "Radio Free Europe/Radio Liberty"
+    },
+    {
+      "type": "domain",
+      "value": ["torproject.org", "torbrowser.org"],
+      "outbound": "proxy",
+      "description": "Tor Project"
+    },
+    {
+      "type": "domain",
+      "value": ["signal.org"],
+      "outbound": "proxy",
+      "description": "Signal"
+    },
+    {
+      "type": "domain",
+      "value": ["proton.me", "protonmail.com", "protonvpn.com"],
+      "outbound": "proxy",
+      "description": "Proton services"
+    },
+    {
+      "type": "domain",
+      "value": ["icloud.com", "icloud-content.com", "mzstatic.com"],
+      "outbound": "proxy",
+      "description": "Apple iCloud"
+    },
+    {
+      "type": "domain",
+      "value": ["office.com", "office365.com", "live.com"],
+      "outbound": "proxy",
+      "description": "Microsoft 365"
+    },
+    {
+      "type": "domain",
+      "value": ["skype.com", "live.net"],
+      "outbound": "proxy",
+      "description": "Skype / Microsoft"
+    },
+    {
+      "type": "domain",
+      "value": ["ebay.com", "ebayimg.com", "ebaydesc.com"],
+      "outbound": "proxy",
+      "description": "eBay"
+    },
+    {
+      "type": "domain",
+      "value": ["aliexpress.com", "alibaba.com", "alicdn.com", "alipay.com"],
+      "outbound": "proxy",
+      "description": "Alibaba / AliExpress"
+    },
+    {
+      "type": "domain",
+      "value": ["taobao.com", "tmall.com", "tmcdn.cn"],
+      "outbound": "proxy",
+      "description": "Taobao / Tmall"
+    },
+    {
+      "type": "domain",
+      "value": ["baidu.com", "bdstatic.com"],
+      "outbound": "proxy",
+      "description": "Baidu (China)"
+    },
+    {
+      "type": "domain",
+      "value": ["weibo.com", "weibocdn.com"],
+      "outbound": "proxy",
+      "description": "Weibo (China)"
+    },
+    {
+      "type": "domain",
+      "value": ["qq.com", "wechat.com", "tencent.com"],
+      "outbound": "proxy",
+      "description": "Tencent (China)"
+    },
+    {
+      "type": "domain",
+      "value": ["bilibili.com", "bilivideo.com", "hdslb.com"],
+      "outbound": "proxy",
+      "description": "Bilibili"
+    },
+    {
+      "type": "domain",
+      "value": ["dler.io", "v2board.com", "sspanel.com", "sspanel.tech"],
+      "outbound": "proxy",
+      "description": "Common panel/Cdn networks"
+    },
+    {
+      "type": "domain",
+      "value": ["cf-worker.com", "workers.dev"],
+      "outbound": "proxy",
+      "description": "Cloudflare Workers"
+    },
+    {
+      "type": "domain",
+      "value": ["vercel.app", "vercel-insights.app"],
+      "outbound": "proxy",
+      "description": "Vercel"
+    },
+    {
+      "type": "domain",
+      "value": ["telegram.org", "t.me"],
+      "outbound": "proxy",
+      "description": "Telegram (secondary)"
+    },
+    {
+      "type": "domain",
+      "value": ["dns.google", "dns.google.com", "8.8.8.8", "8.8.4.4"],
+      "outbound": "proxy",
+      "description": "Google DNS (for DNS-over-HTTPS)"
+    },
+    {
+      "type": "domain",
+      "value": ["cloudflare-dns.com", "1.1.1.1", "1.0.0.1"],
+      "outbound": "proxy",
+      "description": "Cloudflare DNS"
+    },
+    {
+      "type": "ip-cidr",
+      "value": ["8.8.8.8/32", "8.8.4.4/32", "1.1.1.1/32", "1.0.0.1/32"],
+      "outbound": "proxy",
+      "description": "Public DNS resolvers as IPs"
+    },
+    {
+      "type": "ip-cidr",
+      "value": ["104.16.0.0/13", "104.24.0.0/14", "172.64.0.0/13"],
+      "outbound": "proxy",
+      "description": "Cloudflare IP ranges"
+    },
+    {
+      "type": "ip-cidr",
+      "value": ["74.125.0.0/16", "142.250.0.0/15", "216.58.192.0/19"],
+      "outbound": "proxy",
+      "description": "Google IP ranges"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:google"],
+      "outbound": "proxy",
+      "description": "V2RayN geosite:google"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:facebook"],
+      "outbound": "proxy",
+      "description": "V2RayN geosite:facebook"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:telegram-cn"],
+      "outbound": "proxy",
+      "description": "V2RayN geosite:telegram-cn"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:netflix"],
+      "outbound": "proxy",
+      "description": "V2RayN geosite:netflix"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:openai"],
+      "outbound": "proxy",
+      "description": "V2RayN geosite:openai"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:category-media"],
+      "outbound": "proxy",
+      "description": "V2RayN geosite:category-media (streaming)"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:geolocation-!ir"],
+      "outbound": "proxy",
+      "description": "V2RayN non-Iran geo categories"
+    },
+    {
+      "type": "geoip",
+      "value": ["telegram"],
+      "outbound": "proxy",
+      "description": "GeoIP: telegram"
+    },
+    {
+      "type": "geoip",
+      "value": ["cloudflare"],
+      "outbound": "proxy",
+      "description": "GeoIP: cloudflare"
+    },
+    {
+      "type": "geoip",
+      "value": ["google"],
+      "outbound": "proxy",
+      "description": "GeoIP: google"
+    },
+    {
+      "type": "domain",
+      "value": [" regexp:^.+\\.ir$"],
+      "outbound": "direct",
+      "description": "Catch-all: any .ir subdomain not already matched"
+    },
+    {
+      "type": "domain",
+      "value": [" regexp:^.+\\.(ir|com\\.ir|org\\.ir|net\\.ir|ac\\.ir|gov\\.ir)$"],
+      "outbound": "direct",
+      "description": "Catch-all: any Iranian domain not already matched"
+    }
+  ],
+  "dnsConfig": {
+    "servers": [
+      {
+        "address": "https://dns.google/resolve",
+        "domains": ["geosite:ir"]
+      },
+      {
+        "address": "https://cloudflare-dns.com/dns-query",
+        "domains": ["geosite:ir"]
+      },
+      {
+        "address": "172.16.0.2",
+        "domains": ["ir"]
+      },
+      {
+        "address": "tls:1.1.1.1",
+        "domains": ["geosite:geolocation-!ir"]
+      }
+    ]
+  }
+}

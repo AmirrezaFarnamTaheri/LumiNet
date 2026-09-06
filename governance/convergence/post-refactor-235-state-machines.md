@@ -1,0 +1,3 @@
+# Post-refactor-235 state machines
+
+Mobile readiness distinguishes starting -> mtu -> selecting -> session -> runtime -> connected, while ready additionally requires runtime health, traffic warmup, valid resolver evidence and active resolver evidence. Config fallback transitions candidate-by-candidate: unsupported -> continue; supported -> select/stop; invalid/error -> fail/stop. Scan-load policy is insufficient-samples/unknown/healthy/degraded/critical with hold/grow/backoff actions. Evidence receipts are complete only when parent topology is closed, acyclic and cryptographic/timestamp status contains no fail/unknown. Pause/cancel/stale-generation donor lessons remain constraints on existing campaign owners.

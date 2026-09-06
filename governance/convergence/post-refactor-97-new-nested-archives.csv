@@ -1,0 +1,8 @@
+container_donor,path,sha256,kind,members,files,dirs,symlinks,uncompressed,issues
+Tor_Onion_Proxy_Library-master,gradle/wrapper/gradle-wrapper.jar,ad63ba21fb91e490e0f6fd0ca7d4049241f0f68a454b0b3075c041c4554e611c,zip-compatible,50,45,5,0,106494,
+Tor_Onion_Proxy_Library-master,java/src/main/resources/native/linux/x64/tor.zip,a91155aa104f804fc14f922964c8e6c82ecc2626cc7ed5fee17ba22d73bb5d81,zip-compatible,4,4,0,0,7748896,
+Tor_Onion_Proxy_Library-master,java/src/main/resources/native/linux/x86/tor.zip,56a7dce6062f31fb6cf5b610d78a06af36fc7f6c6ba93f78fffd67679c89d6ae,zip-compatible,4,4,0,0,9206104,
+Tor_Onion_Proxy_Library-master,java/src/main/resources/native/osx/x64/tor.zip,8f0e5938d1830f7a2d81c6904716b587384ba62fb5390ba091c1789ae5c95510,zip-compatible,2,2,0,0,6283968,
+Tor_Onion_Proxy_Library-master,java/src/main/resources/native/windows/x86/tor.zip,b88681f7ed5864dd425774c9bc87231598da0edba5ca9eca4fe9c78dab6d41f6,zip-compatible,10,10,0,0,12412431,
+Tor_Onion_Proxy_Library-master,universal/gradle/wrapper/gradle-wrapper.jar,d283a04caee0e97b666b09e50ab394834934bee6225c2e9cd4650afdeac43828,zip-compatible,50,45,5,0,103619,
+tor-android-master,gradle/wrapper/gradle-wrapper.jar,423cb469ccc0ecc31f0e4e1c309976198ccb734cdcbb7029d4bda0f18f57e8d9,zip-compatible,33,33,0,0,75939,

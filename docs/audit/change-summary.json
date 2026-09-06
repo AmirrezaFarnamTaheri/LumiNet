@@ -1,0 +1,22 @@
+{
+  "baseline_files": 7772,
+  "improved_files": 2423,
+  "baseline_bytes": 332741603,
+  "improved_bytes": 21963449,
+  "file_reduction": 5349,
+  "byte_reduction": 310778154,
+  "status_counts": {
+    "added": 46,
+    "modified": 36,
+    "moved": 22,
+    "removed": 5395,
+    "unchanged": 2319
+  },
+  "status_bytes": {
+    "added": 6627728,
+    "modified_old": 329199,
+    "modified_new": 319965,
+    "moved": 301576,
+    "removed": 317396648
+  }
+}

@@ -1,0 +1,19 @@
+# src
+
+## Purpose
+Authoritative product source root. Operational tooling, deployment assets, docs, governance evidence, labs, and third-party reference material intentionally live outside this tree.
+
+## Contents
+- No direct source files; this folder is a namespace/organization node for child modules.
+- Child folders: `apps/`, `packages/`.
+
+## Interfaces and dependencies
+- See direct files and parent context for the interface consumed by sibling/parent modules.
+
+## Invariants
+- All live product/application/shared-package source belongs under this root.
+- `docs/`, `governance/`, `labs/`, `scripts/`, `deploy/`, `tests/`, and `third_party/` remain outside because they are documentation/evidence/tooling/delivery/test/reference roots, not product source.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

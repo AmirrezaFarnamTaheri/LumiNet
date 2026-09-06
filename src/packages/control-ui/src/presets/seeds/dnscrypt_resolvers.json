@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Cloudflare 1.1.1.1",
+    "url": "https://cloudflare-dns.com/dns-query",
+    "ips": ["1.1.1.1", "1.0.0.1"],
+    "public_key": "CMEElbFMsXeLB4sLYg3xVRD+8D6+1HMFZ4nGq2rXKx0=",
+    "mtu": 1232
+  },
+  {
+    "name": "Google Public DNS",
+    "url": "https://dns.google/dns-query",
+    "ips": ["8.8.8.8", "8.8.4.4"],
+    "public_key": "kv5KxnVVP7JlrLRf8a3xg4xPPbIPVT5LgLqT7R7Yx9A=",
+    "mtu": 1232
+  },
+  {
+    "name": "Quad9 Secure",
+    "url": "https://dns.quad9.net/dns-query",
+    "ips": ["9.9.9.9", "149.112.112.112"],
+    "public_key": "rIQoiL1qY7mJF5tGyL2y8nM9wQaL7xVhZk3nB8dP0o=",
+    "mtu": 1232
+  },
+  {
+    "name": "AdGuard DNS",
+    "url": "https://dns.adguard.com/dns-query",
+    "ips": ["94.140.14.14", "94.140.15.15"],
+    "public_key": "sJ3i+9wK2mPQ8vL6rT5xH1nF8dA4sKj0G2eB7cV9yQ=",
+    "mtu": 1232
+  },
+  {
+    "name": "NextDNS",
+    "url": "https://dns.nextdns.io/dns-query",
+    "ips": ["45.90.28.0", "45.90.30.0"],
+    "public_key": "nF4eB8kJ2mL7rP9vT3wX6yH1cD0sAkG5jQ9fE2bV=",
+    "mtu": 1232
+  },
+  {
+    "name": "Mullvad DoH",
+    "url": "https://adblock.dns.mullvad.net/dns-query",
+    "ips": ["194.242.2.2", "194.242.2.3"],
+    "public_key": "pO2wK8jF4nM9qL7rT6xH1vY3cD0sAkG5jB8eQ2fV9y=",
+    "mtu": 1232
+  },
+  {
+    "name": "ControlD P2",
+    "url": "https://freedns.controld.com/p2",
+    "ips": ["76.76.2.0", "76.76.10.0"],
+    "public_key": "bR7wK9jG5nP2mL8qT4xJ1vF3cD0sAkG6iQ9eA2fV8y=",
+    "mtu": 1232
+  },
+  {
+    "name": "OpenDNS Home",
+    "url": "https://doh.opendns.com/dns-query",
+    "ips": ["208.67.222.222", "208.67.220.220"],
+    "public_key": "cS8xK1jB6nQ3pL9rT5wK2vF4cD0sAkG7jF9eA2bV8y=",
+    "mtu": 1232
+  }
+]

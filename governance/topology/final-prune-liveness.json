@@ -1,0 +1,1033 @@
+{
+  "baseline": "post-Wave-23 active tree",
+  "purpose": "Evidence-backed final active-daemon pruning",
+  "retained_stop_conditions": [
+    "apps/daemon/internal/bridge/streaming.go: cgo + build-tag ABI seam",
+    "apps/daemon/internal/system/android_jni_adapter.go: Android JNI external entry seam",
+    "apps/daemon/internal/system/netns_tunnel.go: platform build-tag seam; retain without platform compilation proof",
+    "apps/daemon/internal/mobilebind: external gomobile binding package",
+    "historical SQLite migrations remain append-only compatibility evidence"
+  ],
+  "retired_tests": [
+    {
+      "bytes": 1459,
+      "path": "apps/daemon/internal/config/pipeline_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "dcbdc31054e5c88c320125a6f748e15607e819fba5b6cea25372020fdd423b3f"
+    },
+    {
+      "bytes": 2652,
+      "path": "apps/daemon/internal/crypto/pqc_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "69cd1feec7922d2921f606d143ea951432777b8583640a8387a5009049db9cf7"
+    },
+    {
+      "bytes": 1709,
+      "path": "apps/daemon/internal/diagnostics/stealth_client_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "2e8f5f05c48feb891f9e54b66315d0e1f3759ba897c931cd6b264c3f3fd64776"
+    },
+    {
+      "bytes": 1928,
+      "path": "apps/daemon/internal/dns/dns_resolver_db_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "449a7c8e278f41f4e67255beab9aefe6809cff6de94f0ffcb0f4e5ba5ebe82c3"
+    },
+    {
+      "bytes": 988,
+      "path": "apps/daemon/internal/dns/loop_avoidance_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "48443bbcc70c997d2b3d92ec203d0700ba09e2a6a6500a9e702c76142f3a0a7c"
+    },
+    {
+      "bytes": 1178,
+      "path": "apps/daemon/internal/evasion/clienthello_evasion_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "08257a58f589c6ae9e9b74673347afaee1f78bdfe2784c3a61220c162707c79a"
+    },
+    {
+      "bytes": 1946,
+      "path": "apps/daemon/internal/evasion/wrong_seq_injector_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "b2992db3fb2b4a3156329cc355db80a0a4344b41c15ff74d98209928d0c8dd59"
+    },
+    {
+      "bytes": 1171,
+      "path": "apps/daemon/internal/geoip/apnic_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "85375ca89c6311daa29b29ed1799d1daa0c5de6cd013f071fe00d60ec8573377"
+    },
+    {
+      "bytes": 4660,
+      "path": "apps/daemon/internal/scanner/dnssec_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "6f37d821f4e84829637d5dce998f2f750fe560f04f5db82e4d48242fc764ea76"
+    },
+    {
+      "bytes": 463,
+      "path": "apps/daemon/internal/scanner/domain_harvester_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "9f2a522279a0b6e007a91e205c54e6c4e65febfee6da11e7444d16ada5da2453"
+    },
+    {
+      "bytes": 1532,
+      "path": "apps/daemon/internal/scanner/ja4_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "43b59f969bb0440f77e9d21a49df7fc3c4a1f46005d5d1c42df7d621db8469b3"
+    },
+    {
+      "bytes": 2844,
+      "path": "apps/daemon/internal/sub/relay_checker_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "0411d7f7118c5c8bacf2a8bf8cccb740967e518eec351dba246f668dc868c0d4"
+    },
+    {
+      "bytes": 605,
+      "path": "apps/daemon/internal/system/android_magisk_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "feaac970b392bef9a0d8c4b3fad7921960db0c8b9874c0fa03184870c908eade"
+    },
+    {
+      "bytes": 1409,
+      "path": "apps/daemon/internal/system/android_vpn_helper_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "e2bc78fc0f05c148285598d4e67b358a98e681388b534a5dd84919c25864628c"
+    },
+    {
+      "bytes": 1364,
+      "path": "apps/daemon/internal/system/updater_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "4a4a0c74762a0dd348c01a7f73bab4f07e8853a0687da69b4e43d8319314cefa"
+    },
+    {
+      "bytes": 708,
+      "path": "apps/daemon/internal/system/nat_hole_punch_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "7940fe34e493bd82692e7441d83fa45a0cb380f261d8ba29057d018287e88e87"
+    },
+    {
+      "bytes": 1080,
+      "path": "apps/daemon/internal/system/nginx_horizon_test.go",
+      "reason": "dedicated characterization test for retired zero-product-consumer implementation",
+      "sha256": "c1a880bc626c8d924d00a137cf4325171924dd722888721d187cc9bc7596f969"
+    },
+    {
+      "bytes": 6350,
+      "path": "apps/daemon/internal/relayclient/appsscript/coalescer_test.go",
+      "reason": "dedicated self-test for retired zero-product-consumer Apps Script coalescer",
+      "sha256": "8dcdca53a94d60ba42b00f695d91fe77ebf287a6d4614ea900b9ae3a150af3a0"
+    }
+  ],
+  "retired_whole_files": [
+    {
+      "bytes": 1344,
+      "lines": 47,
+      "path": "src/apps/daemon/internal/adapters/api/authboss_otp.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "801798c8d65f62845ff9b18fe4d6d36e9552781f5fbdb173a9fe00fdf7a36806"
+    },
+    {
+      "bytes": 712,
+      "lines": 31,
+      "path": "src/apps/daemon/internal/adapters/api/telemetry_filter.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "8a7a0f72fee1f55aa5122d7952c67481c448160a5c3e0331d0e8cf4273be0780"
+    },
+    {
+      "bytes": 604,
+      "lines": 20,
+      "path": "src/apps/daemon/internal/foundation/config/proxy_scraper.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "948013dbd9601b263c4ce8b9b8c921210452b064ac90a6aedc32d7f9de5f2975"
+    },
+    {
+      "bytes": 1708,
+      "lines": 63,
+      "path": "src/apps/daemon/internal/foundation/crypto/cloak_ecdh.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "d7cb1d3c09bc18052e1c00c32b9386293123ee68fb6f85be921c46c787569041"
+    },
+    {
+      "bytes": 7917,
+      "lines": 204,
+      "path": "src/apps/daemon/internal/foundation/crypto/shadowsocks_aead2022_constants.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "a7a3c1e3124c521645427e8a15d57df98613d43a66c9a24f8997e161dce2c698"
+    },
+    {
+      "bytes": 917,
+      "lines": 39,
+      "path": "src/apps/daemon/internal/analysis/diagnostics/dns.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "2b38dddd4d2516132af8ccd6e324535bc567160ea302e761c5449a16f6110311"
+    },
+    {
+      "bytes": 863,
+      "lines": 33,
+      "path": "src/apps/daemon/internal/analysis/diagnostics/sni_scan.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "3fd530a326c1edf0496760792e80ec9170076822d3ca89d66ee2a939b4d09955"
+    },
+    {
+      "bytes": 8772,
+      "lines": 214,
+      "path": "src/apps/daemon/internal/networking/dns/dns_report.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "1ef60ea9a1cc6ea720ed995f111e939821a49bd76b5625271df8f6d4124fd97f"
+    },
+    {
+      "bytes": 5228,
+      "lines": 182,
+      "path": "src/apps/daemon/internal/networking/dns/dnsconfig.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "e8e2e8850e3fc1f47e03e8af594e53307507ffc0fed8baaef765367c46d8a53e"
+    },
+    {
+      "bytes": 2413,
+      "lines": 90,
+      "path": "src/apps/daemon/internal/platform/evasion/censorship_detector.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "475a3e2e9f8942bc2b990c326ccb88288c78cb332c70f7812a384bfefd8f49d8"
+    },
+    {
+      "bytes": 1962,
+      "lines": 53,
+      "path": "src/apps/daemon/internal/platform/evasion/cloak_browser_config.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "7dd2f195db2584d7b60b4796b3bd7c623c6aed61133891bece14faaa0d10273b"
+    },
+    {
+      "bytes": 4897,
+      "lines": 175,
+      "path": "src/apps/daemon/internal/platform/evasion/fte_shaper.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "ad52e1e1463d4a7ddb25444a993a4b33f6119877986da80a8092d89e3e4526d1"
+    },
+    {
+      "bytes": 2692,
+      "lines": 125,
+      "path": "src/apps/daemon/internal/platform/evasion/irgfw_rules.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "9c0059bb891a5ae48843f32bd8e9c3f922c97abb527940390b46b50500e37c61"
+    },
+    {
+      "bytes": 2805,
+      "lines": 90,
+      "path": "src/apps/daemon/internal/platform/evasion/ndp_spoofer.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "1889b41e8081b8953dca68b0778c7aae4d122e399f4fed0c24eed70a5b0ae47e"
+    },
+    {
+      "bytes": 2395,
+      "lines": 95,
+      "path": "src/apps/daemon/internal/platform/evasion/vnc_session_manager.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "53bb65433f0c7867b32dada3b8b8d9eabae29a350a4af6db94f1ec175e10fc23"
+    },
+    {
+      "bytes": 916,
+      "lines": 45,
+      "path": "src/apps/daemon/internal/networking/geoip/geoip_loader.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "ca64c6a207fb8a756e95d7a7b2dfa67f71fa99b0797b4bb173f863283b29db87"
+    },
+    {
+      "bytes": 566,
+      "lines": 20,
+      "path": "src/apps/daemon/internal/integrations/management/mesh_navmesh.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "08be024e152ca9000c77308b0b5e2c7a35e8976f6eaf77cb61dbbfa58d920eca"
+    },
+    {
+      "bytes": 726,
+      "lines": 20,
+      "path": "src/apps/daemon/internal/integrations/management/reverse_bridge_orchestrator.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "0b25e396ed542c38b8a708f96c2cf8107cae02ac65499b7638efa936bf32ae92"
+    },
+    {
+      "bytes": 2158,
+      "lines": 80,
+      "path": "src/apps/daemon/internal/analysis/scanner/connection_killer.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "afa0909ef0b976251741eb9c1284408f931f0b5f8c207d9475c8278884a4b2f9"
+    },
+    {
+      "bytes": 3212,
+      "lines": 124,
+      "path": "src/apps/daemon/internal/analysis/scanner/ftp_bounce_scan.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "3cb80e567c012663884a64d7f821e91ff25cb2abb5ca7857d4aa53d952323cac"
+    },
+    {
+      "bytes": 1563,
+      "lines": 63,
+      "path": "src/apps/daemon/internal/analysis/scanner/netflow_isp_mapper.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "07ac6af857951abb1d841fbf73794e8c8b1ba78d04e44a48d17f3f589e95b42c"
+    },
+    {
+      "bytes": 2718,
+      "lines": 97,
+      "path": "src/apps/daemon/internal/analysis/scanner/ooni_probe.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "709523a39e300be255e9dfaf1ff38d5ec78b959821ca6f7d67a2f8e54e163668"
+    },
+    {
+      "bytes": 2166,
+      "lines": 79,
+      "path": "src/apps/daemon/internal/analysis/scanner/subnet_divider.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "298a92be19b0f5b18e7da291cfa073a1d61eaeb28460036750101325c18a9970"
+    },
+    {
+      "bytes": 1348,
+      "lines": 56,
+      "path": "src/apps/daemon/internal/platform/system/caddy_reload.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "cd38ccd7944dc35b511064116696e191b205e9fbd72a9c85f76d5024a70c90a2"
+    },
+    {
+      "bytes": 1609,
+      "lines": 66,
+      "path": "src/apps/daemon/internal/platform/system/dns_android.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "62b0276e60d105064e485270944eb7549af091aab1674c6367dcac935eb013e4"
+    },
+    {
+      "bytes": 2793,
+      "lines": 95,
+      "path": "src/apps/daemon/internal/platform/system/dns_helper.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "50486debd70bc3a3d3536db55f409777301210ea94d9cc90e16807bfcbbc85c7"
+    },
+    {
+      "bytes": 1336,
+      "lines": 59,
+      "path": "src/apps/daemon/internal/platform/system/evasive_loader.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "43301c4d3c9bb0dae7c1bb4fb98edc01297b53144952e0545b12d6df5e44bbc1"
+    },
+    {
+      "bytes": 1533,
+      "lines": 44,
+      "path": "src/apps/daemon/internal/platform/system/iproute2_linux.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "f0e4a625dbd8c294ce9c7bb7ecec26649504e36013497a163489febf12094b75"
+    },
+    {
+      "bytes": 3692,
+      "lines": 132,
+      "path": "src/apps/daemon/internal/platform/system/netplan_dns.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "eefe4da399c7ae6f6482bd4798f48be58d024d8c93305f5cc94792f2c6fb0942"
+    },
+    {
+      "bytes": 2039,
+      "lines": 84,
+      "path": "src/apps/daemon/internal/platform/system/nova_deployer.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "626be5cae48d7e66023af388f1cf8fda3f447ebb5cbf846ca2a3a2e0e070e729"
+    },
+    {
+      "bytes": 2252,
+      "lines": 70,
+      "path": "src/apps/daemon/internal/platform/system/panel_snapshot_manager.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "17dcfdc40b82431397555eb4ee52e9a88789d81aa2b05ab9e5ac9080081678a7"
+    },
+    {
+      "bytes": 1951,
+      "lines": 74,
+      "path": "src/apps/daemon/internal/platform/system/sing_dns.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "23cf862f2a0d7e2e5071e79308ae801288d3ae3c778321b425eda711bec1df91"
+    },
+    {
+      "bytes": 3399,
+      "lines": 113,
+      "path": "src/apps/daemon/internal/platform/system/tor_portable.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "8827e848097e30bd118944674e9865198e7e48208bbac2af44d7bdd1a11968d9"
+    },
+    {
+      "bytes": 1995,
+      "lines": 88,
+      "path": "src/apps/daemon/internal/platform/system/uci_config.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "94a91bdf341ae11d99395557362a326acd51bef61fd10f9d08a00d00cdc86fce"
+    },
+    {
+      "bytes": 701,
+      "lines": 30,
+      "path": "src/apps/daemon/internal/foundation/capabilities/cpu.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "58a14f54d925032e91f5938856453e1a8724e90d133528a4c213ebc1c32c6aaa"
+    },
+    {
+      "bytes": 1981,
+      "lines": 80,
+      "path": "src/apps/daemon/internal/foundation/config/pipeline.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "49ae2bd803e5dc6033af7b060464c90e581ac7a41d2ef9ffa864ab86a5ed96ba"
+    },
+    {
+      "bytes": 3439,
+      "lines": 99,
+      "path": "src/apps/daemon/internal/foundation/crypto/pqc.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "6b942a9a634a5e1069c3a8c65f81b7d77c74395f9fbdec4c2b8f1e668115960d"
+    },
+    {
+      "bytes": 3297,
+      "lines": 110,
+      "path": "src/apps/daemon/internal/analysis/diagnostics/stealth_client.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "888071704c1887e3b1124656279b970b113186612bcf1bdb926e14fcb285e345"
+    },
+    {
+      "bytes": 6645,
+      "lines": 257,
+      "path": "src/apps/daemon/internal/networking/dns/dns_resolver_db.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "a9e63ff094cdc4a3ece364665fdb1894b6b72abe8c8385ca3f4bd95f3ff605cf"
+    },
+    {
+      "bytes": 2539,
+      "lines": 129,
+      "path": "src/apps/daemon/internal/networking/dns/dns_stamp.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "478c0b2d9dc098636bdd62278b550d77f55c42e0a558707f022eae29f8e0ed7b"
+    },
+    {
+      "bytes": 1396,
+      "lines": 51,
+      "path": "src/apps/daemon/internal/networking/dns/loop_avoidance.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "6353179d7770569744192bb666c31590a7a051d899c03450dbe49a22dd2df5f6"
+    },
+    {
+      "bytes": 5276,
+      "lines": 200,
+      "path": "src/apps/daemon/internal/platform/evasion/clienthello_evasion.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "8ca3bf6b3a8f688648b336ff25f3c2ba5427134dd4c0cb2328c2c7a0f4ff0049"
+    },
+    {
+      "bytes": 5744,
+      "lines": 265,
+      "path": "src/apps/daemon/internal/platform/evasion/wrong_seq_injector.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "189c16c968c72b3576a71f96706389e3b5eec4fc5456eb42da262ffece93677c"
+    },
+    {
+      "bytes": 2906,
+      "lines": 110,
+      "path": "src/apps/daemon/internal/networking/geoip/apnic.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "117a50003c78aa4774183da0d544f9793d10ee2a0bd6b9faa515047ac4e4cb39"
+    },
+    {
+      "bytes": 931,
+      "lines": 38,
+      "path": "src/apps/daemon/internal/foundation/log/telemetry.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "f2281e18c1a1131546355ec12364e04315610efe1c69be62ed62f4e44a9d3c9a"
+    },
+    {
+      "bytes": 5038,
+      "lines": 165,
+      "path": "src/apps/daemon/internal/analysis/scanner/dnssec.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "e2fd036e37244f9c3832df8f4585fc57964d7ceed1fb0d9f403d300c5e419410"
+    },
+    {
+      "bytes": 3145,
+      "lines": 133,
+      "path": "src/apps/daemon/internal/analysis/scanner/domain_harvester.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "c5fc6247f038f216720e932120cdc1f9320320c2bdbd3e3c8ff094170f48dd25"
+    },
+    {
+      "bytes": 4897,
+      "lines": 184,
+      "path": "src/apps/daemon/internal/analysis/scanner/ja4.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "161c43e3d749ca55309f485f78f9ddb17af3c5c5c5246dae96c42f2a04deb6fb"
+    },
+    {
+      "bytes": 2802,
+      "lines": 100,
+      "path": "src/apps/daemon/internal/integrations/sub/relay_checker.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "fef7007e550c06184a1996afcec8e571d0e478f4225821695fefef2833e04576"
+    },
+    {
+      "bytes": 2367,
+      "lines": 64,
+      "path": "src/apps/daemon/internal/platform/system/android_magisk.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "faeef7a07dd5343dfa41fb03e556ea98661693f08b82ad20ad7c17df13a8b1d8"
+    },
+    {
+      "bytes": 2265,
+      "lines": 111,
+      "path": "src/apps/daemon/internal/platform/system/android_vpn_helper.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "b15b5650da463def5277505ae31882bf8eb95b682aaa5bd2bae1e779fa23f7a9"
+    },
+    {
+      "bytes": 1456,
+      "lines": 51,
+      "path": "src/apps/daemon/internal/platform/system/app_updater.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "c61b3b9c08d31080d1d0450ef1f86adfea13d93769756ccd952e4331649f9d8f"
+    },
+    {
+      "bytes": 1565,
+      "lines": 61,
+      "path": "src/apps/daemon/internal/platform/system/lxmf_transport.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "2ca5f0705919f4ab066455d098e1c81a8994dc9ed9b6dab09c8f5a94783f5daf"
+    },
+    {
+      "bytes": 2021,
+      "lines": 89,
+      "path": "src/apps/daemon/internal/platform/system/nat_hole_punch.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "751298f2d8f91ab44f8e6b2849a0b850c1af2d86819d01673440cd286e2d0f91"
+    },
+    {
+      "bytes": 1196,
+      "lines": 46,
+      "path": "src/apps/daemon/internal/platform/system/nginx_horizon.go",
+      "proof": [
+        "zero production Go consumers",
+        "test-only Go consumers",
+        "zero non-Go product consumers",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no external receiver",
+        "no package-global call initializer"
+      ],
+      "sha256": "bd785da00222552466f39de89d4aea9c4839ffd841c3f7944ebf5084e99029f8"
+    },
+    {
+      "bytes": 4050,
+      "lines": 137,
+      "path": "src/apps/daemon/internal/integrations/sub/telegram_scraper.go",
+      "proof": [
+        "zero production Go consumers",
+        "zero test consumers",
+        "zero non-Go product consumers",
+        "no init/build-tag/cgo/JNI seam",
+        "manual review: package globals are static scheme list and regexp.MustCompile only; no registration or externally visible side effect"
+      ],
+      "sha256": "1c23a958182016c2a65ba9cac485b6d1662f6fe66760bb4095e95221ba43e139"
+    },
+    {
+      "bytes": 18876,
+      "lines": 720,
+      "path": "src/apps/daemon/internal/integrations/relayclient/appsscript/coalescer.go",
+      "proof": [
+        "zero production Go consumers after subscription coalescer branch retirement",
+        "zero non-Go product consumers",
+        "only dedicated self-tests remain",
+        "no init hook",
+        "no explicit build tag",
+        "no cgo/JNI seam",
+        "no reflection/registration hook"
+      ],
+      "sha256": "ae20cf1342348978bc0fc966d28bdee1a30d5031d16de2a54d50d1abb45a8b5b"
+    }
+  ],
+  "schema": 1,
+  "stop_conditions": []
+}

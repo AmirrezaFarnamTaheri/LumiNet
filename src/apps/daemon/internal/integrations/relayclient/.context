@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/integrations/relayclient
+
+## Purpose
+External relay adapters (GSA/serverless), relay wire types, and their dial behavior behind one integration module.
+
+## Architectural role
+- Daemon dependency band: `integrations` (rank 3; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (14): `adaptive_poll.go`, `flow_observability.go`, `gsa_relay.go`, `gsa_relay_test.go`, `http_bounds.go`, `http_bounds_test.go`, `relay_conn_state.go`, `relay_conn_state_test.go`, `relay_wire.go`, `relay_wire_test.go`, `serverless_dialer.go`, `serverless_dialer_test.go` …
+
+## Interfaces and dependencies
+- Go package: `relayclient`.
+- Notable exported surface: `GsaTunnelConn`, `NewGsaTunnelConn`, `NewHttpServerlessConn`, `NewObservedWebSocketConn`, `NewServerlessDialer`, `NewWebSocketConn`, `ServerlessDialer`, `TunnelPayload`, `TunnelResponse`, `WebSocketConn`.
+- Daemon-local dependencies: `internal/foundation/flowregistry`, `internal/platform/system`.
+- Direct daemon callers: `internal/runtime/proxy`.
+
+## Invariants
+- `integrations` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

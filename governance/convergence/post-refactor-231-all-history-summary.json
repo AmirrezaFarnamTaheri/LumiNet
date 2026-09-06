@@ -1,0 +1,21 @@
+{
+  "definitions": 79330,
+  "high_signal_surfaces": 13026,
+  "module_records": 1586,
+  "release": "post-refactor-231",
+  "surfaces": 51673,
+  "ui_product_surfaces": 2611,
+  "unique_donors": 76,
+  "wave_231": {
+    "definitions": 2163,
+    "directories": 8044,
+    "high_signal_surfaces": 1504,
+    "module_records": 562,
+    "outer_donors": 5,
+    "semantic_value_records": 33,
+    "surfaces": 35331,
+    "symlinks": 7,
+    "ui_product_surfaces": 125,
+    "vendored_surfaces": 33047
+  }
+}

@@ -1,0 +1,8 @@
+original_active_path,preserved_path,disposition,evidence
+apps/daemon/internal/proxy/master_architecture_orchestrator.go,labs/daemon/proxy-alternates/master_architecture_orchestrator.go,preserved-corpus,no product caller and telemetry loop never started
+apps/daemon/internal/proxy/sni_spoofing.go,labs/daemon/proxy-alternates/sni_spoofing.go,preserved-corpus,no active runtime consumer after route fails closed
+apps/daemon/internal/proxy/dpi_desync.go,labs/daemon/proxy-alternates/dpi_desync.go,preserved-corpus,no active runtime consumer after route fails closed
+apps/daemon/internal/proxy/gdrive_tunnel.go,labs/daemon/proxy-alternates/gdrive_tunnel.go,preserved-corpus,legacy relay never used Drive credentials and has no active consumer
+apps/daemon/internal/proxy/device_profile_emulator.go,labs/daemon/proxy-alternates/device_profile_emulator.go,preserved-corpus,no active runtime consumer after route fails closed
+apps/daemon/internal/vpnstate/vpn_service_bridge.go,labs/daemon/vpnstate-alternates/vpn_service_bridge.go,preserved-corpus,no production state publisher or consumer
+apps/daemon/internal/vpnstate/vpn_service_bridge_test.go,labs/daemon/vpnstate-alternates/vpn_service_bridge_test.go,preserved-test,behavior test follows preserved implementation

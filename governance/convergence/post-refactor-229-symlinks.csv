@@ -1,0 +1,4 @@
+archive,donor,member,target,status,post_refactor_229_disposition,materialized
+mullvadvpn-app-main.zip,mullvadvpn-app-main,mullvadvpn-app-main/android/app/src/main/play,../../../src/main/play,contained-relative-recorded,contained-relative-evidence-only,false
+mullvadvpn-app-main.zip,mullvadvpn-app-main,mullvadvpn-app-main/android/lib/map/src/main/res/raw,../../../../../../dist-assets/geo,contained-relative-recorded,contained-relative-evidence-only,false
+mullvadvpn-app-main.zip,mullvadvpn-app-main,mullvadvpn-app-main/dist-assets/linux/problem-report-link,/opt/Mullvad VPN/resources/mullvad-problem-report,external-absolute-quarantined,quarantined-external,false

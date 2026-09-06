@@ -1,0 +1,4 @@
+relationship_id,donor_a,donor_b,evidence,resolution
+PR117-DUP-001,tun2socks-main,tun2socks-python-main,115 embedded tun2socks-go files are exact path/content matches; representative SOCKS file sha256=15828ef8f3fa840ba87f1badcfa2b80733921717a8fec4ea1f14647f0e31f190,embedded Go implementation revalidated but semantic credit stays with standalone donor; Python binding assessed separately
+PR117-DUP-002,sing-box-dev-next,sing-box-extended-extended,"976 overlapping paths, 635 identical path+hash surfaces; extended fork also adds/diverges materially",shared base semantics are not double-credited; only independently meaningful divergent mechanisms get separate fine records
+PR117-PROV-003,websocket-main,target gorilla/websocket pin,supplied donor declares module github.com/metacubex/websocket and exposes Gorilla-derived compatible API,used as source-compatible donor evidence only; not claimed as exact gorilla/websocket v1.5.3 byte validation

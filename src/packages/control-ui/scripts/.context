@@ -1,0 +1,17 @@
+# src/packages/control-ui/scripts
+
+## Purpose
+Frontend contract-test/build helper scripts.
+
+## Contents
+- Direct files (19): `test-contracts.mjs`, `test-eighth-order-promotions.mjs`, `test-feature-promotions.mjs`, `test-post-refactor-222.mjs`, `test-post-refactor-223.mjs`, `test-post-refactor-224.mjs`, `test-post-refactor-225.mjs`, `test-post-refactor-226.mjs`, `test-post-refactor-227.mjs`, `test-post-refactor-228.mjs`, `test-post-refactor-229.mjs`, `test-post-refactor-230.mjs` …
+
+## Interfaces and dependencies
+- See direct files and parent context for the interface consumed by sibling/parent modules.
+
+## Invariants
+- This is the sole authored control UI; desktop/daemon hosts consume its canonical bundle rather than forking UI source.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

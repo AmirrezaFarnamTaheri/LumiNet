@@ -1,0 +1,2 @@
+donor,archive,archive_sha256,members,files,symlinks,uncompressed_bytes,archive_root,validation
+sni-spoofing-rust,sni-spoofing-rust-main.zip,dac09557f4727a12983749223c6fb613862bd78781ed593fa66d9e0304549fa1,60,50,0,91779794,sni-spoofing-rust-main,verified-safe+crc+byte-equal

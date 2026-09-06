@@ -1,0 +1,3 @@
+# Post-refactor-231 state machines
+
+PT evidence moves across stopped, starting, listening, connected, stopping and error; readiness additionally requires configured/writable state storage plus a nonzero local listener port. Bounded circumvention fallback preserves progress by resetting the deadline, then uses direct -> snowflake -> custom-or-obfs4 -> obfs4 -> fail with at most three transitions. Naive policy models pre-runtime compatibility rather than process state: listener/platform and upstream-chain constraints are resolved before activation, and the first CONNECT suppresses Fast Open while padding capability is unknown. Stego scheme selection filters disabled, unusable, insufficient-capacity or repeatedly failing schemes before deterministic fallback ranking.

@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/networking/geoip
+
+## Purpose
+GeoIP and blocklist lookup primitives used by DNS and transport adapters.
+
+## Architectural role
+- Daemon dependency band: `networking` (rank 2; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (6): `geoip.go`, `geoip_test.go`, `http_bounds.go`, `http_bounds_test.go`, `local.go`, `local_test.go`
+
+## Interfaces and dependencies
+- Go package: `geoip`.
+- Notable exported surface: `IPMetadata`, `IsLocalOrLanIP`, `IsPrivateIP`, `NewService`, `ReverseDNS`, `Service`.
+- Daemon-local dependencies: none.
+- Direct daemon callers: `internal/adapters/api`, `internal/analysis/scanner`, `internal/integrations/sub`, `internal/networking/dns`, `internal/runtime/proxy`.
+
+## Invariants
+- `networking` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

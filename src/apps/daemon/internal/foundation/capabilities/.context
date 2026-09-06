@@ -1,0 +1,25 @@
+# src/apps/daemon/internal/foundation/capabilities
+
+## Purpose
+Capability/workflow registry and availability classification used to keep public capability truth explicit.
+
+## Architectural role
+- Daemon dependency band: `foundation` (rank 0; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (5): `capabilities_test.go`, `registry.go`, `route_gate.go`, `route_gate_test.go`, `workflows.go`
+
+## Interfaces and dependencies
+- Go package: `capabilities`.
+- Notable exported surface: `Capability`, `CapabilityID`, `GetWorkflowForRoute`, `GuardRoute`, `Maturity`, `NewRegistry`, `Registry`, `WorkflowID`.
+- Daemon-local dependencies: none.
+- Direct daemon callers: `cmd`, `internal/adapters/api`.
+
+## Invariants
+- Capability truth distinguishes implemented/available from unavailable, degraded, simulated, or unverified behavior.
+- `foundation` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

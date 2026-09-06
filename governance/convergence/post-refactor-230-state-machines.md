@@ -1,0 +1,3 @@
+# Post-refactor-230 state machines
+
+Tor bootstrap evidence progresses through control-unavailable, authentication-required, network-disabled, bootstrapping, circuit-pending, socks-unavailable, and ready. Bridge selection applies eligibility filters before deterministic ranking. Censorship evidence distinguishes strong control-paired anomaly from controlled difference and weak uncontrolled evidence. Phantom candidates require fresh explicit not-live evidence. DTLS policy constrains verification, EMS, replay, MTU, retransmission, ALPN, CID, and padding without creating a handshake/session store. smux keeps the existing session implementation but explicit target policy bounds version, keepalive, frame, receive, and stream buffers.

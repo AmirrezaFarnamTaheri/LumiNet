@@ -1,0 +1,27 @@
+{
+  "all_history": {
+    "definitions": 79941,
+    "high_signal_surfaces": 13459,
+    "module_records": 1804,
+    "surfaces": 52423,
+    "ui_product_surfaces": 2668,
+    "unique_donors": 80
+  },
+  "archive_members": 1036,
+  "baseline_files": 3219,
+  "definitions": 611,
+  "directories": 286,
+  "file_records": 750,
+  "high_signal_surfaces": 433,
+  "ledger_records": 1019,
+  "module_records": 218,
+  "outer_donors": 4,
+  "release": "post-refactor-232",
+  "repository_records": 4,
+  "semantic_value_records": 47,
+  "surfaces": 750,
+  "symlinks": 0,
+  "ui_product_surfaces": 57,
+  "unresolved_high_signal_surfaces": 0,
+  "vendored_surfaces": 77
+}

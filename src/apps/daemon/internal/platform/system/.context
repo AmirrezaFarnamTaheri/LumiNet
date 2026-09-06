@@ -1,0 +1,27 @@
+# src/apps/daemon/internal/platform/system
+
+## Purpose
+Host platform authority: transactional DNS/proxy/firewall/TUN mutations, recovery, OS inspection, and platform-specific network adapters.
+
+## Architectural role
+- Daemon dependency band: `platform` (rank 1; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (92): `agent_bus.go`, `android_jni_unix.go`, `android_jni_windows.go`, `atomic_cache_store.go`, `bridge_router.go`, `caddy.go`, `caddy_test.go`, `cloudflared_argo.go`, `control_filter.go`, `control_filter_exact_test.go`, `dns_windows.go`, `file_watcher.go` …
+- Child folders: `nat/`.
+
+## Interfaces and dependencies
+- Go package: `system`.
+- Notable exported surface: `AgentBus`, `ApplyHostNetwork`, `ArgoTunnel`, `AtomicCacheStore`, `BridgeRouter`, `CheckLocalTCPPort`, `ChildProcessGuard`, `Circuit`, `CircuitID`, `CircuitManager` …
+- Daemon-local dependencies: `internal/foundation/boundedio`, `internal/foundation/remoteaction`, `internal/platform/mobilehost`, `internal/platform/process`.
+- Direct daemon callers: `cmd`, `cmd/watchdog`, `internal/adapters/api`, `internal/analysis/netintel`, `internal/integrations/relayclient`, `internal/runtime/proxy`, `internal/runtime/runtimecore`, `internal/workflows/jobs`.
+
+## Invariants
+- Host-network mutations use the durable snapshot → recovery record → apply → verify → commit/rollback transaction.
+- Private TUN mutation seams do not escape this module.
+- `platform` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

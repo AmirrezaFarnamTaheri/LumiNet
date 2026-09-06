@@ -1,0 +1,7 @@
+donor,archive,path,target
+chutney,chutney-main.zip,networks,lib/chutney/data/networks
+chutney,chutney-main.zip,tests/chutney-as-module-tests,chutney-as-module-tests.py
+chutney,chutney-main.zip,tests/network-config-test,network-config-test.py
+chutney,chutney-main.zip,tests/network-config-tests,network-config-tests.py
+chutney,chutney-main.zip,tests/shadow-multi-host-test,shadow_multi_host_test.py
+chutney,chutney-main.zip,tests/torrc-template-tests,torrc-template-tests.py

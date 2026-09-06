@@ -1,0 +1,14 @@
+donor,archive,sha256,members,regular_files,directories,symlinks,uncompressed_bytes,max_ratio,admission_status,path_safety,crc
+Hiddify-Manager-dev,Hiddify-Manager-dev.zip,dfa1dfaecb42ef8b04ec48b54e207cbe4e082ee880da48c860aafcfde7532243,482,404,78,0,3811750,9.323,validated-before-extraction,verified,verified
+IPScanner-main,IPScanner-main.zip,d1e82df93853ea95d2d31128c798363be91c0a271a0eba2267a549d5a42cc7d1,19,15,4,0,639627,5.393,validated-before-extraction,verified,verified
+NoMoreWalls-master,NoMoreWalls-master.zip,842ef8b67824c3ea720198985d8f24f8e7a1b78ab5455ea01d0ea4bb925c841c,62,58,4,0,1885080,6.862,validated-before-extraction,verified,verified
+SenPaiScanner-main,SenPaiScanner-main.zip,3f708ac72487af2b371921c518f8f19cc787c3b04b4ff09f820d320bb0a73898,156,97,59,0,1972003,13.379,validated-before-extraction,verified,verified
+bine-master,bine-master.zip,f571052cfed13b8032121ec3d85b0c5df7f208e59fa029d003df7b31c34cec97,102,75,27,0,6071494,5.439,validated-before-extraction,verified,verified
+bridgedb-main,bridgedb-main.zip,b1abc2c56f8a96f2b0f302d9147d2113d04781129a4293f9e7713621aa9fd9c2,629,356,207,66,5000624,11.418,validated-before-extraction,verified,verified
+conjure-master,conjure-master.zip,658565c2f5fa55e41810da054f78a90020acaae0f9863ae27cd66042e1f18c78,446,352,94,0,5014098,14.753,validated-before-extraction,verified,verified
+mitmengine-master,mitmengine-master.zip,d1a9ea21875e190cd181897bde798331188a9aefe20f7afaf302cc68e6d64dc5,2781,1477,1304,0,126436668,24.138,validated-before-extraction,verified,verified
+mitmproxy-main,mitmproxy-main.zip,b8a42c63f91b582990141dc8f74a5e277764d281fc661ae95e85ac5cc966aa13,1494,1303,190,1,42821090,25.515,validated-before-extraction,verified,verified
+pion-dtls-main,pion-dtls-main.zip,3035dad0ce47887a418fac5e629386daf9745ff3ef7d604444457128fb3400b6,500,447,53,0,1317184,799.341,validated-before-extraction,verified,verified
+probe-legacy-master,probe-legacy-master.zip,66e5676c0b81c52aef24cc0b3bcf6d321dea54cea6126a4fa7109b437ae0901d,347,302,45,0,5244459,8.777,validated-before-extraction,verified,verified
+qjs-master,qjs-master.zip,7f7fcd3df74b6852409f981ee1843d636ab2510af2d99eeaf939ea082d5bb414,122,92,30,0,1601646,5.996,validated-before-extraction,verified,verified
+smux-master,smux-master.zip,ae284ba2680853fef33e276c0d23628df03e623bbe6fe0b9183875c54b0aa525,25,23,2,0,461138,5.274,validated-before-extraction,verified,verified

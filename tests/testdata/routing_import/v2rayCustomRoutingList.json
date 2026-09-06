@@ -1,0 +1,437 @@
+{
+  "version": "v2rayCustomRoutingList",
+  "description": "v2rayN custom routing rules list schema import fixture. Format: array of routingRule objects with type, value, outbound. Used for schema-validation and import round-trip tests.",
+  "rules": [
+    {
+      "type": "domain",
+      "value": ["google.com", "googleapis.com", "googleusercontent.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 1,
+      "description": "Google services"
+    },
+    {
+      "type": "domain",
+      "value": ["youtube.com", "ytimg.com", "googlevideo.com", "youtube-nocookie.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 2,
+      "description": "YouTube"
+    },
+    {
+      "type": "domain",
+      "value": ["facebook.com", "fbcdn.net", "fb.com", "messenger.com", "instagram.com", "cdninstagram.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 3,
+      "description": "Meta platforms"
+    },
+    {
+      "type": "domain",
+      "value": ["twitter.com", "twimg.com", "t.co", "x.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 4,
+      "description": "Twitter / X"
+    },
+    {
+      "type": "domain",
+      "value": ["netflix.com", "nflxvideo.net", "nflximg.net"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 5,
+      "description": "Netflix"
+    },
+    {
+      "type": "domain",
+      "value": ["openai.com", "ai.com", "chat.openai.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 6,
+      "description": "OpenAI"
+    },
+    {
+      "type": "domain",
+      "value": ["telegram.org", "t.me", "tdlib.org", "telegram.me", "tx.me"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 7,
+      "description": "Telegram"
+    },
+    {
+      "type": "domain",
+      "value": ["discord.com", "discordapp.com", "discord.media"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 8,
+      "description": "Discord"
+    },
+    {
+      "type": "domain",
+      "value": ["spotify.com", "scdn.co", "spoti.fi"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 9,
+      "description": "Spotify"
+    },
+    {
+      "type": "domain",
+      "value": ["reddit.com", "redd.it", "redditmedia.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 10,
+      "description": "Reddit"
+    },
+    {
+      "type": "domain",
+      "value": ["github.com", "githubusercontent.com", "avatars.githubusercontent.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 11,
+      "description": "GitHub"
+    },
+    {
+      "type": "domain",
+      "value": ["wikipedia.org", "wikimedia.org", "wiktionary.org"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 12,
+      "description": "Wikipedia"
+    },
+    {
+      "type": "domain",
+      "value": ["linkedin.com", "licdn.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 13,
+      "description": "LinkedIn"
+    },
+    {
+      "type": "domain",
+      "value": ["zoom.us", "zoomgov.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 14,
+      "description": "Zoom"
+    },
+    {
+      "type": "domain",
+      "value": ["amazonaws.com", "amazon.com", "aws"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 15,
+      "description": "Amazon AWS"
+    },
+    {
+      "type": "domain",
+      "value": ["icloud.com", "icloud-content.com", "mzstatic.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 16,
+      "description": "Apple iCloud"
+    },
+    {
+      "type": "domain",
+      "value": ["office.com", "office365.com", "live.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 17,
+      "description": "Microsoft 365"
+    },
+    {
+      "type": "domain",
+      "value": ["imdb.com", "media-amazon.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 18,
+      "description": "IMDb"
+    },
+    {
+      "type": "domain",
+      "value": ["store.steampowered.com", "steamcontent.com", "steamstatic.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 19,
+      "description": "Steam"
+    },
+    {
+      "type": "domain",
+      "value": ["dropbox.com", "dropboxusercontent.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 20,
+      "description": "Dropbox"
+    },
+    {
+      "type": "domain",
+      "value": ["cloudflare.com", "cloudflare.net", "1.1.1.1"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 21,
+      "description": "Cloudflare CDN"
+    },
+    {
+      "type": "domain",
+      "value": ["signal.org"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 22,
+      "description": "Signal"
+    },
+    {
+      "type": "domain",
+      "value": ["proton.me", "protonmail.com", "protonvpn.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 23,
+      "description": "Proton services"
+    },
+    {
+      "type": "domain",
+      "value": ["archive.org", "waybackmachine.org"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 24,
+      "description": "Internet Archive"
+    },
+    {
+      "type": "domain",
+      "value": ["nytimes.com"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 25,
+      "description": "NYT"
+    },
+    {
+      "type": "domain",
+      "value": ["bbc.com", "bbc.co.uk"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 26,
+      "description": "BBC"
+    },
+    {
+      "type": "domain",
+      "value": ["rferl.org"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 27,
+      "description": "RFE/RL"
+    },
+    {
+      "type": "domain",
+      "value": ["voachinese.com", "voa.gov"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 28,
+      "description": "VOA"
+    },
+    {
+      "type": "domain",
+      "value": ["*.ir"],
+      "outbound": "direct",
+      "enabled": true,
+      "priority": 50,
+      "description": "Iran TLD — direct"
+    },
+    {
+      "type": "domain",
+      "value": ["*.com.ir", "*.org.ir", "*.net.ir", "*.ac.ir", "*.gov.ir"],
+      "outbound": "direct",
+      "enabled": true,
+      "priority": 51,
+      "description": "Iranian second-level domains"
+    },
+    {
+      "type": "domain",
+      "value": ["shaparak.ir", "bpi.ir", "bpm.bpi.ir"],
+      "outbound": "direct",
+      "enabled": true,
+      "priority": 52,
+      "description": "Iranian payment gateways"
+    },
+    {
+      "type": "domain",
+      "value": ["telewebion.com", "ipradio.ir", "radio.ir"],
+      "outbound": "direct",
+      "enabled": true,
+      "priority": 53,
+      "description": "Iranian radio/TV"
+    },
+    {
+      "type": "domain",
+      "value": ["dn.se", "divar.ir", "torob.com", "bamilo.com", "digikala.com"],
+      "outbound": "direct",
+      "enabled": true,
+      "priority": 54,
+      "description": "Iranian domestic services"
+    },
+    {
+      "type": "domain",
+      "value": ["onion"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 100,
+      "description": "Tor .onion"
+    },
+    {
+      "type": "domain",
+      "value": ["*.bit", "*.bzz", "*.eth", "*.loki", "*.i2p"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 101,
+      "description": "Privacy/blockchain TLDs"
+    },
+    {
+      "type": "ip-cidr",
+      "value": ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "127.0.0.0/8"],
+      "outbound": "direct",
+      "enabled": true,
+      "priority": 200,
+      "description": "Private IP ranges — RFC 1918"
+    },
+    {
+      "type": "ip-cidr",
+      "value": ["224.0.0.0/4", "240.0.0.0/4", "255.255.255.255/32"],
+      "outbound": "direct",
+      "enabled": true,
+      "priority": 201,
+      "description": "Multicast and broadcast"
+    },
+    {
+      "type": "ip-cidr",
+      "value": ["169.254.0.0/16"],
+      "outbound": "direct",
+      "enabled": true,
+      "priority": 202,
+      "description": "Link-local (APIPA)"
+    },
+    {
+      "type": "ip-cidr",
+      "value": ["0.0.0.0/8", "100.64.0.0/10", "192.0.0.0/24", "192.0.2.0/24", "198.51.100.0/24", "203.0.113.0/24"],
+      "outbound": "direct",
+      "enabled": true,
+      "priority": 203,
+      "description": "Special-use addresses (RFC 6890)"
+    },
+    {
+      "type": "geoip",
+      "value": ["ir"],
+      "outbound": "direct",
+      "enabled": true,
+      "priority": 300,
+      "description": "Iran IP — GeoIP"
+    },
+    {
+      "type": "geoip",
+      "value": ["private"],
+      "outbound": "direct",
+      "enabled": true,
+      "priority": 301,
+      "description": "Private IP GeoIP"
+    },
+    {
+      "type": "geoip",
+      "value": ["telegram"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 400,
+      "description": "Telegram GeoIP"
+    },
+    {
+      "type": "geoip",
+      "value": ["cloudflare"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 401,
+      "description": "Cloudflare GeoIP"
+    },
+    {
+      "type": "geoip",
+      "value": ["google"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 402,
+      "description": "Google GeoIP"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:google"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 500,
+      "description": "V2RayN geosite:google"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:facebook"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 501,
+      "description": "V2RayN geosite:facebook"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:telegram-cn"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 502,
+      "description": "V2RayN geosite:telegram-cn"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:netflix"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 503,
+      "description": "V2RayN geosite:netflix"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:openai"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 504,
+      "description": "V2RayN geosite:openai"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:category-media"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 505,
+      "description": "V2RayN category-media (streaming)"
+    },
+    {
+      "type": "domain",
+      "value": ["geosite:geolocation-!ir"],
+      "outbound": "proxy",
+      "enabled": true,
+      "priority": 506,
+      "description": "V2RayN non-Iran geo"
+    },
+    {
+      "type": "domain",
+      "value": [" regexp:^.+\\.ir$"],
+      "outbound": "direct",
+      "enabled": false,
+      "priority": 999,
+      "description": "Catch-all .ir regex (disabled — use wildcard rule instead)"
+    },
+    {
+      "type": "domain",
+      "value": ["regexp:^.+\\.(ir|com\\.ir|org\\.ir)$"],
+      "outbound": "direct",
+      "enabled": false,
+      "priority": 1000,
+      "description": "Catch-all Iran regex (disabled)"
+    }
+  ],
+  "metadata": {
+    "totalRules": 55,
+    "enabledRules": 53,
+    "disabledRules": 2,
+    "lastModified": "2026-08-27T12:00:00Z",
+    "source": "v2rayN custom routing import/export"
+  }
+}

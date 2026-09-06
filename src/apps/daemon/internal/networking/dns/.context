@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/networking/dns
+
+## Purpose
+DNS resolution, DoH, DNS tunneling/support, preflight checks, and stateless smart fallback resolution.
+
+## Architectural role
+- Daemon dependency band: `networking` (rank 2; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (42): `bounded_cache.go`, `bounded_cache_test.go`, `cf_api_client.go`, `custom_zones.conf`, `ddns_bounds.go`, `ddns_bounds_test.go`, `ddns_retry_test.go`, `ddns_updater.go`, `dns_fallback.go`, `dns_fallback_test.go`, `dns_tunnel_arq.go`, `dns_tunnel_arq_test.go` …
+
+## Interfaces and dependencies
+- Go package: `dns`.
+- Notable exported surface: `ARQ`, `ARQConfig`, `ARQStreamState`, `Base64URLDecodeDNSParam`, `BogusNxDomain`, `BuildOriginCertRequest`, `BuildResolverPoolPlan`, `CacheEntry`, `CacheKey`, `CacheKeyWithECS` …
+- Daemon-local dependencies: `internal/foundation/remoteaction`, `internal/networking/geoip`, `internal/protocols/reliable`.
+- Direct daemon callers: `cmd`, `internal/adapters/api`.
+
+## Invariants
+- `networking` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

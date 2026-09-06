@@ -1,0 +1,83 @@
+# Build outputs
+/build/
+/release/
+**/target/
+**/*.exe
+**/*.dll
+**/*.so
+**/*.dylib
+**/*.syso
+
+# Frontend dependencies and generated output
+**/node_modules/
+**/*.tsbuildinfo
+**/dist/
+
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+*.apk
+*.aab
+*.aar
+
+# Apple / IDE outputs
+DerivedData/
+*.xcworkspace/xcuserdata/
+.idea/
+.vscode/
+*.iml
+
+# Local state and secrets
+.env
+.env.*
+!.env.example
+*.db
+*.db-shm
+*.db-wal
+*.log
+*.tmp
+*.bak
+*.orig
+node_creds.json
+**/node_creds*.json
+**/session_key*.bin
+**/luminet_secrets/
+.wrangler/
+.impeccable/
+
+# Credentials and key material — never commit runtime secrets
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Python and local tooling state
+__pycache__/
+*.pyc
+.venv/
+venv/
+.serena/
+.agents/
+.codegraph/
+*.swp
+*.swo
+*~
+
+# Graphify output
+.graphify/
+graph.json
+graphify-out/
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+tmp/
+
+# Provenance and Internal Porting Documentation
+PROVENANCE_CATALOG.md
+LUMIPORT_EXHAUSTIVE_PORTING_MASTER*.md
+batch_report_w2_*.md
+porting_progress*.json

@@ -1,0 +1,23 @@
+{
+  "exact_overlap_surfaces": 66,
+  "live_repairs": 1,
+  "new_archive_members": 7491,
+  "new_directories": 952,
+  "new_donors": 4,
+  "new_modules": 333,
+  "new_nested_archives": 92,
+  "new_nested_members": 10145,
+  "new_semantics": 53,
+  "new_surfaces": 6534,
+  "new_symbols": 38774,
+  "new_symlinks": 0,
+  "prior_donors": 137,
+  "release": "LumiNet post-refactor 141 donor convergence",
+  "total_directories": 7210,
+  "total_donors": 141,
+  "total_modules": 4789,
+  "total_records": 5126,
+  "total_semantics": 337,
+  "total_surfaces": 42277,
+  "total_symbols": 143859
+}

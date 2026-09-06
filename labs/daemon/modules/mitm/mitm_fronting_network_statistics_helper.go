@@ -1,0 +1,6 @@
+package mitm
+
+// Deprecated source-compatibility aliases — canonical types in mitm_fronting_network_statistics.go
+type MitmFrontingNetworkStatisticsHelper = MitmFrontingNetworkStatistics
+type MitmFrontingSlabAllocatorHelper = MitmFrontingSlabAllocator
+type MitmFrontingConnectionDiagnosticsHelper = MitmFrontingConnectionDiagnostics

@@ -1,0 +1,26 @@
+# src/apps/daemon/internal/runtime/mobilecore
+
+## Purpose
+Deep mobile runtime owner: CoreController, TUN lifecycle, canonical mobile/evasion config translation, callbacks, status, and stats. Mobilebind remains only an adapter.
+
+## Architectural role
+- Daemon dependency band: `runtime` (rank 4; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (5): `config.go`, `config_test.go`, `controller.go`, `controller_test.go`, `types.go`
+
+## Interfaces and dependencies
+- Go package: `mobilecore`.
+- Notable exported surface: `CheckVersionX`, `ConfigFromEvasion`, `ConfigToEvasion`, `CoreCallbackHandler`, `CoreController`, `DefaultConfig`, `InitCoreEnv`, `IsRunning`, `MobileConfig`, `NewCoreController` …
+- Daemon-local dependencies: `internal/foundation/trafficstats`, `internal/platform/mobilehost`, `internal/runtime/proxy`.
+- Direct daemon callers: `internal/adapters/mobilebind`.
+
+## Invariants
+- Mobile runtime lifecycle and TUN ownership live here; mobilebind is translation only.
+- Canonical evasion configuration is translated without creating a second default/state authority.
+- `runtime` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

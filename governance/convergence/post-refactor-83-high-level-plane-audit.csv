@@ -1,0 +1,13 @@
+plane,representative_donors,target_owner,disposition,result,validation_status
+endpoint selection and active-pool admission,Nova-Proxy-App-main;NovaRadar-main;mullvad-best-server-main,analysis/diagnostics + runtime quality probes,adapted/hardened,unknown/unproven endpoints no longer dispatch; repeated loss/median/jitter remains authoritative,verified
+polling relay resilience,Nova-Proxy-App-main,integrations/relayclient/relayConnState,inspired-native,bounded failure backoff absorbed into shared relay state,verified
+stream multiplexing fairness,smux-dev,runtime/proxy KCP transport,defer/reference,fair shaper retained for future protocol/performance differential; no dependency swap,reviewed
+Tor performance/privacy evaluation,onionperf-master;cellshift-main,Tor diagnostics/reference,reference-only,measurement vocabulary retained; no production trace collection authority,reviewed
+Tor multi-instance lifecycle,multitor-master,runtimecore Tor engine,guardrail-derived,single supervised Tor engine retained,reviewed
+TLS interception/domain fronting,MITM-DomainFronting-main;MITM-cheatsheet-master;Nova-Proxy-App-main,strict PKI/pin transport trust,rejected/guardrail,no local CA/forged identity authority introduced,verified
+host firewall/routing/raw spoofing,mullvad-tailscale-main;QS-Tunnel-main,platform/system HostNetworkChange,rejected/guardrail,no second privileged mutation authority,verified
+privileged deployment/installers,NginxReverseProxy-main;Marzban-scripts-master,external operator/deployment workflows,reference-only,broad root installers not absorbed,reviewed
+QUIC tunnel server,qtun-master,existing QUIC/TUIC/MASQUE transport planes,reference-only,"stateless retry/connection-limit evidence retained, no duplicate server role",reviewed
+subscription discovery/ingestion,proxy-yoinker-main,existing bounded SSRF-aware subscription ingress,superseded,no arbitrary URL scraping plane added,reviewed
+custom cryptography,qpp-main,standard cryptographic primitives,rejected,custom GPL/unsafe cipher not adopted,reviewed
+malware capability,Pitraix-main,security guardrails,rejected,no malware capabilities adopted,reviewed

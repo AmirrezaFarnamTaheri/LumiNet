@@ -1,0 +1,6 @@
+package mitm
+
+// Deprecated source-compatibility aliases — canonical types in mitm_fronting_profile_manager_diagnostics.go
+type MitmFrontingProfileManagerDiagnosticsTuning = MitmFrontingProfileManagerDiagnostics
+type MitmFrontingProfileCacheDiagnosticsTuning = MitmFrontingProfileCacheDiagnostics
+type MitmFrontingProfileDiagnosticsDiagnosticsTuning = MitmFrontingProfileDiagnosticsDiagnostics

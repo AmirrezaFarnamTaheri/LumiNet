@@ -1,0 +1,15 @@
+donor,license_posture,source_reuse_policy
+Tor-IP-Changer-main,MIT,concept/adaptation permitted with attribution; no donor packaging copied
+TorOverVPN-main,no explicit LICENSE,no source reuse; operational/negative evidence only
+Tor_Onion_Proxy_Library-master,Apache-2.0,behavioral evidence/adaptation permitted; bundled binaries remain donor artifacts
+onion-grater-master,AGPL-3+ with file-specific notices,no source reuse; security-policy evidence only
+onionbalance-develop,GPLv3,no source reuse; protocol/algorithm reference only
+onionoo-master,BSD-style,protocol/data-model reference only
+tor-android-master,mixed component licenses documented in LICENSE,behavioral/build reference only; no bundled component reuse
+tor-controller-master,Apache-2.0 top-level; large vendored dependency tree,primary-source concepts only; vendored code not reused
+tor-ramdisk-master,GPLv3,no source reuse; operational/negative evidence only
+torflow-main,BSD-style,measurement/evaluation reference only
+torps-master,BSD-style/custom US Government notice,research/evaluation reference only
+torsocks-main,GPLv2,no source reuse; behavioral guardrails/test ideas only
+tun2tor-master,MIT,concept/adaptation permitted with attribution; no donor packaging copied
+txtorcon-main,MIT,protocol/test evidence may inform independent target-native implementation

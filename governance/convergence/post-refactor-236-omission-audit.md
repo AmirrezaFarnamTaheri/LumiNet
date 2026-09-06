@@ -1,0 +1,3 @@
+# Post-refactor-236 omission audit
+
+Archive admission covers 20 outer archives, 1197 logical archive members, 938 extracted regular-file surfaces and 6 archived symlinks. Every regular file has a hash/classification/module backlink and every one of the 142 module groups has a fresh disposition with zero unresolved groups. 5653 indexed definitions resolve to donor/path/line evidence. 59 focused independently meaningful semantics plus 20 repository envelopes cover positive mechanisms, supersessions, negative guardrails, tests, fixtures, configuration, deployment, UI/product and operational material. High-signal unresolved surfaces: 0.

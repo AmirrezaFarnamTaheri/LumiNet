@@ -1,0 +1,6 @@
+donor,archive,archive_sha256,members,files,directories,symlinks,uncompressed_bytes,max_ratio,post_refactor_229_status
+hiddify-app-main,hiddify-app-main(1).zip,2c66d521932e23cf13c035fdf8f7e470a086122041fb8c5bba62d204ee43cbfd,965,694,271,0,59749090,26.85,safely-readmitted-and-byte-reverified
+MasterHttpRelayVPN-RUST-main,MasterHttpRelayVPN-RUST-main(1).zip,5d3f2ec9f8a5e4b9d788abd379aa1aa613289f0a45dcde36c10971a826709bac,292,241,51,0,195248648,4.39,safely-readmitted-and-byte-reverified
+mullvadvpn-app-main,mullvadvpn-app-main.zip,0133f629f609275bec8ded89e9d29e0306575c2414448ed870ead62a4e5665e6,9468,6455,3010,3,88854565,50.5,safely-readmitted-and-byte-reverified
+my-relay-assets-main,my-relay-assets-main.zip,17a50fea567459227ef3f73536364e1e30884ea4cd8136c4cbc1a799b284ba65,9,6,3,0,189460617,5.2,safely-readmitted-and-byte-reverified
+ProxyCloud-master,ProxyCloud-master(1).zip,c2d1f4876be647181331988ca74143303b7cc7bc27ca6f0f80d2d05b3ed05d1a,199,135,64,0,56880464,9.41,safely-readmitted-and-byte-reverified

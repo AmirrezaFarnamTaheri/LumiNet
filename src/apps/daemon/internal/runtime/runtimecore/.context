@@ -1,0 +1,26 @@
+# src/apps/daemon/internal/runtime/runtimecore
+
+## Purpose
+Long-lived daemon runtime-engine owner for Tor/Psiphon lifecycle and status; intentionally separate from temporary proxy qualification cores.
+
+## Architectural role
+- Daemon dependency band: `runtime` (rank 4; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (15): `adapters.go`, `adapters_transport_test.go`, `capability.go`, `capability_test.go`, `chaining_test.go`, `engine_lifecycle_unix_test.go`, `ikev2_engine.go`, `ikev2_engine_test.go`, `integration_unix_test.go`, `manager.go`, `manager_test.go`, `psiphon_engine.go` …
+
+## Interfaces and dependencies
+- Go package: `runtimecore`.
+- Notable exported surface: `Capability`, `DefaultManager`, `Engine`, `ErrInvalidRequest`, `Manager`, `NewManager`, `ProbeEngine`, `Request`, `Status`, `TorTransportPlugin`.
+- Daemon-local dependencies: `internal/foundation/flowregistry`, `internal/platform/process`, `internal/platform/system`.
+- Direct daemon callers: `cmd`, `internal/adapters/api`, `internal/adapters/mobilebind`.
+
+## Invariants
+- Tor/Psiphon are long-lived daemon-owned runtime adapters.
+- Runtime engine lifetime is started/stopped/joined by daemon lifetime, never HTTP request lifetime.
+- `runtime` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

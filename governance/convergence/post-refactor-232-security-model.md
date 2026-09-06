@@ -1,0 +1,3 @@
+# Post-refactor-232 security model
+
+Multipath planning starts no transports, opens no sockets, writes no packets and never silently drops queue overflow. DNS campaign planning downloads no clients, starts no workers, performs no probes and mutates no host MTU. Outline static invite unwrapping is local-only; dynamic ssconf becomes an HTTPS proposal and must later pass canonical guarded egress. DNSTT deployment planning performs no binary download, SSH/root command, key generation, firewall mutation, systemd write or restart and never returns private key material. Secret-bearing SplitPT Shadow fixtures, bundled PYDNS clients, automatic chmod/download, ambient Outline URL/clipboard authority and donor root deployment scripts remain non-authoritative.

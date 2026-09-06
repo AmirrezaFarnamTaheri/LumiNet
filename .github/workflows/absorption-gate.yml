@@ -1,0 +1,48 @@
+# R5 roadmap item: CI gate for the lumiport absorption.
+# Runs exactly the three verification commands documented in
+# lumiport/HANDOFF.md §2.5 so any regression to the absorbed code fails CI.
+name: Lumiport Absorption Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - "src/packages/lumicore/**"
+      - "src/apps/daemon/internal/networking/dns/**"
+      - "src/apps/daemon/internal/analysis/diagnostics/**"
+      - "src/apps/daemon/internal/integrations/sub/**"
+
+jobs:
+  absorption-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.26"
+
+      - name: Lumicore full test suite
+        working-directory: src/packages/lumicore
+        run: cargo test --lib
+
+      - name: Daemon build
+        working-directory: src/apps/daemon
+        run: go build ./internal/... ./cmd/...
+
+      - name: Daemon DNS suite
+        working-directory: src/apps/daemon
+        env:
+          CGO_ENABLED: "0"
+        run: go test ./internal/networking/dns/ ./internal/analysis/diagnostics/ ./internal/integrations/sub/
+
+      - name: Tag check
+        run: |
+          echo "Gate: lumiport-absorption-complete baseline must stay green."
+          echo "Baseline: 590 lumicore lib tests; daemon dns/diagnostics/sub suites pass."

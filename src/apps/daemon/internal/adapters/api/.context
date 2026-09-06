@@ -1,0 +1,28 @@
+# src/apps/daemon/internal/adapters/api
+
+## Purpose
+Gin HTTP/WebSocket adapter and served-route inventory. Translates requests into lower-module intent and reports capability truth without owning competing runtime state.
+
+## Architectural role
+- Daemon dependency band: `adapters` (rank 6; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (124): `advanced_route_truth.go`, `advanced_route_truth_test.go`, `config_mutation.go`, `config_mutation_test.go`, `doctor.go`, `doctor_context_test.go`, `handlers_capabilities.go`, `handlers_capabilities_test.go`, `handlers_circumvention_catalog.go`, `handlers_diagnostic_doctor.go`, `handlers_diagnostic_iperf.go`, `handlers_diagnostic_iperf_test.go` …
+
+## Interfaces and dependencies
+- Go package: `api`.
+- Notable exported surface: `AliveHost`, `AlwaysOKChecker`, `AntiBotInspectRequest`, `AuthMiddleware`, `BackgroundEgressConfig`, `CDNDiscoverRequest`, `CDNFrontingRequest`, `CheckResult`, `Checker`, `CheckerFunc` …
+- Daemon-local dependencies: `internal/analysis/diagnostics`, `internal/analysis/netintel`, `internal/analysis/peerdiscovery`, `internal/analysis/provider`, `internal/analysis/scanner`, `internal/foundation/capabilities`, `internal/foundation/config`, `internal/foundation/flowregistry`, `internal/foundation/pingcache`, `internal/foundation/redact`, `internal/foundation/remoteaction`, `internal/foundation/store`, `internal/foundation/trafficstats`, `internal/foundation/updateadmission`, `internal/integrations/captchaclient`, `internal/integrations/presets`, `internal/integrations/provision`, `internal/integrations/sub`, `internal/integrations/vpngate`, `internal/native/bridge`, `internal/networking/dns`, `internal/networking/dnstunnel`, `internal/networking/geoip`, `internal/networking/kcppolicy`, `internal/networking/proxyconfig`, `internal/networking/routing`, `internal/platform/process`, `internal/platform/system`, `internal/protocols/tarpit`, `internal/runtime/proxy`, `internal/runtime/routingplugin`, `internal/runtime/runtimecore`, `internal/runtime/safety`, `internal/runtime/trust`, `internal/runtime/warp`, `internal/workflows/jobs`.
+- Direct daemon callers: `cmd`.
+- External/shared imports: 1 distinct package(s); inspect source before changing dependency contracts.
+
+## Invariants
+- Gin registration plus GET /api/routes is served-route truth.
+- Request-scoped work propagates request context; handlers do not create daemon lifetime.
+- Disconnected/simulated features fail closed instead of reporting operational success.
+- `adapters` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

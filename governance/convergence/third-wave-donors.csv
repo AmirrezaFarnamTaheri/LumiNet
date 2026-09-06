@@ -1,0 +1,5 @@
+donor,archive,archive_sha256,archive_members,directories,surfaces,license,notes
+PattNG,PattNG-master.zip,ff4cf6fdd7db0052a5ebef140f42a1cc246b9f5f9be8bdf34d3d7399a2db1c1e,466,99,367,GPL-3.0,source/evidence only; no opaque donor authority imported
+PattNG-Config-Processor,PattNG-Config-Processor-main.zip,740f4c2d7cc5d1ca2a57ef079d51c2c4f0c48f7c0c36c7be1434c7318ca793b0,3,1,2,unlicensed,source/evidence only; no opaque donor authority imported
+sni-spoofing-rust,sni-spoofing-rust-main.zip,dac09557f4727a12983749223c6fb613862bd78781ed593fa66d9e0304549fa1,60,10,50,MIT,source/evidence only; no opaque donor authority imported
+purvpn,purvpn-main.zip,30c3710cf0c6e6cbf600cf8677303bd4782883e0f92b87f534e9ef1f3091db1e,49,8,41,unlicensed,source/evidence only; no opaque donor authority imported

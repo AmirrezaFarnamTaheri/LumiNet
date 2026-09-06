@@ -1,0 +1,9 @@
+{
+  "source_path": "RKh-SNI-Spoofing-main/domains.txt",
+  "source_sha256": "fe2bc79d19cf6906798ac751756a88105cf9a24326007b279d0829defeea1ef3",
+  "source_non_comment_rows": 319,
+  "validated_unique_rows": 285,
+  "invalid_rows": 0,
+  "target_record": "S6-005",
+  "target_node": "src/apps/daemon/internal/analysis/diagnostics/sni_candidates.go#CuratedSniCandidates"
+}

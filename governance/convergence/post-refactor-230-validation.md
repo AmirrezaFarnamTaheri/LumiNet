@@ -1,0 +1,21 @@
+# Post-refactor-230 validation
+
+- android_native: BLOCKED locally: Gradle wrapper/system Gradle unavailable; repository audit documents CI/release Gradle 9.5.0 provisioning
+- canonical_verify_repo: PASS in exact Makefile order; monolithic process reached the host 120-second ceiling after ultimate-convergence, then lines 145-188 were continued in bounded bands with no failed check
+- control_ui_characterization: PASS 812 checks total; post-refactor-230 adds 118 checks
+- go_declaration_integrity: PASS 1651 parsed Go files; 0 syntax errors; 0 duplicate active declarations on linux/amd64, windows/amd64, darwin/amd64, android/arm64
+- go_full_workspace: BLOCKED: repository go.work requires Go >=1.26.0 while local toolchain is Go 1.23.2
+- go_planner_harness: PASS isolated Go 1.23.2 stdlib-compatible diagnostics and netpolicy packages
+- mutation_retry_authority: PASS 1888 assertions
+- post_refactor_227_predecessor: PASS successor-frozen 43 assertions
+- post_refactor_228_predecessor: PASS successor-frozen 45 assertions
+- post_refactor_229_predecessor: PASS 333606 assertions using exact rehydrated historical donor archive bytes plus successor frozen-inventory handoff
+- post_refactor_230_convergence: PASS 182860 assertions after final successor-checker delta refresh
+- repository_audit: PASS errors=0 warnings=1 (local Android Gradle wrapper absence)
+- route_platform_native_ffi_tail: PASS route/platform/native/proxy qualification/ABI/FFI/native coverage/LumiCore link/convergence/peer gates
+- rust_native: BLOCKED: cargo/rustc unavailable locally
+- smux_runtime_compile: BLOCKED: pinned github.com/xtaci/smux v1.5.57 is not present in local Go module cache; donor source validates the exact Config field/default/bound semantics statically
+- source_context: PASS required=127 errors=0
+- topology: PASS baseline_accounted=2442/2442 errors=0
+- typescript_full_project: BLOCKED: clean source has no installed node_modules; tsc stops at missing vite/client type definitions
+- typescript_modified_files: PASS TypeScript 5.8.3 syntax/transpile diagnostics=0 for planners.ts and Operations.tsx

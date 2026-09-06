@@ -1,0 +1,13 @@
+supersession_id,peer_mechanism,sixth_order_record_ids,target_winner,reason
+S6SUP-001,Auto_Tor_IP_changer service reload,S6-001,SAFECOOKIE SIGNAL NEWNYM,avoids Tor process reload while preserving circuit-rotation outcome
+S6SUP-002,Orbot DNS truncation handler,S6-007,target DNS fallback owner + packet oracle,same fallback outcome with target lifecycle and exact packet regression evidence
+S6SUP-003,Orbot go-tun2socks bridge,S6-008,target Tun2SocksAdapter/TunRouterManager,"target owns route rollback, device lifecycle and mobile socket protection"
+S6SUP-004,RKh one-off scanner,S6-004;S6-005,bounded SNI scanner + full normalized corpus,retains repeated stability ranking and donor data under target resource/cancellation controls
+S6SUP-005,PowerShell sequential VPNGate connector,S6-006,provider directory -> runtimecore SSTP handoff,separates discovery from tunnel authority while preserving ranked operator flow
+S6SUP-006,g2ray static Codespaces files,S6-009,validated devcontainer generator,"same setup outcome is parameterized, pinned and reviewable without hidden deployment"
+S6SUP-007,Nahan monolithic Worker dashboard,S6-010;S6-011;S6-028,Profiles + Operations + canonical proxy/update owners,splits portable UX from duplicated state/config authorities
+S6SUP-008,legacy node WebSocket framing,S6-019,gorilla/websocket + ControlTransport,mature target transport owns framing/session semantics
+S6SUP-009,node-dom/gadgets/bot browser emulation,S6-020;S6-021;S6-022;S6-023;S6-024,real browser UI + inert bounded metadata parser,retains useful text/entity/extraction outcome without server-side arbitrary page execution
+S6SUP-010,abstract-tls JavaScript TLS,S6-025,Go crypto/tls + Xray/sing-box owners,target native TLS/ECH/pinning supersedes handwritten legacy stack
+S6SUP-011,awesome lists + VUMP concepts,S6-012;S6-013;S6-014;S6-017,target capability catalog + existing operator workspaces,taxonomy and management concepts become discoverability of real target features rather than copied lists/panels
+S6SUP-012,onion-route-proxy aspirational browser,S6-015;S6-016,Tor Operations + bounded diagnostics,real target actions replace unimplemented claims while random repository-churn workflow is rejected

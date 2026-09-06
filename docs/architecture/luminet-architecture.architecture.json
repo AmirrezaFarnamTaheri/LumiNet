@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "LumiNet Unified Platform Architecture",
+    "subtitle": "Cross-Platform Networking, Multi-Protocol Evasion, Native Core & Self-Healing Relay Mesh",
+    "output": "docs/architecture/luminet-architecture.html",
+    "visual_preset": "blueprint",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "control-path",
+        "label": "Operator Control & Configuration Flow",
+        "focus": ["desktop_app", "control_ui", "gin_api", "cgo_bridge", "mesh_coordinator"],
+        "note": "Management commands pass from desktop/web UIs through the Gin gateway to the native core."
+      },
+      {
+        "id": "evasion-flow",
+        "label": "DPI Evasion & Mobile Tunnel Pipeline",
+        "focus": ["android_client", "supervisor", "cgo_bridge", "evasion_pipeline", "nat_traversal"],
+        "note": "Raw network packets from Android TUN are routed into userspace DPI desynchronization."
+      },
+      {
+        "id": "mesh-egress",
+        "label": "Zero-Trust Mesh & Encrypted Egress",
+        "focus": ["rule_evaluator", "mesh_coordinator", "traffic_inspector", "masque_tunnel", "relay_mesh"],
+        "note": "Evaluated traffic is dispatched across WireGuard mesh peers and MASQUE HTTP/3 tunnels."
+      }
+    ]
+  },
+  "components": [
+    { "id": "desktop_app", "type": "external", "label": "Desktop Console", "sublabel": "Wails v3 + WebView2", "pos": [50, 160], "size": [140, 64], "tag": "Desktop UI" },
+    { "id": "control_ui", "type": "external", "label": "Control UI", "sublabel": "React 19 + TypeScript", "pos": [50, 310], "size": [140, 64], "tag": "Browser Web" },
+    { "id": "android_client", "type": "external", "label": "Android Engine", "sublabel": "Kotlin + VpnService", "pos": [50, 460], "size": [140, 64], "tag": "Mobile App" },
+
+    { "id": "gin_api", "type": "security", "label": "API Gateway", "sublabel": "Gin REST + WebSocket", "pos": [270, 230], "size": [140, 64], "tag": "Local Server" },
+    { "id": "supervisor", "type": "backend", "label": "Proxy Supervisor", "sublabel": "Autonomous Circuit-Breaker", "pos": [270, 390], "size": [140, 64], "tag": "Go Daemon" },
+
+    { "id": "cgo_bridge", "type": "backend", "label": "CGO Native Bridge", "sublabel": "Zero-Copy Memory Buffer", "pos": [490, 230], "size": [140, 64], "tag": "C ABI" },
+    { "id": "rule_evaluator", "type": "backend", "label": "Rule Engine", "sublabel": "Async Multi-Condition", "pos": [490, 390], "size": [140, 64], "tag": "Routing" },
+
+    { "id": "mesh_coordinator", "type": "backend", "label": "Mesh Coordinator", "sublabel": "WireGuard IPAM + DERP", "pos": [720, 160], "size": [150, 64], "tag": "Rust Core" },
+    { "id": "evasion_pipeline", "type": "security", "label": "Evasion Pipeline", "sublabel": "SNI Desync + Fragmentation", "pos": [720, 310], "size": [150, 64], "tag": "DPI Bypass" },
+    { "id": "traffic_inspector", "type": "backend", "label": "Traffic Inspector", "sublabel": "Multi-Protocol SOCKS5", "pos": [720, 460], "size": [150, 64], "tag": "L4/L7 Engine" },
+
+    { "id": "masque_tunnel", "type": "cloud", "label": "MASQUE Tunnel", "sublabel": "HTTP/3 Datagram Capsules", "pos": [960, 160], "size": [150, 64], "tag": "QUIC Relay" },
+    { "id": "nat_traversal", "type": "cloud", "label": "NAT Traversal", "sublabel": "STUN Hole-Punching", "pos": [960, 310], "size": [150, 64], "tag": "P2P Overlay" },
+    { "id": "relay_mesh", "type": "cloud", "label": "Global Relay Mesh", "sublabel": "Self-Healing Node Pool", "pos": [960, 460], "size": [150, 64], "tag": "Egress" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Presentation & Client Tier", "wraps": ["desktop_app", "control_ui", "android_client"] },
+    { "kind": "security-group", "label": "Local Application Daemon (Go Engine)", "wraps": ["gin_api", "supervisor", "cgo_bridge", "rule_evaluator"] },
+    { "kind": "region", "label": "Pure Rust Core (lumicore Engine)", "wraps": ["mesh_coordinator", "evasion_pipeline", "traffic_inspector"] },
+    { "kind": "security-group", "label": "Encrypted Egress & Distributed Relay Network", "wraps": ["masque_tunnel", "nat_traversal", "relay_mesh"] }
+  ],
+  "connections": [
+    { "id": "desktop-to-api", "from": "desktop_app", "to": "gin_api", "label": "IPC / REST" },
+    { "id": "web-to-api", "from": "control_ui", "to": "gin_api", "label": "WebSocket" },
+    { "id": "android-to-sup", "from": "android_client", "to": "supervisor", "label": "TUN Packets", "variant": "emphasis" },
+    { "id": "api-to-cgo", "from": "gin_api", "to": "cgo_bridge", "label": "Native Call", "variant": "emphasis" },
+    { "id": "sup-to-rules", "from": "supervisor", "to": "rule_evaluator", "label": "Dispatch" },
+    { "id": "cgo-to-mesh", "from": "cgo_bridge", "to": "mesh_coordinator", "label": "WireGuard", "variant": "security" },
+    { "id": "cgo-to-evasion", "from": "cgo_bridge", "to": "evasion_pipeline", "label": "Raw Buffer", "variant": "emphasis" },
+    { "id": "rules-to-inspector", "from": "rule_evaluator", "to": "traffic_inspector", "label": "Inspect", "variant": "dashed" },
+    { "id": "mesh-to-masque", "from": "mesh_coordinator", "to": "masque_tunnel", "label": "H3 Encapsulate", "variant": "security" },
+    { "id": "evasion-to-nat", "from": "evasion_pipeline", "to": "nat_traversal", "label": "Scrambled", "variant": "emphasis" },
+    { "id": "inspector-to-relay", "from": "traffic_inspector", "to": "relay_mesh", "label": "Dynamic Route" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Multi-Language Architecture",
+      "items": [
+        "Rust Core (lumicore) provides low-level packet crafting, crypto, and memory-safe FFI",
+        "Go Daemon manages OS processes, REST/WebSocket APIs, and supervisory lifecycles",
+        "Android (Kotlin) and Web/Desktop (React/TypeScript) deliver responsive native controls"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Advanced DPI Evasion & Stealth",
+      "items": [
+        "Active evasion: Out-of-band fake packets, split TCP framing, and TLS SNI fragmentation",
+        "Next-generation transports: RFC 9298 MASQUE HTTP/3 UDP datagram capsules with AmneziaWG padding",
+        "Zero-trust WireGuard mesh with dynamic NAT hole-punching for censorship-resistant routing"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Autonomous Self-Healing Operation",
+      "items": [
+        "Circuit-breaker failover automatically rotates dead relays and manages cooldown recovery",
+        "Continuous latency, packet loss, and jitter evaluation ensures optimal outbound path selection",
+        "Dynamic community feeds and subscription updates automatically verified and transpiled"
+      ]
+    }
+  ]
+}

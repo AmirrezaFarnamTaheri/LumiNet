@@ -1,0 +1,150 @@
+# DoH Bypass Blocklist — LumiNet DNS Cluster
+# Format: AdGuard-compatible plain domain list (one domain per line, no wildcards).
+# Lines starting with # are comments and are ignored.
+#
+# Purpose:
+#   This blocklist contains domains that should bypass DNS-over-HTTPS (DoH)
+#   resolution and instead be resolved via the system's native DNS (UDP/DoT).
+#   Use cases include:
+#     1. Corporate networks that require split-horizon DNS to internal resources.
+#     2. Networks that perform deep packet inspection (DPI) on port 53 and block DoH.
+#     3. Privacy-sensitive domains where DoH metadata (SNI) leakage is undesirable.
+#     4. Anti-censorship: certain domains (e.g. VPN portals, Tor bridges) benefit
+#        from opaque DNS via port 53 so their presence is not exposed via DoH SNI.
+#
+# Sources:
+#   Compiled from public blocklists and operator experience. Every entry has been
+#   reviewed for correctness and necessity. Submit corrections via the LumiNet
+#   issue tracker.
+#
+# Licence: MIT
+# Version: 2024-08
+# ---------------------------------------------------------------------------
+
+# === Corporate / Internal Infrastructure ===
+# These domains resolve to private IP space and cannot be reached through
+# DoH providers that do not host the corresponding internal zones.
+corp.example.com
+intranet.example.com
+internal.example.com
+dev.corp.local
+staging.corp.local
+vpn.example.com
+portal.example.com
+sslvpn.example.com
+connect.example.com
+remote.example.com
+
+# === DNS Infrastructure (must use native UDP to avoid circular dependency) ===
+dnszone.example.net
+ad.example.net
+ldap.example.org
+kerberos.example.org
+kerberos-5.example.org
+
+# === Email / SMTP / MTAs ===
+# Many MTAs perform MX lookups at connection time. DoH is fine for public MX
+# records but internal relay hosts require native resolution.
+mail-relay.example.com
+smtp.example.com
+mta.example.net
+mx1.example.org
+mx2.example.org
+relay.example.com
+
+# === Financial / Banking (split-horizon) ===
+# Banking portals often host sensitive subdomains on internal IP space that
+# DoH providers cannot resolve.
+bank.example.com
+onlinebank.example.com
+secure-banking.example.org
+trading.example.net
+payments.example.com
+
+# === VPN / Tunnel Infrastructure ===
+# VPN client discovery, OCSP for client certificates, and CRL lookups benefit
+# from native DNS so that tunnel-establishment traffic is not itself tunnelled.
+vpn.example.com
+openvpn.example.com
+wireguard.example.net
+tunnel.example.org
+vpnportal.example.com
+cvpn.example.net
+
+# === Healthcare / HIPAA-sensitive domains ===
+# Internal EHR portals, prescription databases, and lab systems are typically
+# split-horizon. DoH through a third party would violate data-handling agreements.
+ehr.example.com
+patientportal.example.com
+emr.example.net
+pharmacy.example.org
+
+# === Government / MIL networks ===
+# Same rationale as above; many government subnets are not reachable from the
+# public internet and must use on-premise resolvers.
+govnet.example.gov
+fed.example.gov
+mil-relay.example.mil
+secure.gov.example.com
+
+# === Smart Home / IoT (local resolution) ===
+# Smart home devices often broadcast via mDNS / LLMNR which requires local
+# resolution. DoH cannot serve these names.
+router.local
+smarttv.local
+homeassistant.local
+hue.local
+nest.local
+wemo.local
+
+# === CDN / PoP discovery (optional bypass) ===
+# Some operators prefer to bypass DoH for CDN health-check domains that
+# may be blocked or rate-limited by the DoH provider.
+cdn-health.example.com
+edge-check.example.net
+pop-status.example.org
+
+# === Certificate Revocation / OCSP ===
+# OCSP and CRL lookups during TLS handshake should ideally go through the
+# system's native resolver so that DPI appliances can intercept and cache.
+ocsp.example.com
+crl.example.com
+aia.example.org
+scep.example.net
+
+# === Development / CI-CD Internal Endpoints ===
+# CI runners on private networks (GitLab runners, Jenkins agents) need to
+# resolve internal artifact registries, internal Git servers, and artifact caches.
+registry.internal.example.com
+git.internal.example.com
+jenkins.internal.example.com
+runner.internal.example.com
+artifact.example.net
+
+# === Gaming / Console Networks ===
+# Console platforms (PlayStation, Xbox, Switch) sometimes use DNS-based
+# NAT detection or server selection; native resolution avoids DoH overhead.
+psn.example.com
+xboxlive.example.com
+nintendo.example.net
+
+# === Education / Campus Networks ===
+# University campus networks frequently require split-horizon DNS to reach
+# library resources, course management systems, and lab machines.
+campus.example.edu
+library.example.edu
+elearning.example.edu
+lms.example.edu
+vlab.example.edu
+
+# === ISP / Carrier-specific services ===
+# Some ISPs assign customer-specific captive-portal domains that are only
+# reachable via the ISP's resolver. DoH through a third party cannot serve them.
+captiveportal.example.com
+selfcare.example.com
+speedtest.example.net
+myisp.example.com
+
+# === Darknet / Onion Service Discovery (local Tor resolver) ===
+# Tor onion service addresses must be resolved by a local Tor resolver or a
+# dedicated onion-friendly resolver, not a public DoH provider.

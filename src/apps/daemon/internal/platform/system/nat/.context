@@ -1,0 +1,26 @@
+# src/apps/daemon/internal/platform/system/nat
+
+## Purpose
+Host platform authority: transactional DNS/proxy/firewall/TUN mutations, recovery, OS inspection, and platform-specific network adapters.
+
+## Architectural role
+- Daemon dependency band: `platform` (rank 1; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (15): `nat.go`, `nat_traversal_unix.go`, `nat_traversal_windows.go`, `packet_checksum.go`, `packet_defrag.go`, `packet_defrag_test.go`, `packet_icmp.go`, `packet_ip.go`, `packet_tcp.go`, `packet_tcpip.go`, `packet_udp.go`, `table.go` …
+
+## Interfaces and dependencies
+- Go package: `nat`.
+- Notable exported surface: `BroadcastAddr`, `Checksum`, `ICMPPacket`, `ICMPType`, `IPFlow`, `IPProtocol`, `IPv4Defragmenter`, `IPv4HeaderSize`, `IPv4Packet`, `IsIPv4` …
+- Daemon-local dependencies: none.
+- Direct daemon callers: `internal/platform/mobilehost`.
+
+## Invariants
+- Host-network mutations use the durable snapshot → recovery record → apply → verify → commit/rollback transaction.
+- Private TUN mutation seams do not escape this module.
+- `platform` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

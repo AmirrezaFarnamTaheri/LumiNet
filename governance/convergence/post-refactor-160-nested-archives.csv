@@ -1,0 +1,3 @@
+donor,path,sha256,size_bytes
+nexvpn-main,src-tauri/gen/android/gradle/wrapper/gradle-wrapper.jar,e996d452d2645e70c01c11143ca2d3742734a28da2bf61f25c82bdc288c9e637,59203
+rethink-app-main,gradle/wrapper/gradle-wrapper.jar,91a239400bb638f36a1795d8fdf7939d532cdc7d794d1119b7261aac158b1e60,60756

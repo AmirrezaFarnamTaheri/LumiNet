@@ -1,0 +1,7 @@
+package mitm
+
+// Deprecated compatibility aliases. The canonical implementation lives in
+// mitm_fronting_bandwidth_shaper.go.
+type MitmFrontingBandwidthShaperTuningHelper = MitmFrontingBandwidthShaper
+type MitmFrontingSocks5ServerConfigTuningHelper = MitmFrontingSocks5ServerConfig
+type MitmFrontingHttpTunnelConfigTuningHelper = MitmFrontingHttpTunnelConfig

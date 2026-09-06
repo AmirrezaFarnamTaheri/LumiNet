@@ -1,0 +1,24 @@
+{
+  "definitions": 89062,
+  "high_signal_surfaces": 42797,
+  "module_records": 2966,
+  "release": "post-refactor-234",
+  "surfaces": 84625,
+  "ui_product_surfaces": 3195,
+  "unique_donors": 103,
+  "wave_234": {
+    "active_donor_revisions": 13,
+    "archive_members": 29293,
+    "definitions": 5564,
+    "directories": 1016,
+    "exact_historical_reuploads": 2,
+    "high_signal_surfaces": 2061,
+    "module_records": 921,
+    "semantic_value_records": 29,
+    "submitted_archives": 15,
+    "surfaces": 3769,
+    "symlinks": 4,
+    "ui_product_surfaces": 299,
+    "vendored_surfaces": 156
+  }
+}

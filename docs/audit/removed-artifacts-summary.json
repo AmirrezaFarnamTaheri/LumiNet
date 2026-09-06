@@ -1,0 +1,8 @@
+{
+  "baseline_root": "/mnt/data/LumiNet_work",
+  "clean_root": "/mnt/data/LumiNet_improved",
+  "removed_file_count": 5384,
+  "removed_bytes": 317069837,
+  "removed_mib": 302.38,
+  "rule": "Only reproducible dependencies, compiled outputs, caches, nested VCS metadata, and local tool state were excluded."
+}

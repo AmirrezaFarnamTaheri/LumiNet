@@ -1,0 +1,14 @@
+{
+  "archive_members": 1871,
+  "directories": 323,
+  "donors": 23,
+  "files": 1548,
+  "focused_file_records": 992,
+  "focused_module_records": 118,
+  "high_signal_surfaces": 992,
+  "high_signal_without_focused_record": 0,
+  "semantic_records": 1133,
+  "surfaces": 1548,
+  "symbols": 7255,
+  "symlinks": 0
+}

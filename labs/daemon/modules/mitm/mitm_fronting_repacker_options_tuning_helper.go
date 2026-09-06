@@ -1,0 +1,6 @@
+package mitm
+
+// Deprecated source-compatibility aliases — canonical types in mitm_fronting_repacker_options.go
+type MitmFrontingRepackerOptionsTuningHelper = MitmFrontingRepackerOptions
+type MitmFrontingTLSCertStoreTuningHelper = MitmFrontingTLSCertStore
+type MitmFrontingCongestionConfigTuningHelper = MitmFrontingCongestionConfig

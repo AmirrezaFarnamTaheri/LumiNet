@@ -1,0 +1,243 @@
+donor,path,file_sha256,language,kind,name,line,snippet
+mitmengine-master,cmd/demo/main.go,5430b3a791763def30c701d9b08dd49dafafdc5a4bfeafbd3e06ffbbe95ee452,go,func,main,18,func main() {
+mitmengine-master,cmd/mergedb/main.go,49a02be767ec91ef5879ea2f039a1e5e24f71b52cece418f85bcda63fafa385b,go,var,outDir,14,"var outDir = filepath.Join(""mergedb"")"
+mitmengine-master,cmd/mergedb/main.go,49a02be767ec91ef5879ea2f039a1e5e24f71b52cece418f85bcda63fafa385b,go,var,mitmConfig,15,var mitmConfig = mitmengine.Config{
+mitmengine-master,cmd/mergedb/main.go,49a02be767ec91ef5879ea2f039a1e5e24f71b52cece418f85bcda63fafa385b,go,func,askUser,21,"func askUser(scanner *bufio.Scanner, message string) bool {"
+mitmengine-master,cmd/mergedb/main.go,49a02be767ec91ef5879ea2f039a1e5e24f71b52cece418f85bcda63fafa385b,go,func,main,33,func main() {
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,type,Database,13,type Database struct {
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,func,NewDatabase,18,"func NewDatabase(input io.Reader) (Database, error) {"
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,func,Load,27,func (a *Database) Load(input io.Reader) error {
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,func,Len,54,func (a *Database) Len() int {
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,func,Add,59,func (a *Database) Add(record Record) int {
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,func,Clear,65,func (a *Database) Clear() {
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,func,Dump,70,func (a Database) Dump(output io.Writer) error {
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,func,GetByRequestFingerprint,82,func (a Database) GetByRequestFingerprint(requestFingerprint fp.RequestFingerprint) []int {
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,func,GetByUAFingerprint,91,func (a Database) GetByUAFingerprint(uaFingerprint fp.UAFingerprint) []int {
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,func,GetBy,96,func (a Database) GetBy(getFunc func(Record) bool) []int {
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,func,DeleteBy,107,func (a *Database) DeleteBy(deleteFunc func(Record) bool) {
+mitmengine-master,db/db.go,8651a1f303c948d140f4074d2f7844e27c8e49c6027cfd4eeadc67b92f74515c,go,func,MergeBy,115,"func (a *Database) MergeBy(mergeFunc func(Record, Record) bool) (int, int) {"
+mitmengine-master,db/db_test.go,4a731502db3cf918d9433e7292b4a0b68603cbac5729c7c4fe9621fe660fda21,go,func,TestNewDatabase,12,func TestNewDatabase(t *testing.T) {
+mitmengine-master,db/db_test.go,4a731502db3cf918d9433e7292b4a0b68603cbac5729c7c4fe9621fe660fda21,go,func,TestDatabaseLoad,17,func TestDatabaseLoad(t *testing.T) {
+mitmengine-master,db/db_test.go,4a731502db3cf918d9433e7292b4a0b68603cbac5729c7c4fe9621fe660fda21,go,func,TestDatabaseAdd,23,func TestDatabaseAdd(t *testing.T) {
+mitmengine-master,db/db_test.go,4a731502db3cf918d9433e7292b4a0b68603cbac5729c7c4fe9621fe660fda21,go,func,TestDatabaseClear,32,func TestDatabaseClear(t *testing.T) {
+mitmengine-master,db/db_test.go,4a731502db3cf918d9433e7292b4a0b68603cbac5729c7c4fe9621fe660fda21,go,func,TestDatabaseGetByUAFingerprint,41,func TestDatabaseGetByUAFingerprint(t *testing.T) {
+mitmengine-master,db/db_test.go,4a731502db3cf918d9433e7292b4a0b68603cbac5729c7c4fe9621fe660fda21,go,func,TestDatabaseGetByRequestFingerprint,59,func TestDatabaseGetByRequestFingerprint(t *testing.T) {
+mitmengine-master,db/record.go,2d5c888bf3b3ab8e9c73194b58062f5a9e3df718e5a0f0673de2ea8c430faa9f,go,type,Record,11,type Record struct {
+mitmengine-master,db/record.go,2d5c888bf3b3ab8e9c73194b58062f5a9e3df718e5a0f0673de2ea8c430faa9f,go,func,Parse,18,func (a *Record) Parse(s string) error {
+mitmengine-master,db/record.go,2d5c888bf3b3ab8e9c73194b58062f5a9e3df718e5a0f0673de2ea8c430faa9f,go,func,String,36,func (a Record) String() string {
+mitmengine-master,db/record.go,2d5c888bf3b3ab8e9c73194b58062f5a9e3df718e5a0f0673de2ea8c430faa9f,go,func,Merge,41,func (a Record) Merge(b Record) (merged Record) {
+mitmengine-master,fputil/ciphercheck.go,bc1336e6049387e72a51691a89a60523409a4e08b0ac10a4f6b939d692be9b70,go,var,GlobalCipherCheck,8,var GlobalCipherCheck = NewCipherCheck()
+mitmengine-master,fputil/ciphercheck.go,bc1336e6049387e72a51691a89a60523409a4e08b0ac10a4f6b939d692be9b70,go,type,CipherCheck,15,type CipherCheck struct {
+mitmengine-master,fputil/ciphercheck.go,bc1336e6049387e72a51691a89a60523409a4e08b0ac10a4f6b939d692be9b70,go,func,NewCipherCheck,25,func NewCipherCheck() CipherCheck {
+mitmengine-master,fputil/ciphercheck.go,bc1336e6049387e72a51691a89a60523409a4e08b0ac10a4f6b939d692be9b70,go,func,AnyTriviallyBroken,54,func (a CipherCheck) AnyTriviallyBroken(cipherList IntList) bool {
+mitmengine-master,fputil/ciphercheck.go,bc1336e6049387e72a51691a89a60523409a4e08b0ac10a4f6b939d692be9b70,go,func,AnyKnownAttack,64,func (a CipherCheck) AnyKnownAttack(cipherList IntList) bool {
+mitmengine-master,fputil/ciphercheck.go,bc1336e6049387e72a51691a89a60523409a4e08b0ac10a4f6b939d692be9b70,go,func,Grade,74,func (a CipherCheck) Grade(cipherList IntList) Grade {
+mitmengine-master,fputil/ciphercheck.go,bc1336e6049387e72a51691a89a60523409a4e08b0ac10a4f6b939d692be9b70,go,func,IsFirstPfs,100,func (a CipherCheck) IsFirstPfs(cipherList IntList) bool {
+mitmengine-master,fputil/ciphercheck.go,bc1336e6049387e72a51691a89a60523409a4e08b0ac10a4f6b939d692be9b70,go,var,cipherCheckData,117,var cipherCheckData = []struct {
+mitmengine-master,fputil/ciphercheck_test.go,ebcd5e43273ee5a42cd4e3c561d447a9d2f13aaf6ae2f0ba80643b9b0ecdb51d,go,func,TestCipherCheckAnyTriviallyBroken,10,func TestCipherCheckAnyTriviallyBroken(t *testing.T) {
+mitmengine-master,fputil/ciphercheck_test.go,ebcd5e43273ee5a42cd4e3c561d447a9d2f13aaf6ae2f0ba80643b9b0ecdb51d,go,func,TestCipherCheckAnyKnownAttack,34,func TestCipherCheckAnyKnownAttack(t *testing.T) {
+mitmengine-master,fputil/ciphercheck_test.go,ebcd5e43273ee5a42cd4e3c561d447a9d2f13aaf6ae2f0ba80643b9b0ecdb51d,go,func,TestCipherCheckGrade,58,func TestCipherCheckGrade(t *testing.T) {
+mitmengine-master,fputil/ciphercheck_test.go,ebcd5e43273ee5a42cd4e3c561d447a9d2f13aaf6ae2f0ba80643b9b0ecdb51d,go,func,TestCipherCheckIsFirstPfs,82,func TestCipherCheckIsFirstPfs(t *testing.T) {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,type,IntList,15,type IntList []int
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,type,IntSet,18,type IntSet struct {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,NewIntList,24,"func NewIntList(s string) (IntList, error) {"
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Parse,31,func (a *IntList) Parse(s string) error {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,String,52,func (a *IntList) String() string {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Contains,64,func (a IntList) Contains(b IntList) bool {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Equals,82,func (a IntList) Equals(b IntList) bool {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Set,95,func (a IntList) Set() *IntSet {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,String,109,func (a *IntSet) String() string {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Len,121,func (a *IntSet) Len() int {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Insert,133,func (a *IntSet) Insert(elem int) {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Equal,142,func (a *IntSet) Equal(b *IntSet) bool {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Has,155,func (a *IntSet) Has(elem int) bool {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,IsEmpty,167,func (a *IntSet) IsEmpty() bool {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Clear,179,func (a *IntSet) Clear() {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,List,188,func (a *IntSet) List() IntList {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Copy,200,func (a *IntSet) Copy(b *IntSet) {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Inter,211,func (a *IntSet) Inter(b *IntSet) *IntSet {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Diff,224,func (a *IntSet) Diff(b *IntSet) *IntSet {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Union,237,func (a *IntSet) Union(b *IntSet) *IntSet {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,type,StringList,251,type StringList []string
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,type,StringSet,254,type StringSet map[string]bool
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,NewStringList,257,"func NewStringList(s string) (StringList, error) {"
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Parse,264,func (a *StringList) Parse(s string) error {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,String,273,func (a StringList) String() string {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Contains,285,func (a StringList) Contains(b StringList) bool {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Equals,303,func (a StringList) Equals(b StringList) bool {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Set,316,func (a StringList) Set() StringSet {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,List,325,func (a StringSet) List() StringList {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Inter,337,func (a StringSet) Inter(b StringSet) StringSet {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Diff,348,func (a StringSet) Diff(b StringSet) StringSet {
+mitmengine-master,fputil/collection.go,1d02c0c19d1c7d4caee20bb573bde1800b16c90b50aa62ad2d62798cf7b14de5,go,func,Union,359,func (a StringSet) Union(b StringSet) StringSet {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestIntListParse,11,func TestIntListParse(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestIntListString,28,func TestIntListString(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestIntListContains,43,func TestIntListContains(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestIntListEquals,69,func TestIntListEquals(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestIntListSet,95,func TestIntListSet(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestIntSetList,111,func TestIntSetList(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestIntSetInter,127,func TestIntSetInter(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestIntSetDiff,146,func TestIntSetDiff(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestIntSetUnion,165,func TestIntSetUnion(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestStringListParse,185,func TestStringListParse(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestStringListString,202,func TestStringListString(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestStringListContains,217,func TestStringListContains(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestStringListEquals,243,func TestStringListEquals(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestStringListSet,269,func TestStringListSet(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestStringSetList,285,func TestStringSetList(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestStringSetInter,300,func TestStringSetInter(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestStringSetDiff,316,func TestStringSetDiff(t *testing.T) {
+mitmengine-master,fputil/collection_test.go,d1bb744fbc96f54524549cab49a5fcbc8608cbeaf651b493c7a260265f43dfd8,go,func,TestStringSetUnion,332,func TestStringSetUnion(t *testing.T) {
+mitmengine-master,fputil/grade.go,5279cf6a10490c42daec4e4cf137af0003c88f7f542ba69a04639e63e5cde08e,go,type,Grade,6,type Grade uint8
+mitmengine-master,fputil/grade.go,5279cf6a10490c42daec4e4cf137af0003c88f7f542ba69a04639e63e5cde08e,go,func,String,9,func (a Grade) String() string {
+mitmengine-master,fputil/grade.go,5279cf6a10490c42daec4e4cf137af0003c88f7f542ba69a04639e63e5cde08e,go,func,Merge,27,func (a Grade) Merge(b Grade) Grade {
+mitmengine-master,fputil/grade_test.go,c02969665b35a43e2825d6d2eb58602f9fe919b2ca434c6e7e61883a4ba957bc,go,func,TestGradeString,10,func TestGradeString(t *testing.T) {
+mitmengine-master,fputil/grade_test.go,c02969665b35a43e2825d6d2eb58602f9fe919b2ca434c6e7e61883a4ba957bc,go,func,TestGradeMerge,29,func TestGradeMerge(t *testing.T) {
+mitmengine-master,fputil/match.go,921fab3a58144d9355e0c6bf957ec8d75cad096f88cbf0821f38e420ccb65144,go,type,Match,7,type Match uint8
+mitmengine-master,fputil/match.go,921fab3a58144d9355e0c6bf957ec8d75cad096f88cbf0821f38e420ccb65144,go,func,String,10,func (a Match) String() string {
+mitmengine-master,fputil/match_test.go,9549a9552ebaab000813584dce8225a9a305e76911325babd1799548ea1de6cf,go,func,TestMatchString,10,func TestMatchString(t *testing.T) {
+mitmengine-master,fputil/mitminfo.go,6ebe052fbcc8efbda02cb11be8ee750eecdb4865a923617b7c52fdd8e9eef180,go,type,MitmInfo,21,type MitmInfo struct {
+mitmengine-master,fputil/mitminfo.go,6ebe052fbcc8efbda02cb11be8ee750eecdb4865a923617b7c52fdd8e9eef180,go,func,String,28,func (a MitmInfo) String() string {
+mitmengine-master,fputil/mitminfo.go,6ebe052fbcc8efbda02cb11be8ee750eecdb4865a923617b7c52fdd8e9eef180,go,func,NewMitmInfo,33,"func NewMitmInfo(s string) (MitmInfo, error) {"
+mitmengine-master,fputil/mitminfo.go,6ebe052fbcc8efbda02cb11be8ee750eecdb4865a923617b7c52fdd8e9eef180,go,func,Parse,40,func (a *MitmInfo) Parse(s string) error {
+mitmengine-master,fputil/mitminfo.go,6ebe052fbcc8efbda02cb11be8ee750eecdb4865a923617b7c52fdd8e9eef180,go,func,Merge,75,func (a MitmInfo) Merge(b MitmInfo) MitmInfo {
+mitmengine-master,fputil/mitminfo.go,6ebe052fbcc8efbda02cb11be8ee750eecdb4865a923617b7c52fdd8e9eef180,go,func,Match,93,func (a MitmInfo) Match(b MitmInfo) Match {
+mitmengine-master,fputil/mitminfo.go,6ebe052fbcc8efbda02cb11be8ee750eecdb4865a923617b7c52fdd8e9eef180,go,var,mitmNames,101,var mitmNames = []string{
+mitmengine-master,fputil/mitminfo_test.go,65a53f344cdf384709be8e6a1455a15ad2568b31b9d8733313061b1458140e24,go,func,TestNewMitmInfo,10,func TestNewMitmInfo(t *testing.T) {
+mitmengine-master,fputil/mitminfo_test.go,65a53f344cdf384709be8e6a1455a15ad2568b31b9d8733313061b1458140e24,go,func,TestMitmInfoString,26,func TestMitmInfoString(t *testing.T) {
+mitmengine-master,fputil/mitminfo_test.go,65a53f344cdf384709be8e6a1455a15ad2568b31b9d8733313061b1458140e24,go,func,TestMitmInfoMerge,40,func TestMitmInfoMerge(t *testing.T) {
+mitmengine-master,fputil/mitminfo_test.go,65a53f344cdf384709be8e6a1455a15ad2568b31b9d8733313061b1458140e24,go,func,TestMitmInfoMatch,53,func TestMitmInfoMatch(t *testing.T) {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,type,RequestFingerprint,62,type RequestFingerprint struct {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,NewRequestFingerprint,73,"func NewRequestFingerprint(s string) (RequestFingerprint, error) {"
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Parse,80,func (a *RequestFingerprint) Parse(s string) error {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,String,117,func (a RequestFingerprint) String() string {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,type,RequestSignature,131,type RequestSignature struct {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,type,VersionSignature,148,type VersionSignature struct {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,type,IntSignature,155,type IntSignature struct {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,type,StringSignature,164,type StringSignature struct {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,NewRequestSignature,173,"func NewRequestSignature(s string) (RequestSignature, error) {"
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Parse,180,func (a *RequestSignature) Parse(s string) error {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Grade,217,func (a *RequestSignature) Grade() Grade {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,IsPfs,226,func (a *RequestSignature) IsPfs() bool {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Parse,235,func (a *VersionSignature) Parse(s string) error {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,NewVersionSignature,280,"func NewVersionSignature(s string) (VersionSignature, error) {"
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,NewIntSignature,287,"func NewIntSignature(s string) (IntSignature, error) {"
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,NewStringSignature,294,"func NewStringSignature(s string) (StringSignature, error) {"
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Parse,301,func (a *IntSignature) Parse(s string) error {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Parse,364,func (a *StringSignature) Parse(s string) error {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,String,422,func (a RequestSignature) String() string {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,String,435,func (a VersionSignature) String() string {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,String,447,func (a IntSignature) String() string {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,String,486,func (a StringSignature) String() string {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Merge,525,func (a RequestSignature) Merge(b RequestSignature) (merged RequestSignature) {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Merge,539,func (a VersionSignature) Merge(b VersionSignature) (merged VersionSignature) {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Merge,560,func (a IntSignature) Merge(b IntSignature) (merged IntSignature) {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Merge,639,func (a StringSignature) Merge(b StringSignature) (merged StringSignature) {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Match,714,"func (a RequestSignature) Match(fingerprint RequestFingerprint) (Match, int) {"
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,MatchMap,732,"func (a RequestSignature) MatchMap(fingerprint RequestFingerprint) (map[string]Match, int) {"
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Match,753,func (a VersionSignature) Match(version Version) Match {
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Match,769,"func (a IntSignature) Match(list IntList) (Match, int) {"
+mitmengine-master,fputil/request.go,61bdcc95408cd691a72688a2def225a46fd906623ffcb6a37682266f5b0b6bd6,go,func,Match,806,func (a StringSignature) Match(list StringList) Match {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestNewRequestFingerprint,29,func TestNewRequestFingerprint(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestRequestFingerprintString,43,func TestRequestFingerprintString(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestNewRequestSignature,55,func TestNewRequestSignature(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestRequestSignatureString,77,func TestRequestSignatureString(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestRequestSignatureMerge,97,func TestRequestSignatureMerge(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestVersionSignatureMerge,116,func TestVersionSignatureMerge(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestIntSignatureMerge,131,func TestIntSignatureMerge(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestStringSignatureMerge,156,func TestStringSignatureMerge(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestRequestSignatureMatch,181,func TestRequestSignatureMatch(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestVersionSignatureMatch,200,func TestVersionSignatureMatch(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestIntSignatureMatch,224,func TestIntSignatureMatch(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestStringSignatureMatch,258,func TestStringSignatureMatch(t *testing.T) {
+mitmengine-master,fputil/request_test.go,fddf97292e23db85e45e86251efa49d8f0d4e9234a33f0a457e182249ff33a54,go,func,TestGrade,294,func TestGrade(t *testing.T) {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,const,anyVersion,33,const anyVersion int = -1
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,type,UAFingerprint,43,type UAFingerprint struct {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,NewUAFingerprint,54,"func NewUAFingerprint(s string) (UAFingerprint, error) {"
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,Parse,61,func (a *UAFingerprint) Parse(s string) error {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,String,99,func (a UAFingerprint) String() string {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,type,UAVersion,104,type UAVersion ua.Version
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,Parse,107,func (a *UAVersion) Parse(s string) error {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,String,150,func (a UAVersion) String() string {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,type,UAVersionSignature,165,type UAVersionSignature struct {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,String,170,func (a UAVersionSignature) String() string {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,Parse,178,func (a *UAVersionSignature) Parse(s string) error {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,minMatch,195,func (a UAVersion) minMatch(fingerprint UAVersion) bool {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,maxMatch,218,func (a UAVersion) maxMatch(fingerprint UAVersion) bool {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,Match,243,func (a UAVersionSignature) Match(fingerprint UAVersion) Match {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,minMerge,251,func (a UAVersion) minMerge(b UAVersion) UAVersion {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,maxMerge,283,func (a UAVersion) maxMerge(b UAVersion) UAVersion {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,Merge,315,func (a UAVersionSignature) Merge(b UAVersionSignature) UAVersionSignature {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,type,UASignature,320,type UASignature struct {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,Parse,331,func (a *UASignature) Parse(s string) error {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,NewUASignature,369,"func NewUASignature(s string) (UASignature, error) {"
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,String,376,func (a UASignature) String() string {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,Merge,381,func (a UASignature) Merge(b UASignature) UASignature {
+mitmengine-master,fputil/ua.go,003230d9b18a4cd4bfe433a470af3704863bb0431b31e7f46abbc4fa0e353555,go,func,Match,416,func (a UASignature) Match(fingerprint UAFingerprint) Match {
+mitmengine-master,fputil/ua_test.go,1c92d2972fd8d851527f222fab2a794dc71b7ca98af327b4d3ded0eef176a7ab,go,func,TestNewUAFingerprint,15,func TestNewUAFingerprint(t *testing.T) {
+mitmengine-master,fputil/ua_test.go,1c92d2972fd8d851527f222fab2a794dc71b7ca98af327b4d3ded0eef176a7ab,go,func,TestUAFingerprintString,30,func TestUAFingerprintString(t *testing.T) {
+mitmengine-master,fputil/ua_test.go,1c92d2972fd8d851527f222fab2a794dc71b7ca98af327b4d3ded0eef176a7ab,go,func,TestNewUASignature,43,func TestNewUASignature(t *testing.T) {
+mitmengine-master,fputil/ua_test.go,1c92d2972fd8d851527f222fab2a794dc71b7ca98af327b4d3ded0eef176a7ab,go,func,TestUASignatureString,60,func TestUASignatureString(t *testing.T) {
+mitmengine-master,fputil/ua_test.go,1c92d2972fd8d851527f222fab2a794dc71b7ca98af327b4d3ded0eef176a7ab,go,func,TestUASignatureMerge,75,func TestUASignatureMerge(t *testing.T) {
+mitmengine-master,fputil/ua_test.go,1c92d2972fd8d851527f222fab2a794dc71b7ca98af327b4d3ded0eef176a7ab,go,func,TestUAVersionSignatureMerge,88,func TestUAVersionSignatureMerge(t *testing.T) {
+mitmengine-master,fputil/ua_test.go,1c92d2972fd8d851527f222fab2a794dc71b7ca98af327b4d3ded0eef176a7ab,go,func,TestUASignatureMatch,106,func TestUASignatureMatch(t *testing.T) {
+mitmengine-master,fputil/ua_test.go,1c92d2972fd8d851527f222fab2a794dc71b7ca98af327b4d3ded0eef176a7ab,go,func,TestUAVersionSignatureMatch,119,func TestUAVersionSignatureMatch(t *testing.T) {
+mitmengine-master,fputil/version.go,d840939629d75967b77f6afe2c6532a8900e4b1a5bbcdabeaae7bdb87ed64a1a,go,type,Version,9,type Version uint16
+mitmengine-master,fputil/version.go,d840939629d75967b77f6afe2c6532a8900e4b1a5bbcdabeaae7bdb87ed64a1a,go,func,NewVersion,12,"func NewVersion(s string) (Version, error) {"
+mitmengine-master,fputil/version.go,d840939629d75967b77f6afe2c6532a8900e4b1a5bbcdabeaae7bdb87ed64a1a,go,func,Parse,19,func (a *Version) Parse(s string) error {
+mitmengine-master,fputil/version.go,d840939629d75967b77f6afe2c6532a8900e4b1a5bbcdabeaae7bdb87ed64a1a,go,func,String,48,func (a Version) String() string {
+mitmengine-master,fputil/version.go,d840939629d75967b77f6afe2c6532a8900e4b1a5bbcdabeaae7bdb87ed64a1a,go,func,Grade,56,func (a Version) Grade() Grade {
+mitmengine-master,fputil/version_test.go,92cc4c30a8598a0a34a654b7ae4b41d7951f65cabf091b002a9296ecc7fd6181,go,func,TestVersionString,10,func TestVersionString(t *testing.T) {
+mitmengine-master,fputil/version_test.go,92cc4c30a8598a0a34a654b7ae4b41d7951f65cabf091b002a9296ecc7fd6181,go,func,TestVersionGrade,31,func TestVersionGrade(t *testing.T) {
+mitmengine-master,loader/loader.go,e6735af1304db9c94d1387d19ecf994d2b513ab2d99bd60f6aac7e75bb02552b,go,type,Loader,8,type Loader interface {
+mitmengine-master,loader/loader_test.go,3f2c8100ed164cd47b96c9da1a1a6fef24ef599f531920b6c00e354df647268c,go,func,TestProcessorConfigS3,12,func TestProcessorConfigS3(t *testing.T) {
+mitmengine-master,loader/loader_test.go,3f2c8100ed164cd47b96c9da1a1a6fef24ef599f531920b6c00e354df647268c,go,func,_TestLoaderThrowsErrFileNNonexistent,47,"func _TestLoaderThrowsErrFileNNonexistent(t *testing.T, config *mitmengine.Config) {"
+mitmengine-master,loader/loader_test.go,3f2c8100ed164cd47b96c9da1a1a6fef24ef599f531920b6c00e354df647268c,go,func,_TestLoaderLoadsExistingFile,56,"func _TestLoaderLoadsExistingFile(t *testing.T, config *mitmengine.Config) {"
+mitmengine-master,loader/s3.go,9fa26e045a69be63156df1a0fa49ca8bffbab17c10255ddc6fed7f5e7f8fadc5,go,type,S3,16,type S3 struct {
+mitmengine-master,loader/s3.go,9fa26e045a69be63156df1a0fa49ca8bffbab17c10255ddc6fed7f5e7f8fadc5,go,func,NewS3Instance,21,"func NewS3Instance() (*S3, error) {"
+mitmengine-master,loader/s3.go,9fa26e045a69be63156df1a0fa49ca8bffbab17c10255ddc6fed7f5e7f8fadc5,go,func,LoadFile,59,"func (s3Instance *S3) LoadFile(fileName string) (io.ReadCloser, error) {"
+mitmengine-master,processor.go,07868941d78e62fd64f0549fad0a14a9888de52475075735b02a5910a2dbba73,go,type,Processor,29,type Processor struct {
+mitmengine-master,processor.go,07868941d78e62fd64f0549fad0a14a9888de52475075735b02a5910a2dbba73,go,type,Config,39,type Config struct {
+mitmengine-master,processor.go,07868941d78e62fd64f0549fad0a14a9888de52475075735b02a5910a2dbba73,go,func,NewProcessor,47,"func NewProcessor(config *Config) (Processor, error) {"
+mitmengine-master,processor.go,07868941d78e62fd64f0549fad0a14a9888de52475075735b02a5910a2dbba73,go,func,Load,54,func (a *Processor) Load(config *Config) error {
+mitmengine-master,processor.go,07868941d78e62fd64f0549fad0a14a9888de52475075735b02a5910a2dbba73,go,func,LoadFile,92,"func LoadFile(fileName string, dbReader loader.Loader) (io.ReadCloser, error) {"
+mitmengine-master,processor.go,07868941d78e62fd64f0549fad0a14a9888de52475075735b02a5910a2dbba73,go,func,Check,107,"func (a *Processor) Check(uaFingerprint fp.UAFingerprint, rawUa string, actualReqFin fp.RequestFingerprint) Report {"
+mitmengine-master,processor.go,07868941d78e62fd64f0549fad0a14a9888de52475075735b02a5910a2dbba73,go,func,removeGrease,275,"func removeGrease(list fp.IntList) (bool, int) {"
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,TestProcessorConfigEmpty,22,func TestProcessorConfigEmpty(t *testing.T) {
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,TestProcessorConfigFile,27,func TestProcessorConfigFile(t *testing.T) {
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,TestProcessorConfigS3,45,func TestProcessorConfigS3(t *testing.T) {
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,uaSigToFin,81,"func uaSigToFin(signature fp.UASignature) (fp.UAFingerprint, error) {"
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,reqSigToFin,86,"func reqSigToFin(signature fp.RequestSignature) (fp.RequestFingerprint, error) {"
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,_TestProcessorKnownBrowserFingerprints,94,"func _TestProcessorKnownBrowserFingerprints(t *testing.T, config *mitmengine.Config) {"
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,_TestProcessorKnownMitmFingerprints,117,"func _TestProcessorKnownMitmFingerprints(t *testing.T, config *mitmengine.Config) {"
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,_TestProcessorCheckSequential,145,"func _TestProcessorCheckSequential(t *testing.T, config *mitmengine.Config) {"
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,_TestProcessorCheckConcurrent,185,"func _TestProcessorCheckConcurrent(t *testing.T, config *mitmengine.Config) {"
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,_TestProcessorGetByUASignatureBrowser,340,"func _TestProcessorGetByUASignatureBrowser(t *testing.T, config *mitmengine.Config) {"
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,_TestProcessorGetByRequestSignatureMitm,353,"func _TestProcessorGetByRequestSignatureMitm(t *testing.T, config *mitmengine.Config) {"
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,BenchmarkProcessorCheckSequential,373,func BenchmarkProcessorCheckSequential(b *testing.B) {
+mitmengine-master,processor_test.go,a8ca999dd6a142d4af6d2dd42e0bc0674127b5784aa7e5aa7d1035a3de39c512,go,func,BenchmarkProcessorCheckConcurrent,385,func BenchmarkProcessorCheckConcurrent(b *testing.B) {
+mitmengine-master,report.go,e58f4711fb0f16d409a926a4acb755fb0bd23be0a916a6279761b9ee1c789e1e,go,type,Report,8,type Report struct {
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,class,MitmFingerprint,114,class MitmFingerprint:
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,function,__init__,115,def __init__(self):
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,function,__str__,121,def __str__(self):
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,function,set_fields,127,"def set_fields(self, mitm_name, mitm_type, mitm_grade):"
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,class,UserAgentFingerprint,133,class UserAgentFingerprint:
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,function,__init__,134,def __init__(self):
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,function,__str__,143,def __str__(self):
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,function,set_fields,153,"def set_fields(self, device, os, os_version, browser, browser_version, platform):"
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,class,RequestFingerprint,234,class RequestFingerprint:
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,function,__init__,235,def __init__(self):
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,function,clear,238,def clear(self):
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,function,__str__,251,def __str__(self):
+mitmengine-master,scripts/filename_to_fingerprint.py,56e26e02914c2e547ee7c906933497257498a23757cc804c9d2da0857324e822,python,function,parse,265,"def parse(self, filename):"
+mitmengine-master,scripts/filename_to_metadata.py,acf859f3f25e6a3947ad2812216a6824410b60c6f92bc0933031af01dcf9d651,python,class,MitmFingerprint,10,class MitmFingerprint:
+mitmengine-master,scripts/filename_to_metadata.py,acf859f3f25e6a3947ad2812216a6824410b60c6f92bc0933031af01dcf9d651,python,function,__init__,11,"def __init__(self, mitm_name, mitm_type):"
+mitmengine-master,scripts/filename_to_metadata.py,acf859f3f25e6a3947ad2812216a6824410b60c6f92bc0933031af01dcf9d651,python,class,UserAgentFingerprint,19,class UserAgentFingerprint:
+mitmengine-master,scripts/filename_to_metadata.py,acf859f3f25e6a3947ad2812216a6824410b60c6f92bc0933031af01dcf9d651,python,function,__init__,20,"def __init__(self, device, os, os_version, browser, browser_version, platform):"
+mitmengine-master,scripts/pcap_to_request_fingerprint.py,346c7541a9001db4e9a1d40633ada1d0b7fe292078a002e2f616cd45226e8b6f,python,class,RequestFingerprint,8,class RequestFingerprint:
+mitmengine-master,scripts/pcap_to_request_fingerprint.py,346c7541a9001db4e9a1d40633ada1d0b7fe292078a002e2f616cd45226e8b6f,python,function,__init__,9,def __init__(self):
+mitmengine-master,scripts/pcap_to_request_fingerprint.py,346c7541a9001db4e9a1d40633ada1d0b7fe292078a002e2f616cd45226e8b6f,python,function,__str__,21,def __str__(self):
+mitmengine-master,scripts/pcap_to_request_fingerprint.py,346c7541a9001db4e9a1d40633ada1d0b7fe292078a002e2f616cd45226e8b6f,python,function,parse,33,"def parse(self, filename):"
+mitmengine-master,testutil/util.go,234593d46aaa6e797e650163aa87f4c98f056d401b9ec145745037ee5700c1c0,go,func,Assert,14,"func Assert(tb testing.TB, condition bool, msg string, v ...interface{}) {"
+mitmengine-master,testutil/util.go,234593d46aaa6e797e650163aa87f4c98f056d401b9ec145745037ee5700c1c0,go,func,Ok,23,"func Ok(tb testing.TB, err error) {"
+mitmengine-master,testutil/util.go,234593d46aaa6e797e650163aa87f4c98f056d401b9ec145745037ee5700c1c0,go,func,Equals,32,"func Equals(tb testing.TB, exp, act interface{}) {"

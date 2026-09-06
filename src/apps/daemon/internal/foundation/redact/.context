@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/foundation/redact
+
+## Purpose
+Central value redaction helpers for logs, public responses, and persisted safe snapshots.
+
+## Architectural role
+- Daemon dependency band: `foundation` (rank 0; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (2): `redact.go`, `redact_test.go`
+
+## Interfaces and dependencies
+- Go package: `redact`.
+- Notable exported surface: `Bytes`, `Redactable`, `SlogAttr`, `SlogErr`, `String`, `Value`.
+- Daemon-local dependencies: none.
+- Direct daemon callers: `internal/adapters/api`, `internal/integrations/sub`, `internal/protocols/tarpit`.
+
+## Invariants
+- `foundation` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

@@ -1,0 +1,612 @@
+donor,path,sha256,line,kind,symbol,snippet
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,15,class,DNSTTManager,class DNSTTManager:
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,16,def,__init__,"def __init__(self, root):"
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,31,def,setup_ui,def setup_ui(self):
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,105,def,log,"def log(self, message, level=""info""):"
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,112,def,connect_ssh,def connect_ssh(self):
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,125,def,_connect_ssh_thread,"def _connect_ssh_thread(self, ip, user, password):"
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,141,def,generate_random_string,"def generate_random_string(self, length=8):"
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,145,def,generate_random_password,"def generate_random_password(self, length=15):"
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,149,def,exec_command,"def exec_command(self, command, timeout=60):"
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,168,def,verify_ns_domain,"def verify_ns_domain(self, ns_domain, server_ip):"
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,251,def,start_deployment,def start_deployment(self):
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,262,def,_deploy_thread,def _deploy_thread(self):
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,411,def,generate_dns_uri,def generate_dns_uri(self):
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,433,def,_update_uri,"def _update_uri(self, uri):"
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,438,def,copy_uri,def copy_uri(self):
+dns-tunnel-deploy,gui/dnstt_manager.py,cc7f7a48ebe1e5d2f8520403a1ba80d221187a1189ec11c1b1a601910b89a9db,447,def,main,def main():
+outline-client,outline/device/config.go,f674781d5a12ac8ee400aa9709b3d163314595171cb35057eb2d7d7ef4738cd8,27,type,transportConfig,type transportConfig struct {
+outline-client,outline/device/config.go,f674781d5a12ac8ee400aa9709b3d163314595171cb35057eb2d7d7ef4738cd8,35,type,configJSON,type configJSON struct {
+outline-client,outline/device/config.go,f674781d5a12ac8ee400aa9709b3d163314595171cb35057eb2d7d7ef4738cd8,45,func,parseConfigFromJSON,"func parseConfigFromJSON(in string) (config *transportConfig, err error) {"
+outline-client,outline/device/config.go,f674781d5a12ac8ee400aa9709b3d163314595171cb35057eb2d7d7ef4738cd8,72,func,validateConfig,func validateConfig(config *configJSON) error {
+outline-client,outline/device/config.go,f674781d5a12ac8ee400aa9709b3d163314595171cb35057eb2d7d7ef4738cd8,88,func,parseStringPrefix,"func parseStringPrefix(utf8Str string) ([]byte, error) {"
+outline-client,outline/device/config_test.go,39ceed2045ba32bcd4e9bd148c61cd5b0a40d9561bcc9307f373f953c9b5e635,23,func,Test_ParseConfigFromJSON,func Test_ParseConfigFromJSON(t *testing.T) {
+outline-client,outline/device/device.go,bce52c12c2e619c65144de6c0d9fc6d7a28e449f70dfca009e4168a195d5958e,31,type,OutlineDevice,type OutlineDevice struct {
+outline-client,outline/device/device.go,bce52c12c2e619c65144de6c0d9fc6d7a28e449f70dfca009e4168a195d5958e,38,func,NewOutlineDevice,"func NewOutlineDevice(configJSON string) (d *OutlineDevice, err error) {"
+outline-client,outline/device/device.go,bce52c12c2e619c65144de6c0d9fc6d7a28e449f70dfca009e4168a195d5958e,61,func,Close,func (d *OutlineDevice) Close() error {
+outline-client,outline/device/device.go,bce52c12c2e619c65144de6c0d9fc6d7a28e449f70dfca009e4168a195d5958e,65,func,Refresh,func (d *OutlineDevice) Refresh() error {
+outline-client,outline/device/device_test.go,1d22c861bd5c590ca143231534773b5335edf5a7d42bcbf42d4d12a9621213f4,23,func,Test_NewOutlineDevice,func Test_NewOutlineDevice(t *testing.T) {
+outline-client,outline/device/packet_listener.go,7b0fe804993b6ef845514ba6429f67b15ccca3d9e2b4ef117ffe6789d28bf56a,23,func,newOutlinePacketListener,"func newOutlinePacketListener(config *transportConfig) (transport.PacketListener, error) {"
+outline-client,outline/device/packet_proxy.go,7d0053fa349909aeea870148242e41222982c86749818ed93938794c2a4f0812,27,type,outlinePacketProxy,type outlinePacketProxy struct {
+outline-client,outline/device/packet_proxy.go,7d0053fa349909aeea870148242e41222982c86749818ed93938794c2a4f0812,33,func,newOutlinePacketProxy,"func newOutlinePacketProxy(config *transportConfig) (proxy *outlinePacketProxy, err error) {"
+outline-client,outline/device/packet_proxy.go,7d0053fa349909aeea870148242e41222982c86749818ed93938794c2a4f0812,57,func,testConnectivityAndRefresh,"func (proxy *outlinePacketProxy) testConnectivityAndRefresh(resolver, domain string) error {"
+outline-client,outline/device/stream_dialer.go,c2b7ebfcfbdc0b7ceff5218d6b3f5edc62bac694d001e947f383332163be92e9,23,func,newOutlineStreamDialer,"func newOutlineStreamDialer(config *transportConfig) (transport.StreamDialer, error) {"
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/androidTest/java/org/outline/vpn/VpnTunnelStoreTest.java,cdbeccf7b59db92257fe7f3bf15e7ddf10d8a7dd95c3fec94e763ef14465cf69,27,type,VpnTunnelStoreTest,public class VpnTunnelStoreTest {
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/main/java/org/outline/log/OutlineLogger.java,74949f921b7c86822c26066bd46a97b5baa63f40e1c4027a044fcc24027794c1,34,type,OutlineLogger,public class OutlineLogger {
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/main/java/org/outline/log/SentryErrorReporter.java,685937046822db6028553625e62d8a01760c1e7fe251ce3dd720d2a57411d7f0,41,type,SentryErrorReporter,public class SentryErrorReporter {
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/main/java/org/outline/vpn/VpnServiceStarter.java,9d3ab52f64785dd5f6c301a27708b737014bbede0c210f7377353b07f96c25bb,24,type,VpnServiceStarter,public class VpnServiceStarter extends BroadcastReceiver {
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/main/java/org/outline/vpn/VpnTunnel.java,f0d856afa70eeea9dd5a07089b7a8a27c62b80639c3dbf13dd6fce38ee88d451,35,type,VpnTunnel,public class VpnTunnel {
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/main/java/org/outline/vpn/VpnTunnelService.java,4052fdd496362c8de09ccd62bbd7665ef8ae9472615f2e0bc7919cd94103c5ec,48,type,VpnTunnelService,public class VpnTunnelService extends VpnService {
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/main/java/org/outline/vpn/VpnTunnelService.java,4052fdd496362c8de09ccd62bbd7665ef8ae9472615f2e0bc7919cd94103c5ec,59,type,ErrorCode,public enum ErrorCode {
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/main/java/org/outline/vpn/VpnTunnelService.java,4052fdd496362c8de09ccd62bbd7665ef8ae9472615f2e0bc7919cd94103c5ec,80,type,TunnelStatus,public enum TunnelStatus {
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/main/java/org/outline/vpn/VpnTunnelService.java,4052fdd496362c8de09ccd62bbd7665ef8ae9472615f2e0bc7919cd94103c5ec,93,type,MessageData,public enum MessageData {
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/main/java/org/outline/vpn/VpnTunnelService.java,4052fdd496362c8de09ccd62bbd7665ef8ae9472615f2e0bc7919cd94103c5ec,382,type,NetworkConnectivityMonitor,private class NetworkConnectivityMonitor extends ConnectivityManager.NetworkCallback {
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/main/java/org/outline/vpn/VpnTunnelStore.java,a4b9b7ecbf522aae3eb03efd37261029c21fbdc6e8910653a0ed550fa0c7827b,24,type,VpnTunnelStore,class VpnTunnelStore {
+outline-client,src/cordova/android/OutlineAndroidLib/outline/src/test/java/org/outline/vpn/VpnTunnelTest.java,843c1f40992abf70ac6a5edb8bbf7d3db9e5a1617b4193c3e0f72271b2b65e34,21,type,VpnTunnelTest,public class VpnTunnelTest {
+outline-client,src/cordova/apple/OutlineAppleLib/Sources/PacketTunnelProvider/include/PacketTunnelProvider.h,c874c420216f0caf580350ff3542f81578a82389bc70839080b49e6853385368,16,macro,PacketTunnelProvider_h,#define PacketTunnelProvider_h
+outline-client,src/cordova/apple/xcode/ios/Outline/Classes/AppDelegate+Outline.h,4f4cbdd0eb70d80b65bbd825cae39b070f066818d8af345d72d70595b07bd77a,16,macro,AppDelegate_Outline_h,#define AppDelegate_Outline_h
+outline-client,src/cordova/plugin/android/java/org/outline/OutlinePlugin.java,1a33a064b268f591fcf9092f8cac9ce33c3aba075a39a9947c128702c598837d,48,type,OutlinePlugin,public class OutlinePlugin extends CordovaPlugin {
+outline-client,src/cordova/plugin/android/java/org/outline/OutlinePlugin.java,1a33a064b268f591fcf9092f8cac9ce33c3aba075a39a9947c128702c598837d,52,type,Action,public enum Action {
+outline-client,src/cordova/plugin/apple/src/macos/Outline-Bridging-Header.h,07b1678294057cc0cb7dd39ece9ea9c9ae55c66831a0d4fb73d3c4b54db9fb4c,16,macro,Outline_Bridging_Header_h,#define Outline_Bridging_Header_h
+outline-client,src/electron/go_vpn_tunnel.ts,516a20e8bf77c2dc47d282d81ad85be766dbdf2487d189661297eedd1424df1d,49,type,GoVpnTunnel,export class GoVpnTunnel implements VpnTunnel {
+outline-client,src/electron/go_vpn_tunnel.ts,516a20e8bf77c2dc47d282d81ad85be766dbdf2487d189661297eedd1424df1d,219,type,GoTun2socks,class GoTun2socks {
+outline-client,src/electron/go_vpn_tunnel.ts,516a20e8bf77c2dc47d282d81ad85be766dbdf2487d189661297eedd1424df1d,309,function,checkConnectivity,async function checkConnectivity(config: ShadowsocksSessionConfig) {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,80,function,setupSentry,function setupSentry(): void {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,93,function,setupMenu,function setupMenu(): void {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,109,function,setupTray,function setupTray(): void {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,119,function,setupWindow,function setupWindow(): void {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,205,function,updateTray,function updateTray(status: TunnelStatus) {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,224,function,createTrayIconImage,function createTrayIconImage(imageName: string) {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,234,function,quitApp,async function quitApp() {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,240,function,interceptShadowsocksLink,function interceptShadowsocksLink(argv: string[]) {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,262,function,setupAutoLaunch,async function setupAutoLaunch(args: SerializableTunnel): Promise<void> {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,281,function,tearDownAutoLaunch,async function tearDownAutoLaunch() {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,299,function,createVpnTunnel,"function createVpnTunnel(config: ShadowsocksSessionConfig, isAutoConnect: boolean): VpnTunnel {"
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,307,function,startVpn,"async function startVpn(config: ShadowsocksSessionConfig, id: string, isAutoConnect = false) {"
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,340,function,stopVpn,async function stopVpn() {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,350,function,setUiTunnelStatus,"function setUiTunnelStatus(status: TunnelStatus, tunnelId: string) {"
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,376,function,checkForUpdates,function checkForUpdates() {
+outline-client,src/electron/index.ts,50b50f1efbbb9afae02c60c02b35e5cf9e612fccd3f52ce7e51a95906a2f4919,384,function,main,function main() {
+outline-client,src/electron/preload.d.ts,ff28bf9817964d566471d89b0367e5ea54faa1d26b6447e5a460f61cbc722db8,21,type,NativeOsApi,export interface NativeOsApi {
+outline-client,src/electron/preload.d.ts,ff28bf9817964d566471d89b0367e5ea54faa1d26b6447e5a460f61cbc722db8,25,type,ElectronApi,export interface ElectronApi {
+outline-client,src/electron/preload.d.ts,ff28bf9817964d566471d89b0367e5ea54faa1d26b6447e5a460f61cbc722db8,32,type,Window,interface Window {
+outline-client,src/electron/preload.ts,b981a11de97f5d50e295942710ec87847cacd313539c6cd7cf02f241d71ed56a,34,type,ElectronRendererMethodChannel,export class ElectronRendererMethodChannel {
+outline-client,src/electron/process.ts,678095d8c7e07d425f1de4da949fbfdd05ae4b0ef6f22f5efcdaccc1ff057be2,22,type,ProcessTerminatedExitCodeError,export class ProcessTerminatedExitCodeError extends Error {
+outline-client,src/electron/process.ts,678095d8c7e07d425f1de4da949fbfdd05ae4b0ef6f22f5efcdaccc1ff057be2,31,type,ProcessTerminatedSignalError,export class ProcessTerminatedSignalError extends Error {
+outline-client,src/electron/process.ts,678095d8c7e07d425f1de4da949fbfdd05ae4b0ef6f22f5efcdaccc1ff057be2,43,type,ChildProcessHelper,export class ChildProcessHelper {
+outline-client,src/electron/process.ts,678095d8c7e07d425f1de4da949fbfdd05ae4b0ef6f22f5efcdaccc1ff057be2,141,function,logExit,"function logExit(processName: string, exitCode?: number, signal?: string) {"
+outline-client,src/electron/routing_service.ts,4305e5d9b9de8e009a4a5889353d67f795aa933e3a66152bf94ab142cb703f4a,30,type,RoutingServiceRequest,interface RoutingServiceRequest {
+outline-client,src/electron/routing_service.ts,4305e5d9b9de8e009a4a5889353d67f795aa933e3a66152bf94ab142cb703f4a,35,type,RoutingServiceResponse,interface RoutingServiceResponse {
+outline-client,src/electron/routing_service.ts,4305e5d9b9de8e009a4a5889353d67f795aa933e3a66152bf94ab142cb703f4a,42,type,RoutingServiceAction,enum RoutingServiceAction {
+outline-client,src/electron/routing_service.ts,4305e5d9b9de8e009a4a5889353d67f795aa933e3a66152bf94ab142cb703f4a,48,type,RoutingServiceStatusCode,enum RoutingServiceStatusCode {
+outline-client,src/electron/routing_service.ts,4305e5d9b9de8e009a4a5889353d67f795aa933e3a66152bf94ab142cb703f4a,68,type,RoutingDaemon,export class RoutingDaemon {
+outline-client,src/electron/routing_service.ts,4305e5d9b9de8e009a4a5889353d67f795aa933e3a66152bf94ab142cb703f4a,232,function,executeCommandAsRoot,function executeCommandAsRoot(command: string): Promise<void> {
+outline-client,src/electron/routing_service.ts,4305e5d9b9de8e009a4a5889353d67f795aa933e3a66152bf94ab142cb703f4a,255,function,installWindowsRoutingServices,function installWindowsRoutingServices(): Promise<void> {
+outline-client,src/electron/routing_service.ts,4305e5d9b9de8e009a4a5889353d67f795aa933e3a66152bf94ab142cb703f4a,268,function,installLinuxRoutingServices,async function installLinuxRoutingServices(): Promise<void> {
+outline-client,src/electron/routing_service.ts,4305e5d9b9de8e009a4a5889353d67f795aa933e3a66152bf94ab142cb703f4a,334,function,installRoutingServices,export async function installRoutingServices(): Promise<void> {
+outline-client,src/electron/tunnel_store.ts,1ebd0d3588ac6c497b120184f82de7ae9ae004546a2877006838ed526aaabb0b,21,type,SerializableTunnel,export interface SerializableTunnel {
+outline-client,src/electron/tunnel_store.ts,1ebd0d3588ac6c497b120184f82de7ae9ae004546a2877006838ed526aaabb0b,27,type,TunnelStore,export class TunnelStore {
+outline-client,src/electron/types/socks/index.d.ts,e5bb0d535a21b25c18441208c13c21f8ca6f2b12978f983de21cd6c3ecf35fb6,23,type,SocksSocketOptions,export interface SocksSocketOptions {
+outline-client,src/electron/types/socks/index.d.ts,e5bb0d535a21b25c18441208c13c21f8ca6f2b12978f983de21cd6c3ecf35fb6,29,type,SocksAddress,export interface SocksAddress {
+outline-client,src/electron/types/socks/index.d.ts,e5bb0d535a21b25c18441208c13c21f8ca6f2b12978f983de21cd6c3ecf35fb6,34,function,createConnection,export function createConnection(
+outline-client,src/electron/types/socks/index.d.ts,e5bb0d535a21b25c18441208c13c21f8ca6f2b12978f983de21cd6c3ecf35fb6,39,function,createUDPFrame,"export function createUDPFrame(target: SocksAddress, data: Buffer, frame?: number): Buffer;"
+outline-client,src/electron/vpn_tunnel.ts,941516ea74d425f45329c820a89ef2214006f5e449b6a8c39eb48143b0802631,18,type,VpnTunnel,export interface VpnTunnel {
+outline-client,src/infrastructure/custom_error.ts,bf26bf3fbc7f576bf9b38e0bd617d297099845d48aecb35ed2f43605fa2fb1e4,15,type,CustomError,export class CustomError extends Error {
+outline-client,src/infrastructure/electron/app_paths.ts,e9c432e421cc61ab8a385949528eed78d1cdf2feb896590a1460a491a9a1fd56,27,function,unpackedAppPath,function unpackedAppPath() {
+outline-client,src/infrastructure/electron/app_paths.ts,e9c432e421cc61ab8a385949528eed78d1cdf2feb896590a1460a491a9a1fd56,37,function,getAppPath,export function getAppPath() {
+outline-client,src/infrastructure/electron/app_paths.ts,e9c432e421cc61ab8a385949528eed78d1cdf2feb896590a1460a491a9a1fd56,45,function,pathToEmbeddedBinary,"export function pathToEmbeddedBinary(toolname: string, filename: string) {"
+outline-client,src/infrastructure/memory_storage.ts,894b6c0aa04154fa04252f1827a6fb0b948358b31b5c0d3aa1ab38d2ffc69001,15,type,InMemoryStorage,export class InMemoryStorage implements Storage {
+outline-client,src/infrastructure/timeout_promise.ts,c8778c46420f525db80e820db8ad8ecece154377952b4d4c6f36edb7680cb759,17,type,OperationTimedOut,export class OperationTimedOut extends CustomError {
+outline-client,src/infrastructure/timeout_promise.ts,c8778c46420f525db80e820db8ad8ecece154377952b4d4c6f36edb7680cb759,23,function,timeoutPromise,"export function timeoutPromise<T>(promise: Promise<T>, timeoutDuration: number, timeoutName: string): Promise<T> {"
+outline-client,src/www/.storybook/localize.ts,e45fee87bb1dd66d5bfd65ace0cd83589f4cc25c936fee0e2ece47aa05fc7122,20,type,FormattableMessage,type FormattableMessage =
+outline-client,src/www/app/app.ts,ecff16fcc2def7d6906d393075848404f502a0d2be1fee1fd8666dc15315d30d,31,type,OUTLINE_ACCESS_KEY_SCHEME,enum OUTLINE_ACCESS_KEY_SCHEME {
+outline-client,src/www/app/app.ts,ecff16fcc2def7d6906d393075848404f502a0d2be1fee1fd8666dc15315d30d,38,function,unwrapInvite,export function unwrapInvite(possiblyInviteUrl: string): string {
+outline-client,src/www/app/app.ts,ecff16fcc2def7d6906d393075848404f502a0d2be1fee1fd8666dc15315d30d,67,function,isOutlineAccessKey,export function isOutlineAccessKey(url: string): boolean {
+outline-client,src/www/app/app.ts,ecff16fcc2def7d6906d393075848404f502a0d2be1fee1fd8666dc15315d30d,80,type,App,export class App {
+outline-client,src/www/app/clipboard.ts,1f183f59c99159f016dda21f9ab766a82e225404d0b38c770ed4ffee1196cb8d,17,type,ClipboardListener,export type ClipboardListener = (text: string) => void;
+outline-client,src/www/app/clipboard.ts,1f183f59c99159f016dda21f9ab766a82e225404d0b38c770ed4ffee1196cb8d,19,type,Clipboard,export interface Clipboard {
+outline-client,src/www/app/clipboard.ts,1f183f59c99159f016dda21f9ab766a82e225404d0b38c770ed4ffee1196cb8d,30,type,AbstractClipboard,export class AbstractClipboard implements Clipboard {
+outline-client,src/www/app/cordova_main.ts,5864b2970dc1a13767ba0c34bf7d2fe01b7002062c3fe226016f3448326db752,43,type,CordovaClipboard,class CordovaClipboard extends AbstractClipboard {
+outline-client,src/www/app/cordova_main.ts,5864b2970dc1a13767ba0c34bf7d2fe01b7002062c3fe226016f3448326db752,57,function,pluginExec,"function pluginExec<T>(cmd: string, ...args: unknown[]): Promise<T> {"
+outline-client,src/www/app/cordova_main.ts,5864b2970dc1a13767ba0c34bf7d2fe01b7002062c3fe226016f3448326db752,63,function,pluginExecWithErrorCode,"async function pluginExecWithErrorCode<T>(cmd: string, ...args: unknown[]): Promise<T> {"
+outline-client,src/www/app/cordova_main.ts,5864b2970dc1a13767ba0c34bf7d2fe01b7002062c3fe226016f3448326db752,72,type,CordovaErrorReporter,class CordovaErrorReporter extends SentryErrorReporter {
+outline-client,src/www/app/cordova_main.ts,5864b2970dc1a13767ba0c34bf7d2fe01b7002062c3fe226016f3448326db752,89,type,CordovaTunnel,class CordovaTunnel implements Tunnel {
+outline-client,src/www/app/cordova_main.ts,5864b2970dc1a13767ba0c34bf7d2fe01b7002062c3fe226016f3448326db752,117,type,CordovaPlatform,class CordovaPlatform implements OutlinePlatform {
+outline-client,src/www/app/electron_main.ts,1f5c3b6ec7b9af227bf3558982ca5a17bd05f5826b51563450cd5e4c099558cd,57,type,ElectronClipboard,class ElectronClipboard extends AbstractClipboard {
+outline-client,src/www/app/electron_main.ts,1f5c3b6ec7b9af227bf3558982ca5a17bd05f5826b51563450cd5e4c099558cd,70,type,ElectronUpdater,class ElectronUpdater extends AbstractUpdater {
+outline-client,src/www/app/electron_main.ts,1f5c3b6ec7b9af227bf3558982ca5a17bd05f5826b51563450cd5e4c099558cd,77,type,ElectronVpnInstaller,class ElectronVpnInstaller implements VpnInstaller {
+outline-client,src/www/app/electron_main.ts,1f5c3b6ec7b9af227bf3558982ca5a17bd05f5826b51563450cd5e4c099558cd,89,type,ElectronErrorReporter,class ElectronErrorReporter implements OutlineErrorReporter {
+outline-client,src/www/app/electron_outline_tunnel.ts,a9b68aade47599c18ff0cdb39b069943ccd06efb5797ba091cb221e8b7da45f2,19,type,ElectronOutlineTunnel,export class ElectronOutlineTunnel implements Tunnel {
+outline-client,src/www/app/environment.ts,7e061e662505e5f61e1009343a2c3b2ab53517815370d492c025f5aad5f35641,15,type,EnvironmentVariables,export interface EnvironmentVariables {
+outline-client,src/www/app/error_reporter.ts,5775a2389b74ead37818b73179ee86f8fb147cc41489e7ac51fa22b2b655a716,18,type,OutlineErrorReporter,export interface OutlineErrorReporter {
+outline-client,src/www/app/error_reporter.ts,5775a2389b74ead37818b73179ee86f8fb147cc41489e7ac51fa22b2b655a716,22,type,SentryErrorReporter,export class SentryErrorReporter implements OutlineErrorReporter {
+outline-client,src/www/app/error_reporter.ts,5775a2389b74ead37818b73179ee86f8fb147cc41489e7ac51fa22b2b655a716,64,function,getSentryBrowserIntegrations,export function getSentryBrowserIntegrations(defaultIntegrations: SentryIntegration[]): SentryIntegration[] {
+outline-client,src/www/app/fake_tunnel.ts,a485ce916b42c214939d3f5ae2971537c0258dab5b06fcb915dad3945f3f3512,22,type,FakeOutlineTunnel,export class FakeOutlineTunnel implements Tunnel {
+outline-client,src/www/app/main.ts,8e14f56340b615212239fb622b8a874ab0c7f75c13332679cea78b3e91a54fcd,46,function,getRootEl,function getRootEl() {
+outline-client,src/www/app/main.ts,8e14f56340b615212239fb622b8a874ab0c7f75c13332679cea78b3e91a54fcd,50,function,createServerRepo,function createServerRepo(
+outline-client,src/www/app/main.ts,8e14f56340b615212239fb622b8a874ab0c7f75c13332679cea78b3e91a54fcd,95,function,main,export function main(platform: OutlinePlatform) {
+outline-client,src/www/app/main.ts,8e14f56340b615212239fb622b8a874ab0c7f75c13332679cea78b3e91a54fcd,132,function,onUnexpectedError,function onUnexpectedError(error: Error) {
+outline-client,src/www/app/main.ts,8e14f56340b615212239fb622b8a874ab0c7f75c13332679cea78b3e91a54fcd,146,function,getLocalizationFunction,export function getLocalizationFunction() {
+outline-client,src/www/app/outline_server_repository/access_key_serialization.ts,0e04c70a60cdb04fc3470ccc673f3ff0470bb5cec85989b5078cfa2087a82c22,24,function,staticKeyToShadowsocksSessionConfig,export function staticKeyToShadowsocksSessionConfig(staticKey: string): ShadowsocksSessionConfig {
+outline-client,src/www/app/outline_server_repository/access_key_serialization.ts,0e04c70a60cdb04fc3470ccc673f3ff0470bb5cec85989b5078cfa2087a82c22,39,function,parseShadowsocksSessionConfigJson,function parseShadowsocksSessionConfigJson(maybeJsonText: string): ShadowsocksSessionConfig | null {
+outline-client,src/www/app/outline_server_repository/access_key_serialization.ts,0e04c70a60cdb04fc3470ccc673f3ff0470bb5cec85989b5078cfa2087a82c22,66,function,fetchShadowsocksSessionConfig,export async function fetchShadowsocksSessionConfig(configLocation: URL): Promise<ShadowsocksSessionConfig> {
+outline-client,src/www/app/outline_server_repository/index.ts,edf292fcc9f4afd6fa522caf306b42b2546c53d117e76296823156e5ded33960,30,function,staticKeysMatch,"function staticKeysMatch(a: string, b: string): boolean {"
+outline-client,src/www/app/outline_server_repository/index.ts,edf292fcc9f4afd6fa522caf306b42b2546c53d117e76296823156e5ded33960,48,function,isDynamicAccessKey,function isDynamicAccessKey(accessKey: string): boolean {
+outline-client,src/www/app/outline_server_repository/index.ts,edf292fcc9f4afd6fa522caf306b42b2546c53d117e76296823156e5ded33960,54,function,serverNameFromAccessKey,function serverNameFromAccessKey(accessKey: string): string | undefined {
+outline-client,src/www/app/outline_server_repository/index.ts,edf292fcc9f4afd6fa522caf306b42b2546c53d117e76296823156e5ded33960,69,type,ServersStorageV0Config,interface ServersStorageV0Config {
+outline-client,src/www/app/outline_server_repository/index.ts,edf292fcc9f4afd6fa522caf306b42b2546c53d117e76296823156e5ded33960,76,type,ServersStorageV0,export interface ServersStorageV0 {
+outline-client,src/www/app/outline_server_repository/index.ts,edf292fcc9f4afd6fa522caf306b42b2546c53d117e76296823156e5ded33960,81,function,serversStorageV0ConfigToAccessKey,export function serversStorageV0ConfigToAccessKey(config: ServersStorageV0Config): string {
+outline-client,src/www/app/outline_server_repository/index.ts,edf292fcc9f4afd6fa522caf306b42b2546c53d117e76296823156e5ded33960,94,type,ServersStorageV1,export type ServersStorageV1 = OutlineServerJson[];
+outline-client,src/www/app/outline_server_repository/index.ts,edf292fcc9f4afd6fa522caf306b42b2546c53d117e76296823156e5ded33960,96,type,OutlineServerJson,interface OutlineServerJson {
+outline-client,src/www/app/outline_server_repository/index.ts,edf292fcc9f4afd6fa522caf306b42b2546c53d117e76296823156e5ded33960,103,type,OutlineServerRepository,export class OutlineServerRepository implements ServerRepository {
+outline-client,src/www/app/outline_server_repository/outline_server_repository.spec.ts,0be318169b154fe6ebc03203d82bf9e0b9bc06723926e244c12f4b3306a324c3,314,function,getFakeTunnelFactory,function getFakeTunnelFactory() {
+outline-client,src/www/app/outline_server_repository/server.ts,703343183b014104d5a8baa69f749b64b13bdb9d946d387127f49e3bb4472bd3,25,type,OutlineServer,export class OutlineServer implements Server {
+outline-client,src/www/app/platform.ts,1bfd9d5da64978535a19a5d450c239571cfa890e331871970c04aa661ec76c67,27,type,OutlinePlatform,export interface OutlinePlatform {
+outline-client,src/www/app/settings.ts,cb3859631e97483a43051d10c75141821ea6565c1f80ae258325d5543f35d687,15,type,StorageSettings,interface StorageSettings {
+outline-client,src/www/app/settings.ts,cb3859631e97483a43051d10c75141821ea6565c1f80ae258325d5543f35d687,20,type,SettingsKey,export enum SettingsKey {
+outline-client,src/www/app/settings.ts,cb3859631e97483a43051d10c75141821ea6565c1f80ae258325d5543f35d687,27,type,Settings,export class Settings {
+outline-client,src/www/app/tunnel.ts,4b1cad72aae44603f523169893e74f5fad316cf53a31f6eb169ef3eb8f7ca206,15,type,ShadowsocksSessionConfig,export interface ShadowsocksSessionConfig {
+outline-client,src/www/app/tunnel.ts,4b1cad72aae44603f523169893e74f5fad316cf53a31f6eb169ef3eb8f7ca206,29,type,TunnelFactory,export type TunnelFactory = (id: string) => Tunnel;
+outline-client,src/www/app/tunnel.ts,4b1cad72aae44603f523169893e74f5fad316cf53a31f6eb169ef3eb8f7ca206,33,type,Tunnel,export interface Tunnel {
+outline-client,src/www/app/updater.ts,714ea944bf36de98f358f13e2a37ae3138962f1275bfabed0dedd437d6208c88,15,type,UpdateListener,export type UpdateListener = () => void;
+outline-client,src/www/app/updater.ts,714ea944bf36de98f358f13e2a37ae3138962f1275bfabed0dedd437d6208c88,17,type,Updater,export interface Updater {
+outline-client,src/www/app/updater.ts,714ea944bf36de98f358f13e2a37ae3138962f1275bfabed0dedd437d6208c88,22,type,AbstractUpdater,export class AbstractUpdater implements Updater {
+outline-client,src/www/app/url_interceptor.ts,1bfec4629ff2d5dc69903e02d5dd62b83deb933a87aba3a2c504ad87b4c1398f,17,type,UrlInterceptor,export class UrlInterceptor {
+outline-client,src/www/app/url_interceptor.ts,1bfec4629ff2d5dc69903e02d5dd62b83deb933a87aba3a2c504ad87b4c1398f,44,type,AndroidUrlInterceptor,export class AndroidUrlInterceptor extends UrlInterceptor {
+outline-client,src/www/app/url_interceptor.ts,1bfec4629ff2d5dc69903e02d5dd62b83deb933a87aba3a2c504ad87b4c1398f,54,type,AppleUrlInterceptor,export class AppleUrlInterceptor extends UrlInterceptor {
+outline-client,src/www/app/vpn_installer.ts,95a7b50b070f04d0adb63bd492f6bb1abaac528319643462b680f9b4b5c94209,18,type,VpnInstaller,export interface VpnInstaller {
+outline-client,src/www/app/vpn_installer.ts,95a7b50b070f04d0adb63bd492f6bb1abaac528319643462b680f9b4b5c94209,28,type,NoOpVpnInstaller,export class NoOpVpnInstaller implements VpnInstaller {
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,18,type,ServerAlreadyAdded,export class ServerAlreadyAdded extends CustomError {
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,24,type,ShadowsocksUnsupportedCipher,export class ShadowsocksUnsupportedCipher extends CustomError {
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,30,type,ServerIncompatible,export class ServerIncompatible extends CustomError {
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,36,type,ServerUrlInvalid,export class ServerUrlInvalid extends CustomError {
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,42,type,SessionConfigFetchFailed,export class SessionConfigFetchFailed extends CustomError {
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,48,type,ServerAccessKeyInvalid,export class ServerAccessKeyInvalid extends CustomError {
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,54,type,ProxyConnectionFailure,export class ProxyConnectionFailure extends CustomError {
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,60,type,FeedbackSubmissionError,export class FeedbackSubmissionError extends CustomError {
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,69,type,OutlinePluginError,export class OutlinePluginError extends CustomError {
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,79,type,NativeError,export class NativeError extends CustomError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,80,type,RegularNativeError,export class RegularNativeError extends NativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,81,type,RedFlagNativeError,export class RedFlagNativeError extends NativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,86,type,UnexpectedPluginError,export class UnexpectedPluginError extends RegularNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,87,type,VpnPermissionNotGranted,export class VpnPermissionNotGranted extends RegularNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,88,type,InvalidServerCredentials,export class InvalidServerCredentials extends RegularNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,89,type,RemoteUdpForwardingDisabled,export class RemoteUdpForwardingDisabled extends RegularNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,90,type,ServerUnreachable,export class ServerUnreachable extends RegularNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,91,type,IllegalServerConfiguration,export class IllegalServerConfiguration extends RegularNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,92,type,NoAdminPermissions,export class NoAdminPermissions extends RegularNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,93,type,SystemConfigurationException,export class SystemConfigurationException extends RegularNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,101,type,ShadowsocksStartFailure,export class ShadowsocksStartFailure extends RedFlagNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,102,type,ConfigureSystemProxyFailure,export class ConfigureSystemProxyFailure extends RedFlagNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,103,type,UnsupportedRoutingTable,export class UnsupportedRoutingTable extends RedFlagNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,106,type,VpnStartFailure,export class VpnStartFailure extends RedFlagNativeError {}
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,135,function,fromErrorCode,export function fromErrorCode(errorCode: ErrorCode): NativeError {
+outline-client,src/www/model/errors.ts,4cd4cc32c918d3658f52462865beaab407b35591825863a2415bc190a48ae7b2,168,function,toErrorCode,export function toErrorCode(e: NativeError): ErrorCode {
+outline-client,src/www/model/events.ts,bb345270866e720251e280845ca6783afe4e93cce73e7d3b311c930655a04645,18,type,OutlineEvent,export interface OutlineEvent {}
+outline-client,src/www/model/events.ts,bb345270866e720251e280845ca6783afe4e93cce73e7d3b311c930655a04645,20,type,OutlineEventListener,export type OutlineEventListener<T extends OutlineEvent> = (event: T) => void;
+outline-client,src/www/model/events.ts,bb345270866e720251e280845ca6783afe4e93cce73e7d3b311c930655a04645,22,type,ServerAdded,export class ServerAdded implements OutlineEvent {
+outline-client,src/www/model/events.ts,bb345270866e720251e280845ca6783afe4e93cce73e7d3b311c930655a04645,26,type,ServerForgotten,export class ServerForgotten implements OutlineEvent {
+outline-client,src/www/model/events.ts,bb345270866e720251e280845ca6783afe4e93cce73e7d3b311c930655a04645,30,type,ServerForgetUndone,export class ServerForgetUndone implements OutlineEvent {
+outline-client,src/www/model/events.ts,bb345270866e720251e280845ca6783afe4e93cce73e7d3b311c930655a04645,34,type,ServerRenamed,export class ServerRenamed implements OutlineEvent {
+outline-client,src/www/model/events.ts,bb345270866e720251e280845ca6783afe4e93cce73e7d3b311c930655a04645,38,type,ServerConnected,export class ServerConnected implements OutlineEvent {
+outline-client,src/www/model/events.ts,bb345270866e720251e280845ca6783afe4e93cce73e7d3b311c930655a04645,42,type,ServerDisconnected,export class ServerDisconnected implements OutlineEvent {
+outline-client,src/www/model/events.ts,bb345270866e720251e280845ca6783afe4e93cce73e7d3b311c930655a04645,46,type,ServerReconnecting,export class ServerReconnecting implements OutlineEvent {
+outline-client,src/www/model/events.ts,bb345270866e720251e280845ca6783afe4e93cce73e7d3b311c930655a04645,51,type,EventQueue,export class EventQueue {
+outline-client,src/www/model/server.ts,ff938974f21f932276c8c943daa63ea50d5330d9a591a1bb5110e37ff4e435ba,17,type,ServerType,export enum ServerType {
+outline-client,src/www/model/server.ts,ff938974f21f932276c8c943daa63ea50d5330d9a591a1bb5110e37ff4e435ba,27,type,Server,export interface Server {
+outline-client,src/www/model/server.ts,ff938974f21f932276c8c943daa63ea50d5330d9a591a1bb5110e37ff4e435ba,61,type,ServerRepository,export interface ServerRepository {
+outline-client,src/www/types/clipboard.d.ts,4b04603437dc487caaf58353d245a17339b0d4ef353d10443d362f3322840c32,15,type,SuccessCallback,type SuccessCallback = (text: string) => void;
+outline-client,src/www/types/clipboard.d.ts,4b04603437dc487caaf58353d245a17339b0d4ef353d10443d362f3322840c32,16,type,FailureCallback,type FailureCallback = (error: Error) => void;
+outline-client,src/www/types/clipboard.d.ts,4b04603437dc487caaf58353d245a17339b0d4ef353d10443d362f3322840c32,18,type,CordovaPlugins,interface CordovaPlugins {
+outline-client,src/www/types/webintents.d.ts,541b332da2367f57249293ad044e2335c9e5fbd2ab7f30c74772d3eed88d09eb,15,type,WebIntent,interface WebIntent {
+outline-client,src/www/types/webintents.d.ts,541b332da2367f57249293ad044e2335c9e5fbd2ab7f30c74772d3eed88d09eb,20,type,Window,interface Window {
+outline-client,src/www/ui_components/app-root.js,fe2a349928a6a806ca18e8860ab94aee392964d295fdea7e49d4e1c9ff698222,61,class,AppRoot,"export class AppRoot extends mixinBehaviors([AppLocalizeBehavior], PolymerElement) {"
+outline-client,src/www/ui_components/app-root.js,fe2a349928a6a806ca18e8860ab94aee392964d295fdea7e49d4e1c9ff698222,594,function,noop,function noop() {}
+outline-client,src/www/ui_components/language-view.js,3dc06c210e09b463f8aa0c696dabd4ac23b882cbd005262958a0a54550106863,21,class,OutlineLanguageView,class OutlineLanguageView extends DirMixin(PolymerElement) {
+outline-client,src/www/views/servers_view/index.ts,1a90e7b1673eb6168f1229c4b4d596db4354c5690e59bb9fb84c0e719fd9b3a0,26,type,ServerListItem,export type ServerListItem = _ServerListItem;
+outline-client,src/www/views/servers_view/server_connection_indicator/index.ts,e68d714d71fe6c8f86225c82892a1b6e918be794ecf7e98e55b3ae3a1d8b6eff,23,type,ServerConnectionState,export enum ServerConnectionState {
+outline-client,src/www/views/servers_view/server_connection_indicator/index.ts,e68d714d71fe6c8f86225c82892a1b6e918be794ecf7e98e55b3ae3a1d8b6eff,34,type,ServerConnectionIndicator,export class ServerConnectionIndicator extends LitElement {
+outline-client,src/www/views/servers_view/server_list/index.ts,b733369408428b1137a6771c56310a53917c54db286fbda46fe523f876540fc2,21,type,ServerList,export class ServerList extends PolymerElement {
+outline-client,src/www/views/servers_view/server_list_item/index.ts,3a9e59a77677904283eb8611bcd3a526ddb565df4f643d3124e7238980e96e79,18,type,ServerListItemEvent,export enum ServerListItemEvent {
+outline-client,src/www/views/servers_view/server_list_item/index.ts,3a9e59a77677904283eb8611bcd3a526ddb565df4f643d3124e7238980e96e79,28,type,ServerListItem,export interface ServerListItem {
+outline-client,src/www/views/servers_view/server_list_item/index.ts,3a9e59a77677904283eb8611bcd3a526ddb565df4f643d3124e7238980e96e79,42,type,ServerListItemElement,export interface ServerListItemElement {
+outline-client,src/www/views/servers_view/server_list_item/server_card/index.ts,d8f79130445c27b90f902916ebf9f8349812feae7be1c08432506213c70ae5b6,232,type,ServerRowCard,export class ServerRowCard extends LitElement implements ServerListItemElement {
+outline-client,src/www/views/servers_view/server_list_item/server_card/index.ts,d8f79130445c27b90f902916ebf9f8349812feae7be1c08432506213c70ae5b6,283,type,ServerHeroCard,export class ServerHeroCard extends LitElement implements ServerListItemElement {
+outline-client,tools/OutlineService/OutlineService/OutlineService.Designer.cs,f04ec1dec199a96037c732073e2a972267a3834765d14ad251cb22441458f168,28,method,Dispose,protected override void Dispose(bool disposing)
+outline-client,tools/OutlineService/OutlineService/OutlineService.Designer.cs,f04ec1dec199a96037c732073e2a972267a3834765d14ad251cb22441458f168,43,method,InitializeComponent,private void InitializeComponent()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,114,type,MIB_IPFORWARDROW,internal class MIB_IPFORWARDROW
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,140,type,MIB_IPFORWARDTABLE,internal class MIB_IPFORWARDTABLE
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,168,method,OnStart,protected override void OnStart(string[] args)
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,176,method,OnStop,protected override void OnStop()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,183,method,CreatePipe,private void CreatePipe()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,198,method,DestroyPipe,private void DestroyPipe()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,220,method,HandleConnection,private void HandleConnection(IAsyncResult result)
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,269,method,ReadRequest,private ServiceRequest ReadRequest()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,289,method,ParseRequest,private ServiceRequest ParseRequest(string jsonRequest)
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,302,method,WriteResponse,private void WriteResponse(ServiceResponse response)
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,317,method,SerializeResponse,private string SerializeResponse(ServiceResponse response)
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,330,method,HandleRequest,private void HandleRequest(ServiceRequest request)
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,393,method,ConfigureRouting,"public void ConfigureRouting(string proxyIp, bool isAutoConnect)"
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,476,method,ResetRouting,"public void ResetRouting(string proxyIp, int gatewayInterfaceIndex)"
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,554,method,StartSmartDnsBlock,private void StartSmartDnsBlock()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,609,method,StopSmartDnsBlock,private void StopSmartDnsBlock()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,621,method,AddOrUpdateProxyRoute,"private void AddOrUpdateProxyRoute(string proxyIp, string gatewayIp, int gatewayInterfaceIndex)"
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,635,method,DeleteProxyRoute,private void DeleteProxyRoute(string proxyIp)
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,653,method,AddIpv4TapRedirect,private void AddIpv4TapRedirect()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,668,method,RemoveIpv4TapRedirect,private void RemoveIpv4TapRedirect()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,676,method,StartRoutingIpv4,private void StartRoutingIpv4()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,684,method,StopRoutingIpv4,private void StopRoutingIpv4()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,699,method,StartRoutingIpv6,private void StartRoutingIpv6()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,712,method,StopRoutingIpv6,private void StopRoutingIpv6()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,728,method,AddOrUpdateReservedSubnetBypass,"private void AddOrUpdateReservedSubnetBypass(string gatewayIp, int gatewayInterfaceIndex)"
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,744,method,RemoveReservedSubnetBypass,private void RemoveReservedSubnetBypass()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,753,method,RunCommand,"private void RunCommand(string cmd, string args)"
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,814,method,GetSystemIpv4Gateway,private void GetSystemIpv4Gateway(string proxyIp)
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,916,method,NetworkAddressChanged,"private void NetworkAddressChanged(object sender, EventArgs evt)"
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,1011,method,SendConnectionStatusChange,private void SendConnectionStatusChange(ConnectionStatus status)
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,1032,method,GetNetworkInfo,public string GetNetworkInfo()
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,1038,method,GetAdapterInfo,private string GetAdapterInfo(NetworkInterface adapter)
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,1060,type,ServiceRequest,internal class ServiceRequest
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,1069,type,ServiceResponse,internal class ServiceResponse
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,1081,type,ErrorCode,public enum ErrorCode
+outline-client,tools/OutlineService/OutlineService/OutlineService.cs,09c28260d5bb7ba579b5534b0f18c5a3184c8c16bf27f5f1283d68824991b9ef,1087,type,ConnectionStatus,public enum ConnectionStatus
+outline-client,tools/OutlineService/OutlineService/Program.cs,2dfbc83628b4855a4633fddfed44db0df752809b4830d5a6f09afaca0b4ad255,24,type,Program,static class Program
+outline-client,tools/find_tap_name/main.go,049b7cb9416b9d8e631a04355d95d556d7b0fff872b19b9539354cdea88cdba0,36,type,networkAdapter,type networkAdapter struct {
+outline-client,tools/find_tap_name/main.go,049b7cb9416b9d8e631a04355d95d556d7b0fff872b19b9539354cdea88cdba0,44,func,getAdapterNameAndInstallTimestamp,"func getAdapterNameAndInstallTimestamp(adapterKeyPath, componentID string) (name string, installTimestamp uint64, err error) {"
+outline-client,tools/find_tap_name/main.go,049b7cb9416b9d8e631a04355d95d556d7b0fff872b19b9539354cdea88cdba0,94,func,findNetworkAdapters,"func findNetworkAdapters(componentID string, ignoredNames map[string]bool) ([]networkAdapter, error) {"
+outline-client,tools/find_tap_name/main.go,049b7cb9416b9d8e631a04355d95d556d7b0fff872b19b9539354cdea88cdba0,128,func,readIgnoredNetworkAdapterNames,func readIgnoredNetworkAdapterNames(filename string) map[string]bool {
+outline-client,tools/find_tap_name/main.go,049b7cb9416b9d8e631a04355d95d556d7b0fff872b19b9539354cdea88cdba0,149,func,main,func main() {
+outline-client,tools/outline_proxy_controller/logger.cpp,441e6a8f7b790ea487ba9345eaf5b2aea51836658783501167f62bb798d98d56,51,function,Logger::config,"void Logger::config(bool log_stderr, bool log_to_file, std::string fname) {"
+outline-client,tools/outline_proxy_controller/logger.cpp,441e6a8f7b790ea487ba9345eaf5b2aea51836658783501167f62bb798d98d56,66,function,Logger::set_threshold,void Logger::set_threshold(log_level_t level) {
+outline-client,tools/outline_proxy_controller/logger.cpp,441e6a8f7b790ea487ba9345eaf5b2aea51836658783501167f62bb798d98d56,119,function,Logger::silly,"void Logger::silly(std::string msg, std::string function_name, std::string user_nick) {"
+outline-client,tools/outline_proxy_controller/logger.cpp,441e6a8f7b790ea487ba9345eaf5b2aea51836658783501167f62bb798d98d56,123,function,Logger::debug,"void Logger::debug(std::string msg, std::string function_name, std::string user_nick) {"
+outline-client,tools/outline_proxy_controller/logger.cpp,441e6a8f7b790ea487ba9345eaf5b2aea51836658783501167f62bb798d98d56,127,function,Logger::verbose,"void Logger::verbose(std::string msg, std::string function_name, std::string user_nick) {"
+outline-client,tools/outline_proxy_controller/logger.cpp,441e6a8f7b790ea487ba9345eaf5b2aea51836658783501167f62bb798d98d56,131,function,Logger::info,"void Logger::info(std::string msg, std::string function_name, std::string user_nick) {"
+outline-client,tools/outline_proxy_controller/logger.cpp,441e6a8f7b790ea487ba9345eaf5b2aea51836658783501167f62bb798d98d56,135,function,Logger::warn,"void Logger::warn(std::string msg, std::string function_name, std::string user_nick) {"
+outline-client,tools/outline_proxy_controller/logger.cpp,441e6a8f7b790ea487ba9345eaf5b2aea51836658783501167f62bb798d98d56,139,function,Logger::error,"void Logger::error(std::string msg, std::string function_name, std::string user_nick) {"
+outline-client,tools/outline_proxy_controller/logger.cpp,441e6a8f7b790ea487ba9345eaf5b2aea51836658783501167f62bb798d98d56,143,function,Logger::abort,"void Logger::abort(std::string msg, std::string function_name, std::string user_nick) {"
+outline-client,tools/outline_proxy_controller/logger.cpp,441e6a8f7b790ea487ba9345eaf5b2aea51836658783501167f62bb798d98d56,154,function,Logger::log_get_timestamp,double Logger::log_get_timestamp() {
+outline-client,tools/outline_proxy_controller/logger.cpp,441e6a8f7b790ea487ba9345eaf5b2aea51836658783501167f62bb798d98d56,155,type,timeval,"struct timeval now, delta;"
+outline-client,tools/outline_proxy_controller/logger.h,c724e8d7d28f7e3b0867bff0818c675505188f88edcc6226c2242d53b735a2e1,19,macro,SRC_LOGGER_H_,#define SRC_LOGGER_H_
+outline-client,tools/outline_proxy_controller/logger.h,c724e8d7d28f7e3b0867bff0818c675505188f88edcc6226c2242d53b735a2e1,24,type,log_level_t,"enum log_level_t { SILLY, DEBUG, VERBOSE, INFO, WARN, ERROR, ABORT };"
+outline-client,tools/outline_proxy_controller/logger.h,c724e8d7d28f7e3b0867bff0818c675505188f88edcc6226c2242d53b735a2e1,28,type,Logger,class Logger {
+outline-client,tools/outline_proxy_controller/logger.h,c724e8d7d28f7e3b0867bff0818c675505188f88edcc6226c2242d53b735a2e1,60,type,timeval,struct timeval log_ts_base;
+outline-client,tools/outline_proxy_controller/network_monitor.cpp,cffe06727fb82f4666b0aeac0b4ac3b66098ae47f0cbdd3ef256dcb130dd9f96,67,function,NetworkMonitor::WaitForChangeEvent,boost::asio::awaitable<NetworkChangeEvent> NetworkMonitor::WaitForChangeEvent() {
+outline-client,tools/outline_proxy_controller/network_monitor.cpp,cffe06727fb82f4666b0aeac0b4ac3b66098ae47f0cbdd3ef256dcb130dd9f96,114,function,NetworkMonitor::IsNextChangeEventReady,bool NetworkMonitor::IsNextChangeEventReady() {
+outline-client,tools/outline_proxy_controller/network_monitor.h,f9825bf10ccf03b88a6ec60199c4debb97483636fdf11b50520b417a89513631,36,type,NetworkChangeEvent,class NetworkChangeEvent final {
+outline-client,tools/outline_proxy_controller/network_monitor.h,f9825bf10ccf03b88a6ec60199c4debb97483636fdf11b50520b417a89513631,66,type,NetworkMonitor,class NetworkMonitor final {
+outline-client,tools/outline_proxy_controller/outline_controller_server.cpp,de0494380b61b5151e1cb39307266475e560aae6b93c6aef53ebd9edb4ba39ac,65,function,TryParseJson,"static bool TryParseJson(const std::string &raw_str, boost::property_tree::ptree &result) {"
+outline-client,tools/outline_proxy_controller/outline_controller_server.cpp,de0494380b61b5151e1cb39307266475e560aae6b93c6aef53ebd9edb4ba39ac,89,function,OutlineClientSession::Start,boost::asio::awaitable<void> OutlineClientSession::Start() {
+outline-client,tools/outline_proxy_controller/outline_controller_server.cpp,de0494380b61b5151e1cb39307266475e560aae6b93c6aef53ebd9edb4ba39ac,96,function,OutlineClientSession::ServeClientCommands,boost::asio::awaitable<void> OutlineClientSession::ServeClientCommands() {
+outline-client,tools/outline_proxy_controller/outline_controller_server.cpp,de0494380b61b5151e1cb39307266475e560aae6b93c6aef53ebd9edb4ba39ac,121,function,OutlineClientSession::MonitorNetworkChanges,boost::asio::awaitable<void> OutlineClientSession::MonitorNetworkChanges() {
+outline-client,tools/outline_proxy_controller/outline_controller_server.cpp,de0494380b61b5151e1cb39307266475e560aae6b93c6aef53ebd9edb4ba39ac,151,function,OutlineClientSession::SucceededResult,OutlineClientSession::CommandResult OutlineClientSession::SucceededResult(const std::string &action) {
+outline-client,tools/outline_proxy_controller/outline_controller_server.cpp,de0494380b61b5151e1cb39307266475e560aae6b93c6aef53ebd9edb4ba39ac,161,function,OutlineClientSession::ConnectionStateChangedResult,OutlineClientSession::CommandResult OutlineClientSession::ConnectionStateChangedResult(ConnectionState state) {
+outline-client,tools/outline_proxy_controller/outline_controller_server.cpp,de0494380b61b5151e1cb39307266475e560aae6b93c6aef53ebd9edb4ba39ac,165,function,OutlineClientSession::RunClientCommand,OutlineClientSession::CommandResult OutlineClientSession::RunClientCommand(const boost::property_tree::ptree &request) {
+outline-client,tools/outline_proxy_controller/outline_controller_server.cpp,de0494380b61b5151e1cb39307266475e560aae6b93c6aef53ebd9edb4ba39ac,213,function,OutlineClientSession::SendResponse,boost::asio::awaitable<void> OutlineClientSession::SendResponse(const OutlineClientSession::CommandResult &response) {
+outline-client,tools/outline_proxy_controller/outline_controller_server.cpp,de0494380b61b5151e1cb39307266475e560aae6b93c6aef53ebd9edb4ba39ac,265,function,OutlineControllerServer::Start,boost::asio::awaitable<void> OutlineControllerServer::Start() {
+outline-client,tools/outline_proxy_controller/outline_controller_server.h,0bdcab7fe4cedb0fca635d5756467265940f64f9e9f7804685dabebc6d10a3d4,38,type,OutlineClientSession,class OutlineClientSession : public std::enable_shared_from_this<OutlineClientSession> {
+outline-client,tools/outline_proxy_controller/outline_controller_server.h,0bdcab7fe4cedb0fca635d5756467265940f64f9e9f7804685dabebc6d10a3d4,73,type,class,enum class ConnectionState : int {
+outline-client,tools/outline_proxy_controller/outline_controller_server.h,0bdcab7fe4cedb0fca635d5756467265940f64f9e9f7804685dabebc6d10a3d4,80,type,CommandResult,struct CommandResult {
+outline-client,tools/outline_proxy_controller/outline_controller_server.h,0bdcab7fe4cedb0fca635d5756467265940f64f9e9f7804685dabebc6d10a3d4,120,type,OutlineControllerServer,class OutlineControllerServer {
+outline-client,tools/outline_proxy_controller/outline_daemon.cpp,81e550830d62109d402a6e2c18ff460a310cd564123161cdc41d6354b56749fd,35,type,ControllerConfig,class ControllerConfig {
+outline-client,tools/outline_proxy_controller/outline_daemon.cpp,81e550830d62109d402a6e2c18ff460a310cd564123161cdc41d6354b56749fd,90,function,main,"int main(int argc, char* argv[]) {"
+outline-client,tools/outline_proxy_controller/outline_error.cpp,cb5c146d31ac366c46e65e864f1478de8cd1f1a2418d6dfe01c7f33fa8f92bf8,25,type,OutlineErrorCategory,class OutlineErrorCategory : public std::error_category {
+outline-client,tools/outline_proxy_controller/outline_error.cpp,cb5c146d31ac366c46e65e864f1478de8cd1f1a2418d6dfe01c7f33fa8f92bf8,67,function,OutlineErrorCategory,const std::error_category& OutlineErrorCategory() {
+outline-client,tools/outline_proxy_controller/outline_error.cpp,cb5c146d31ac366c46e65e864f1478de8cd1f1a2418d6dfe01c7f33fa8f92bf8,72,function,make_error_code,std::error_code make_error_code(ErrorCode err) {
+outline-client,tools/outline_proxy_controller/outline_error.h,a48eef86e857eb2991dd3dcd59abff1fa5304495a21ebab77a45faaa4af68ef4,28,type,class,enum class ErrorCode {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,111,function,safe_pclose,"static uint8_t safe_pclose(pid_t pid, FILE* pipe) {"
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,148,function,OutlineProxyController::executeIPRoute,OutputAndStatus OutlineProxyController::executeIPRoute(const CommandArguments &args) {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,152,function,OutlineProxyController::executeIPLink,OutputAndStatus OutlineProxyController::executeIPLink(const CommandArguments &args) {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,156,function,OutlineProxyController::executeIPTunTap,OutputAndStatus OutlineProxyController::executeIPTunTap(const CommandArguments &args) {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,193,function,OutlineProxyController::addOutlineTunDev,void OutlineProxyController::addOutlineTunDev() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,223,function,OutlineProxyController::outlineTunDeviceExsits,bool OutlineProxyController::outlineTunDeviceExsits() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,230,function,OutlineProxyController::setTunDeviceIP,void OutlineProxyController::setTunDeviceIP() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,264,function,OutlineProxyController::detectBestInterfaceIndex,void OutlineProxyController::detectBestInterfaceIndex() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,351,function,OutlineProxyController::routeThroughOutline,void OutlineProxyController::routeThroughOutline(std::string outlineServerIP) {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,427,function,OutlineProxyController::backupDNSSetting,void OutlineProxyController::backupDNSSetting() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,461,function,OutlineProxyController::deleteAllDefaultRoutes,void OutlineProxyController::deleteAllDefaultRoutes() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,479,function,OutlineProxyController::checkRoutingTableForSpecificRoute,bool OutlineProxyController::checkRoutingTableForSpecificRoute(std::string routePart) {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,499,function,OutlineProxyController::createDefaultRouteThroughTun,void OutlineProxyController::createDefaultRouteThroughTun() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,511,function,OutlineProxyController::createRouteforOutlineServer,void OutlineProxyController::createRouteforOutlineServer() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,535,function,OutlineProxyController::toggleIPv6,void OutlineProxyController::toggleIPv6(bool IPv6Status) {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,555,function,OutlineProxyController::enforceGloballyReachableDNS,void OutlineProxyController::enforceGloballyReachableDNS() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,592,function,OutlineProxyController::resetFailRoutingAttempt,void OutlineProxyController::resetFailRoutingAttempt(OutlineConnectionStage failedStage) {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,618,function,OutlineProxyController::executeSysctl,OutputAndStatus OutlineProxyController::executeSysctl(const CommandArguments &args) {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,622,function,OutlineProxyController::routeDirectly,void OutlineProxyController::routeDirectly() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,672,function,OutlineProxyController::createDefaultRouteThroughGateway,void OutlineProxyController::createDefaultRouteThroughGateway() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,683,function,OutlineProxyController::deleteOutlineServerRouting,void OutlineProxyController::deleteOutlineServerRouting() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,696,function,OutlineProxyController::restoreDNSSetting,void OutlineProxyController::restoreDNSSetting() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,732,function,OutlineProxyController::deleteOutlineTunDev,void OutlineProxyController::deleteOutlineTunDev() {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,745,function,OutlineProxyController::executeIPCommand,OutputAndStatus OutlineProxyController::executeIPCommand(const CommandArguments &args) {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.cpp,210da4ccde9ebb5477890a4b4dd02c09b5623bba4e38957e971636b7f5ffb0f2,749,function,OutlineProxyController::executeIPAddress,OutputAndStatus OutlineProxyController::executeIPAddress(const CommandArguments &args) {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.h,b93f94aacafce63f6219ec875426983320788564db52b1811f80826312b2dbfb,29,type,OutlineProxyController,class OutlineProxyController {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.h,b93f94aacafce63f6219ec875426983320788564db52b1811f80826312b2dbfb,79,type,OutlineConnectionStage,enum OutlineConnectionStage {
+outline-client,tools/outline_proxy_controller/outline_proxy_controller.h,b93f94aacafce63f6219ec875426983320788564db52b1811f80826312b2dbfb,88,type,class,enum class OutlineConnectionStatus {
+outline-client,tools/smartdnsblock/smartdnsblock/smartdnsblock.cpp,c234b990bb32c7d3aa4fe3d19f759d6cffa09619cbf894b6d88114d43aec3371,42,function,main,"int main(int argc, char **argv) {"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,44,def,_resource_path,def _resource_path(relative: str) -> Path:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,104,class,DNSScannerTUI,class DNSScannerTUI(
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,508,def,__init__,def __init__(self):
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,650,def,compose,def compose(self) -> ComposeResult:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,878,def,on_mount,def on_mount(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1045,def,_get_table_columns,"def _get_table_columns(self) -> list[tuple[str, str, int | None]]:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1061,def,_setup_table_columns,def _setup_table_columns(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1072,def,action_quit,def action_quit(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1206,def,_update_keybinding_visibility,def _update_keybinding_visibility(
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1213,def,action_pause_scan,def action_pause_scan(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1222,def,action_resume_scan,def action_resume_scan(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1228,def,action_shuffle_ips,def action_shuffle_ips(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1238,def,action_start_scan,def action_start_scan(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1248,def,on_button_pressed,"def on_button_pressed(self, event: Button.Pressed) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1299,def,on_select_changed,"def on_select_changed(self, event: Select.Changed) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1310,def,on_checkbox_changed,"def on_checkbox_changed(self, event: Checkbox.Changed) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1393,def,on_directory_tree_file_selected,def on_directory_tree_file_selected(
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1418,def,on_input_submitted,"def on_input_submitted(self, event: Input.Submitted) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1431,def,on_key,"def on_key(self, event: events.Key) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1454,def,_pause_scan,def _pause_scan(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1491,def,_resume_scan,def _resume_scan(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1535,def,_get_optimal_concurrency,def _get_optimal_concurrency(self) -> int:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1572,def,_apply_scan_preset,def _apply_scan_preset(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1591,def,_start_scan_from_form,def _start_scan_from_form(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1950,def,_check_update_and_start_scan,async def _check_update_and_start_scan(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,1974,def,log_callback,def log_callback(msg):
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2038,def,_download_and_start_scan,async def _download_and_start_scan(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2044,class,_DownloadProgressShim,class _DownloadProgressShim:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2045,def,update_progress,"def update_progress(self, progress: float, total: float) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2117,def,_apply_os_mtu,def _apply_os_mtu(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2137,def,_revert_os_mtu,def _revert_os_mtu(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2156,def,_mtu_op_windows,"def _mtu_op_windows(self, mtu: int, reverting: bool) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2217,def,_mtu_op_linux,"def _mtu_op_linux(self, mtu: int, reverting: bool) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2262,def,_mtu_op_mac,"def _mtu_op_mac(self, mtu: int, reverting: bool) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2303,def,_scan_async,async def _scan_async(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2466,def,_run_test,async def _run_test(ip: str) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2476,def,_drain_results,async def _drain_results() -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2484,def,_wait_one,async def _wait_one() -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2756,def,_test_dns_with_callback,async def _test_dns_with_callback(
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2764,def,_process_result,"async def _process_result(self, result: tuple[str, bool, float]) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2889,def,_test_dns,async def _test_dns(
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2934,def,_get_security_summary_counts,"def _get_security_summary_counts(self) -> tuple[int, int, int]:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2955,def,_tick_stats,def _tick_stats(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2987,def,_periodic_sort_refresh,def _periodic_sort_refresh(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,2996,def,_log,"def _log(self, message: str) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,3005,def,_debug_log,"def _debug_log(self, message: str) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,3019,def,_close_debug_log,def _close_debug_log(self) -> None:
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,3030,def,on_data_table_row_selected,"def on_data_table_row_selected(self, event: DataTable.RowSelected) -> None:"
+pydns-scanner,python/dnsscanner_tui.py,7855657dbc049e246c64f8a2adc508bc255cedb9c0ee97756c7618b12193d610,3087,def,main,def main():
+pydns-scanner,python/scanner/config_mixin.py,10294bd380c0440303c82b1cc581867322a303b3634f6089b20381f602d675cf,11,class,ConfigMixin,class ConfigMixin:
+pydns-scanner,python/scanner/config_mixin.py,10294bd380c0440303c82b1cc581867322a303b3634f6089b20381f602d675cf,18,def,_load_config,def _load_config(self) -> dict:
+pydns-scanner,python/scanner/config_mixin.py,10294bd380c0440303c82b1cc581867322a303b3634f6089b20381f602d675cf,31,def,_save_config,"def _save_config(self, config: dict) -> None:"
+pydns-scanner,python/scanner/constants.py,77a4dee406141e95b0f3c8715c6d443856284cedd5e2c1637526a345739f76a2,15,def,_is_android,def _is_android() -> bool:
+pydns-scanner,python/scanner/constants.py,77a4dee406141e95b0f3c8715c6d443856284cedd5e2c1637526a345739f76a2,44,def,_copy_to_clipboard,def _copy_to_clipboard(text: str) -> bool:
+pydns-scanner,python/scanner/constants.py,77a4dee406141e95b0f3c8715c6d443856284cedd5e2c1637526a345739f76a2,51,def,_read_from_clipboard,def _read_from_clipboard() -> str:
+pydns-scanner,python/scanner/constants.py,77a4dee406141e95b0f3c8715c6d443856284cedd5e2c1637526a345739f76a2,59,def,_copy_to_clipboard,def _copy_to_clipboard(text: str) -> bool:  # type: ignore[misc]
+pydns-scanner,python/scanner/constants.py,77a4dee406141e95b0f3c8715c6d443856284cedd5e2c1637526a345739f76a2,62,def,_read_from_clipboard,def _read_from_clipboard() -> str:  # type: ignore[misc]
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,21,def,_make_resolver,"def _make_resolver(nameserver: str, timeout: float = 3.0) -> dns.asyncresolver.Resolver:"
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,30,def,_has_response,def _has_response(exc: dns.resolver.NoNameservers) -> bool:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,38,class,ExtraTestsMixin,class ExtraTestsMixin:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,49,def,_is_bogon_ip,def _is_bogon_ip(addr: str) -> bool:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,69,def,_queue_extra_tests,"def _queue_extra_tests(self, ip: str) -> None:"
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,71,def,_run_extras,async def _run_extras(dns_ip: str) -> None:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,127,def,_test_security,"async def _test_security(self, ip: str) -> None:"
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,145,def,_check_dnssec,async def _check_dnssec() -> bool:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,153,def,_check_hijack,async def _check_hijack() -> bool:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,177,def,_check_dnssec_raw,"async def _check_dnssec_raw(self, ip: str) -> bool:"
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,218,def,_test_ipv6,"async def _test_ipv6(self, ip: str) -> None:"
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,238,def,_test_resolve,"async def _test_resolve(self, ip: str) -> None:"
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,259,def,_test_edns0,"async def _test_edns0(self, ip: str) -> None:"
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,317,def,_test_dns_types,"async def _test_dns_types(self, ip: str) -> None:"
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,322,def,_test_ns,async def _test_ns() -> None:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,344,def,_test_txt,async def _test_txt() -> None:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,355,def,_test_rnd,async def _test_rnd() -> None:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,367,def,_test_dpi,async def _test_dpi() -> None:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,381,def,_test_edns0_type,async def _test_edns0_type() -> None:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,408,def,_test_nxd,async def _test_nxd() -> None:
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,430,def,_test_isp_info,"async def _test_isp_info(self, ip: str) -> None:"
+pydns-scanner,python/scanner/extra_tests.py,152560b2acdc6cd809272aea3e331c1f30e4d0cfdcf6cde95fb398e47d921d29,458,def,_test_tcp_udp_support,"async def _test_tcp_udp_support(self, ip: str) -> None:"
+pydns-scanner,python/scanner/ip_streaming.py,585217c97d8772ed99e4faf1845a9171bdba15e66766e3c0b20d29ee0849e933,16,class,IPStreamingMixin,class IPStreamingMixin:
+pydns-scanner,python/scanner/ip_streaming.py,585217c97d8772ed99e4faf1845a9171bdba15e66766e3c0b20d29ee0849e933,24,def,_count_total_ips_fast,"def _count_total_ips_fast(self, filepath: str) -> int:"
+pydns-scanner,python/scanner/ip_streaming.py,585217c97d8772ed99e4faf1845a9171bdba15e66766e3c0b20d29ee0849e933,55,def,_load_subnets,def _load_subnets(self) -> list[ipaddress.IPv4Network]:
+pydns-scanner,python/scanner/ip_streaming.py,585217c97d8772ed99e4faf1845a9171bdba15e66766e3c0b20d29ee0849e933,99,def,_stream_ips_from_file,"async def _stream_ips_from_file(self) -> AsyncGenerator[list[str], None]:"
+pydns-scanner,python/scanner/ip_streaming.py,585217c97d8772ed99e4faf1845a9171bdba15e66766e3c0b20d29ee0849e933,107,def,read_and_process,def read_and_process():
+pydns-scanner,python/scanner/ip_streaming.py,585217c97d8772ed99e4faf1845a9171bdba15e66766e3c0b20d29ee0849e933,224,def,_stream_ips_redis_style,"async def _stream_ips_redis_style(self) -> AsyncGenerator[list[str], None]:"
+pydns-scanner,python/scanner/ip_streaming.py,585217c97d8772ed99e4faf1845a9171bdba15e66766e3c0b20d29ee0849e933,231,def,read_subnets,def read_subnets():
+pydns-scanner,python/scanner/ip_streaming.py,585217c97d8772ed99e4faf1845a9171bdba15e66766e3c0b20d29ee0849e933,381,def,_collect_ips,"def _collect_ips(self, subnets: list[ipaddress.IPv4Network]) -> list[str]:"
+pydns-scanner,python/scanner/isp_cache.py,691c5bdb6b0a9e172206d317ccabd032ee9f94870db682f59eb8a22f6825ed63,231,def,_build_builtin_table,"def _build_builtin_table() -> list[tuple[int, int, str]]:"
+pydns-scanner,python/scanner/isp_cache.py,691c5bdb6b0a9e172206d317ccabd032ee9f94870db682f59eb8a22f6825ed63,247,class,ISPCacheMixin,class ISPCacheMixin:
+pydns-scanner,python/scanner/isp_cache.py,691c5bdb6b0a9e172206d317ccabd032ee9f94870db682f59eb8a22f6825ed63,258,def,_get_isp_table,"def _get_isp_table(self) -> list[tuple[int, int, str, str]]:"
+pydns-scanner,python/scanner/isp_cache.py,691c5bdb6b0a9e172206d317ccabd032ee9f94870db682f59eb8a22f6825ed63,300,def,_lookup_isp_builtin,def _lookup_isp_builtin(ip_str: str) -> str:
+pydns-scanner,python/scanner/isp_cache.py,691c5bdb6b0a9e172206d317ccabd032ee9f94870db682f59eb8a22f6825ed63,323,def,_ensure_isp_cache,async def _ensure_isp_cache(self) -> None:
+pydns-scanner,python/scanner/proxy_testing.py,82c35f3f8626af8f367c754ae08f819b722addbd273ed6c91a3e2dd9c7d7f23c,15,class,ProxyTestingMixin,class ProxyTestingMixin:
+pydns-scanner,python/scanner/proxy_testing.py,82c35f3f8626af8f367c754ae08f819b722addbd273ed6c91a3e2dd9c7d7f23c,29,def,_queue_slipstream_test,"async def _queue_slipstream_test(self, dns_ip: str) -> None:"
+pydns-scanner,python/scanner/proxy_testing.py,82c35f3f8626af8f367c754ae08f819b722addbd273ed6c91a3e2dd9c7d7f23c,142,def,_test_slipstream_proxy,async def _test_slipstream_proxy(
+pydns-scanner,python/scanner/proxy_testing.py,82c35f3f8626af8f367c754ae08f819b722addbd273ed6c91a3e2dd9c7d7f23c,261,def,_do_socks5_test,async def _do_socks5_test():
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,13,class,ResultsMixin,class ResultsMixin:
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,23,def,_add_result,"def _add_result(self, ip: str, response_time: float) -> None:"
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,52,def,_get_proxy_str,"def _get_proxy_str(self, ip: str) -> str:"
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,67,def,_get_ipver_column,"def _get_ipver_column(self, ip: str) -> str:"
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,75,def,_get_security_column,"def _get_security_column(self, ip: str) -> str:"
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,87,def,_get_resolve_column,"def _get_resolve_column(self, ip: str) -> str:"
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,95,def,_get_edns0_column,"def _get_edns0_column(self, ip: str) -> str:"
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,106,def,_get_dns_types_column,"def _get_dns_types_column(self, ip: str) -> str:"
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,123,def,_get_isp_column,"def _get_isp_column(self, ip: str) -> str:"
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,132,def,_get_tcp_udp_column,"def _get_tcp_udp_column(self, ip: str) -> str:"
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,146,def,_update_table_row,"def _update_table_row(self, ip: str) -> None:"
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,163,def,_rebuild_table,def _rebuild_table(self) -> None:
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,171,def,_sort_key,def _sort_key(ip):
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,228,def,_is_ip_finalized,"def _is_ip_finalized(self, ip: str) -> bool:"
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,250,def,_periodic_sort_refresh,def _periodic_sort_refresh(self) -> None:
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,257,def,_build_csv_headers_and_rows,def _build_csv_headers_and_rows(
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,274,def,_csv_sort_key,def _csv_sort_key(item):
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,364,def,_auto_save_results,def _auto_save_results(self) -> None:
+pydns-scanner,python/scanner/results.py,aac45318f51c77b5672cc66efbb647bb371a30bf582a28a5b480934357befe8d,418,def,action_save_results,def action_save_results(self) -> None:
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,21,class,SlipNetManager,class SlipNetManager:
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,58,def,__init__,def __init__(self):
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,80,def,_detect_system,def _detect_system() -> str:
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,93,def,get_platform_key,def get_platform_key(self) -> str:
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,106,def,get_platform_dir,def get_platform_dir(self) -> Path:
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,112,def,get_executable_path,def get_executable_path(self) -> Path:
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,130,def,is_installed,def is_installed(self) -> bool:
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,143,def,ensure_executable,def ensure_executable(self) -> bool:
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,159,def,ensure_installed,"async def ensure_installed(self, log_callback=None) -> tuple[bool, str]:"
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,160,def,log,def log(msg):
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,179,def,get_download_url,def get_download_url(self) -> Optional[str]:
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,186,def,download,async def download(
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,283,def,download_with_ui,async def download_with_ui(
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,391,def,parse_config,def parse_config(slipnet_url: str) -> dict:
+pydns-scanner,python/scanner/slipnet.py,b964e23031ee51eefaa59bbddbc0a08e6b8f76ef6138e2488c470b63d60fad40,444,def,get_run_command,"def get_run_command(self, dns_ip: str, port: int, slipnet_url: str, query_size: int = 0) -> list:"
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,16,class,SlipstreamManager,class SlipstreamManager:
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,58,def,__init__,def __init__(self):
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,84,def,_detect_system,def _detect_system() -> str:
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,97,def,get_platform_key,def get_platform_key(self) -> str:
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,110,def,get_platform_dir,def get_platform_dir(self) -> Path:
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,116,def,get_executable_path,def get_executable_path(self) -> Path:
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,134,def,is_installed,def is_installed(self) -> bool:
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,147,def,ensure_executable,def ensure_executable(self) -> bool:
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,163,def,ensure_installed,"async def ensure_installed(self, log_callback=None) -> tuple[bool, str]:"
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,164,def,log,def log(msg):
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,183,def,get_download_url,def get_download_url(self) -> Optional[str]:
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,190,def,download,async def download(
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,290,def,_download_windows_dlls,"async def _download_windows_dlls(self, log_callback=None) -> bool:"
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,297,def,log,def log(msg):
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,325,def,download_with_ui,async def download_with_ui(
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,434,def,_download_windows_dlls_with_ui,"async def _download_windows_dlls_with_ui(self, log_widget) -> bool:"
+pydns-scanner,python/scanner/slipstream.py,dedc436ba85f626e348f49b04a7698f825c20f2339b87671567c64cdd41a9cf4,466,def,get_run_command,"def get_run_command(self, dns_ip: str, port: int, domain: str) -> list:"
+pydns-scanner,python/scanner/utils.py,43309a0b70d17d25bb0d4b4a91871a86ddf97cb20aec676a81b7789cd4abbeaf,18,def,_run_tunnel_sync,def _run_tunnel_sync(
+pydns-scanner,python/scanner/utils.py,43309a0b70d17d25bb0d4b4a91871a86ddf97cb20aec676a81b7789cd4abbeaf,42,def,_reader,def _reader():
+pydns-scanner,python/scanner/utils.py,43309a0b70d17d25bb0d4b4a91871a86ddf97cb20aec676a81b7789cd4abbeaf,67,def,_play_bell_sound,def _play_bell_sound() -> None:
+pydns-scanner,python/scanner/utils.py,43309a0b70d17d25bb0d4b4a91871a86ddf97cb20aec676a81b7789cd4abbeaf,74,def,_beep_blocking,def _beep_blocking():
+pydns-scanner,python/scanner/utils.py,43309a0b70d17d25bb0d4b4a91871a86ddf97cb20aec676a81b7789cd4abbeaf,103,def,_format_time,def _format_time(response_time: float) -> str:
+pydns-scanner,python/scanner/utils.py,43309a0b70d17d25bb0d4b4a91871a86ddf97cb20aec676a81b7789cd4abbeaf,110,def,_format_time_ms,def _format_time_ms(ms: int) -> str:
+pydns-scanner,python/scanner/widgets.py,7e7406fb6145653b56c0a2afdc9f8ce603ab1320c6b5d6122f305db1c632453e,17,class,Checkbox,class Checkbox(TextualCheckbox):
+pydns-scanner,python/scanner/widgets.py,7e7406fb6145653b56c0a2afdc9f8ce603ab1320c6b5d6122f305db1c632453e,23,class,PlainDirectoryTree,class PlainDirectoryTree(DirectoryTree):
+pydns-scanner,python/scanner/widgets.py,7e7406fb6145653b56c0a2afdc9f8ce603ab1320c6b5d6122f305db1c632453e,30,def,render_label,"def render_label(self, node, base_style, style):"
+pydns-scanner,python/scanner/widgets.py,7e7406fb6145653b56c0a2afdc9f8ce603ab1320c6b5d6122f305db1c632453e,44,class,VersionedFooter,class VersionedFooter(TextualFooter):
+pydns-scanner,python/scanner/widgets.py,7e7406fb6145653b56c0a2afdc9f8ce603ab1320c6b5d6122f305db1c632453e,63,def,compose,def compose(self) -> ComposeResult:
+pydns-scanner,python/scanner/widgets.py,7e7406fb6145653b56c0a2afdc9f8ce603ab1320c6b5d6122f305db1c632453e,68,class,StatsWidget,class StatsWidget(Widget):
+pydns-scanner,python/scanner/widgets.py,7e7406fb6145653b56c0a2afdc9f8ce603ab1320c6b5d6122f305db1c632453e,77,def,__init__,"def __init__(self, *args, **kwargs):"
+pydns-scanner,python/scanner/widgets.py,7e7406fb6145653b56c0a2afdc9f8ce603ab1320c6b5d6122f305db1c632453e,109,def,compose,def compose(self) -> ComposeResult:
+pydns-scanner,python/scanner/widgets.py,7e7406fb6145653b56c0a2afdc9f8ce603ab1320c6b5d6122f305db1c632453e,121,def,update_stats,def update_stats(
+pydns-scanner,python/scanner/widgets.py,7e7406fb6145653b56c0a2afdc9f8ce603ab1320c6b5d6122f305db1c632453e,170,def,_refresh_rows,def _refresh_rows(self) -> None:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,35,class,DNSWorkerPool,class DNSWorkerPool:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,47,def,__init__,def __init__(
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,76,def,start,def start(self) -> None:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,94,def,stop,"def stop(self, timeout: float = 8.0) -> None:"
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,110,def,pause,def pause(self) -> None:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,113,def,resume,def resume(self) -> None:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,118,def,submit_batch,"def submit_batch(self, ips: list[str] | tuple[str, ...]) -> None:"
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,124,def,get_results,"def get_results(self, max_results: int = 500) -> list[tuple[str, bool, float]]:"
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,134,def,drain_ip_queue,def drain_ip_queue(self) -> int:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,147,def,total_concurrency,def total_concurrency(self) -> int:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,151,def,pending_ips,def pending_ips(self) -> int:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,155,def,pending_results,def pending_results(self) -> int:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,159,def,active_count,def active_count(self) -> int:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,163,def,is_idle,def is_idle(self) -> bool:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,172,def,_inc_active,def _inc_active(self) -> None:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,176,def,_dec_active,def _dec_active(self) -> None:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,180,def,_run_loop,def _run_loop(self) -> None:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,201,def,_scan_loop,async def _scan_loop(self) -> None:
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,267,def,_test_dns_sem,async def _test_dns_sem(
+pydns-scanner,python/scanner/worker_pool.py,1d1e4bfcaefffdd1e47740bb0c93e4e5b004ba45b6c9a31aceafda33fcf1e72c,274,def,_test_dns,"async def _test_dns(self, ip: str) -> tuple[str, bool, float]:"
+splitpt,client/lib/client-config.go,fc01b422dfb6bbd01a7abc1a30728119769392d197f08403fd2e3a4df37d3f73,10,type,SplitPTConfig,type SplitPTConfig struct {
+splitpt,client/lib/client-config.go,fc01b422dfb6bbd01a7abc1a30728119769392d197f08403fd2e3a4df37d3f73,21,func,GetClientTOMLConfig,"func GetClientTOMLConfig(tomlFilename string) (*SplitPTConfig, error) {"
+splitpt,client/lib/lyrebird.go,2ba2bc52cd337de095dddc218da11a221ef715f971275de5cdfa0f075c0012ee,13,func,LyrebirdConnect,"func LyrebirdConnect(path string, args []string, cert string) (*socks5.Client, error) {"
+splitpt,client/lib/lyrebird.go,2ba2bc52cd337de095dddc218da11a221ef715f971275de5cdfa0f075c0012ee,83,func,encodeArgs,func encodeArgs(args []string) string {
+splitpt,client/lib/splitpt.go,eb6d43514730b920dbf3fa2de93f1769bc270e323b48c1f0c46a68adf946965f,20,type,dummyAddr,type dummyAddr struct{}
+splitpt,client/lib/splitpt.go,eb6d43514730b920dbf3fa2de93f1769bc270e323b48c1f0c46a68adf946965f,22,func,Network,"func (addr dummyAddr) Network() string { return ""dummy"" }"
+splitpt,client/lib/splitpt.go,eb6d43514730b920dbf3fa2de93f1769bc270e323b48c1f0c46a68adf946965f,23,func,String,"func (addr dummyAddr) String() string  { return ""dummy"" }"
+splitpt,client/lib/splitpt.go,eb6d43514730b920dbf3fa2de93f1769bc270e323b48c1f0c46a68adf946965f,31,type,SplitPTClient,type SplitPTClient struct {
+splitpt,client/lib/splitpt.go,eb6d43514730b920dbf3fa2de93f1769bc270e323b48c1f0c46a68adf946965f,35,func,NewSplitPTClient,"func NewSplitPTClient(config SplitPTConfig) (SplitPTClient, error) {"
+splitpt,client/lib/splitpt.go,eb6d43514730b920dbf3fa2de93f1769bc270e323b48c1f0c46a68adf946965f,39,func,Dial,"func (t *SplitPTClient) Dial() (*smux.Stream, error) {"
+splitpt,client/lib/splitpt.go,eb6d43514730b920dbf3fa2de93f1769bc270e323b48c1f0c46a68adf946965f,107,func,GetPTConnections,"func (t *SplitPTClient) GetPTConnections() ([]net.Conn, error) {"
+splitpt,client/splitpt.go,09336b9d89294b29ccb12604812cee9b51876f7b80a738dff55bebe175792ab7,26,func,copyLoop,"func copyLoop(socks *pt.SocksConn, sptstream *smux.Stream) {"
+splitpt,client/splitpt.go,09336b9d89294b29ccb12604812cee9b51876f7b80a738dff55bebe175792ab7,44,func,socksAcceptLoop,"func socksAcceptLoop(ln *pt.SocksListener, sptConfig *spt.SplitPTConfig, shutdown chan struct{}, wg *sync.WaitGroup) error {"
+splitpt,client/splitpt.go,09336b9d89294b29ccb12604812cee9b51876f7b80a738dff55bebe175792ab7,83,func,handler,func handler(conn *pt.SocksConn) error {
+splitpt,client/splitpt.go,09336b9d89294b29ccb12604812cee9b51876f7b80a738dff55bebe175792ab7,102,func,main,func main() {
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,24,type,RandomPacketConn,type RandomPacketConn struct {
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,36,func,NewRandomPacketConn,func NewRandomPacketConn(
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,55,func,getConn,func (c *RandomPacketConn) getConn() net.Conn {
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,63,func,loop,func (c *RandomPacketConn) loop() error {
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,78,func,exchange,func (c *RandomPacketConn) exchange() error {
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,148,func,ReadFrom,"func (c *RandomPacketConn) ReadFrom(p []byte) (int, net.Addr, error) {"
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,162,func,WriteTo,"func (c *RandomPacketConn) WriteTo(p []byte, addr net.Addr) (int, error) {"
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,180,func,closeWithError,func (c *RandomPacketConn) closeWithError(err error) error {
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,197,func,Close,func (c *RandomPacketConn) Close() error { return c.closeWithError(nil) }
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,199,func,LocalAddr,func (c *RandomPacketConn) LocalAddr() net.Addr  { return c.sessionID }
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,200,func,RemoteAddr,func (c *RandomPacketConn) RemoteAddr() net.Addr { return c.remoteAddr }
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,202,func,SetDeadline,func (c *RandomPacketConn) SetDeadline(t time.Time) error      { return errNotImplemented }
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,203,func,SetReadDeadline,func (c *RandomPacketConn) SetReadDeadline(t time.Time) error  { return errNotImplemented }
+splitpt,common/split/random.go,e51c08a0b6e1754a76a266b8b5fc9d37150f614199266bd945c8421f68e8c734,204,func,SetWriteDeadline,func (c *RandomPacketConn) SetWriteDeadline(t time.Time) error { return errNotImplemented }
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,23,type,RoundRobinPacketConn,type RoundRobinPacketConn struct {
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,36,func,NewRoundRobinPacketConn,func NewRoundRobinPacketConn(
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,57,func,getConn,func (c *RoundRobinPacketConn) getConn() net.Conn {
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,65,func,loop,func (c *RoundRobinPacketConn) loop() error {
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,80,func,exchange,func (c *RoundRobinPacketConn) exchange() error {
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,150,func,ReadFrom,"func (c *RoundRobinPacketConn) ReadFrom(p []byte) (int, net.Addr, error) {"
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,164,func,WriteTo,"func (c *RoundRobinPacketConn) WriteTo(p []byte, addr net.Addr) (int, error) {"
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,182,func,closeWithError,func (c *RoundRobinPacketConn) closeWithError(err error) error {
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,199,func,Close,func (c *RoundRobinPacketConn) Close() error { return c.closeWithError(nil) }
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,201,func,LocalAddr,func (c *RoundRobinPacketConn) LocalAddr() net.Addr  { return c.sessionID }
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,202,func,RemoteAddr,func (c *RoundRobinPacketConn) RemoteAddr() net.Addr { return c.remoteAddr }
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,204,func,SetDeadline,func (c *RoundRobinPacketConn) SetDeadline(t time.Time) error      { return errNotImplemented }
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,205,func,SetReadDeadline,func (c *RoundRobinPacketConn) SetReadDeadline(t time.Time) error  { return errNotImplemented }
+splitpt,common/split/round-robin.go,324e516c713b83aa4c6ce7a98bb82f5541d33111dcfcb8915a323bbc86a311cf,206,func,SetWriteDeadline,func (c *RoundRobinPacketConn) SetWriteDeadline(t time.Time) error { return errNotImplemented }
+splitpt,common/split/splittingpacketconn.go,655f0db0cd30219f08b5d98b6f1b606db5b653391468a99da7a705ca7434d45d,14,type,stringAddr,"type stringAddr struct{ network, address string }"
+splitpt,common/split/splittingpacketconn.go,655f0db0cd30219f08b5d98b6f1b606db5b653391468a99da7a705ca7434d45d,16,func,Network,func (addr stringAddr) Network() string { return addr.network }
+splitpt,common/split/splittingpacketconn.go,655f0db0cd30219f08b5d98b6f1b606db5b653391468a99da7a705ca7434d45d,17,func,String,func (addr stringAddr) String() string  { return addr.address }
+splitpt,common/split/splittingpacketconn.go,655f0db0cd30219f08b5d98b6f1b606db5b653391468a99da7a705ca7434d45d,21,type,SplittingPacketConn,type SplittingPacketConn interface {
+splitpt,common/turbotunnel/encapsulation.go,4d9b3080437b9da63b1d0a9d9944415b07bde51bae4b499f107eae1e171bcc1e,10,func,ReadPacket,"func ReadPacket(r io.Reader) ([]byte, error) {"
+splitpt,common/turbotunnel/encapsulation.go,4d9b3080437b9da63b1d0a9d9944415b07bde51bae4b499f107eae1e171bcc1e,26,func,WritePacket,"func WritePacket(w io.Writer, p []byte) error {"
+splitpt,common/turbotunnel/listenerpacketconn.go,470a8d515ce1816f021dd260ef6076820fb8315fd1a156316fdfc936347872a2,13,type,ListenerPacketConn,type ListenerPacketConn struct {
+splitpt,common/turbotunnel/listenerpacketconn.go,470a8d515ce1816f021dd260ef6076820fb8315fd1a156316fdfc936347872a2,18,func,NewListenerPacketConn,func NewListenerPacketConn(ln net.Listener) *ListenerPacketConn {
+splitpt,common/turbotunnel/listenerpacketconn.go,470a8d515ce1816f021dd260ef6076820fb8315fd1a156316fdfc936347872a2,32,func,acceptConnections,func (c *ListenerPacketConn) acceptConnections() error {
+splitpt,common/turbotunnel/listenerpacketconn.go,470a8d515ce1816f021dd260ef6076820fb8315fd1a156316fdfc936347872a2,51,func,handleConnection,func (c *ListenerPacketConn) handleConnection(conn net.Conn) error {
+splitpt,common/turbotunnel/listenerpacketconn.go,470a8d515ce1816f021dd260ef6076820fb8315fd1a156316fdfc936347872a2,95,func,Close,func (c *ListenerPacketConn) Close() error {
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,17,type,taggedPacket,type taggedPacket struct {
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,29,type,QueuePacketConn,type QueuePacketConn struct {
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,41,func,NewQueuePacketConn,"func NewQueuePacketConn(localAddr net.Addr, timeout time.Duration) *QueuePacketConn {"
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,52,func,QueueIncoming,"func (c *QueuePacketConn) QueueIncoming(p []byte, addr net.Addr) {"
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,71,func,OutgoingQueue,func (c *QueuePacketConn) OutgoingQueue(addr net.Addr) <-chan []byte {
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,76,func,ReadFrom,"func (c *QueuePacketConn) ReadFrom(p []byte) (int, net.Addr, error) {"
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,92,func,WriteTo,"func (c *QueuePacketConn) WriteTo(p []byte, addr net.Addr) (int, error) {"
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,110,func,closeWithError,func (c *QueuePacketConn) closeWithError(err error) error {
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,129,func,Close,func (c *QueuePacketConn) Close() error { return c.closeWithError(nil) }
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,132,func,LocalAddr,func (c *QueuePacketConn) LocalAddr() net.Addr { return c.localAddr }
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,134,func,SetDeadline,func (c *QueuePacketConn) SetDeadline(t time.Time) error      { return errNotImplemented }
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,135,func,SetReadDeadline,func (c *QueuePacketConn) SetReadDeadline(t time.Time) error  { return errNotImplemented }
+splitpt,common/turbotunnel/queuepacketconn.go,ea4b521c455db69a8db09af65017d60c07391355e79353a73787f4bda12c2eae,136,func,SetWriteDeadline,func (c *QueuePacketConn) SetWriteDeadline(t time.Time) error { return errNotImplemented }
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,19,type,stringAddr,"type stringAddr struct{ network, address string }"
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,21,func,Network,func (addr stringAddr) Network() string { return addr.network }
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,22,func,String,func (addr stringAddr) String() string  { return addr.address }
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,34,type,RedialPacketConn,type RedialPacketConn struct {
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,46,func,NewRedialPacketConn,"func NewRedialPacketConn(sessionID SessionID, ptconn net.Conn) *RedialPacketConn {"
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,64,func,loop,func (c *RedialPacketConn) loop() error {
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,79,func,dialAndExchange,func (c *RedialPacketConn) dialAndExchange() error {
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,142,func,ReadFrom,"func (c *RedialPacketConn) ReadFrom(p []byte) (int, net.Addr, error) {"
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,156,func,WriteTo,"func (c *RedialPacketConn) WriteTo(p []byte, addr net.Addr) (int, error) {"
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,174,func,closeWithError,func (c *RedialPacketConn) closeWithError(err error) error {
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,191,func,Close,func (c *RedialPacketConn) Close() error { return c.closeWithError(nil) }
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,193,func,LocalAddr,func (c *RedialPacketConn) LocalAddr() net.Addr  { return c.sessionID }
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,194,func,RemoteAddr,func (c *RedialPacketConn) RemoteAddr() net.Addr { return c.remoteAddr }
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,196,func,SetDeadline,func (c *RedialPacketConn) SetDeadline(t time.Time) error      { return errNotImplemented }
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,197,func,SetReadDeadline,func (c *RedialPacketConn) SetReadDeadline(t time.Time) error  { return errNotImplemented }
+splitpt,common/turbotunnel/redialpacketconn.go,1c9076c35698819bfaf19ad6a7f9bea2249877704cc7e699488a1237603b1ac1,198,func,SetWriteDeadline,func (c *RedialPacketConn) SetWriteDeadline(t time.Time) error { return errNotImplemented }
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,12,type,remoteRecord,type remoteRecord struct {
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,22,type,RemoteMap,type RemoteMap struct {
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,40,func,NewRemoteMap,func NewRemoteMap(timeout time.Duration) *RemoteMap {
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,63,func,SendQueue,func (m *RemoteMap) SendQueue(addr net.Addr) chan []byte {
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,74,type,remoteMapInner,type remoteMapInner struct {
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,81,func,removeExpired,"func (inner *remoteMapInner) removeExpired(now time.Time, timeout time.Duration) {"
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,91,func,Lookup,"func (inner *remoteMapInner) Lookup(addr net.Addr, now time.Time) *remoteRecord {"
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,113,func,Len,func (inner *remoteMapInner) Len() int {
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,120,func,Less,"func (inner *remoteMapInner) Less(i, j int) bool {"
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,124,func,Swap,"func (inner *remoteMapInner) Swap(i, j int) {"
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,130,func,Push,func (inner *remoteMapInner) Push(x interface{}) {
+splitpt,common/turbotunnel/remotemap.go,13408fe8c9b8bc9537a360044efb088243725182b25964e3edb3b48cdc5fd551,141,func,Pop,func (inner *remoteMapInner) Pop() interface{} {
+splitpt,common/turbotunnel/sessionid.go,be3db0a43cefa039063177ea56d23309e5b627a807e4020ff3b04014679d522e,8,type,SessionID,type SessionID [8]byte
+splitpt,common/turbotunnel/sessionid.go,be3db0a43cefa039063177ea56d23309e5b627a807e4020ff3b04014679d522e,10,func,NewSessionID,func NewSessionID() SessionID {
+splitpt,common/turbotunnel/sessionid.go,be3db0a43cefa039063177ea56d23309e5b627a807e4020ff3b04014679d522e,21,func,Network,"func (id SessionID) Network() string { return ""session"" }"
+splitpt,common/turbotunnel/sessionid.go,be3db0a43cefa039063177ea56d23309e5b627a807e4020ff3b04014679d522e,22,func,String,func (id SessionID) String() string  { return hex.EncodeToString(id[:]) }
+splitpt,server/server.go,41f4c8f15fdfb6e004fe51f5eb5e781e0772a58294fa9b97f806ec7f9283105e,30,func,proxy,"func proxy(local *net.TCPConn, stream *smux.Stream) {"
+splitpt,server/server.go,41f4c8f15fdfb6e004fe51f5eb5e781e0772a58294fa9b97f806ec7f9283105e,55,func,handler,"func handler(stream *smux.Stream, ptInfo pt.ServerInfo) error {"
+splitpt,server/server.go,41f4c8f15fdfb6e004fe51f5eb5e781e0772a58294fa9b97f806ec7f9283105e,67,func,acceptLoop,"func acceptLoop(kcpln *kcp.Listener, ptInfo pt.ServerInfo) error {"
+splitpt,server/server.go,41f4c8f15fdfb6e004fe51f5eb5e781e0772a58294fa9b97f806ec7f9283105e,89,func,acceptStreams,"func acceptStreams(conn *kcp.UDPSession, ptInfo pt.ServerInfo) error {"
+splitpt,server/server.go,41f4c8f15fdfb6e004fe51f5eb5e781e0772a58294fa9b97f806ec7f9283105e,120,func,main,func main() {

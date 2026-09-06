@@ -1,0 +1,75 @@
+# .goreleaser.yaml — legacy local packaging configuration
+#
+# Release authority is `.github/workflows/release.yml`. It builds the Rust core,
+# uses the daemon entry point, and emits the supported artifact matrix. Keep this
+# file non-releasing until it delegates to the same native-core manifest; a
+# CGO-disabled GoReleaser build would otherwise publish a different product.
+version: 2
+
+project_name: luminet
+
+release:
+  disable: true
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: luminetd
+    main: ./apps/daemon
+    binary: luminetd
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - windows
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w
+      - -X github.com/maybeknott/luminet/internal/system.Version={{.Version}}
+      - -X github.com/maybeknott/luminet/internal/system.BuildDate={{.Date}}
+      - -X github.com/maybeknott/luminet/internal/system.GitCommit={{.ShortCommit}}
+
+archives:
+  - id: default
+    name_template: "luminet_{{.Version}}_{{.Os}}_{{.Arch}}"
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - README.md
+      - LICENSE
+      - PRODUCT.md
+
+nfpms:
+  - id: linux-packages
+    package_name: luminet
+    vendor: LumiNet
+    homepage: https://github.com/maybeknott/luminet
+    maintainer: LumiNet Team <security@luminet.io>
+    description: Sovereign-grade network diagnostics and active circumvention engine
+    license: Apache-2.0
+    formats:
+      - deb
+      - rpm
+      - apk
+    bindir: /usr/bin
+
+checksum:
+  name_template: "checksums.txt"
+
+snapshot:
+  version_template: "{{ .Tag }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'

@@ -1,0 +1,15 @@
+{
+  "definitions": 89062,
+  "high_signal_surfaces": 42797,
+  "module_records": 2966,
+  "release": "post-refactor-235",
+  "surfaces": 84625,
+  "ui_product_surfaces": 3195,
+  "unique_donors": 103,
+  "wave_235": {
+    "focused_semantic_records": 75,
+    "module_groups_reexamined": 921,
+    "semantic_records_total": 88,
+    "source_surfaces_reexamined": 3769
+  }
+}

@@ -1,0 +1,21 @@
+wave,donor,license_posture,source_reuse_policy
+post-refactor-20c,Exclave-dev,GPL-3.0,no direct source reuse; independently rederive concepts/tests only
+post-refactor-20c,Furious-main,GPL-3.0,no direct source reuse; independently rederive concepts/tests only
+post-refactor-20c,HUNTX,no explicit license found in archive metadata,no direct source reuse; concepts/negative evidence/reference only
+post-refactor-20c,Intercept-main,Apache-2.0,source reuse legally possible with attribution; this release uses negative/reference evidence only
+post-refactor-20c,foghorn-main,MIT,source reuse legally possible with attribution; live target changes are independently rederived
+post-refactor-20c,freedom-main,no explicit license found in archive,no direct source reuse; concepts/negative evidence/reference only
+post-refactor-20c,freenet-core-main,AGPL-3.0,no direct source reuse; concepts/tests/evaluation methods only
+post-refactor-20c,freenet-git-main,LGPL-3.0,no direct source reuse in this release; concepts/tests only
+post-refactor-20c,freenet-telemetry-dashboard-main,no explicit license found in archive,no direct source reuse; UX/evaluation/reference only
+post-refactor-20c,frontend-wasm_2_,no explicit license found in archive,no direct source reuse; opaque executable retained only as negative provenance evidence
+post-refactor-20c,fsociety-master,MIT,source reuse legally possible; offensive mechanisms are rejected and used only as defensive negative evidence
+post-refactor-20c,fteproxy-master,MIT,source reuse legally possible with attribution; this release uses protocol/reference semantics only
+post-refactor-20c,fwlite-master,GPL-3.0 per README,no direct source reuse; concepts/negative evidence/reference only
+post-refactor-20c,go-tun2socks-master,MIT,source reuse legally possible with attribution; existing target TUN owner remains authoritative
+post-refactor-20c,gost-master,MIT,source reuse legally possible with attribution; whole proxy/server authority remains rejected
+post-refactor-20c,grasshopper-main,MIT,source reuse legally possible with attribution; custom transport/crypto authority remains rejected
+post-refactor-20c,hawk-proxy-main,no explicit license file found; badge alone not treated as license grant,no direct source reuse; negative evidence/reference only
+post-refactor-20c,hping-master,GPL-2.0-only with noted BSD exceptions,no direct source reuse; offensive raw-packet mechanisms rejected
+post-refactor-20c,httun-main,MIT OR Apache-2.0,source reuse legally possible with attribution; live target sequence hardening independently rederived
+post-refactor-20c,hysteria-python-main,MIT wrapper; bundled upstream components carry their own licenses,no bundled-source credit/import; reference/FFI evidence only

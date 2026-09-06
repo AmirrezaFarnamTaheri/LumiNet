@@ -1,0 +1,26 @@
+# src/apps/daemon/internal/runtime/routingplugin
+
+## Purpose
+Routing-provider policy owner: provider registry/validation, readiness policy, and concrete provider adapters such as Psiphon and Windscribe.
+
+## Architectural role
+- Daemon dependency band: `runtime` (rank 4; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (6): `edge_models.go`, `routing_plugin_policy.go`, `routing_plugin_policy_test.go`, `routing_plugin_psiphon.go`, `routing_plugin_validator.go`, `routing_plugin_windscribe.go`
+
+## Interfaces and dependencies
+- Go package: `routingplugin`.
+- Notable exported surface: `ConnectivitySnapshot`, `ConnectivitySnapshotter`, `DefaultRoutingPluginRegistry`, `ErrPluginConfig`, `ErrPluginDescriptor`, `ErrRouteValidation`, `NewRoutingPluginRegistry`, `ProviderRouteReadiness`, `RouteObservationPreview`, `RoutingPluginConfig` …
+- Daemon-local dependencies: `internal/analysis/scanner`.
+- Direct daemon callers: `internal/adapters/api`.
+
+## Invariants
+- Provider policies are internal adapters behind one routing-provider interface.
+- Scanner/readiness facts are consumed, not re-owned.
+- `runtime` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

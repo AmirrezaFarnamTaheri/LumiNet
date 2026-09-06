@@ -1,0 +1,5 @@
+original_path,lab_path,preservation_mode,bytes,sha256
+apps/daemon/internal/proxy/mobile_bind_platform.go,labs/daemon/proxy-alternates/mobile_bind_platform.go,relocated,3719,9111f7f796c96e9b4bc75f44fbd705d861f4df41dccf13ec3fa2d08d22e4bb03
+apps/daemon/internal/system/gomobile_api.go,labs/daemon/system-alternates/gomobile_api.go,relocated,949,d34a4f836d9f9e3f162dbb4849a70536e6028eee1b49f96b9a006dd581ceb106
+apps/daemon/internal/system/gomobile_api_test.go,labs/daemon/system-alternates/gomobile_api_test.go,relocated,753,e0b85a00183e25c953a03dc694053df32ebaaf242943b17bd3cad6ba62518a66
+apps/daemon/internal/proxy/mobile_bind_test.go,labs/daemon/proxy-alternates/mobile_bind_test.go,baseline-copy,4383,cad51858bd17883c851b4e6a0fad77e5ce5a789288dbcfc9a057ff80f525e640

@@ -1,0 +1,296 @@
+[
+  {
+    "args": "endpoint: *const c_char, input_json: *const c_char, req_id: u64, cb: FfiCallback,",
+    "file": "async_exports.rs",
+    "name": "call_core_async_ffi",
+    "ret": "",
+    "unsafe": true
+  },
+  {
+    "args": "env: *const FfiEnvelope, input: *const u8, output: *mut u8,",
+    "file": "binary_bridge.rs",
+    "name": "lumicore_call",
+    "ret": "FfiStatus",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "scan_icmp_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "probe_tcp_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "scan_ports_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "scan_dns_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "probe_tls_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "probe_socks5_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "probe_http_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "detect_sni_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "test_speed_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "expand_cidr_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "probe_wg_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "detect_captive_portal_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "pad_client_hello_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "inject_fake_packet_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "addr: *mut std::ffi::c_void, size: usize",
+    "file": "exports.rs",
+    "name": "init_shm_ffi",
+    "ret": "i32",
+    "unsafe": true
+  },
+  {
+    "args": "data: *const u8, len: u32",
+    "file": "exports.rs",
+    "name": "push_packet_ffi",
+    "ret": "i32",
+    "unsafe": true
+  },
+  {
+    "args": "buf: *mut u8, max_len: u32",
+    "file": "exports.rs",
+    "name": "pop_packet_ffi",
+    "ret": "i32",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "disassemble_shellcode_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "analyze_anomaly_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "optimize_hosts_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "patch_memory_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "decrypt_cookies_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "",
+    "file": "exports.rs",
+    "name": "get_active_connections_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "start_adb_forwarder_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "input_json: *const c_char",
+    "file": "exports.rs",
+    "name": "craft_packet_ffi",
+    "ret": "*mut c_char",
+    "unsafe": true
+  },
+  {
+    "args": "path: *const c_char",
+    "file": "ios_ffi.rs",
+    "name": "mhrv_set_data_dir",
+    "ret": "",
+    "unsafe": false
+  },
+  {
+    "args": "config_json: *const c_char, tun_fd: i32",
+    "file": "ios_ffi.rs",
+    "name": "mhrv_start",
+    "ret": "u64",
+    "unsafe": false
+  },
+  {
+    "args": "session_id: u64",
+    "file": "ios_ffi.rs",
+    "name": "mhrv_stop",
+    "ret": "bool",
+    "unsafe": false
+  },
+  {
+    "args": "",
+    "file": "ios_ffi.rs",
+    "name": "mhrv_drain_logs",
+    "ret": "*mut c_char",
+    "unsafe": false
+  },
+  {
+    "args": "s: *mut c_char",
+    "file": "ios_ffi.rs",
+    "name": "mhrv_free_string",
+    "ret": "",
+    "unsafe": false
+  },
+  {
+    "args": "",
+    "file": "ios_ffi.rs",
+    "name": "mhrv_version",
+    "ret": "*const c_char",
+    "unsafe": false
+  },
+  {
+    "args": "dest_path: *const c_char",
+    "file": "ios_ffi.rs",
+    "name": "mhrv_export_ca",
+    "ret": "bool",
+    "unsafe": false
+  },
+  {
+    "args": "buf_ptr: *mut c_uchar, buf_len: usize",
+    "file": "memory_bridge.rs",
+    "name": "lumicore_process_buffer",
+    "ret": "i32",
+    "unsafe": true
+  },
+  {
+    "args": "ptr: *mut c_char",
+    "file": "mod.rs",
+    "name": "free_string",
+    "ret": "",
+    "unsafe": true
+  },
+  {
+    "args": "ptr: *mut u8, len: usize",
+    "file": "mod.rs",
+    "name": "free_rust_buffer",
+    "ret": "",
+    "unsafe": true
+  },
+  {
+    "args": "len: usize",
+    "file": "mod.rs",
+    "name": "alloc_rust_buffer",
+    "ret": "*mut u8",
+    "unsafe": true
+  },
+  {
+    "args": "op: u16, input: *const u8, input_len: usize, cb: StreamCallback, user_data: *mut std::ffi::c_void,",
+    "file": "streaming.rs",
+    "name": "lumicore_stream_start",
+    "ret": "StreamHandle",
+    "unsafe": true
+  },
+  {
+    "args": "handle: StreamHandle",
+    "file": "streaming.rs",
+    "name": "lumicore_stream_cancel",
+    "ret": "",
+    "unsafe": true
+  },
+  {
+    "args": "minimum_required_major: u16",
+    "file": "version.rs",
+    "name": "lumicore_version",
+    "ret": "u64",
+    "unsafe": false
+  },
+  {
+    "args": "buf: *mut u8, buf_len: usize",
+    "file": "version.rs",
+    "name": "lumicore_version_string",
+    "ret": "usize",
+    "unsafe": true
+  }
+]

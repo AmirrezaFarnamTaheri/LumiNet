@@ -1,0 +1,14 @@
+# third_party
+
+## Purpose
+Reference/vendor material that is not authoritative LumiNet product source.
+
+## Contents
+- `gaio/` preserves an external gaio source snapshot used for provenance/reference only.
+
+## Interfaces and dependencies
+- Live code must not import this tree unless a dedicated adoption decision explicitly promotes a dependency into the product graph.
+
+## Invariants
+- `third_party/` remains outside `src/` so reference bytes cannot masquerade as shipped ownership.
+- Preserve upstream provenance and avoid local architectural edits inside vendored snapshots.

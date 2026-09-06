@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://luminet.invalid/preservation-ledger/schema-v1.json",
+  "title": "LumiNet preservation ledger v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "sources", "path_policies", "families"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/source"}
+    },
+    "path_policies": {"$ref": "#/$defs/pathPolicies"},
+    "families": {
+      "type": "array",
+      "minItems": 21,
+      "items": {"$ref": "#/$defs/family"}
+    }
+  },
+  "$defs": {
+    "stableID": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?::[a-z0-9][a-z0-9-]*)+$"
+    },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[^/\\\\][^\\\\]*$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nonEmptyStringArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/nonEmptyString"}
+    },
+    "disposition": {
+      "enum": [
+        "canonicalize",
+        "compose",
+        "extract-primitive",
+        "retain-specialization",
+        "quarantine"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_ref", "kind", "locator"],
+      "properties": {
+        "source_ref": {"$ref": "#/$defs/stableID"},
+        "kind": {"enum": ["repository", "historical", "external"]},
+        "locator": {"$ref": "#/$defs/nonEmptyString"},
+        "immutable_ref": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence"],
+      "properties": {
+        "immutable_ref": {"$ref": "#/$defs/nonEmptyString"},
+        "evidence": {"$ref": "#/$defs/nonEmptyStringArray"}
+      }
+    },
+    "peer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "peer_id",
+        "source_ref",
+        "path",
+        "state",
+        "role",
+        "preserved_details",
+        "consumers",
+        "verification_evidence",
+        "disposition",
+        "provenance"
+      ],
+      "properties": {
+        "peer_id": {"$ref": "#/$defs/stableID"},
+        "source_ref": {"$ref": "#/$defs/stableID"},
+        "path": {"$ref": "#/$defs/repositoryPath"},
+        "state": {"enum": ["live", "historical"]},
+        "role": {"$ref": "#/$defs/nonEmptyString"},
+        "preserved_details": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "consumers": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/repositoryPath"}
+        },
+        "verification_evidence": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "disposition": {"$ref": "#/$defs/disposition"},
+        "provenance": {"$ref": "#/$defs/provenance"}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"state": {"const": "historical"}},
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "disposition": {"const": "quarantine"},
+              "provenance": {
+                "required": ["immutable_ref"]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "matrixRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "peer_values", "decision"],
+      "properties": {
+        "field": {"$ref": "#/$defs/nonEmptyString"},
+        "peer_values": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {"type": "string"}
+        },
+        "decision": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "family": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family_id",
+        "status",
+        "disposition",
+        "peers",
+        "deletion_predicate"
+      ],
+      "properties": {
+        "family_id": {"$ref": "#/$defs/stableID"},
+        "status": {
+          "enum": [
+            "inventory",
+            "characterized",
+            "migrating",
+            "verified",
+            "quarantined",
+            "historical"
+          ]
+        },
+        "disposition": {"$ref": "#/$defs/disposition"},
+        "canonical_peer_id": {"$ref": "#/$defs/stableID"},
+        "peers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/peer"}
+        },
+        "deletion_predicate": {"$ref": "#/$defs/nonEmptyString"},
+        "field_default_matrix": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/matrixRow"}
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {"not": {"enum": ["historical", "quarantined"]}}
+            },
+            "required": ["status"]
+          },
+          "then": {"required": ["canonical_peer_id"]}
+        }
+      ]
+    },
+    "pathPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy_id", "pattern"],
+      "properties": {
+        "policy_id": {"$ref": "#/$defs/stableID"},
+        "pattern": {"$ref": "#/$defs/repositoryPath"}
+      }
+    },
+    "pathPolicies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generated_roots", "generated_outputs", "temporary_outputs"],
+      "properties": {
+        "generated_roots": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/repositoryPath"}
+        },
+        "generated_outputs": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/pathPolicy"}
+        },
+        "temporary_outputs": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/pathPolicy"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "baseline_path": "server/internal/proxy/presets.go",
+  "guard_falsification": {
+    "full_implementation_under_proxy": "rejected",
+    "missing_canonical_owner": "rejected",
+    "missing_isppresets_peer": "rejected"
+  },
+  "historical_facade": "apps/daemon/internal/proxy/presets.go",
+  "invariant": "The general preset catalog normalizes exactly to the recorded baseline source hash; all historical exported proxy symbols remain callable through a facade; the independent embedded ISP preset subsystem remains a distinct peer.",
+  "owner": "src/apps/daemon/internal/integrations/presets/presets.go",
+  "post_snapshot": {
+    "canonical_sha256": "fef9e53d03553fad251c81b76353b9d66be79372c97334fa2cd3c89b41c5593a",
+    "counts_match": true,
+    "facade_sha256": "fef9e53d03553fad251c81b76353b9d66be79372c97334fa2cd3c89b41c5593a"
+  },
+  "pre_snapshot": {
+    "counts": {
+      "cdn": 16,
+      "dns": 53,
+      "doh": 28,
+      "isp_evasion": 4,
+      "scan": 5,
+      "serverless": 2,
+      "warp_ports": 54
+    },
+    "sha256": "fef9e53d03553fad251c81b76353b9d66be79372c97334fa2cd3c89b41c5593a"
+  },
+  "preserved_peer": "labs/daemon/modules/isppresets/isppresets.go",
+  "provenance_source": "git-baseline-d73453f:server/internal/proxy/presets.go",
+  "schema": 1,
+  "source_sha256": "7d4e795f3de72365ae5dcc3b4f3561a4bb4ccfecc6d0fac927ce2f8a59c5600b",
+  "source_size": 39267,
+  "wave": 22
+}

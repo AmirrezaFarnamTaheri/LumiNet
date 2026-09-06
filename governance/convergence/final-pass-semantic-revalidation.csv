@@ -1,0 +1,61 @@
+source_wave,record_id,donor,donor_path,donor_hash_matches,target_nodes_current,test_nodes_current,stale_target_nodes,stale_test_nodes,final_status,value_unit,prior_disposition
+eighth,E8-0001,firewalla-master,util/requestWrapper.js,true,true,true,n/a,n/a,verified-current,per-endpoint provider 429 cooldown remembered across independent calls,inspired-native
+eighth,E8-0002,firewalla-master,test/test_request_wrapper.js,true,true,true,n/a,n/a,verified-current,endpoint-isolation rate-limit test oracle,adapted
+eighth,E8-0003,coredns-master,plugin/cache/handler.go,true,true,true,n/a,n/a,verified-current,stale-answer window with refresh coordination and transient-error precedence,adapted
+eighth,E8-0004,coredns-master,plugin/cache/cache.go,true,true,true,n/a,n/a,verified-current,bounded cache ownership and independent expiry,extracted
+eighth,E8-0005,coredns-master,plugin/cache/prefetch_test.go,true,true,true,n/a,n/a,verified-current,single-key refresh suppression test principle,recomposed
+eighth,E8-0006,Se7en-Pro-1.0.0,PsiphonUI/Services/SingBoxTunManager.cs,true,true,true,n/a,n/a,verified-current,stable-ready interval before restart-debt reset,adapted
+eighth,E8-0007,Se7en-Pro-1.0.0,PsiphonUI/Services/SystemProxyService.cs,true,true,true,n/a,n/a,verified-current,system-proxy backup/restore around tunnel lifecycle,superseded
+eighth,E8-0008,Se7en-Pro-1.0.0,PsiphonUI/Services/SecretStore.cs,true,true,true,n/a,n/a,verified-current,OS-backed secret storage boundary,superseded
+eighth,E8-0009,InviZible-master,tordnscrypt/src/main/java/pan/alexander/tordnscrypt/modules/ModulesStateLoop.java,true,true,true,n/a,n/a,verified-current,periodic actual-vs-declared module-state reconciliation and command-hash no-op avoidance,guardrail-derived
+eighth,E8-0010,InviZible-master,tordnscrypt/src/main/java/pan/alexander/tordnscrypt/settings/dnscrypt_rules/remote/UpdateRemoteRulesWorkManager.kt,true,true,true,n/a,n/a,verified-current,unique periodic work ownership with exponential backoff and resource constraints,superseded
+eighth,E8-0011,godnsagent-master(1),prefetcher.go,true,true,true,n/a,n/a,verified-current,cache prefetch based on observed hits,superseded
+eighth,E8-0012,dns-over-https-proxy-master,cmd/dns-over-https-proxy/main.go,true,true,true,n/a,n/a,verified-current,ordered DNS/DoH fallback service,superseded
+eighth,E8-0013,lossyconn-master,lossypacket.go,true,true,true,n/a,n/a,verified-current,loss/delay/jitter connection wrapper,superseded
+eighth,E8-0014,sysproxy-main,sysproxy.cpp,true,true,true,n/a,n/a,verified-current,cross-platform system proxy mutation helper,superseded
+eighth,E8-0015,openssl-cffi-master,openssl-cffi.py,true,true,true,n/a,n/a,verified-current,AES-ECB primitive via OpenSSL CFFI,superseded
+eighth,E8-0016,sing-geoip-main,main.go,true,true,true,n/a,n/a,verified-current,GeoIP rule-set generation pipeline,superseded
+eighth,E8-0017,sing-geosite-main,main.go,true,true,true,n/a,n/a,verified-current,Geosite rule-set generation pipeline,superseded
+eighth,E8-0018,vps-warp-main(1),warp_install.sh,true,true,true,n/a,n/a,verified-current,WARP egress bootstrap recipe,superseded
+eighth,E8-0019,unique-queue-master,queue.go,true,true,true,n/a,n/a,verified-current,deduplicating MPMC queue with append-only replay log,guardrail-derived
+eighth,E8-0020,AgentDNS-main,app.py,true,true,true,n/a,n/a,verified-current,agent registry/discovery/status API,superseded
+eighth,E8-0021,Go-netowrking-tools-main,tcp-scanners-proxies/cmd/portScanner/main.go,true,true,true,n/a,n/a,verified-current,minimal port scanner/TCP proxy examples,superseded
+eighth,E8-0022,GodMode-main,src/providers/provider.js,true,true,true,n/a,n/a,verified-current,multi-provider desktop conversation provider abstraction,reference-only
+eighth,E8-0023,Subnet-Divider-main,subnet-divider.sh,true,true,true,n/a,n/a,verified-current,shell subnet division and batching,superseded
+eighth,E8-0024,V2RayN-PRO-main(1),custom-sb-config-sub.txt,true,true,true,n/a,n/a,verified-current,large V2Ray/sing-box configuration preset corpus,reference-only
+eighth,E8-0025,V2ray-for-Doprax-main(1),supervisord.conf,true,true,true,n/a,n/a,verified-current,container/supervisor V2Ray deployment recipe,superseded
+eighth,E8-0026,v2rayng-panel-main(1),README.md,true,true,true,n/a,n/a,verified-current,V2Ray client panel workflow reference,reference-only
+eighth,E8-0027,DNS-Persist-master,modules/DNSListener.py,true,true,true,n/a,n/a,verified-current,DNS command-and-control/persistence transport,rejected-with-reason
+eighth,E8-0028,ftpscan-master,ftpscan.c,true,true,true,n/a,n/a,verified-current,FTP bounce/scanning utility,rejected-with-reason
+eighth,E8-0029,InterceptSuite-main,README.md,true,true,true,n/a,n/a,verified-current,interception/MITM workflow concepts,rejected-with-reason
+ninth,E9-0001,caddy-master,caddy.go,true,true,true,n/a,n/a,verified-current,stage-before-publish config reload with rollback and stale-writer preconditions,adapted
+ninth,E9-0002,caddy-master,caddy.go,true,true,true,n/a,n/a,verified-current,semantic config hashing and optimistic whole-config CAS,adapted
+ninth,E9-0003,caddy-master,usagepool.go,true,true,true,n/a,n/a,verified-current,reference-counted shared resource pool with destructor,reference-only
+ninth,E9-0004,BPB-Warp-Scanner-main,warp.go,true,true,true,n/a,n/a,verified-current,"repeated endpoint trials, observed loss and quality-aware ranking",inspired-native
+ninth,E9-0005,BPB-Warp-Scanner-main,network.go,true,true,true,n/a,n/a,verified-current,broader WARP endpoint/port candidate corpus,inspired-native
+ninth,E9-0006,BWLimiter-main,limit-tc-port.sh,true,true,true,n/a,n/a,verified-current,"ingress/egress tc shaping with IFB, protected ports and rollback ideas",guardrail-derived
+ninth,E9-0007,defyxVPN-main(1),lib/modules/speed_test/application/services/results_calculator_service.dart,true,true,true,n/a,n/a,verified-current,latency/jitter/loss/stability computation alongside throughput,adapted
+ninth,E9-0008,defyxVPN-main(1),lib/modules/speed_test/application/services/latency_measurement_service.dart,true,true,true,n/a,n/a,verified-current,bounded multi-sample latency probing,hardened
+ninth,E9-0009,defyxVPN-main(1),lib/modules/core/desktop_platform_handler.dart,true,true,true,n/a,n/a,verified-current,desktop proxy/VPN lifecycle integration,superseded
+ninth,E9-0010,3xui-telegram-bot-main,utils/reminder.py,true,true,true,n/a,n/a,verified-current,expiry/traffic reminders,synthesized
+ninth,E9-0011,Marzban-master,app/models/user.py,true,true,true,n/a,n/a,verified-current,data-limit and expiry state,synthesized
+ninth,E9-0012,eve-xui-manager-main,templates/traffic_check.html,true,true,true,n/a,n/a,verified-current,traffic/expiry operator status,synthesized
+ninth,E9-0013,zeus-main(1),zeus.js,true,true,true,n/a,n/a,verified-current,quota/expiry subscription metadata and warnings,synthesized
+ninth,E9-0014,3xui-telegram-bot-main,handlers/purchase.py,true,true,true,n/a,n/a,verified-current,wallet/purchase/referral commerce flows,rejected-with-reason
+ninth,E9-0015,Marzban-master,app/jobs/record_usages.py,true,true,true,n/a,n/a,verified-current,server-authoritative per-user usage accounting,rejected-with-reason
+ninth,E9-0016,zeus-main(1),zeus.js,true,true,true,n/a,n/a,verified-current,"D1 user limits, request quotas and connection enforcement",rejected-with-reason
+ninth,E9-0017,eve-xui-manager-main,prepare-offline-bundle.sh,true,true,true,n/a,n/a,verified-current,offline dependency bundle and recovery-oriented install packaging,reference-only
+ninth,E9-0018,Auto_Tor_IP_changer-master(2),autoTOR.py,true,true,true,n/a,n/a,verified-current,periodic Tor identity rotation via control port,superseded
+ninth,E9-0019,torrequest-master,torrequest.py,true,true,true,n/a,n/a,verified-current,thin requests session + Tor/stem identity wrapper,superseded
+ninth,E9-0020,nahan-main(1),_worker.js,true,true,true,n/a,n/a,verified-current,"new revision adds per-config relay choice, NAT64, connection limits, consistent user affinity/failover and Trojan header fixes",superseded
+ninth,E9-0021,nahan-main(1),singbox.json,true,true,true,n/a,n/a,verified-current,new sing-box/V2Ray client config templates,reference-only
+ninth,E9-0022,GoodbyeDPI-master,src/goodbyedpi.c,true,true,true,n/a,n/a,verified-current,"WinDivert packet interception, splitting/reordering and TTL-aware bypass",superseded
+ninth,E9-0023,GoodbyeDPI-master,src/ttltrack.c,true,true,true,n/a,n/a,verified-current,per-flow TTL observation/tracking,reference-only
+ninth,E9-0024,ev-master_(1),evilpacket.py,true,true,true,n/a,n/a,verified-current,"Scapy segmentation/fragmentation, fake TTL, checksum/ACK/flag mutation and out-of-order send",superseded
+ninth,E9-0025,bia-pain-bache-main,src/worker.js,true,true,true,n/a,n/a,verified-current,"Cloudflare Worker VLESS/Trojan, clean-IP, DNS and fragmentation composition",superseded
+ninth,E9-0026,Serverless-for-Iran-main,Serverless-high_delay.jsonc,true,true,true,n/a,n/a,verified-current,"serve-stale, Happy Eyeballs, fragmentation and UDP-noise high-delay preset composition",reference-only
+ninth,E9-0027,gologin-main,oauth2/login.go,true,true,true,n/a,n/a,verified-current,OAuth2 login flow with short-lived non-guessable state correlation,reference-only
+ninth,E9-0028,snowbox-master,Dockerfile,true,true,true,n/a,n/a,verified-current,local Snowflake client/broker/browser integration lab,reference-only
+ninth,E9-0029,Proxy-client-collection-main,README_en.md,true,true,true,n/a,n/a,verified-current,cross-platform proxy client capability catalog,reference-only
+ninth,E9-0030,incy-platforms-main,README.md,true,true,true,n/a,n/a,verified-current,"cross-platform routing profiles, full config import, TLS fragmentation, shortcuts and local privacy posture",reference-only
+ninth,E9-0031,x-ui-pro-master,x-ui-pro.sh,true,true,true,n/a,n/a,verified-current,"root VPS bootstrap installing/reconfiguring x-ui, WARP, Tor, nginx, certs, cron and backups",guardrail-derived

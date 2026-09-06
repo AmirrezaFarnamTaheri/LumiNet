@@ -1,0 +1,16 @@
+donor,archive,archive_sha256,members,files,dirs,symlinks,uncompressed_bytes,root,duplicate_of
+whitedns_android,WhiteDNS-Android-main(1).zip,828b79cc3224ff6756b88954a84990462cda2ffd88f813809985be24ca7c493b,203,130,73,0,47211130,WhiteDNS-Android-main,n/a
+proofmode_android,proofmode-android-main.zip,09c471d582faea0004611bfb7345d2469762b712e83041ebcbef6b6675fc194c,738,544,194,0,18577998,proofmode-android-main,n/a
+https_everywhere_repeat,https-everywhere-master(1).zip,fe88904e77ed0beed6bcac680e0e1f7716c0d23660c4da9dc1d6a60327aa1a0a,24453,24111,61,281,21910267,https-everywhere-master,historical-identical
+exitmap_repeat,exitmap-main(1).zip,8a65ebd7251fc37a5ca7b5121521598e75172c492e684c99090c8aabb59f39ba,49,42,7,0,41192179,exitmap-main,historical-identical
+dns_blocklists,dns-blocklists-main.zip,e11e4914a3eb00362d28ad29da067cd30812a8dff1b220f7f8d3ccb43a1970b1,333,319,14,0,897298725,dns-blocklists-main,n/a
+tor_metrics_library,library-master.zip,8245a6ded81df961a59aa17cbd8868cc92cabf52ae426177e877308f4cea04ec,226,189,37,0,33035001,library-master,n/a
+mitmproxy2swagger,mitmproxy2swagger-master.zip,bcd06be48c849f35686102843a5df6831d36a4575fb6bb828649c2cf6bc03f1f,50,43,7,0,22793992,mitmproxy2swagger-master,n/a
+outline_tun2socks_demo,outline-go-tun2socks-demo-main.zip,78bccfd31525f07ed92e1c3ca43bfb413e221262245e81b6504b459301fe228d,87,49,38,0,8139583,outline-go-tun2socks-demo-main,n/a
+outline_apps,outline-apps-master.zip,21f4c3622e2863cdba6d44fb82c43aadad981525b3ecc5904deac13f3df4063e,1345,1004,337,4,16605561,outline-apps-master,n/a
+kingo_vpn,Kingo-vpn-main.zip,4ddcf2af24fd9c9c101d3e55069fb728218d8e0f143f706093e1328ce76ce5e0,104,78,26,0,30779174,Kingo-vpn-main,n/a
+simplednscrypt,SimpleDnsCrypt-master.zip,916b6391d3f0595d366da177f8101886f7910669ad0916e1e6caa1fafc44f045,257,229,28,0,25573656,SimpleDnsCrypt-master,n/a
+proxybridge,ProxyBridge-master.zip,06abd9ceab6870b9772abd507c627d7cbd22f7f5b0f55f1544ba10b9f4f2a0b3,162,130,32,0,11975599,ProxyBridge-master,n/a
+skivpn,skivpn-main.zip,106e32461a553dfdf6a75b9fd0cb821123e17ea3e929401cc5efbae00ce0caa2,436,326,110,0,16624525,skivpn-main,n/a
+tor_atlas,atlas-master.zip,9aa56c7535a3f61ca7fe903ab4bcd352621d3e2d482e28861dcb34713d10a53b,510,473,37,0,12010312,atlas-master,n/a
+whitedns_cleanip,WhiteDNS-cleanip-finder-main(1).zip,2b87b94caa6cd8a4ec5eb6c790c54f67b9f5ea1378b19aa6fc0f8d948531208b,340,255,85,0,18471072,WhiteDNS-cleanip-finder-main,n/a

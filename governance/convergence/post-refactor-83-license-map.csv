@@ -1,0 +1,21 @@
+donor,license_posture,source_reuse_policy
+MITM-DomainFronting-main,GPLv3,concept/negative evidence only
+MITM-cheatsheet-master,no explicit LICENSE,no source reuse; defensive reference only
+Marzban-scripts-master,no explicit LICENSE,no source reuse; operational reference only
+NginxReverseProxy-main,MIT,direct adaptation permitted with attribution
+Nova-Proxy-App-main,no explicit LICENSE,no source reuse; independent derivation/guardrails only
+Nova-Proxy-main,MIT,direct adaptation permitted with attribution
+NovaRadar-main,MIT,direct adaptation permitted with attribution
+Pitraix-main,MIT but malicious product role,no capability adoption; negative evidence only
+QS-Tunnel-main,GPLv3,concept/negative evidence only
+cellshift-main,BSD-style / U.S. Government terms,reference/evaluation use subject to terms
+mihomo-main,MIT,unrelated product role
+mullvad-best-server-main,MIT,direct adaptation permitted with attribution
+mullvad-tailscale-main,GPLv3,concept/negative evidence only
+multitor-master,GPLv3,concept/negative evidence only
+nahan-main(2),no explicit LICENSE,identical prior donor; no new source reuse
+onionperf-master,BSD-style / U.S. Government terms,reference/evaluation use subject to terms
+proxy-yoinker-main,no explicit LICENSE,no source reuse; concept/reference only
+qpp-main,GPLv3,no source reuse; crypto rejected
+qtun-master,MIT declared in Cargo.toml,direct adaptation permitted with attribution
+smux-dev,MIT,direct adaptation permitted with attribution

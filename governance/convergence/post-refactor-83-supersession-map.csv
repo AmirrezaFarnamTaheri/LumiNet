@@ -1,0 +1,20 @@
+group_id,domain,donors,target_owner,decision,reason
+CG-PR83-ENDPOINT-QUALITY,endpoint quality,Nova-Proxy-App-main;NovaRadar-main;mullvad-best-server-main,analysis/diagnostics endpoint pool + runtime quality probes,unobserved endpoints now non-dispatchable; existing loss/median/jitter sampling remains authoritative,combines active-pool admission invariant with stronger existing repeated-quality evidence
+CG-PR83-RELAY-RESILIENCE,polling relay resilience,Nova-Proxy-App-main,integrations/relayclient/relayConnState,shared bounded failure backoff added to existing deep relay state,absorbs outage backoff without copying donor GAS subsystem
+CG-PR83-MUX,stream multiplexing,smux-dev,runtime/proxy KCP transport,reference-only pending protocol/performance differential,fair shaper is promising but central dependency replacement lacks proof
+CG-PR83-TOR-EVAL,Tor evaluation,onionperf-master;cellshift-main,Tor diagnostics/reference,retain measurement vocabulary/methodology; no production trace collection authority,research/evaluation value is separable from runtime implementation
+CG-PR83-TOR-AUTHORITY,Tor runtime authority,multitor-master,runtimecore Tor engine,single supervised engine retained,donor itself documents anonymity/resource downsides of multi-instance fanout
+CG-PR83-TRUST-GUARDRAILS,TLS trust,MITM-DomainFronting-main;MITM-cheatsheet-master;Nova-Proxy-App-main;NovaRadar-main,verified transport/scanner evidence seams,no interception CA or live trust bypass; diagnostic evidence remains non-authoritative,preserves strict PKI/pin trust model
+CG-PR83-HOST-NET,host network authority,mullvad-tailscale-main;QS-Tunnel-main,platform/system HostNetworkChange,raw nftables/spoofing side paths rejected,privileged mutation must remain reversible and transaction-owned
+CG-PR83-DEPLOYMENT,privileged deployment,NginxReverseProxy-main;Marzban-scripts-master,external/operator deployment reference,installer recipes reference-only,broad root mutation is not daemon runtime authority
+CG-PR83-PROVENANCE,duplicate provenance,NginxReverseProxy-main;nahan-main(2),governance evidence,hash-identical nested/reuploaded donors reuse prior decisions,prevents double-counting duplicate bytes
+CG-PR83-DNS-TUNNEL,DNS tunnel,QS-Tunnel-main,existing DNS tunnel/evasion plane,existing target owner supersedes; raw spoof path rejected,avoid parallel state machine and privileged raw-socket authority
+CG-PR83-CRYPTO,cryptography,qpp-main,standard cryptographic primitives,custom crypto rejected,no evidence justifies bespoke GPL/unsafe cipher as a security primitive
+CG-PR83-SUBSCRIPTION,subscription ingestion,proxy-yoinker-main,existing bounded/SSRF-aware subscription ingress,existing target ingestion supersedes,no stronger admission contract and no explicit donor license
+CG-PR83-QUIC,QUIC tunnel/reference,qtun-master,existing QUIC/TUIC/MASQUE transport planes,reference-only,different server role and no missing target authority proven
+CG-PR83-MOBILE,mobile socket protection,qtun-master,mobile runtime/platform adapter,reference-only,avoid second Android protect authority
+CG-PR83-EVASION,evasion,Nova-Proxy-App-main,existing evasion plane,superseded,TLS fragmentation variants already have target owner
+CG-PR83-SUPERVISION,process supervision,Nova-Proxy-App-main,runtimecore + process supervisor,superseded,target already has transactional replacement/rollback and stable-run supervision
+CG-PR83-MALWARE-REJECT,malware,Pitraix-main,security guardrails,rejected,malicious capabilities have no LumiNet product role
+CG-PR83-ROLE-MISMATCH,role mismatch,mihomo-main,n/a,rejected,"repository is a Honkai Star Rail data client, not the proxy project implied by the name"
+CG-PR83-EDGE,edge worker,Nova-Proxy-main,existing auth/capability/remote-action planes,reference-only,resource bounds useful but worker product authority not imported

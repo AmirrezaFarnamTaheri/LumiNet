@@ -1,0 +1,35 @@
+{
+  "decision": "retirement-blocked-on-native-proof",
+  "invariant": "Dormant or stubbed native surfaces must not gain a production consumer before Cargo-backed retirement or implementation proof.",
+  "required_native_gate": [
+    "cargo fmt -- --check",
+    "cargo clippy --locked --all-targets -- -D warnings",
+    "cargo test --locked",
+    "C ABI/header verification",
+    "CGO bridge tests"
+  ],
+  "schema": "v1",
+  "surfaces": [
+    {
+      "classification": "zero-production-caller host bridge",
+      "current_action": "retain until Rust ABI retirement is Cargo-verified",
+      "surface": "src/apps/daemon/internal/native/bridge/streaming.go::StartStream"
+    },
+    {
+      "classification": "active ABI reaches stub scan implementation",
+      "current_action": "do not advertise as production capability; remove or implement only under native gate",
+      "surface": "src/packages/lumicore/src/ffi/streaming.rs::stream_scan"
+    },
+    {
+      "classification": "compiled public module with no repository consumer; separate real ML-KEM implementation exists in tls/pqc.rs",
+      "current_action": "retire module/export only under native gate",
+      "surface": "src/packages/lumicore/src/crypto/mlkem.rs"
+    },
+    {
+      "classification": "public re-export with no repository consumer; nonce progression is incomplete",
+      "current_action": "not classified as a live vulnerability; retire or repair only under native gate",
+      "surface": "src/packages/lumicore/src/crypto/aes_gcm.rs::AesGcmStream"
+    }
+  ],
+  "wave": 17
+}

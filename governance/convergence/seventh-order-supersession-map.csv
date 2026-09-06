@@ -1,0 +1,15 @@
+supersession_id,seventh_order_record_ids,target_winner,reason,validation_status
+S7-SUP-001,S7-001;S7-003;S7-004,runtimecore IKEv2 public-key child engine,Full strongSwan daemon/VICI and TTY-secret profiles do not become parallel authorities.,verified
+S7-SUP-002,S7-013;S7-014;S7-015,read-only mesh planner,EasyTier routing semantics are extracted without adopting an overlay daemon.,verified
+S7-SUP-003,S7-017,existing LumiNet TUN/proxy/WireGuard owners,EasyTier gateway plane is functionally overlapping with existing target owners.,verified
+S7-SUP-004,S7-021;S7-022;S7-036;S7-037,one endpoint-pool planner,VpnHood health and relay quota/pool evidence fuse into one target quality model.,verified
+S7-SUP-005,S7-024,existing DNS/evasion plane,VpnHood split-DNS/filtering does not create a second DNS owner.,verified
+S7-SUP-006,S7-030;S7-031;S7-032,DNS tunnel planning without live transport authority,MasterDnsVPN yields MTU/framing value while its full tunnel stays reference-only.,verified
+S7-SUP-007,S7-038;S7-039,existing evasion/relay owners,MasterHttpRelay fronting/full relay remain non-authoritative; quota/pool primitives were extracted separately.,verified
+S7-SUP-008,S7-042;S7-043,existing scanner + proxyconfig owners,SenPai scan/export workflows are already stronger in target-native owners.,verified
+S7-SUP-009,S7-047;S7-048,existing Shadowsocks prefix + proxy tester,nthLink Outline compatibility and connectivity are already live in LumiNet.,verified
+S7-SUP-010,S7-050;S7-051;S7-052,Operations/Profiles product plane,"nthLink Android/Windows one-click, diagnostics and update UX map to existing richer cross-platform surfaces.",verified
+S7-SUP-011,S7-018;S7-023;S7-027,Operations network-planning/quality widgets,Peer product ideas are recomposed into one operator workspace rather than separate donor UIs.,verified
+S7-SUP-012,S7-005;S7-006;S7-007;S7-008;S7-009;S7-010,external strongSwan protocol implementation,Mature IKE/IPsec internals stay behind the external engine boundary instead of being reimplemented.,reviewed
+S7-SUP-013,S7-019,Profiles import/export/source-health owner,EasyTier config management is superseded by the existing profile plane.,verified
+S7-SUP-014,S7-054;S7-055,existing Operations/Profiles UI,purwin visuals/scripts add reference value but no stronger independent runtime mechanism.,reviewed

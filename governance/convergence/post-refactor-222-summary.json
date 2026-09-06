@@ -1,0 +1,33 @@
+{
+  "authority_rule": "peer evidence may inform or constrain target-native owners but never becomes authority by itself",
+  "baseline_files": 2857,
+  "current_donor_surfaces": 6253,
+  "current_donor_symbols": 13006,
+  "dispositions": {
+    "adapted": 9,
+    "extracted": 3,
+    "guardrail-derived": 9,
+    "hardened": 4,
+    "inspired-native": 1,
+    "recomposed": 3,
+    "reference-only": 30,
+    "rejected-with-reason": 9,
+    "superseded": 13
+  },
+  "historically_exact_surfaces": 4960,
+  "pass": "post-refactor-222",
+  "reopened_surfaces": 1293,
+  "safety_exclusions": [
+    "CAPTCHA bypass/solver execution",
+    "Tor deanonymization tooling",
+    "active fake-infohash/findspies crawling",
+    "torrent freerider/content streaming",
+    "root/ADB/fastboot OS mutation"
+  ],
+  "semantic_records": 81,
+  "target_baseline_archive": "LumiNet-convergence-pass-221.tar.gz",
+  "target_baseline_sha256": "24db4253756f32c8a96cdb6783d498dd38bf076ac6bc5ff2a98536f152c96df2",
+  "unique_current_donors": 23,
+  "uploaded_archive_files": 28,
+  "uploaded_donor_archive_files": 25
+}

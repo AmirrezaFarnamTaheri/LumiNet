@@ -1,0 +1,22 @@
+# src/apps/daemon/internal/analysis
+
+## Purpose
+Observation and diagnosis modules: scanner execution, network diagnosis, and provider-corpus classification.
+
+## Architectural role
+- Daemon dependency band: `analysis` (rank 3; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- No direct source files; this folder is a namespace/organization node for child modules.
+- Child folders: `diagnostics/`, `netintel/`, `peerdiscovery/`, `provider/`, `scanner/`.
+
+## Interfaces and dependencies
+- See direct files and parent context for the interface consumed by sibling/parent modules.
+
+## Invariants
+- `analysis` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

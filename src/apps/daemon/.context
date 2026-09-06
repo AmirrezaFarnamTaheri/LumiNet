@@ -1,0 +1,22 @@
+# src/apps/daemon
+
+## Purpose
+Primary Go daemon module: CLI composition roots, deep internal modules, and daemon-owned runtime behavior.
+
+## Contents
+- Direct files (5): `.air.toml`, `CREDITS.md`, `go.mod`, `go.sum`, `main.go`
+- Child folders: `cmd/`, `internal/`.
+
+## Interfaces and dependencies
+- Go package: `main`.
+- No exported Go declarations detected in direct files; treat this as implementation-only or namespace code.
+- Daemon-local dependencies: none.
+- Direct daemon callers: none detected.
+- External/shared imports: 2 distinct package(s); inspect source before changing dependency contracts.
+
+## Invariants
+- Keep behavior local to the named module; move cross-cutting policy to its canonical owner instead of duplicating it here.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

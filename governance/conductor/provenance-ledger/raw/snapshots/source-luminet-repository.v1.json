@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "source_ref": "source:luminet-repository",
+  "snapshot_scope": "LumiNet repository source identity used by the preservation ledger",
+  "preservation_link": {
+    "ledger": "conductor/preservation-ledger/families.v1.json",
+    "relationship": "references-by-source_ref"
+  },
+  "qualification_note": "This bootstrap snapshot establishes an immutable provenance target without copying mutable preservation dispositions."
+}

@@ -1,0 +1,21 @@
+# src/apps/daemon/cmd/watchdog
+
+## Purpose
+Standalone watchdog command and platform process/recovery adapters.
+
+## Contents
+- Direct files (4): `main.go`, `main_test.go`, `watchdog_unix.go`, `watchdog_windows.go`
+
+## Interfaces and dependencies
+- Go package: `main`.
+- Notable exported surface: `PROCESS_QUERY_LIMITED_INFORMATION`, `STILL_ACTIVE`.
+- Daemon-local dependencies: `internal/platform/system`.
+- Direct daemon callers: none detected.
+- External/shared imports: 1 distinct package(s); inspect source before changing dependency contracts.
+
+## Invariants
+- Keep behavior local to the named module; move cross-cutting policy to its canonical owner instead of duplicating it here.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

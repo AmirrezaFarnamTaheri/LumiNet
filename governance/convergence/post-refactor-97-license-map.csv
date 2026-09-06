@@ -1,0 +1,98 @@
+wave,donor,license_posture,source_reuse_policy
+ultimate-63,3xui-telegram-bot-main,MIT,direct adaptation permitted with attribution
+ultimate-63,AgentDNS-main,"no explicit LICENSE in archive; README claims MIT, treated as unverified/no-license for source reuse",no direct source reuse; concepts/negative evidence/reference only
+ultimate-63,Auto_Tor_IP_changer-master(2),no explicit license; exact-byte duplicate of sixth-order donor archive,no source copying; evidence/reference/independent rederivation only
+ultimate-63,BPB-Warp-Scanner-main,"GPL-3.0; selected semantics independently rederived, no source copied",no source copying; evidence/reference/independent rederivation only
+ultimate-63,BWLimiter-main,no explicit license; negative/guardrail evidence only,no source copying; evidence/reference/independent rederivation only
+ultimate-63,DNS-Persist-master,MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+ultimate-63,Go-netowrking-tools-main,no explicit license,no direct source reuse; concepts/negative evidence/reference only
+ultimate-63,GodMode-main,MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+ultimate-63,GoodbyeDPI-master,Apache-2.0,direct adaptation permitted with attribution
+ultimate-63,InterceptSuite-main,no explicit license,no direct source reuse; concepts/negative evidence/reference only
+ultimate-63,InviZible-master,GPL-family copyleft; target uses independent target-native semantics only,no direct donor source reuse for eighth-order changes; independent target-native rederivation/evidence only unless pre-existing compatible boundary already exists
+ultimate-63,Marzban-master,"AGPL-3.0; selected semantics independently rederived, no source copied",no source copying; evidence/reference/independent rederivation only
+ultimate-63,Proxy-client-collection-main,no explicit license; descriptive reference only,no source copying; evidence/reference/independent rederivation only
+ultimate-63,Se7en-Pro-1.0.0,MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+ultimate-63,Serverless-for-Iran-main,"GPL-3.0; preset concepts only, no source/config copied",no source copying; evidence/reference/independent rederivation only
+ultimate-63,Subnet-Divider-main,no explicit license,no direct source reuse; concepts/negative evidence/reference only
+ultimate-63,V2RayN-PRO-main(1),GPL-family copyleft plus bundled third-party binaries/notices; target does not copy source/binaries,no direct donor source reuse for eighth-order changes; independent target-native rederivation/evidence only unless pre-existing compatible boundary already exists
+ultimate-63,V2ray-for-Doprax-main(1),no explicit root license in archive,no direct source reuse; concepts/negative evidence/reference only
+ultimate-63,bia-pain-bache-main,GPL-2.0; evidence/independent comparison only,no source copying; evidence/reference/independent rederivation only
+ultimate-63,caddy-master,Apache-2.0,direct adaptation permitted with attribution
+ultimate-63,coredns-master,Apache-2.0,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+ultimate-63,defyxVPN-main(1),MIT,direct adaptation permitted with attribution
+ultimate-63,dns-over-https-proxy-master,Apache-2.0,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+ultimate-63,ev-master_(1),no explicit license; evidence only,no source copying; evidence/reference/independent rederivation only
+ultimate-63,eve-xui-manager-main,no explicit license; evidence only,no source copying; evidence/reference/independent rederivation only
+ultimate-63,firewalla-master,AGPL-3.0; target independently rederives selected semantics,no direct donor source reuse for eighth-order changes; independent target-native rederivation/evidence only unless pre-existing compatible boundary already exists
+ultimate-63,ftpscan-master,no explicit license,no direct source reuse; concepts/negative evidence/reference only
+ultimate-63,godnsagent-master(1),MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+ultimate-63,gologin-main,MIT,direct adaptation permitted with attribution
+ultimate-63,incy-platforms-main,no explicit license; descriptive reference only,no source copying; evidence/reference/independent rederivation only
+ultimate-63,lossyconn-master,MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+ultimate-63,nahan-main(1),no explicit license; new revision evidence only,no source copying; evidence/reference/independent rederivation only
+ultimate-63,openssl-cffi-master,Apache-2.0,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+ultimate-63,sing-geoip-main,GPL-family copyleft; target does not copy generator source,no direct donor source reuse for eighth-order changes; independent target-native rederivation/evidence only unless pre-existing compatible boundary already exists
+ultimate-63,sing-geosite-main,GPL-family copyleft; target does not copy generator source,no direct donor source reuse for eighth-order changes; independent target-native rederivation/evidence only unless pre-existing compatible boundary already exists
+ultimate-63,snowbox-master,no explicit license; test-environment reference only,no source copying; evidence/reference/independent rederivation only
+ultimate-63,sysproxy-main,MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+ultimate-63,torrequest-master,metadata declares MIT,no source copying; evidence/reference/independent rederivation only
+ultimate-63,unique-queue-master,no explicit license,no direct source reuse; concepts/negative evidence/reference only
+ultimate-63,v2rayng-panel-main(1),no explicit license,no direct source reuse; concepts/negative evidence/reference only
+ultimate-63,vps-warp-main(1),MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+ultimate-63,x-ui-pro-master,no explicit license; operational guardrail/reference only,no source copying; evidence/reference/independent rederivation only
+ultimate-63,zeus-main(1),no explicit license; selected concepts independently rederived only,no source copying; evidence/reference/independent rederivation only
+ultimate-63,MullvadVPN-Tricks-main,GPL-3.0,copyleft; no direct source copy in current target changes; semantics independently implemented
+ultimate-63,RealiTLScanner-main,MPL-2.0,file-level copyleft; no direct source copy in current target changes; semantics independently implemented
+ultimate-63,aces-main,BSD-like US Government permissive,direct reuse legally plausible subject to target fit; this wave still uses target-native adaptation unless noted
+ultimate-63,bldfrm-vpn-main,no explicit license,"no direct source reuse; concepts, negative evidence and independently derived behavior only"
+ultimate-63,dns_over_tls_over_tor-master,no explicit license,"no direct source reuse; concepts, negative evidence and independently derived behavior only"
+ultimate-63,fptn-manager-master,MIT,direct reuse legally plausible subject to target fit; this wave still uses target-native adaptation unless noted
+ultimate-63,fswatch-main,GPL-3.0-or-later,copyleft; no direct source copy in current target changes; semantics independently implemented
+ultimate-63,iptables-mod-randmap-master,GPL-2.0,copyleft; no direct source copy in current target changes; semantics independently implemented
+ultimate-63,mullvad-browser-main,MPL-2.0 (README claim; archive lacks license file),file-level copyleft; no direct source copy in current target changes; semantics independently implemented
+ultimate-63,mullvad-closest-main,Unlicense/public domain,direct reuse legally plausible subject to target fit; this wave still uses target-native adaptation unless noted
+ultimate-63,mullvad-proxy-main,no explicit license,"no direct source reuse; concepts, negative evidence and independently derived behavior only"
+ultimate-63,onionsphinkter-production,no explicit license,"no direct source reuse; concepts, negative evidence and independently derived behavior only"
+ultimate-63,php-proxy-app-master,MIT,direct reuse legally plausible subject to target fit; this wave still uses target-native adaptation unless noted
+ultimate-63,ptnettools-main,CC0-1.0,direct reuse legally plausible subject to target fit; this wave still uses target-native adaptation unless noted
+ultimate-63,smart-vpn-ec2-manager-main,no explicit license,"no direct source reuse; concepts, negative evidence and independently derived behavior only"
+ultimate-63,the-onion-diaries-master,no explicit license,"no direct source reuse; concepts, negative evidence and independently derived behavior only"
+ultimate-63,tor-relay-bootstrap-master,GPL-3.0,copyleft; no direct source copy in current target changes; semantics independently implemented
+ultimate-63,tor.rb-master,Unlicense/public domain,direct reuse legally plausible subject to target fit; this wave still uses target-native adaptation unless noted
+ultimate-63,tor_box-master,no explicit license,"no direct source reuse; concepts, negative evidence and independently derived behavior only"
+ultimate-63,torget-main,GPL-3.0,copyleft; no direct source copy in current target changes; semantics independently implemented
+post-refactor-20,MITM-DomainFronting-main,GPLv3,concept/negative evidence only
+post-refactor-20,MITM-cheatsheet-master,no explicit LICENSE,no source reuse; defensive reference only
+post-refactor-20,Marzban-scripts-master,no explicit LICENSE,no source reuse; operational reference only
+post-refactor-20,NginxReverseProxy-main,MIT,direct adaptation permitted with attribution
+post-refactor-20,Nova-Proxy-App-main,no explicit LICENSE,no source reuse; independent derivation/guardrails only
+post-refactor-20,Nova-Proxy-main,MIT,direct adaptation permitted with attribution
+post-refactor-20,NovaRadar-main,MIT,direct adaptation permitted with attribution
+post-refactor-20,Pitraix-main,MIT but malicious product role,no capability adoption; negative evidence only
+post-refactor-20,QS-Tunnel-main,GPLv3,concept/negative evidence only
+post-refactor-20,cellshift-main,BSD-style / U.S. Government terms,reference/evaluation use subject to terms
+post-refactor-20,mihomo-main,MIT,unrelated product role
+post-refactor-20,mullvad-best-server-main,MIT,direct adaptation permitted with attribution
+post-refactor-20,mullvad-tailscale-main,GPLv3,concept/negative evidence only
+post-refactor-20,multitor-master,GPLv3,concept/negative evidence only
+post-refactor-20,nahan-main(2),no explicit LICENSE,identical prior donor; no new source reuse
+post-refactor-20,onionperf-master,BSD-style / U.S. Government terms,reference/evaluation use subject to terms
+post-refactor-20,proxy-yoinker-main,no explicit LICENSE,no source reuse; concept/reference only
+post-refactor-20,qpp-main,GPLv3,no source reuse; crypto rejected
+post-refactor-20,qtun-master,MIT declared in Cargo.toml,direct adaptation permitted with attribution
+post-refactor-20,smux-dev,MIT,direct adaptation permitted with attribution
+tor-wave-14,Tor-IP-Changer-main,MIT,concept/adaptation permitted with attribution; no donor packaging copied
+tor-wave-14,TorOverVPN-main,no explicit LICENSE,no source reuse; operational/negative evidence only
+tor-wave-14,Tor_Onion_Proxy_Library-master,Apache-2.0,behavioral evidence/adaptation permitted; bundled binaries remain donor artifacts
+tor-wave-14,onion-grater-master,AGPL-3+ with file-specific notices,no source reuse; security-policy evidence only
+tor-wave-14,onionbalance-develop,GPLv3,no source reuse; protocol/algorithm reference only
+tor-wave-14,onionoo-master,BSD-style,protocol/data-model reference only
+tor-wave-14,tor-android-master,mixed component licenses documented in LICENSE,behavioral/build reference only; no bundled component reuse
+tor-wave-14,tor-controller-master,Apache-2.0 top-level; large vendored dependency tree,primary-source concepts only; vendored code not reused
+tor-wave-14,tor-ramdisk-master,GPLv3,no source reuse; operational/negative evidence only
+tor-wave-14,torflow-main,BSD-style,measurement/evaluation reference only
+tor-wave-14,torps-master,BSD-style/custom US Government notice,research/evaluation reference only
+tor-wave-14,torsocks-main,GPLv2,no source reuse; behavioral guardrails/test ideas only
+tor-wave-14,tun2tor-master,MIT,concept/adaptation permitted with attribution; no donor packaging copied
+tor-wave-14,txtorcon-main,MIT,protocol/test evidence may inform independent target-native implementation

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "abi": {"major": 3, "minor": 0, "patch": 0},
+  "envelope": {
+    "request": "FfiEnvelope: abi_version,u16 op_code,u32 flags,u128 trace_id,usize input_len,usize output_cap",
+    "status": "FfiStatus: i32 code,usize output_len,u16 error_code,u16 reserved",
+    "ownership": "caller owns input/output buffers; no Rust allocation crosses this envelope"
+  },
+  "operations": [
+    {"id": 1, "name": "scan", "status": "declared_not_implemented"},
+    {"id": 2, "name": "route_update", "status": "declared_not_implemented"},
+    {"id": 3, "name": "ech_grease", "status": "declared_not_implemented"},
+    {"id": 4, "name": "tls_fragment", "status": "declared_not_implemented"},
+    {"id": 5, "name": "pool_refresh", "status": "declared_not_implemented"},
+    {"id": 6, "name": "sni_rotate", "status": "declared_not_implemented"}
+  ]
+}

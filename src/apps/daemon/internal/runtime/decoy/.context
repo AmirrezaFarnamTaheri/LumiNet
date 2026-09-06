@@ -1,0 +1,25 @@
+# src/apps/daemon/internal/runtime/decoy
+
+## Purpose
+Daemon-owned background decoy-traffic runtime with explicit start/cancel/join lifecycle and bounded request work.
+
+## Architectural role
+- Daemon dependency band: `runtime` (rank 4; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (2): `manager.go`, `manager_test.go`
+
+## Interfaces and dependencies
+- Go package: `decoy`.
+- Notable exported surface: `Manager`, `New`.
+- Daemon-local dependencies: `internal/foundation/remoteaction`.
+- Direct daemon callers: `cmd`.
+
+## Invariants
+- Background work is daemon-owned, cancellation-aware, and joined before Stop returns.
+- `runtime` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

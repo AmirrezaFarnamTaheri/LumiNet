@@ -1,0 +1,22 @@
+{
+  "definitions": 79941,
+  "high_signal_surfaces": 13459,
+  "module_records": 1804,
+  "release": "post-refactor-232",
+  "surfaces": 52423,
+  "ui_product_surfaces": 2668,
+  "unique_donors": 80,
+  "wave_232": {
+    "archive_members": 1036,
+    "definitions": 611,
+    "directories": 286,
+    "high_signal_surfaces": 433,
+    "module_records": 218,
+    "outer_donors": 4,
+    "semantic_value_records": 47,
+    "surfaces": 750,
+    "symlinks": 0,
+    "ui_product_surfaces": 57,
+    "vendored_surfaces": 77
+  }
+}

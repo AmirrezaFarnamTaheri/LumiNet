@@ -1,0 +1,18 @@
+# src/apps
+
+## Purpose
+Runnable product hosts and platform applications.
+
+## Contents
+- No direct source files; this folder is a namespace/organization node for child modules.
+- Child folders: `android/`, `daemon/`, `desktop/`.
+
+## Interfaces and dependencies
+- See direct files and parent context for the interface consumed by sibling/parent modules.
+
+## Invariants
+- Keep behavior local to the named module; move cross-cutting policy to its canonical owner instead of duplicating it here.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

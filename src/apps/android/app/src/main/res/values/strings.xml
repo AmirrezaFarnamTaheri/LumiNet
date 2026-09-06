@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">LumiNet</string>
+    <string name="vpn_status_idle">Disconnected</string>
+    <string name="vpn_status_starting">Starting</string>
+    <string name="vpn_status_connected">Connected</string>
+    <string name="vpn_status_stopping">Stopping</string>
+    <string name="vpn_status_error">Connection error</string>
+    <string name="vpn_status_error_detail">VPN start failed (%1$s)</string>
+    <string name="vpn_tile_label">LumiNet VPN</string>
+    <string name="vpn_notification_starting">VPN starting…</string>
+    <string name="vpn_notification_active">LumiNet VPN active</string>
+    <string name="vpn_notification_failed">LumiNet VPN failed</string>
+    <string name="vpn_notification_channel">LumiNet VPN</string>
+    <string name="vpn_notification_channel_description">LumiNet VPN tunnel status</string>
+    <string name="vpn_notification_stop">Stop</string>
+</resources>

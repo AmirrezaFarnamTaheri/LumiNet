@@ -1,0 +1,13 @@
+plane,target_owner,authority_decision,invariant,status,evidence
+Tor runtime/readiness,runtimecore torEngine,single production child/process lifecycle owner,bootstrap=100 before ready; bounded startup; teardown on failure,verified,PR97-R001
+Tor control protocol,platform/system TorController,single authenticated control client/parser,"bounded command/reply, framed replies, deadlines, event interleaving",verified,PR97-R002;PR97-R004
+Tor control authorization,platform/system ControlFilter,single whitelist boundary for local raw control surface,full-line exact match; reject malformed control input,verified,PR97-R003
+Tor identity rotation,TorController SignalNewNym,no process-restart identity mechanism,authenticated signal path only,reviewed,PR97-S008
+Host network mutation,HostNetworkChange ownership gate,no donor iptables/firewall owner added,single privileged write path,verified,PR97-S010;PR97-S013;FP-S009
+TUN traffic classification,existing target TUN/network owners,no tun2tor stack imported,DNS/UDP/TCP limitations remain explicit,reviewed,PR97-S014;PR97-S015
+Onion-service hosting,no production server owner,no new Kubernetes/balancer authority,server-role mismatch remains closed,reviewed,PR97-S017;PR97-S026;PR97-S033
+Tor diagnostics/evaluation,diagnostics/reference plane,measurement evidence is non-authoritative,observational evidence cannot grant runtime authority,reviewed,PR97-S018;PR97-S020;PR97-S021;PR97-S022;PR97-S023
+Tor filesystem hygiene,runtime temp state + AvoidDiskWrites,no ramdisk appliance owner,minimal persistence without root appliance mutation,reviewed,PR97-S027;PR97-S028
+Android packaging,existing mobile build ownership,no second Tor Android service/JNI packaging imported,packaging reference only,reviewed,PR97-S031
+Binary supply chain,existing target provisioning/build owners,no donor Tor executable import,"donor bundled binaries are evidence, not trusted release inputs",reviewed,PR97-S030
+Evidence/provenance,governance/convergence,frozen historical evidence + successor correction layer,"no double-counting, no silent historical rewrite",verified,PR97-R005

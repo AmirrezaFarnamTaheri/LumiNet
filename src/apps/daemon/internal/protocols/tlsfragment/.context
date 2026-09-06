@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/protocols/tlsfragment
+
+## Purpose
+uTLS/TLS fragmentation primitive used by diagnostics/runtime evasion.
+
+## Architectural role
+- Daemon dependency band: `protocols` (rank 1; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (5): `sni_range.go`, `sni_range_test.go`, `utls_fragment.go`, `utls_fragment_compat_test.go`, `utls_fragment_test.go`
+
+## Interfaces and dependencies
+- Go package: `tlsfragment`.
+- Notable exported surface: `FragmentationStrategy`, `SNIHostRange`, `UTLSFragmentConfig`, `WrapUTLSFragmentConn`.
+- Daemon-local dependencies: none.
+- Direct daemon callers: `internal/adapters/mobilebind`, `internal/analysis/diagnostics`, `internal/runtime/proxy`.
+
+## Invariants
+- `protocols` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

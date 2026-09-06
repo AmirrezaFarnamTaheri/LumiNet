@@ -1,0 +1,3 @@
+# Post-refactor-236 architecture
+
+Twenty new archive identities are decomposed into existing LumiNet owners. Nine bounded read-only planner surfaces are added: ClientHello/QUIC evidence, encrypted-DNS cache/ECS policy, Tor lab/relay topology, proxy-chain safety, transport replay/salt admission, secret refresh/watch policy, REALITY admission, service recovery ordering, and a higher-order Network Trust Bundle. The existing jq evaluator is hardened in-place with context cancellation and a 4096-result materialization cap. No donor DNS server, Tor implementation, LD_PRELOAD hook, VPN runtime, secret store, Shadowsocks server, TLS fork, shell manager, or alternate database becomes authoritative.

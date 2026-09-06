@@ -1,0 +1,14 @@
+donor,archive,sha256,surface_members,regular_files,symlinks,expanded_bytes,stripped_root,duplicate_of,fresh_semantic_review
+whiteaesther_mobile,WhiteAestherMobile-main.zip,82ecabce875e2c07d87f1007cd5f74b25a79414e75c5faf5b337d9c4fb6c5f8b,4195,4195,0,47870526,WhiteAestherMobile-main,n/a,yes
+aether_app,aether-app-master.zip,a57c4028e7c4f50ca51512a13f78d0989e7c195ebc219249ec20932e8a557ac8,389,389,0,13797322,aether-app-master,n/a,yes
+aether,Aether-main.zip,deb7a033933e3159b82feccd6a9987434c2ebd9da76517324c60317c9852672b,2198,2183,15,10150145,Aether-main,n/a,yes
+aether_gui,Aether-GUI-main.zip,e2c174002c5c4cbe698bbf751546ca10f0d962e29861ee016a11b75c25d13df5,123,123,0,2516498,Aether-GUI-main,post-refactor-222:Aether-GUI-main(1).zip,no-exact-historical-duplicate
+whitevpn,WhiteVPN-Desktop-main.zip,1732303512f0400be191f2ae87f8e070ac911173f8be66434ad03806d94d6ce5,271,271,0,9072366,WhiteVPN-Desktop-main,n/a,yes
+whitedns_cleanip,WhiteDNS-cleanip-finder-main.zip,920af41e8bbb86e1cf5252f8bf46d2dbca54d0edd288e85cc59c3dc63a98575e,270,270,0,21627611,WhiteDNS-cleanip-finder-main,n/a,yes
+whiteaesther,WhiteAesther-main.zip,3319a4de819a2dc5cb56285bca7dbe0b28e4d6b21ee1a6d2bc067cfc98a76ab8,87,87,0,3191890,WhiteAesther-main,n/a,yes
+whitedns_android,WhiteDNS-Android-main.zip,3176ec503ca4ed630b64261a9393607b727ec6700903bede5ead3bdc30c9739e,139,139,0,81984653,WhiteDNS-Android-main,n/a,yes
+aether_whiteaesther,Aether-whiteaesther.zip,b564de31dd26566c21a1a26ecde775adc2df96d0a803ba8013be7d98989c2e5e,2199,2184,15,10158144,Aether-whiteaesther,n/a,yes
+whitewarpscout,WhiteWarpScout-main.zip,3ef36b7c0caef9ad92d76494b7a1b23eb244076c13bbc190f8f69bd7c6c4c9f0,112,112,0,4620675,WhiteWarpScout-main,n/a,yes
+cottendns,CottenDNS-main.zip,32b5c57e1af77aa308ed23aec9ce179871106ee80b1d7a31293a4c5b80581231,284,284,0,3931131,CottenDNS-main,n/a,yes
+whitedns_wizard,WhiteDNS-Wizard-main.zip,3f354f7999e9d302ba135e079d99ac7446b6f38907f08209bcef5beec553376a,61,61,0,1397979,WhiteDNS-Wizard-main,n/a,yes
+warp_relay,warp-relay-main.zip,c8805f76a3812b833e043667e169770ea1189b8b24402d9a95604e075d60115d,3,3,0,3129,warp-relay-main,n/a,yes

@@ -1,0 +1,24 @@
+# Template role: standalone VLESS WebSocket worker (`worker.js`). This is not
+# the canonical LumiNet relay deployment; use deploy/relays/cloudflare/wrangler.toml
+# for the versioned fixed-contract bundle. `doh_proxy_worker.js` is a separate
+# illustrative worker and intentionally has no shared Wrangler authority here.
+name = "luminet-vless-worker-template"
+main = "worker.js"
+compatibility_date = "2023-05-22"
+
+# Development environment
+[env.dev]
+name = "luminet-vless-worker-template-dev"
+vars = { ENVIRONMENT = "development" }
+
+# Production environment
+[env.production]
+name = "luminet-vless-worker-template"
+vars = { ENVIRONMENT = "production" }
+
+# Performance optimizations
+[build]
+command = ""
+
+[placement]
+mode = "smart"

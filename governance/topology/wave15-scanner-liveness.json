@@ -1,0 +1,172 @@
+{
+  "classification": "scanner-symbol-liveness-retirement",
+  "invariant": "move only whole Go files whose declarations form a zero-consumer island after package symbol, exported external, method receiver, build-tag, init/registration, and string-hook checks; preserve bytes exactly",
+  "items": [
+    {
+      "build_tags": false,
+      "exports": [
+        "BuildUdpPacket",
+        "CalculateRFC1071Checksum",
+        "DnsVpnConfig",
+        "StartUserspaceDnsVpn"
+      ],
+      "external_export_refs": 0,
+      "init_registration": false,
+      "package_cross_file_refs": 0,
+      "receiver_methods": [],
+      "sha256": "8318321038494f08045017099b56a344650edb67bc7addf9726ce5b54e3277e7",
+      "size": 4651,
+      "source": "src/apps/daemon/internal/analysis/scanner/scanner_dns_service.go",
+      "target": "labs/daemon/scanner-alternates/scanner_dns_service.go"
+    },
+    {
+      "build_tags": false,
+      "exports": [
+        "BasebandCapabilityReport",
+        "BasebandMutationResult",
+        "CalculateWindscribeRouteScore",
+        "EdgeVpnProfileLink",
+        "ExportEdgeVpnProfileLink",
+        "ImportEdgeVpnProfileLink",
+        "NewWindscribeAuthSession",
+        "RedactWindscribeCredential",
+        "RedactWindscribeProfile",
+        "RouteProfileValidation",
+        "ValidateEdgeRouteProfile",
+        "WindscribeAdvanceFailover",
+        "WindscribeAuthSession",
+        "WindscribeCheckClockDrift",
+        "WindscribeProviderSettingsSnapshot"
+      ],
+      "external_export_refs": 0,
+      "init_registration": false,
+      "package_cross_file_refs": 0,
+      "receiver_methods": [
+        {
+          "method": "AuthBoundary",
+          "receiver": "n"
+        },
+        {
+          "method": "IsExpired",
+          "receiver": "t"
+        }
+      ],
+      "sha256": "c7a2900eea9f7f50f72fa14e71b5d5f9f8e3ee71a7ac7e9cc640041e4569d329",
+      "size": 15771,
+      "source": "src/apps/daemon/internal/analysis/scanner/scanner_edge_routing.go",
+      "target": "labs/daemon/scanner-alternates/scanner_edge_routing.go"
+    },
+    {
+      "build_tags": false,
+      "exports": [
+        "CleanTargetToken",
+        "DefaultSessionExportSpec",
+        "DiagnosticDNSTestHosts",
+        "DiagnosticHTTPSConnectTimeoutMs",
+        "DiagnosticHTTPSTargets",
+        "DiagnosticPublicIPEndpoint",
+        "DiagnosticTCPConnectTimeoutMs",
+        "DiagnosticTCPProbe",
+        "DiagnosticTCPProbeTargets",
+        "EffectiveScanCap",
+        "EstimateExpandedTargetCount",
+        "ExpandTargetsDetailed",
+        "ExpandedTarget",
+        "IsIPAddress",
+        "IsIPv4",
+        "LooksLikeCIDR",
+        "LooksLikeIPv4Range",
+        "ParsePorts",
+        "ResolveScanTarget",
+        "ScanCommand",
+        "ScanCommandKind",
+        "ScanLimitLabel",
+        "SessionExportSpec",
+        "UniqueTokens"
+      ],
+      "external_export_refs": 0,
+      "init_registration": false,
+      "package_cross_file_refs": 0,
+      "receiver_methods": [],
+      "sha256": "0a89b3717e443d0c68c90bf49ede411f4aa992a5e46bbc608cd37e698e8b53ac",
+      "size": 17168,
+      "source": "src/apps/daemon/internal/analysis/scanner/scanner_planner.go",
+      "target": "labs/daemon/scanner-alternates/scanner_planner.go"
+    },
+    {
+      "build_tags": false,
+      "exports": [
+        "CfrayScanner",
+        "NewCfrayScanner"
+      ],
+      "external_export_refs": 0,
+      "init_registration": false,
+      "package_cross_file_refs": 0,
+      "receiver_methods": [
+        {
+          "method": "GenerateRandomCfIPs",
+          "receiver": "s"
+        },
+        {
+          "method": "waitBudget",
+          "receiver": "s"
+        },
+        {
+          "method": "releaseBudget",
+          "receiver": "s"
+        },
+        {
+          "method": "ResolveIsCF",
+          "receiver": "s"
+        },
+        {
+          "method": "ProgressiveSpeedTest",
+          "receiver": "s"
+        }
+      ],
+      "sha256": "be8fe7ea41556f4d0de47c303de427349e42b0ddfd0983b00c9067193125538a",
+      "size": 2864,
+      "source": "src/apps/daemon/internal/analysis/scanner/cfray.go",
+      "target": "labs/daemon/scanner-alternates/cfray.go"
+    },
+    {
+      "build_tags": false,
+      "exports": [
+        "CFrayProbeResult",
+        "CFrayScanner",
+        "NewCFrayScanner"
+      ],
+      "external_export_refs": 0,
+      "init_registration": false,
+      "package_cross_file_refs": 0,
+      "receiver_methods": [
+        {
+          "method": "GetIP",
+          "receiver": "r"
+        },
+        {
+          "method": "SetIP",
+          "receiver": "r"
+        },
+        {
+          "method": "ScanIPs",
+          "receiver": "s"
+        },
+        {
+          "method": "probeSingle",
+          "receiver": "s"
+        }
+      ],
+      "sha256": "7d131fb22631ef0a40bc5aa288d74318016d3386e6bd5b4f558552a02a014b7a",
+      "size": 4523,
+      "source": "src/apps/daemon/internal/analysis/scanner/cfray_scanner.go",
+      "target": "labs/daemon/scanner-alternates/cfray_scanner.go"
+    }
+  ],
+  "kept_active": [
+    "scanner_session.go",
+    "scanner_target_plan.go",
+    "scanner_sidecar.go"
+  ],
+  "stop_condition": "any unresolved consumer or platform/registration hook keeps the file active"
+}

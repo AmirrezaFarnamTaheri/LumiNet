@@ -1,0 +1,25 @@
+# src/apps/daemon/internal/runtime/trust
+
+## Purpose
+Canonical peer trust/reputation state and scoring owner used by runtime routing and diagnostic feedback.
+
+## Architectural role
+- Daemon dependency band: `runtime` (rank 4; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (2): `trust.go`, `trust_test.go`
+
+## Interfaces and dependencies
+- Go package: `trust`.
+- Notable exported surface: `GetStore`, `Metrics`, `Store`.
+- Daemon-local dependencies: none.
+- Direct daemon callers: `internal/adapters/api`, `internal/runtime/proxy`.
+
+## Invariants
+- Peer trust scores and ratings have one process owner; adapters do not duplicate reputation state.
+- `runtime` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

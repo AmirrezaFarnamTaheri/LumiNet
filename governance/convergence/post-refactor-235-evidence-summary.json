@@ -1,0 +1,31 @@
+{
+  "active_donor_revisions": 13,
+  "all_history": {
+    "definitions": 89062,
+    "high_signal_surfaces": 42797,
+    "module_records": 2966,
+    "surfaces": 84625,
+    "ui_product_surfaces": 3195,
+    "unique_donors": 103
+  },
+  "baseline_release": "post-refactor-234",
+  "delta": {
+    "added": 21,
+    "deleted": 2,
+    "modified": 17
+  },
+  "donor_bytes_reused_exactly": true,
+  "focused_semantic_records": 75,
+  "module_groups_reexamined": 921,
+  "new_read_only_planners": 9,
+  "release": "post-refactor-235",
+  "repository_envelopes": 13,
+  "retired_orphan_runtime_helpers": [
+    "src/apps/daemon/internal/analysis/scanner/adaptive_throttle.go",
+    "src/apps/daemon/internal/analysis/scanner/adaptive_throttle_alignment_test.go"
+  ],
+  "semantic_records_total": 88,
+  "source_surfaces_reexamined": 3769,
+  "unresolved_high_signal_surfaces": 0,
+  "unresolved_modules": 0
+}

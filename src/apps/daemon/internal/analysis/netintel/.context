@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/analysis/netintel
+
+## Purpose
+Daemon netintel implementation module.
+
+## Architectural role
+- Daemon dependency band: `analysis` (rank 3; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (2): `summary.go`, `summary_test.go`
+
+## Interfaces and dependencies
+- Go package: `netintel`.
+- Notable exported surface: `Build`, `CoverageModel`, `OwnerSummary`, `ProviderSummary`, `Summary`.
+- Daemon-local dependencies: `internal/analysis/provider`, `internal/foundation/flowregistry`, `internal/platform/system`.
+- Direct daemon callers: `internal/adapters/api`.
+
+## Invariants
+- `analysis` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

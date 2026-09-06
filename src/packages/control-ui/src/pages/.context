@@ -1,0 +1,17 @@
+# src/packages/control-ui/src/pages
+
+## Purpose
+Route-level UI pages and product workflows.
+
+## Contents
+- Direct files (10): `Capabilities.tsx`, `Connections.tsx`, `Dashboard.tsx`, `Dns.tsx`, `Health.tsx`, `Logs.tsx`, `Operations.tsx`, `Profiles.tsx`, `Rules.tsx`, `Settings.tsx`
+
+## Interfaces and dependencies
+- React/TypeScript source; imports flow through Vite/TypeScript module resolution and daemon calls go through the browser API adapter.
+
+## Invariants
+- This is the sole authored control UI; desktop/daemon hosts consume its canonical bundle rather than forking UI source.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

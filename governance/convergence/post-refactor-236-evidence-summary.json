@@ -1,0 +1,60 @@
+{
+  "all_history": {
+    "definitions": 94715,
+    "high_signal_surfaces": 43518,
+    "module_records": 3108,
+    "release": "post-refactor-236",
+    "surfaces": 85563,
+    "ui_product_surfaces": 3418,
+    "unique_donors": 123
+  },
+  "archive_members": 1197,
+  "archived_symlinks": 6,
+  "automatic_mutation_retry_owner": "foundation/config.Manager.Mutate unchanged",
+  "baseline_release": "post-refactor-235",
+  "delta": {
+    "added": 27,
+    "modified": 7
+  },
+  "directory_merkle_records": 245,
+  "focused_semantic_records": 59,
+  "high_signal_surfaces": 721,
+  "indexed_definitions": 5653,
+  "method_level_hardening": [
+    "jq evaluator uses RunWithContext",
+    "jq materialized outputs capped at 4096",
+    "post-235 NetworkEvidenceBundle handler normalized to Gin"
+  ],
+  "module_groups": 142,
+  "new_read_only_planners": 9,
+  "outer_donors": 20,
+  "regular_files": 938,
+  "release": "post-refactor-236",
+  "semantic_records": 79,
+  "ui_product_surfaces": 223,
+  "unresolved_high_signal_surfaces": 0,
+  "unresolved_modules": 0,
+  "validation": {
+    "control_ui_characterization_checks": 1348,
+    "evidence_determinism_files": 20,
+    "focused_go_planner_tests": 9,
+    "go_declaration_files": 1677,
+    "go_duplicate_active_declarations": 0,
+    "go_syntax_errors": 0,
+    "jq_runtime_test_status": "unavailable-gojq-module-cache",
+    "jq_static_contract": "context-aware+4096-result-cap+no-loaders",
+    "lumicore_link_tests": 5,
+    "mutation_retry_assertions": 1946,
+    "native_verification_checks": 22,
+    "post_refactor_235_assertions": 2297,
+    "post_refactor_236_assertions": 26040,
+    "post_refactor_236_ui_checks": 80,
+    "repository_audit_environment_warnings": 1,
+    "repository_audit_errors": 0,
+    "source_context_required": 127,
+    "topology_accounted": "2442/2442",
+    "typescript_transpile_diagnostics": 0,
+    "typescript_transpile_files": 1,
+    "typescript_version": "5.8.3"
+  }
+}

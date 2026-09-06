@@ -1,0 +1,35 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+
+# Generated frontend output remains ignored except for the canonical bootstrap
+# bundle that the daemon and desktop embed before a fresh frontend build.
+dist/*
+!dist/index.html
+!dist/favicon.svg
+!dist/icons.svg
+!dist/assets/
+dist/assets/*
+!dist/assets/index-B-FqCzR2.js
+!dist/assets/index-D8DuLMF5.css
+
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

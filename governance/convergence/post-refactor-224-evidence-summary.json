@@ -1,0 +1,14 @@
+{
+  "archive_tree_byte_equality": "verified",
+  "archive_validation": "verified",
+  "directories": 153,
+  "donor_archives": 15,
+  "focused_surfaces": 773,
+  "regular_files": 911,
+  "release": "post-refactor-224",
+  "semantic_records": 72,
+  "supporting_surfaces": 140,
+  "surfaces": 913,
+  "symbols": 2256,
+  "symlinks": 2
+}

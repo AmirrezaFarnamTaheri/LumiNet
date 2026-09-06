@@ -1,0 +1,212 @@
+{
+  "decision": "retired",
+  "proof": {
+    "build_tags": false,
+    "init_hooks": false,
+    "non_go_runtime_refs": false,
+    "note": "Tests that referenced a candidate only exercised the candidate itself and were retired with it; mixed dns_tunnel tests retained live transport coverage.",
+    "production_go_consumers": 0,
+    "reflection_hooks": false
+  },
+  "retained": [
+    {
+      "file": "package_exclusions_jni.go",
+      "reason": "JNI-named exports are an external native entry seam; zero Go callers is not retirement proof."
+    }
+  ],
+  "retired": [
+    {
+      "baseline_path": "server/internal/proxy/begzar_preset.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/begzar_preset.go",
+      "sha256": "d7409fdab55c28a44125b2672273bab71c2c61a498a1f3a7c5e10fdfbb2bf6de",
+      "size": 3402
+    },
+    {
+      "baseline_path": "server/internal/proxy/cidr_divider.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/cidr_divider.go",
+      "sha256": "13bde3e7493daa61f75bd308dfe15d02c313ea69c05b27aa5c6941dd9bcf7404",
+      "size": 4799
+    },
+    {
+      "baseline_path": "server/internal/proxy/cloudflare_speed.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/cloudflare_speed.go",
+      "sha256": "a0c520302b8c640b2f5394238a710d8f66c850d81296e159c385edea0b550093",
+      "size": 531
+    },
+    {
+      "baseline_path": "server/internal/proxy/config_sanitizer.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/config_sanitizer.go",
+      "sha256": "0f6cdb264760a3bf81477c132a67717f19e7931e9b92c6b6a74b8f30c648db92",
+      "size": 2425
+    },
+    {
+      "baseline_path": "server/internal/proxy/consistency_audit.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/consistency_audit.go",
+      "sha256": "4db3435937606562af013a5f9d44cd856ccd3bcd78f6f8cf49ec7ecd410ff696",
+      "size": 2886
+    },
+    {
+      "baseline_path": "server/internal/proxy/consistency_audit_test.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/consistency_audit_test.go",
+      "sha256": "c548a38afdf02215a9376c5cfac4415543c7839ccbd6eeaa5ea1c31dddd99658",
+      "size": 1666
+    },
+    {
+      "baseline_path": "server/internal/proxy/doh_tunnel.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/doh_tunnel.go",
+      "sha256": "d570d6efbbbd36d42f26d9f8ccefb92a4464a32be36317a0e72cb6127d79fcd3",
+      "size": 3777
+    },
+    {
+      "baseline_path": "server/internal/proxy/embedded_docs.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/embedded_docs.go",
+      "sha256": "bb9f4679b626947b11f9bad4194e62ac66c95b275e2983f16e963b2d4626b095",
+      "size": 1963
+    },
+    {
+      "baseline_path": "server/internal/proxy/embedded_docs_test.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/embedded_docs_test.go",
+      "sha256": "60ddd542adfb80003f946410e249f027bdd8ada92cecdc2b7976bb6fbd2684f7",
+      "size": 1573
+    },
+    {
+      "baseline_path": "server/internal/proxy/fallback_seed.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/fallback_seed.go",
+      "sha256": "93b2a1cb33bd727c821b72a4751d15d4e17f6eff90c92680f8c8afff9e01432e",
+      "size": 3215
+    },
+    {
+      "baseline_path": "server/internal/proxy/fronting_presets.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/fronting_presets.go",
+      "sha256": "c7b72289922f4f6dad69cffdb69aa819b63bca7e246bef1608c19d7fc33167b4",
+      "size": 2101
+    },
+    {
+      "baseline_path": "server/internal/proxy/geospoof_preset.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/geospoof_preset.go",
+      "sha256": "18f51f6e8ee68bafa4407e2b254b5a60782deb10aa0700695d0c28f3f5fd4663",
+      "size": 15748
+    },
+    {
+      "baseline_path": "server/internal/proxy/httpdns_resolver.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/httpdns_resolver.go",
+      "sha256": "d8ff292d2e52ee17acde92d00263248160b430b50aa0ca70159cf854f82398b4",
+      "size": 1105
+    },
+    {
+      "baseline_path": "server/internal/proxy/loop_protector.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/loop_protector.go",
+      "sha256": "c6dd6be8439ba57eb18f52973ab2dffdecb03735b98c384a3a45eea9adb48082",
+      "size": 503
+    },
+    {
+      "baseline_path": "server/internal/proxy/mtproto_checker.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/mtproto_checker.go",
+      "sha256": "58b7f8b03405c511bb69ca63733058089c73b306377bbd343e9a6986598abe4b",
+      "size": 3487
+    },
+    {
+      "baseline_path": "server/internal/proxy/mtproto_checker_test.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/mtproto_checker_test.go",
+      "sha256": "47757c2747d7e2bdb35340de0f497e45dfd528d84b2a24148585c9785cb0c42b",
+      "size": 1289
+    },
+    {
+      "baseline_path": "server/internal/proxy/peer_capability_map.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/peer_capability_map.go",
+      "sha256": "8ba6b608ac628e3b2522b6a36029af2817adbe080d0f6a6d440cbd9614f6baba",
+      "size": 911
+    },
+    {
+      "baseline_path": "server/internal/proxy/preview_collector.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/preview_collector.go",
+      "sha256": "c0be1c2cd72b2f0f4dfb47942e4c67e09fb64a330bee03e8afef37641c38e9af",
+      "size": 5808
+    },
+    {
+      "baseline_path": "server/internal/proxy/preview_collector_test.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/preview_collector_test.go",
+      "sha256": "480a23b4435ae45ffee3d37a7fb1ccf3f89efb101fda8c3c71d6b128f0276688",
+      "size": 1984
+    },
+    {
+      "baseline_path": "server/internal/proxy/prober.html",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/prober.html",
+      "sha256": "33a9ca15d8c7e929e1d36dffca0c4d2e7015e8c8ad439bdc80563c78629191ef",
+      "size": 42357
+    },
+    {
+      "baseline_path": "server/internal/proxy/psiphon_mitm_helpers.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/psiphon_mitm_helpers.go",
+      "sha256": "10cd2b2686e589a1fe86068cd885afcad7bc133718033a253c1384642e6605c2",
+      "size": 10529
+    },
+    {
+      "baseline_path": "server/internal/proxy/sni_spoof_forwarder.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/sni_spoof_forwarder.go",
+      "sha256": "6a9a103a7de200c0ec1c6910b23dbd2bb42ed804c4d406faf30e0287aabf7ca7",
+      "size": 2989
+    },
+    {
+      "baseline_path": "server/internal/proxy/tcp_cc_tuning.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/tcp_cc_tuning.go",
+      "sha256": "9b9b8e31dabbe00a7d433f9f38d28f4e8e739ac72cfb0a6d9fae01b07b6a6a5b",
+      "size": 3676
+    },
+    {
+      "baseline_path": "server/internal/proxy/warp_presets.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/warp_presets.go",
+      "sha256": "90a56a36814b5c6ea7cb6f28b9518a0837fe06153fff9e4959dd37c18db63d49",
+      "size": 1124
+    },
+    {
+      "baseline_path": "server/internal/proxy/wg_obfs_config.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/wg_obfs_config.go",
+      "sha256": "acc2753f40cfdcca0d5803c2b9b01567180c94db021caaffa09faee97c851721",
+      "size": 21331
+    },
+    {
+      "baseline_path": "server/internal/proxy/wg_obfs_config_test.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/wg_obfs_config_test.go",
+      "sha256": "a11e68daae2392e108b10608a2a27b77e17954c9271cf1ceaa1cf7dde30b7d17",
+      "size": 10388
+    },
+    {
+      "baseline_path": "server/internal/proxy/windscribe_preset.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/windscribe_preset.go",
+      "sha256": "1bba14ea3eef272c01e8c2ae717222ab7caa8550ae95279628a4fe8d1ee97622",
+      "size": 536
+    },
+    {
+      "baseline_path": "server/internal/proxy/zedsecure_preset.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/zedsecure_preset.go",
+      "sha256": "4afc7fc6feb0377b489f0f98a2108b7263aeb476aa98955457002101245eefa7",
+      "size": 1022
+    },
+    {
+      "baseline_path": "server/internal/proxy/brutal_socket_linux.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/brutal_socket_linux.go",
+      "sha256": "7a706fcb0f525afd159aef20ecdeb80ed2afe166a1671c440e7043adcc721397",
+      "size": 1359
+    },
+    {
+      "baseline_path": "server/internal/proxy/brutal_socket_stub.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/brutal_socket_stub.go",
+      "sha256": "ec02e0a9914de6f2bce68612a87e21581f650a11d844343ffe762439fea2ddd4",
+      "size": 254
+    },
+    {
+      "baseline_path": "server/internal/proxy/tcp_cc_tuning_linux.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/tcp_cc_tuning_linux.go",
+      "sha256": "c6deaff00c22a05e38fb56eab5dbc4c81873e6641ad1f7009abcf2314b4cd61b",
+      "size": 2375
+    },
+    {
+      "baseline_path": "server/internal/proxy/tcp_cc_tuning_stub.go",
+      "former_live_path": "src/apps/daemon/internal/runtime/proxy/tcp_cc_tuning_stub.go",
+      "sha256": "1b1bbd72842dd8dd0966416c10354716dc28ffb577e76196dfafa3c34b142a0e",
+      "size": 889
+    }
+  ],
+  "schema": 1
+}

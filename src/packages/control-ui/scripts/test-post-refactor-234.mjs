@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url));
+const root=path.resolve(here,'..');
+const daemon=path.resolve(root,'../../apps/daemon');
+const read=(...p)=>fs.readFileSync(path.join(...p),'utf8');
+const operations=read(root,'src/pages/Operations.tsx');
+const pkg=JSON.parse(read(root,'package.json'));
+const routes=read(daemon,'internal/adapters/api/routes_system.go');
+const handlers=read(daemon,'internal/adapters/api/handlers_post_refactor_234_planners.go');
+const plans=read(daemon,'internal/analysis/diagnostics/post_refactor_234_plans.go');
+const tests=read(daemon,'internal/analysis/diagnostics/post_refactor_234_plans_test.go');
+let checks=0;const ok=(c,m)=>{checks++;if(!c)throw new Error(m)};
+const pairs=[['dns-blocklist-corpus-plan','PlanDNSBlocklistCorpus','dnsBlocklistAudit'],['api-trace-schema-plan','PlanAPITraceSchema','apiTraceSchema'],['tor-descriptor-evidence-plan','PlanTorDescriptorEvidence','torDescriptorEvidence'],['process-proxy-rule-plan','PlanProcessProxyRules','processProxyRules'],['evidence-chain-plan','PlanEvidenceChain','evidenceChain'],['dnscrypt-resolver-policy-plan','PlanDNSCryptResolverPolicy','dnscryptResolver']];
+for(const [ep,h,opt] of pairs){ok(routes.includes(`"/${ep}"`),`route ${ep}`);ok(handlers.includes(`func (s *Server) ${h}`),`handler ${h}`);ok(operations.includes(`value="${opt}"`),`option ${opt}`);ok(operations.includes(`/api/system/${ep}`),`ui endpoint ${ep}`)}
+for(const bad of ['http.Get(','http.Post(','net.Dial(','exec.Command(','os.WriteFile(','os.Remove(','os.MkdirAll(','os.Chmod('])ok(!handlers.includes(bad),`handler side effect ${bad}`);
+for(const fn of ['BuildDNSBlocklistCorpusPlan','BuildAPITraceSchemaPlan','BuildTorDescriptorEvidencePlan','BuildProcessProxyRulePlan','BuildEvidenceChainPlan','BuildDNSCryptResolverPolicyPlan'])ok(plans.includes(`func ${fn}`),`planner ${fn}`);
+for(const token of ['only caller-supplied list metadata is audited','schema inference consumes already-captured metadata only','relay flags are descriptive evidence, not trust or routing authority','proxy process matches are reported as loop risks','unknown signature or timestamp state never counts as pass','resolver ranking uses caller-supplied observations only'])ok(plans.includes(token),`semantic ${token}`);
+for(const fn of ['TestPostRefactor234DNSBlocklistCorpus','TestPostRefactor234APITraceSchema','TestPostRefactor234TorDescriptorEvidence','TestPostRefactor234ProcessProxyRuleLoopRisk','TestPostRefactor234EvidenceUnknownIsNotPass','TestPostRefactor234DNSCryptResolverPolicy'])ok(tests.includes(`func ${fn}`),`Go test ${fn}`);
+ok(pkg.scripts['test:234']==='node scripts/test-post-refactor-234.mjs','package test:234');ok(pkg.scripts.test.includes('&& npm run test:234'),'aggregate includes 234');
+console.log(`post-refactor-234 product/security convergence characterization passed: ${checks} checks`);

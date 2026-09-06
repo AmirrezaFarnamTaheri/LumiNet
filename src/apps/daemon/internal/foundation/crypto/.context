@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/foundation/crypto
+
+## Purpose
+Go cryptographic and TPM helpers used by configuration/runtime code; contains key wrapping, obfuscation, and platform-backed cryptographic support.
+
+## Architectural role
+- Daemon dependency band: `foundation` (rank 0; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (16): `cfg_compiler.go`, `cfg_compiler_test.go`, `dpapi_stub.go`, `dpapi_test.go`, `dpapi_windows.go`, `tpm.go`, `tpm_envelope.go`, `tpm_envelope_lock_unix.go`, `tpm_envelope_lock_windows.go`, `tpm_envelope_store.go`, `tpm_envelope_store_test.go`, `tpm_envelope_test.go` …
+
+## Interfaces and dependencies
+- Go package: `crypto`.
+- Notable exported surface: `CFGCompiler`, `CFGConn`, `Decrypt`, `DefaultTPMPolicy`, `Encrypt`, `ErrLegacyCutoff`, `ErrLegacyTPMSealingDisabled`, `ErrTPMKeyMigrationRequired`, `ErrUnsupportedTPMEnvelope`, `IsTPMAvailable` …
+- Daemon-local dependencies: `internal/foundation/secrets`.
+- Direct daemon callers: `cmd`, `internal/foundation/config`, `internal/runtime/proxy`.
+
+## Invariants
+- `foundation` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

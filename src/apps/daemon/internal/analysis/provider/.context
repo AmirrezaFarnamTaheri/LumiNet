@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/analysis/provider
+
+## Purpose
+Immutable provider corpus, lookup, manifest, and activation primitives used by scanner/API provider workflows.
+
+## Architectural role
+- Daemon dependency band: `analysis` (rank 3; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (6): `builtin.go`, `circumvention_catalog.go`, `circumvention_catalog_test.go`, `corpus.go`, `corpus_test.go`, `manifest.go`
+
+## Interfaces and dependencies
+- Go package: `provider`.
+- Notable exported surface: `BuildSnapshot`, `BuiltinCorpus`, `CircumventionCapability`, `CircumventionCatalog`, `Corpus`, `DefaultService`, `Manifest`, `Match`, `Parse`, `Service` …
+- Daemon-local dependencies: none.
+- Direct daemon callers: `cmd`, `internal/adapters/api`, `internal/analysis/netintel`.
+
+## Invariants
+- `analysis` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

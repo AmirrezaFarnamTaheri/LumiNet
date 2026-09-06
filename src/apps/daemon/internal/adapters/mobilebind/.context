@@ -1,0 +1,26 @@
+# src/apps/daemon/internal/adapters/mobilebind
+
+## Purpose
+Gomobile adapter over canonical runtime/evasion/safety owners; only JSON/string/platform translation belongs here.
+
+## Architectural role
+- Daemon dependency band: `adapters` (rank 6; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (2): `mobilebind.go`, `mobilebind_test.go`
+
+## Interfaces and dependencies
+- Go package: `mobilebind`.
+- Notable exported surface: `ApplySafetyPolicyJSON`, `CaptivePortalHandler`, `CheckVersionX`, `CoreCallbackHandler`, `CoreController`, `ExtractSiteKeyJSON`, `FindProcessConnection`, `GenerateWireGuardKeyPairJSON`, `GetSafetyPolicyJSON`, `GetTarpitStatusJSON` …
+- Daemon-local dependencies: `internal/integrations/captchaclient`, `internal/platform/mobilehost`, `internal/protocols/tarpit`, `internal/protocols/tlsfragment`, `internal/runtime/mobilecore`, `internal/runtime/runtimecore`, `internal/runtime/safety`, `internal/runtime/warp`.
+- Direct daemon callers: none detected.
+
+## Invariants
+- Adapter-only: no duplicate runtime/evasion/safety state or defaults.
+- Public JSON must use redacted canonical snapshots.
+- `adapters` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

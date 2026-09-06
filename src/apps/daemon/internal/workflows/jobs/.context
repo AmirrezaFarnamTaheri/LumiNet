@@ -1,0 +1,26 @@
+# src/apps/daemon/internal/workflows/jobs
+
+## Purpose
+Typed async job-intent owner, queue/worker lifecycle, secret-safe history, progress/events, completion evidence, and execution adapters.
+
+## Architectural role
+- Daemon dependency band: `workflows` (rank 5; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (14): `broadcaster.go`, `completion.go`, `diagnostic_plan.go`, `diagnostic_plan_test.go`, `dispatcher.go`, `intent_test.go`, `intents.go`, `manager.go`, `manager_admission_test.go`, `manager_history_test.go`, `recovery.go`, `recovery_test.go` …
+
+## Interfaces and dependencies
+- Go package: `jobs`.
+- Notable exported surface: `Broadcaster`, `CdnScanIntent`, `DiagnosticIntent`, `DnsScanIntent`, `EdgeDeployIntent`, `IcmpScanIntent`, `IpDiscoveryIntent`, `Job`, `JobEvent`, `JobFilter` …
+- Daemon-local dependencies: `internal/analysis/diagnostics`, `internal/analysis/scanner`, `internal/foundation/evidence`, `internal/foundation/store`, `internal/integrations/provision`, `internal/native/bridge`, `internal/networking/proxyconfig`, `internal/platform/system`, `internal/runtime/proxy`, `internal/workflows/scheduler`.
+- Direct daemon callers: `cmd`, `internal/adapters/api`.
+
+## Invariants
+- Execution-only credentials stay in in-memory Job intent and never enter public/persisted history.
+- Runners consume typed intents; no private JSON execution schema may return.
+- `workflows` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

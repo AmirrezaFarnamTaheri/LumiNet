@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/runtime/warp
+
+## Purpose
+WireGuard/WARP scanning, configuration, and runtime support used by proxy/API flows.
+
+## Architectural role
+- Daemon dependency band: `runtime` (rank 4; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (6): `noise.go`, `warp.go`, `warp_export_test.go`, `warp_handshake.go`, `warp_scanner.go`, `warp_scanner_test.go`
+
+## Interfaces and dependencies
+- Go package: `warp`.
+- Notable exported surface: `CloudflareWarpPublicKey`, `EndpointResult`, `GenerateHiddifyConfig`, `GenerateSingBoxWireGuardConfig`, `GenerateV2RayWireGuardURL`, `GenerateWireGuardConfig`, `GenerateWireGuardKeyPair`, `IcmpPing`, `InjectNoise`, `NewWarpScanner` …
+- Daemon-local dependencies: `internal/foundation/remoteaction`.
+- Direct daemon callers: `internal/adapters/api`, `internal/adapters/mobilebind`.
+
+## Invariants
+- `runtime` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

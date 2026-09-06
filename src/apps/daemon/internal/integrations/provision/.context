@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/integrations/provision
+
+## Purpose
+VPS/Cloudflare/Terraform provisioning implementation and billing schema.
+
+## Architectural role
+- Daemon dependency band: `integrations` (rank 3; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (13): `billing_schema.go`, `cloudflare.go`, `cloudflare_bounds_test.go`, `cloudflare_errors.go`, `cloudflare_errors_test.go`, `cloudflare_retry_test.go`, `devcontainer_vless.go`, `devcontainer_vless_test.go`, `provision.go`, `provision_test.go`, `vps.go`, `vps_layout.go` …
+
+## Interfaces and dependencies
+- Go package: `provision`.
+- Notable exported surface: `BillingAuditLog`, `BillingRecord`, `BillingTemplate`, `BillingZone`, `CFClient`, `DeployWorker`, `EdgeConfig`, `GenerateVLESSDevcontainer`, `GeneratedFile`, `NewCFClient` …
+- Daemon-local dependencies: `internal/foundation/remoteaction`, `internal/platform/sshtrust`.
+- Direct daemon callers: `internal/adapters/api`, `internal/workflows/jobs`.
+
+## Invariants
+- `integrations` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

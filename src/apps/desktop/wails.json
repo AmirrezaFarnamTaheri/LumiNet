@@ -1,0 +1,41 @@
+{
+  "$schema": "https://wails.io/schemas/config.v3.json",
+  "name": "LumiNet",
+  "outputfilename": "luminet",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "LumiNet Team",
+    "email": "support@luminet.app"
+  },
+  "info": {
+    "companyName": "LumiNet",
+    "productName": "LumiNet VPN",
+    "productVersion": "1.0.0",
+    "copyright": "Copyright \u00a9 2026 LumiNet",
+    "comments": "Adaptive censorship-circumvention VPN with SNI evasion, TLS fragmentation, and multi-transport fallback"
+  },
+  "platforms": {
+    "windows": {
+      "webviewGpuIsDisabled": false,
+      "messages": {
+        "webserviceFailedToStart": "Failed to start LumiNet backend service. Check logs with: luminet logs"
+      },
+      "wndClass": "LumiNetWindow"
+    },
+    "linux": {
+      "webviewGpuIsDisabled": false
+    },
+    "darwin": {
+      "activateLogHandler": true
+    }
+  },
+  "build": {
+    "ignore": [
+      "**/*_test.go"
+    ]
+  },
+  "frontend:dir": "../../packages/control-ui"
+}

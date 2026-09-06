@@ -1,0 +1,16 @@
+donor,archive,archive_sha256,archive_size_bytes,regular_files,symlinks,surface_count,zip_crc,path_safety,case_collisions,duplicate_members,symlink_confinement,archive_tree_byte_equality,uncompressed_bytes
+mhurl-main,mhurl-main.zip,2667901b19d006e0cab601fd7b8689db1acc21a89578aec1217559beeb80e877,9731,7,0,7,pass,pass,0,0,pass,pass,30592
+Iran-configs-main,Iran-configs-main.zip,4d0d793c24f519bf29e33fa498fda5fd3897dbff3fe22fe4dcbf39d2aebdd70c,21215,3,0,3,pass,pass,0,0,pass,pass,60931
+Iran-v2ray-rules-main,Iran-v2ray-rules-main.zip,08372a923eeecc85e3a764127e5fdadd941f4fc1bc75669b05be669923050bf1,94739,39,0,39,pass,pass,0,0,pass,pass,193778
+JJTcpOverHttpRelayVpn-python_testing_tcp_relay,JJTcpOverHttpRelayVpn-python_testing_tcp_relay.zip,16c94316d751c84008956387e1fb6c1c2f3e38ae68cec6584c75b49e6b1a5161,155542,44,0,44,pass,pass,0,0,pass,pass,518708
+kcp-go-master,kcp-go-master.zip,6a9c514d684e06a39ba903c4c05c4f085d222bbb777e54d44081fa98cee2be76,313360,46,0,46,pass,pass,0,0,pass,pass,515955
+l7mp-master,l7mp-master.zip,37b3a80724414086d378df8c00277917f23885646e878b4bf84d94580c4fbd02,464806,145,2,147,pass,pass,0,0,pass,pass,2508571
+l7-protocols-master,l7-protocols-master.zip,3044bb9666d9faf7c80bc2d866702fb1cad3abdbf570085e005ed66543d06ed0,226865,297,0,297,pass,pass,0,0,pass,pass,322546
+l7-snake-main,l7-snake-main.zip,04cb265d47778f9101f66e75208bd3adc9ef79960fb50c3990250a0d9f4a7361,63256,20,0,20,pass,pass,0,0,pass,pass,85825
+LACUNA-Chain-main,LACUNA-Chain-main.zip,6153e86dbe4570cb176147a448430ad940d5f957bda1c063355fd712c3142118,25395,7,0,7,pass,pass,0,0,pass,pass,78150
+libkcp-master,libkcp-master.zip,052e135facbe0f73ac9eac107a84b080f055338cad0e8e4738cba9740c1637c4,167357,29,0,29,pass,pass,0,0,pass,pass,549331
+libXray-main,libXray-main.zip,f318cd892bc385be0296883fca0904c060d3925c7f80ef8233a05ba2b6d70bcc,69727,62,0,62,pass,pass,0,0,pass,pass,189962
+load-balancer-master,load-balancer-master.zip,30cca3c71acd110aeb4c64304d97c25472b7ceb09ccae779618d7d90caa61036,35205,28,0,28,pass,pass,0,0,pass,pass,73545
+log-demultiplexer-master,log-demultiplexer-master.zip,dbd50371024dd5aeea4996068b9670c1f219d6a6964cf85de62d769d0e2cce9a,46720,17,0,17,pass,pass,0,0,pass,pass,173848
+luci-app-https-dns-proxy-main,luci-app-https-dns-proxy-main.zip,0bc6c6aaeaa95081823fa9c1216e1f3783445000ba90026d6f905a3c3385d6a0,68583,65,0,65,pass,pass,0,0,pass,pass,157832
+marionette-master,marionette-master.zip,b047e67b002b3ebd8cfdfc3a8cd707182d3d679a984412c148a03bb03beb64da,105473,102,0,102,pass,pass,0,0,pass,pass,297678

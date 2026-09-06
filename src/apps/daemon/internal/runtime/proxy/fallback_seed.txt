@@ -1,0 +1,8 @@
+# LumiNet Fallback Seed
+# Pre-verified regional proxy URIs (vmess, vless, trojan, hysteria2, reality, etc.)
+# Lines beginning with # are ignored.
+# This file is embedded into the binary via //go:embed and parsed at runtime.
+# Update this file by running: lumidctl seed update --region ir
+#
+# Format: one proxy URI per line OR a base64-encoded block.
+# The parser accepts both formats automatically.

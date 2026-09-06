@@ -1,0 +1,26 @@
+# src/apps/daemon/internal/native/bridge
+
+## Purpose
+Go↔LumiCore native bridge, private C ABI header, shared-memory helpers, callback ownership, and compatibility calls.
+
+## Architectural role
+- Daemon dependency band: `native` (rank 0; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (17): `async_policy.go`, `async_policy_test.go`, `core.go`, `core_degraded.go`, `core_degraded_truth_test.go`, `disasm_test.go`, `errors.go`, `ffi.go`, `ffi_types.go`, `fuzz_test.go`, `lumicore_abi.h`, `shm_posix.go` …
+
+## Interfaces and dependencies
+- Go package: `bridge`.
+- Notable exported surface: `ABIVersion`, `Call`, `DisassemblePayload`, `DnsRecord`, `DnsResolve`, `DnsResolveWithTimeout`, `DnsServerResult`, `ErrBufTooSmall`, `ErrNativeCoreUnavailable`, `FfiCallbackHandler` …
+- Daemon-local dependencies: none.
+- Direct daemon callers: `cmd`, `internal/adapters/api`, `internal/protocols/tarpit`, `internal/runtime/proxy`, `internal/workflows/jobs`.
+
+## Invariants
+- Rust owns native implementations/layout; lumicore_abi.h is the single Go declaration authority.
+- Terminal stream completion owns callback/channel release ordering.
+- `native` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

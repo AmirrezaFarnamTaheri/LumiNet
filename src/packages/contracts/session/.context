@@ -1,0 +1,20 @@
+# src/packages/contracts/session
+
+## Purpose
+Local session descriptor publication/discovery/parsing contract.
+
+## Contents
+- Direct files (2): `session.go`, `session_test.go`
+
+## Interfaces and dependencies
+- Go package: `session`.
+- Notable exported surface: `Descriptor`, `NormalizeAPIURL`, `Parse`, `ReadFile`, `RemoveIfOwned`, `WriteFileAtomic`.
+- Daemon-local dependencies: none.
+- Direct daemon callers: none detected.
+
+## Invariants
+- Keep behavior local to the named module; move cross-cutting policy to its canonical owner instead of duplicating it here.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

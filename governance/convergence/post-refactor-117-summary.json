@@ -1,0 +1,21 @@
+{
+  "directories": 5481,
+  "donors": 117,
+  "ledger_records": 4091,
+  "licenses": 117,
+  "modules": 3876,
+  "nested_archives": 12,
+  "new_directories": 1349,
+  "new_donors": 20,
+  "new_members": 8097,
+  "new_modules": 1175,
+  "new_nested_archives": 1,
+  "new_nested_members": 33,
+  "new_semantic_records": 60,
+  "new_surfaces": 6748,
+  "new_symbols": 33593,
+  "new_symlinks": 6,
+  "semantic_records": 215,
+  "surfaces": 27333,
+  "symbols": 73012
+}

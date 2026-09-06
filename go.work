@@ -1,0 +1,15 @@
+go 1.26.0
+
+toolchain go1.26.5
+
+// This workspace covers the live product modules. Standalone module roots are
+// intentionally excluded and must be built with GOWORK=off:
+//   scripts/         - governance validators and repository check tooling
+//   third_party/gaio - vendored reference library, not part of the build graph
+use (
+    ./src/packages/contracts
+    ./src/packages/control-ui
+    ./src/apps/desktop
+    ./src/apps/daemon
+    ./tests
+)

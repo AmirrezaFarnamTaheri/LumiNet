@@ -1,0 +1,8 @@
+donor,path,target,mode,module
+IPtProxy-master,IPtProxy.xcframework/macos-arm64_x86_64/IPtProxy.framework/Headers,Versions/Current/Headers,0o777,IPtProxy.xcframework/macos-arm64_x86_64
+IPtProxy-master,IPtProxy.xcframework/macos-arm64_x86_64/IPtProxy.framework/IPtProxy,Versions/Current/IPtProxy,0o777,IPtProxy.xcframework/macos-arm64_x86_64
+IPtProxy-master,IPtProxy.xcframework/macos-arm64_x86_64/IPtProxy.framework/Modules,Versions/Current/Modules,0o777,IPtProxy.xcframework/macos-arm64_x86_64
+IPtProxy-master,IPtProxy.xcframework/macos-arm64_x86_64/IPtProxy.framework/Resources,Versions/Current/Resources,0o777,IPtProxy.xcframework/macos-arm64_x86_64
+IPtProxy-master,IPtProxy.xcframework/macos-arm64_x86_64/IPtProxy.framework/Versions/Current,A,0o777,IPtProxy.xcframework/macos-arm64_x86_64
+naiveproxy-master,src/third_party/zstd/src/tests/cli-tests/bin/unzstd,zstd,0o777,src/third_party/zstd
+naiveproxy-master,src/third_party/zstd/src/tests/cli-tests/bin/zstdcat,zstd,0o777,src/third_party/zstd

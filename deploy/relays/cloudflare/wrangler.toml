@@ -1,0 +1,28 @@
+name = "luminet-edge"
+main = "worker.mjs"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Zeus remains the default handler; BPB is available under /bpb/* and the
+# GSA relay (including DoH caching) is available under /relay/*.
+# D1 SQLite database — mirrors Zeus D1 binding.
+[[d1_databases]]
+binding = "LUMINET_DB"
+database_name = "luminet-zeus"
+database_id = "<YOUR_D1_DATABASE_ID>"
+
+# KV namespace — optional, for caching clean IP lists etc.
+[[kv_namespaces]]
+binding = "LUMINET_KV"
+id = "<YOUR_KV_NAMESPACE_ID>"
+
+# Environment variables
+[vars]
+ZEUS_VERSION = "1.4.8"
+
+# Secrets (set via `wrangler secret put`):
+#   PANEL_AUTH_TOKEN  — panel admin token (replaces Zeus password hash)
+#   CF_API_TOKEN      — Cloudflare API token for GraphQL metrics
+#   CF_ACCOUNT_ID     — Cloudflare account ID for GraphQL metrics
+#   AUTH_KEY          — GSA relay authentication key
+#   RELAY_URL         — GSA relay upstream URL

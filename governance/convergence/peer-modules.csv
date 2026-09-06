@@ -1,0 +1,110 @@
+donor,module_id,module_role,module_disposition,rationale,file_count,bytes,languages,classes,semantic_record_ids
+Aether,aether-owner-account,owner-runtime,resolved-by-semantic-ledger,"Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM055,SEM056,SEM095.",1,32716,rust,implementation,SEM055;SEM056;SEM095
+Aether,aether-owner-aethernoize,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM070.,1,10671,rust,implementation,SEM070
+Aether,aether-owner-apifront,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM054.,1,15505,rust,implementation,SEM054
+Aether,aether-owner-build,build-config,reference-only,Aether executable build/launch/config surface; target build system remains authoritative.,3,74549,batch;toml;unknown,configuration;implementation,n/a
+Aether,aether-owner-cli,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM089.,1,10134,rust,implementation,SEM089
+Aether,aether-owner-config,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM052.,1,14224,rust,implementation,SEM052
+Aether,aether-owner-consts,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM090.,1,2174,rust,implementation,SEM090
+Aether,aether-owner-dns,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM050.,1,8493,rust,implementation,SEM050
+Aether,aether-owner-error,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM091.,1,653,rust,implementation,SEM091
+Aether,aether-owner-fragment,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM068.,1,4883,rust,implementation,SEM068
+Aether,aether-owner-lastconn,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM063.,1,785,rust,implementation,SEM063
+Aether,aether-owner-mac_test,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM099.,1,340,rust,implementation,SEM099
+Aether,aether-owner-main,owner-runtime,resolved-by-semantic-ledger,"Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM092,SEM093,SEM094.",1,56507,rust,implementation,SEM092;SEM093;SEM094
+Aether,aether-owner-masque,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM065.,1,11074,rust,implementation,SEM065
+Aether,aether-owner-masque_h2,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM066.,1,22007,rust,implementation,SEM066
+Aether,aether-owner-netstack,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM058.,1,30483,rust,implementation,SEM058
+Aether,aether-owner-noize,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM069.,1,7009,rust,implementation,SEM069
+Aether,aether-owner-prober,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM060.,1,21931,rust,implementation,SEM060
+Aether,aether-owner-quic,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM067.,1,27596,rust,implementation,SEM067
+Aether,aether-owner-routing,owner-runtime,resolved-by-semantic-ledger,"Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM053,SEM057.",1,14104,rust,implementation,SEM053;SEM057
+Aether,aether-owner-socks,owner-runtime,resolved-by-semantic-ledger,"Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM048,SEM049,SEM096.",1,48643,rust,implementation,SEM048;SEM049;SEM096
+Aether,aether-owner-sysprofile,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM062.,1,5460,rust,implementation,SEM062
+Aether,aether-owner-tls,owner-runtime,resolved-by-semantic-ledger,"Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM071,SEM109.",1,8529,rust,implementation,SEM071;SEM109
+Aether,aether-owner-tunnelping,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM051.,1,7535,rust,implementation,SEM051
+Aether,aether-owner-wg_prober,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM061.,1,18002,rust,implementation,SEM061
+Aether,aether-owner-wireguard,owner-runtime,resolved-by-semantic-ledger,Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM059.,1,31672,rust,implementation,SEM059
+Aether,aether-owner-zerotrust,owner-runtime,resolved-by-semantic-ledger,"Aether-owned runtime module; independently compared against LumiNet owner; resolved by SEM064,SEM097,SEM098.",1,24922,rust,implementation,SEM064;SEM097;SEM098
+Aether,aether-root,documentation-build,reference-only,Aether root docs/build/release evidence.,14,1929599,markdown;shell;unknown;yaml,deployment;documentation;governance;implementation;media;repository-administration,SEM087
+Aether,quiche-apps,transport-tools,reference-only,Example QUIC/HTTP3 apps are transport reference only.,11,136504,rust;shell;toml;unknown,vendored,n/a
+Aether,quiche-buffer-pool,resource-pooling,resolved-by-semantic-ledger,Generic bounded reuse primitive extracted; crate otherwise reference; resolved by SEM072.,5,25742,rust;toml;unknown,vendored,SEM072
+Aether,quiche-core,transport-quic,reference-only,Core QUIC packets/streams/crypto/flow-control; retained as transport reference.,22,1264176,rust,vendored,n/a
+Aether,quiche-datagram-socket,transport-datagram,reference-only,GSO/mmsg/datagram batching is quiche transport-specific.,9,68018,markdown;rust;toml;unknown,vendored,SEM075
+Aether,quiche-ffi,transport-ffi,reference-only,Quiche C FFI surface; not target-native ABI.,1,64241,rust,vendored,SEM086
+Aether,quiche-fuzz,fuzz-corpus,reference-only,Fuzz corpora retained as parser/transport evaluation evidence.,1851,1989697,markdown;rust;toml;unknown,symlink;test-or-fixture,SEM083
+Aether,quiche-h3-qpack,transport-http3,reference-only,HTTP/3 and QPACK transport authority; no second QUIC/H3 stack in LumiNet.,9,473563,markdown;rust,vendored,SEM076
+Aether,quiche-h3i,http3-test-client,reference-only,HTTP/3 interactive/test client retained as protocol oracle.,28,599177,markdown;rust;toml;unknown,vendored,SEM085
+Aether,quiche-netlog,telemetry-netlog,reference-only,NetLog mapping retained as telemetry reference only.,9,75171,markdown;rust;toml;unknown,vendored,SEM081
+Aether,quiche-octets,binary-parsing,reference-only,Bounds-checked binary codec retained as parser oracle/reference.,4,155050,rust;toml;unknown,vendored,SEM074
+Aether,quiche-path-cid,transport-migration,reference-only,QUIC path/CID routing and migration; target has no quiche authority.,2,86088,rust,vendored,SEM079
+Aether,quiche-pmtud,transport-pmtud,reference-only,QUIC PMTUD implementation; transport-specific reference.,1,22425,rust,vendored,SEM078
+Aether,quiche-qlog,telemetry-qlog,reference-only,QLOG schema/serialization retained as telemetry reference only.,15,171903,markdown;rust;toml;unknown,test-or-fixture;vendored,SEM080
+Aether,quiche-qlog-dancer,telemetry-ui,reference-only,QLOG visualization reference; target telemetry/UI remains authoritative.,33,465556,css;html;javascript;markdown;rust;toml,vendored,SEM082
+Aether,quiche-recovery,transport-congestion,reference-only,"QUIC loss recovery, RTT, pacing, Cubic/Reno/PRR/BBR/BBRv2; transport-specific reference.",26,512180,markdown;rust,vendored,SEM077
+Aether,quiche-task-killswitch,task-cancellation,superseded,LumiNet context/process ownership already provides cancellation seam.,3,11509,rust;toml;unknown,vendored,SEM073
+Aether,quiche-tokio,async-quic,reference-only,Tokio quiche router/socket stack would duplicate target transport authority.,73,1229222,markdown;rust;toml;unknown,test-or-fixture;vendored,SEM084
+Aether,quiche-tools,transport-tools,reference-only,Quiche test/tool scripts retained as reference.,7,84859,markdown;rust;shell;toml,test-or-fixture;vendored,n/a
+Aether,quiche-workspace,transport-build,reference-only,Embedded quiche workspace administration/build surface.,43,264538,c;markdown;rust;shell;toml;unknown;yaml,vendored,n/a
+Aether-GUI,aether-gui-build,build-config,reference-only,Tauri/Vite build and repository administration evidence.,26,487808,html;javascript;json;markdown;rust;shell;toml;typescript;unknown;yaml,configuration;documentation;governance;implementation;repository-administration,n/a
+Aether-GUI,aether-gui-components,ui-product,reference-only,Operator UI affordance reference; LumiNet control UI remains authoritative.,23,68138,typescript,ui-or-product,n/a
+Aether-GUI,aether-gui-media,media-docs,reference-only,Media/documentation evidence.,54,1868931,unknown;xml,configuration;implementation;media,n/a
+Aether-GUI,aether-gui-sidecar,process-supervision,resolved-by-semantic-ledger,"Sidecar lifecycle/retry/readiness/PTTY primitives compared individually; resolved by SEM013,SEM014,SEM015,SEM016,SEM017,SEM018,SEM020.",6,57779,rust,implementation,SEM013;SEM014;SEM015;SEM016;SEM017;SEM018;SEM020
+Aether-GUI,aether-gui-state,ui-state,resolved-by-semantic-ledger,Connection/log/window state models; bounded/retry semantics compared; resolved by SEM019.,2,10463,typescript,implementation,SEM019
+Aether-GUI,aether-gui-tauri,desktop-host,resolved-by-semantic-ledger,"Desktop process/tray/focus/event host; selected lifecycle semantics only; resolved by SEM100,SEM101.",7,11332,rust,implementation,SEM100;SEM101
+Aether-GUI,aether-gui-web,ui-product,reference-only,React/Tauri product shell reference.,5,12047,css;typescript,implementation;ui-or-product,n/a
+Goida-AI-Unlocker,goida-build,build-config,reference-only,Packaging/version/build inputs.,7,137266,python;unknown,implementation;media;ui-or-product,n/a
+Goida-AI-Unlocker,goida-core,desktop-core,reference-only,Constants/settings/logger reference.,4,7022,python,ui-or-product,n/a
+Goida-AI-Unlocker,goida-gui,desktop-ui,resolved-by-semantic-ledger,"Localization/update/hosts-edit affordances inspected individually; resolved by SEM024,SEM025,SEM102.",8,153580,json;python,ui-or-product,SEM024;SEM025;SEM102
+Goida-AI-Unlocker,goida-gui-components,desktop-ui,reference-only,Desktop UI components/reference.,5,19378,python,ui-or-product,n/a
+Goida-AI-Unlocker,goida-gui-pages,desktop-ui,reference-only,Desktop operator pages/reference.,6,38812,python,ui-or-product,n/a
+Goida-AI-Unlocker,goida-hosts,host-mutation,resolved-by-semantic-ledger,"Exact-preimage/readback/rollback semantics adapted; aggressive ACL/process mutation rejected; resolved by SEM021,SEM022.",1,30733,python,ui-or-product,SEM021;SEM022
+Goida-AI-Unlocker,goida-http,http-client,reference-only,Small desktop HTTP helper/cache reference.,1,2485,python,ui-or-product,SEM023
+Goida-AI-Unlocker,goida-icons,media,reference-only,UI media.,21,16575,unknown,media,n/a
+Goida-AI-Unlocker,goida-root,docs-ci,reference-only,Root docs/CI evidence.,4,57221,markdown;unknown;yaml,documentation;governance;implementation;repository-administration,n/a
+Goida-AI-Unlocker,goida-utils,desktop-utils,reference-only,Cache/delete/open helpers retained as operational reference.,2,4252,python,ui-or-product,SEM026
+Unlock_AI_and_EN_Services_for_Russia,unlock-hosts-corpus,service-domain-policy,resolved-by-semantic-ledger,"Stable labeled domains extracted; IP bindings/block policy separated; resolved by SEM027,SEM028,SEM029,SEM030.",1,805075,unknown,implementation,SEM027;SEM028;SEM029;SEM030
+Unlock_AI_and_EN_Services_for_Russia,unlock-magisk,android-root-module,reference-only,Root/Magisk installation mechanics not target authority.,3,4200,unknown,implementation,SEM031
+Unlock_AI_and_EN_Services_for_Russia,unlock-root,docs-update,reference-only,Module docs/update metadata.,4,45781,json;markdown;unknown,configuration;documentation;governance,n/a
+ZedPass,zedpass-android,platform-shell,reference-only,Generated Flutter Android shell; no superior lifecycle owner.,19,12464,kotlin;properties;unknown;xml,configuration;implementation;media;ui-or-product,n/a
+ZedPass,zedpass-app,mobile-app-shell,reference-only,Flutter app shell reference.,1,1001,dart,ui-or-product,n/a
+ZedPass,zedpass-ios,platform-shell,reference-only,Generated Flutter iOS shell.,39,61213,c;json;markdown;swift;unknown,configuration;documentation;implementation;media,n/a
+ZedPass,zedpass-linux,platform-shell,reference-only,Generated Flutter Linux shell.,10,15677,c;cpp;unknown,implementation,n/a
+ZedPass,zedpass-macos,platform-shell,reference-only,Generated Flutter macOS shell.,28,223149,json;swift;unknown,configuration;implementation;media,n/a
+ZedPass,zedpass-provider,sstp-client-state,resolved-by-semantic-ledger,"SSTP/profile/TLS settings inspected; security defaults weaker than target; resolved by SEM009,SEM010,SEM011.",1,9177,dart,ui-or-product,SEM009;SEM010;SEM011
+ZedPass,zedpass-root,build-docs,reference-only,"Build, CI, docs and test metadata.",10,957206,dart;markdown;unknown;yaml,configuration;documentation;governance;implementation;media;repository-administration;test-or-fixture,n/a
+ZedPass,zedpass-theme,ui-theme,reference-only,Theme reference.,1,3296,dart,ui-or-product,n/a
+ZedPass,zedpass-ui,ui-product,reference-only,DNS/proxy/TLS profile UX reference.,2,27800,dart,ui-or-product,SEM012
+ZedPass,zedpass-web,platform-shell,reference-only,Generated Flutter web shell.,7,43175,html;json;unknown,media;ui-or-product,n/a
+ZedPass,zedpass-windows,platform-shell,reference-only,Generated Flutter Windows shell.,18,67854,c;cpp;unknown,implementation;media,n/a
+defyxVPN,defyx-android,android-vpn-host,resolved-by-semantic-ledger,Android VPN lifecycle/socket protection reference; target native host hardened; resolved by SEM003.,34,316858,kotlin;properties;unknown;xml,configuration;implementation;media;ui-or-product,SEM003
+defyxVPN,defyx-app,mobile-app-shell,reference-only,Flutter app/router shell not target fit.,3,9401,dart,ui-or-product,n/a
+defyxVPN,defyx-assets,ui-assets,reference-only,Visual/product assets only.,63,2842156,json;unknown,configuration;media,n/a
+defyxVPN,defyx-core,client-storage-network,resolved-by-semantic-ledger,Secure storage/network/local-data primitives compared; backend target owners supersede most; resolved by SEM001.,8,10009,dart,ui-or-product,SEM001
+defyxVPN,defyx-ios,ios-vpn-host,reference-only,iOS PacketTunnel/native bridge retained for future host reference; iOS not shipped.,75,832210,c;json;markdown;swift;unknown,configuration;documentation;generated;implementation;media,SEM005
+defyxVPN,defyx-linux,platform-shell,reference-only,Generated Flutter Linux shell.,10,16059,c;cpp;unknown,implementation,n/a
+defyxVPN,defyx-macos,platform-shell,reference-only,Generated Flutter macOS shell.,30,234827,json;swift;unknown,configuration;implementation;media,n/a
+defyxVPN,defyx-main,mobile-product-state,resolved-by-semantic-ledger,"Connection presentation/state/secret UX compared individually; resolved by SEM002,SEM006,SEM007,SEM008,SEM103,SEM104.",21,136779,dart,ui-or-product,SEM002;SEM006;SEM007;SEM008;SEM103;SEM104
+defyxVPN,defyx-root,build-docs,reference-only,"Flutter build, docs, CI, metadata.",33,408607,dart;json;markdown;shell;unknown;yaml,configuration;documentation;governance;implementation;media;repository-administration;script;test-or-fixture;ui-or-product,n/a
+defyxVPN,defyx-settings,mobile-settings,reference-only,Settings/product affordance reference.,6,26006,dart,ui-or-product,n/a
+defyxVPN,defyx-shared,mobile-ui-state,resolved-by-semantic-ledger,Shared connection/log/group state reference; resolved by SEM004.,6,9760,dart,ui-or-product,SEM004
+defyxVPN,defyx-splash,mobile-ui,reference-only,Splash/product reference.,1,3051,dart,ui-or-product,n/a
+defyxVPN,defyx-web,web-shell,reference-only,Flutter web shell reference.,7,43183,html;json;unknown,media;ui-or-product,n/a
+defyxVPN,defyx-windows,platform-shell,reference-only,Generated Flutter Windows shell.,18,68499,c;cpp;unknown,implementation;media,n/a
+goida-vpn-configs,configs-ci,automation,reference-only,Feed-update workflow reference.,2,2016,yaml,repository-administration,n/a
+goida-vpn-configs,configs-corpus,proxy-config-corpus,resolved-by-semantic-ledger,"Large volatile proxy corpus used as grammar/evaluation oracle, not runtime authority; resolved by SEM033,SEM038,SEM106,SEM107,SEM108,SEM110.",26,137611952,unknown,implementation,SEM033;SEM038;SEM106;SEM107;SEM108;SEM110
+goida-vpn-configs,configs-network,remote-fetch,resolved-by-semantic-ledger,"Verification-off/downgrade behavior rejected; concurrency/source mechanics referenced; resolved by SEM036,SEM037,SEM105.",1,2952,python,implementation,SEM036;SEM037;SEM105
+goida-vpn-configs,configs-parser,proxy-normalization,resolved-by-semantic-ledger,"Grammar/insecure/dedupe semantics compared and adapted; resolved by SEM032,SEM034,SEM035.",1,2568,python,implementation,SEM032;SEM034;SEM035
+goida-vpn-configs,configs-qr,distribution-media,reference-only,Generated QR distribution artifacts.,26,64143,unknown,media,SEM040
+goida-vpn-configs,configs-root,docs-build,reference-only,Root docs/build evidence.,7,119697,markdown;python;unknown,documentation;governance;implementation,n/a
+goida-vpn-configs,configs-source-catalog,source-catalog,resolved-by-semantic-ledger,Feed/SNI catalogs retained as evaluation/source-reference data; resolved by SEM039.,3,26697,json,configuration,SEM039
+goida-vpn-configs,configs-tooling,aggregation-tooling,reference-only,Git/readme/release/file/update tooling reference.,8,29605,python,implementation,SEM041
+goida-vpn-site,site-app,pwa-runtime,reference-only,Flask app/config/util reference.,3,9630,python,ui-or-product,n/a
+goida-vpn-site,site-build,pwa-build,reference-only,Build/Tailwind/runtime config reference.,5,14972,javascript;json;python;unknown,configuration;implementation,n/a
+goida-vpn-site,site-i18n,localization-data,reference-only,Localization corpus/reference.,1,130518,json,ui-or-product,SEM045
+goida-vpn-site,site-js,pwa-client,resolved-by-semantic-ledger,"Service-worker/link-confirmation/i18n/stats product patterns retained as reference; resolved by SEM044,SEM046.",4,34095,javascript,ui-or-product,SEM044;SEM046
+goida-vpn-site,site-root,docs-ci,reference-only,Root docs/automation.,4,51486,markdown;unknown;yaml,documentation;governance;implementation;repository-administration,n/a
+goida-vpn-site,site-routes,pwa-api,reference-only,Public PWA/API plane not target authority.,3,5306,python,ui-or-product,SEM047
+goida-vpn-site,site-services,release-discovery,reference-only,Release/project discovery/cache services deferred without signed update authority.,3,20814,python,ui-or-product,SEM043;SEM088
+goida-vpn-site,site-static,pwa-assets,reference-only,PWA/media/QR assets reference.,36,722537,css;javascript;unknown,media;ui-or-product,SEM042
+goida-vpn-site,site-templates,pwa-ui,reference-only,Public site/product templates reference.,10,214195,html,ui-or-product,n/a

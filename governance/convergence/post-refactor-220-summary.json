@@ -1,0 +1,32 @@
+{
+  "wave": "post-refactor-220",
+  "target": "LumiNet",
+  "project_universe": 40,
+  "uploaded_donor_archives": 39,
+  "historically_accounted_uploaded_donor_surfaces": 18517,
+  "post160_donors": 19,
+  "post160_surfaces": 12285,
+  "post180_donors": 20,
+  "post180_surfaces": 6232,
+  "baseline_files": 2811,
+  "major_promotions": [
+    "canonical cross-runtime flow registry",
+    "passive daemon network epochs",
+    "derived network intelligence",
+    "loss-aware profile compatibility lab",
+    "local declarative profile shaping",
+    "strict local generated-output round-trip proof",
+    "credential-redacted explicit interrupted-job recovery",
+    "unified capability and coverage truth center"
+  ],
+  "preserved_invariants": [
+    "post-160 bounded automatic configuration mutation retry",
+    "one authoritative write path",
+    "UI remains non-authoritative",
+    "no automatic restart replay",
+    "public endpoint admission remains shared"
+  ],
+  "ledger_records": 17,
+  "fine_value_units": 17,
+  "cross_wave_accountability_rows": 40
+}

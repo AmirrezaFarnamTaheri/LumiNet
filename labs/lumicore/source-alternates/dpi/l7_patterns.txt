@@ -1,0 +1,10 @@
+# Ported from: l7-protocols-master
+# Format: <protocol_name>:<regex_pattern>
+
+http:http/(0\.9|1\.0|1\.1) [1-5][0-9][0-9] [\x09-\x0d -~]*(connection:|content-type:|content-length:|date:)|post [\x09-\x0d -~]* http/[01]\.[019]
+ssh:^ssh-[12]\.[0-9]
+ssl:^(.?.?\x16\x03.*\x16\x03|.?.?\x01\x03\x01?.*\x0b)
+dns:^.?.?\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00
+bittorrent:^(\x13bittorrent protocol|azver\x01$|get /scrape\?info_hash=)
+socks:^(\x04\x01[\x00-\xff]{4}|\x05[\x00-\xff]{2})
+tor:^(\x16\x03\x01\x00\x62\x01\x00\x00\x5e\x03\x01|\x16\x03\x03\x00\x62\x01\x00\x00\x5e\x03\x03)

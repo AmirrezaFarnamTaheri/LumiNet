@@ -1,0 +1,72 @@
+{
+  "api_handler": "src/apps/daemon/internal/adapters/api/handlers_warp_geosite.go",
+  "classification": "active-api-support-ownership-with-reviewed-transforms-and-retired-corpus",
+  "guard_falsification": {
+    "api_fallback_to_facade": "rejected",
+    "full_implementation_resurrection": "rejected",
+    "peer_loss": "rejected"
+  },
+  "invariant": "Each live API support mechanism has one canonical owner; transformed owners are validated through live dependency/behavior gates, while original baseline hashes remain immutable provenance.",
+  "post_snapshot": {
+    "facade_matches_pre": true,
+    "sha256": "433cfec22e6e44c6f7ae4784cee5ec485c31a09abd4cecc9367962fcd217f8f9"
+  },
+  "pre_snapshot": {
+    "sha256": "433cfec22e6e44c6f7ae4784cee5ec485c31a09abd4cecc9367962fcd217f8f9"
+  },
+  "preserved_peer_roots": [
+    "labs/daemon/modules/ipscanner",
+    "src/apps/daemon/internal/networking/geoip",
+    "src/apps/daemon/internal/networking/routing",
+    "src/apps/daemon/internal/runtime/warp"
+  ],
+  "schema": 1,
+  "sources": [
+    {
+      "baseline": "server/internal/proxy/ip_security_analyzer.go",
+      "owner": "src/apps/daemon/internal/analysis/diagnostics/ip_security.go",
+      "owner_validation": "reviewed-transform",
+      "package": "diagnostics",
+      "provenance": "git-baseline-d73453f:server/internal/proxy/ip_security_analyzer.go",
+      "sha256": "043f8c6b96adb365c719e2b562c104660d1500925a134c5b7efbefb663364abc",
+      "size": 12397
+    },
+    {
+      "baseline": "server/internal/proxy/smart_dns.go",
+      "owner": "src/apps/daemon/internal/networking/dns/smart_resolve.go",
+      "owner_validation": "reviewed-transform",
+      "package": "dns",
+      "provenance": "git-baseline-d73453f:server/internal/proxy/smart_dns.go",
+      "sha256": "06655d69578b6bd12792c5b4bfe05c8ac4168f96ffcaf95c15db0fa3abaa37e9",
+      "size": 7807
+    },
+    {
+      "baseline": "server/internal/proxy/clean_ip_prober.go",
+      "owner": "src/apps/daemon/internal/analysis/diagnostics/clean_ip_probe.go",
+      "owner_validation": "reviewed-transform",
+      "package": "diagnostics",
+      "provenance": "git-baseline-d73453f:server/internal/proxy/clean_ip_prober.go",
+      "sha256": "d6e9adeb375f3ff03760a72b37654d529284dfd7f72711054ca355f3f22e4ec0",
+      "size": 1978
+    },
+    {
+      "baseline": "server/internal/proxy/vpn_service_bridge.go",
+      "disposition": "preserved-corpus",
+      "owner": "labs/daemon/vpnstate-alternates/vpn_service_bridge.go",
+      "package": "vpnstate",
+      "provenance": "git-baseline-d73453f:server/internal/proxy/vpn_service_bridge.go",
+      "sha256": "54882f23817f00e58670696ebd7925c9ff95ccb227f13ebeae67f6f6630c63a5",
+      "size": 1268
+    },
+    {
+      "baseline": "server/internal/proxy/warp_noise.go",
+      "owner": "src/apps/daemon/internal/runtime/warp/noise.go",
+      "owner_validation": "reviewed-transform",
+      "package": "warp",
+      "provenance": "git-baseline-d73453f:server/internal/proxy/warp_noise.go",
+      "sha256": "73a8f628a6d6e387e83606677e8a2c1e2df750826b3694e45214feeba40de2db",
+      "size": 991
+    }
+  ],
+  "wave": 23
+}

@@ -1,0 +1,26 @@
+# src/apps/daemon/internal/runtime/proxy
+
+## Purpose
+Primary evasion and proxy-qualification runtime. Owns evasion lifecycle/dialing/transports plus Xray/sing-box qualification; mobile platform/runtime, safety, trust, routing-provider policy, and decoy traffic are separate owners.
+
+## Architectural role
+- Daemon dependency band: `runtime` (rank 4; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (142): `accept_backoff.go`, `accept_backoff_test.go`, `adaptive_dialer.go`, `adaptive_dialer_test.go`, `auto_reconnect.go`, `brook_transport.go`, `brook_transport_test.go`, `circular_cache.go`, `circular_cache_test.go`, `config_watcher.go`, `core_manager.go`, `core_manager_test.go` …
+
+## Interfaces and dependencies
+- Go package: `proxy`.
+- Notable exported surface: `AdaptiveDialer`, `AddDiagnosticTrace`, `AggregatedFlow`, `AndroidVPNExclusionManager`, `AtomicNoizeWireGuardConn`, `BetterEndpointQuality`, `BrookConn`, `ClearConnSeq`, `ClearDiagnosticTraces`, `ClearRedirectRules` …
+- Daemon-local dependencies: `internal/foundation/boundedio`, `internal/foundation/config`, `internal/foundation/crypto`, `internal/foundation/flowregistry`, `internal/foundation/remoteaction`, `internal/foundation/trafficstats`, `internal/integrations/relayclient`, `internal/native/bridge`, `internal/networking/geoip`, `internal/networking/kcppolicy`, `internal/networking/proxyconfig`, `internal/networking/tlsdecoy`, `internal/platform/mobilehost`, `internal/platform/process`, `internal/platform/sshtrust`, `internal/platform/system`, `internal/protocols/asyncreactor`, `internal/protocols/tlsfragment`, `internal/runtime/trust`.
+- Direct daemon callers: `cmd`, `internal/adapters/api`, `internal/runtime/mobilecore`, `internal/workflows/jobs`.
+
+## Invariants
+- Evasion configuration/defaulting/redaction/lifecycle stay owned by the evasion runtime.
+- Xray/sing-box qualification is ephemeral and remains separate from long-lived runtimecore engines.
+- `runtime` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "luminet-core"
+version = "0.1.0"
+authors = [
+  { name="LumiNet Team", email="maintainers@luminet.network" },
+]
+description = "Universal Embeddable Native SDK for LumiNet DPI Evasion and Scanning"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.urls]
+"Homepage" = "https://github.com/maybeknott/luminet"

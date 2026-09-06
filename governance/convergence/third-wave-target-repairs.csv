@@ -1,0 +1,2 @@
+repair_id,path,trigger,reason,evidence,status
+TW-REPAIR001,src/apps/daemon/internal/runtime/proxy/core_manager.go,The second-order target parsed Hysteria2 but the Xray outbound builder had no dedicated Hysteria2 protocol branch and could fall through to generic SOCKS construction.,Repair the target-local runtime ownership defect independently of donor provenance: Hysteria2 now has an explicit Xray outbound and transport path.,scripts/checks/check_third_wave_runtime.py#check_runtime,statically-validated

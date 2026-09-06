@@ -1,0 +1,3 @@
+# Post-refactor-235 architecture
+
+Second-order convergence keeps all runtime authority in existing LumiNet owners. Nine read-only diagnostics/planning surfaces are added or deepened: adaptive scan-load, mobile readiness, first-supported config fallback, DNS interception safety, Tor consensus evidence, DNSCrypt resolver/relay topology, evidence receipt topology, DNS filter preset composition, and a composed Network Evidence Bundle. API trace inference and process-proxy compilation are deepened. No donor runtime is introduced. The orphan timeout-driven scanner AdaptiveThrottle is retired after zero product callers were proven.

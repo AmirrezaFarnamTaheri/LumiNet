@@ -1,0 +1,16 @@
+{
+  "baseline_files": 2791,
+  "category_records": 245,
+  "directories": 1290,
+  "donors": 20,
+  "fine_records": 24,
+  "ledger_records": 289,
+  "modules": 125,
+  "nested_file_payloads": 142,
+  "root_records": 20,
+  "skill_inventory_non_git_surfaces": 6202,
+  "surfaces": 6232,
+  "symbols": 36779,
+  "symlinks": 2,
+  "wave": "post-refactor-180"
+}

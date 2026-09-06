@@ -1,0 +1,8 @@
+{
+  "evidence": "derived from immutable post-refactor-224 source and embedded post-refactor-225 baseline inventory",
+  "owner": "src/apps/daemon/internal/protocols/tlsfragment/utls_fragment.go",
+  "pre_225_sha256": "022e8d2ca5cb73e39dff329b842045b03fdf41c1696fab97a5a8d0e040c2f70c",
+  "schema": 1,
+  "wave24_normalized_sha256": "80473601f5dbf33522fe439105032ee54eb6df4f4e2e415a36ed881954d76636",
+  "wave24_normalized_size": 4628
+}

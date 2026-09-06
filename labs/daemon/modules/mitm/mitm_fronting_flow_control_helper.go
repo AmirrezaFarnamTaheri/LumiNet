@@ -1,0 +1,6 @@
+package mitm
+
+// Deprecated source-compatibility aliases — canonical types in mitm_fronting_flow_control.go
+type MitmFrontingFlowControlHelper = MitmFrontingFlowControl
+type MitmFrontingTLSExtensionOptionsHelper = MitmFrontingTLSExtensionOptions
+type MitmFrontingUpstreamValidationHelper = MitmFrontingUpstreamValidation

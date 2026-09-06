@@ -1,0 +1,21 @@
+# src/apps/desktop
+
+## Purpose
+Wails desktop host. It embeds/serves the canonical shared control UI rather than owning a second frontend.
+
+## Contents
+- Direct files (6): `README.md`, `go.mod`, `go.sum`, `main.go`, `main_test.go`, `wails.json`
+
+## Interfaces and dependencies
+- Go package: `main`.
+- Notable exported surface: `AppBridge`, `SessionConfig`.
+- Daemon-local dependencies: none.
+- Direct daemon callers: none detected.
+- External/shared imports: 2 distinct package(s); inspect source before changing dependency contracts.
+
+## Invariants
+- Keep behavior local to the named module; move cross-cutting policy to its canonical owner instead of duplicating it here.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

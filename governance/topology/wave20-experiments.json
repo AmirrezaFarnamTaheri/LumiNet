@@ -1,0 +1,2475 @@
+{
+  "analysis": {
+    "dual_graph_zero_edge": 277,
+    "moved_production": 243,
+    "moved_tests": 38,
+    "production_files_analyzed": 484,
+    "retained_zero_edge_production": 34,
+    "type_zero_edge": 295
+  },
+  "classification": "disconnected-dormant-proxy-preservation",
+  "invariant": "move only baseline Go files with zero production symbol edges in both GOOS-aware type and declaration-aware lexical graphs after safety exclusions; preserve bytes exactly",
+  "moved": [
+    {
+      "baseline": "server/internal/proxy/acme_cert_manager.go",
+      "kind": "production",
+      "sha256": "68f3b2c14043fc384feca0dd33955ac068918ecfb3f2014439ce7e2c98beb7e0",
+      "size": 12556,
+      "source": "src/apps/daemon/internal/runtime/proxy/acme_cert_manager.go",
+      "target": "labs/daemon/proxy/acme_cert_manager.go"
+    },
+    {
+      "baseline": "server/internal/proxy/ad_tier_proxy.go",
+      "kind": "production",
+      "sha256": "32ac7c190737f2597b462bdc4eb4f4f3f85754307311892985e0d76a47a029c5",
+      "size": 606,
+      "source": "src/apps/daemon/internal/runtime/proxy/ad_tier_proxy.go",
+      "target": "labs/daemon/proxy/ad_tier_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/amnezia_config.go",
+      "kind": "production",
+      "sha256": "6bc816c0524a35b93c51ead0c1b14b3e662a2b3005d1abf65d88d3f1a22fa379",
+      "size": 673,
+      "source": "src/apps/daemon/internal/runtime/proxy/amnezia_config.go",
+      "target": "labs/daemon/proxy/amnezia_config.go"
+    },
+    {
+      "baseline": "server/internal/proxy/android_proxy_client.go",
+      "kind": "production",
+      "sha256": "f709727aed92f64850a88e29e896fb76f9116a7983de6ac726767f36129e7fce",
+      "size": 2602,
+      "source": "src/apps/daemon/internal/runtime/proxy/android_proxy_client.go",
+      "target": "labs/daemon/proxy/android_proxy_client.go"
+    },
+    {
+      "baseline": "server/internal/proxy/ast.go",
+      "kind": "production",
+      "sha256": "6ac2d94ab5f7927d3ea474ec598ecb1f10875105150a486a22d63fb5dd3a49e7",
+      "size": 7018,
+      "source": "src/apps/daemon/internal/runtime/proxy/ast.go",
+      "target": "labs/daemon/proxy/ast.go"
+    },
+    {
+      "baseline": "server/internal/proxy/autoworker.go",
+      "kind": "production",
+      "sha256": "60a2372bcfaf32103300b4a377d94933899ee6168c6ab1fc585bcc1285cb2907",
+      "size": 14066,
+      "source": "src/apps/daemon/internal/runtime/proxy/autoworker.go",
+      "target": "labs/daemon/proxy/autoworker.go"
+    },
+    {
+      "baseline": "server/internal/proxy/awesome_fallback.go",
+      "kind": "production",
+      "sha256": "75702acb006febc6a5ab48915ef768e95903ceb35670a432c29e144bf6957eb0",
+      "size": 858,
+      "source": "src/apps/daemon/internal/runtime/proxy/awesome_fallback.go",
+      "target": "labs/daemon/proxy/awesome_fallback.go"
+    },
+    {
+      "baseline": "server/internal/proxy/billing_monitor.go",
+      "kind": "production",
+      "sha256": "eb58240fd1a2e6005b74e6db20ddf9e29b1c408b6200dc97a77f4b8a8ea3b048",
+      "size": 1649,
+      "source": "src/apps/daemon/internal/runtime/proxy/billing_monitor.go",
+      "target": "labs/daemon/proxy/billing_monitor.go"
+    },
+    {
+      "baseline": "server/internal/proxy/billing_panel_adapter.go",
+      "kind": "production",
+      "sha256": "bc13e131e4f34b06930e2e7076f1afc36c568b76bf2c61b2645975347ac2fa48",
+      "size": 607,
+      "source": "src/apps/daemon/internal/runtime/proxy/billing_panel_adapter.go",
+      "target": "labs/daemon/proxy/billing_panel_adapter.go"
+    },
+    {
+      "baseline": "server/internal/proxy/bpb_panel.go",
+      "kind": "production",
+      "sha256": "674a22b944b276d48dd170241a15e60b8596dddaebcfeed7def3e433c7772688",
+      "size": 30590,
+      "source": "src/apps/daemon/internal/runtime/proxy/bpb_panel.go",
+      "target": "labs/daemon/proxy/bpb_panel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/brutal_cc.go",
+      "kind": "production",
+      "sha256": "d1be7406b3ae5fc0f24238adb52dbd45eac90fa11ab04da68166059a3ebd5b97",
+      "size": 8395,
+      "source": "src/apps/daemon/internal/runtime/proxy/brutal_cc.go",
+      "target": "labs/daemon/proxy/brutal_cc.go"
+    },
+    {
+      "baseline": "server/internal/proxy/candy_connect.go",
+      "kind": "production",
+      "sha256": "71150a9406c11168657427fa09eb1b537e1cdb18d071711abf67ea5e477c8198",
+      "size": 4116,
+      "source": "src/apps/daemon/internal/runtime/proxy/candy_connect.go",
+      "target": "labs/daemon/proxy/candy_connect.go"
+    },
+    {
+      "baseline": "server/internal/proxy/candy_server.go",
+      "kind": "production",
+      "sha256": "9ff892fcc7d12cb7cffb33924f24841fd1a2a4932a9d35d6466047631080bc60",
+      "size": 3445,
+      "source": "src/apps/daemon/internal/runtime/proxy/candy_server.go",
+      "target": "labs/daemon/proxy/candy_server.go"
+    },
+    {
+      "baseline": "server/internal/proxy/censorship_api.go",
+      "kind": "production",
+      "sha256": "a251d8178a51ada0367839348ad66bdbff395ffbefafd82bf0f7e7f3312111ee",
+      "size": 3070,
+      "source": "src/apps/daemon/internal/runtime/proxy/censorship_api.go",
+      "target": "labs/daemon/proxy/censorship_api.go"
+    },
+    {
+      "baseline": "server/internal/proxy/cf_bypass.go",
+      "kind": "production",
+      "sha256": "44f0b978b89ebeb4e501f7af237cf1192f5606d029230532b7de1b443e3f242d",
+      "size": 4636,
+      "source": "src/apps/daemon/internal/runtime/proxy/cf_bypass.go",
+      "target": "labs/daemon/proxy/cf_bypass.go"
+    },
+    {
+      "baseline": "server/internal/proxy/cf_vless_socket.go",
+      "kind": "production",
+      "sha256": "bbd62ddac95ff92ca4a54ec6e181c4ebb0b7b4ad6e7c9405ef079f72875bda15",
+      "size": 6009,
+      "source": "src/apps/daemon/internal/runtime/proxy/cf_vless_socket.go",
+      "target": "labs/daemon/proxy/cf_vless_socket.go"
+    },
+    {
+      "baseline": "server/internal/proxy/cf_worker_dir.go",
+      "kind": "production",
+      "sha256": "dfa4d604ba0bb3f99f7c882a3af2c4162cecd64a7af363f3b78312a54745e8c0",
+      "size": 12755,
+      "source": "src/apps/daemon/internal/runtime/proxy/cf_worker_dir.go",
+      "target": "labs/daemon/proxy/cf_worker_dir.go"
+    },
+    {
+      "baseline": "server/internal/proxy/cf_worker_gateway.go",
+      "kind": "production",
+      "sha256": "b453db3378dd1c89ac8cd9230a71bed564a0f066918fdd041eaf57f5bae894e4",
+      "size": 18475,
+      "source": "src/apps/daemon/internal/runtime/proxy/cf_worker_gateway.go",
+      "target": "labs/daemon/proxy/cf_worker_gateway.go"
+    },
+    {
+      "baseline": "server/internal/proxy/checksum.go",
+      "kind": "production",
+      "sha256": "c2c6b388f0a77bf5a5a6f428878f9fdc73c39e92979ffb82a1589592e050dfbe",
+      "size": 1243,
+      "source": "src/apps/daemon/internal/runtime/proxy/checksum.go",
+      "target": "labs/daemon/proxy/checksum.go"
+    },
+    {
+      "baseline": "server/internal/proxy/clash_dashboard_adapter.go",
+      "kind": "production",
+      "sha256": "199e181879b8345e5812ae3ee3e9dd6de95ef230bd304ac507ccadd0d26214fe",
+      "size": 6742,
+      "source": "src/apps/daemon/internal/runtime/proxy/clash_dashboard_adapter.go",
+      "target": "labs/daemon/proxy/clash_dashboard_adapter.go"
+    },
+    {
+      "baseline": "server/internal/proxy/clash_webui_adapter.go",
+      "kind": "production",
+      "sha256": "ec02f151f0eddd3024999d707c6f68d64871491a70c2bfe6290d9ded58ee69c8",
+      "size": 5064,
+      "source": "src/apps/daemon/internal/runtime/proxy/clash_webui_adapter.go",
+      "target": "labs/daemon/proxy/clash_webui_adapter.go"
+    },
+    {
+      "baseline": "server/internal/proxy/cloudflare_bypass_proxy.go",
+      "kind": "production",
+      "sha256": "34f0831b70b3e9c77e304247f88ddb236467f9e7a083f9938cfeaf571ddef3a7",
+      "size": 9325,
+      "source": "src/apps/daemon/internal/runtime/proxy/cloudflare_bypass_proxy.go",
+      "target": "labs/daemon/proxy/cloudflare_bypass_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/cloudflare_worker_relay.go",
+      "kind": "production",
+      "sha256": "8912904ecaacc083a3ec767aa22a60838c5920de26b7121a36b880130a57635b",
+      "size": 688,
+      "source": "src/apps/daemon/internal/runtime/proxy/cloudflare_worker_relay.go",
+      "target": "labs/daemon/proxy/cloudflare_worker_relay.go"
+    },
+    {
+      "baseline": "server/internal/proxy/cloudflare_workers_proxy.go",
+      "kind": "production",
+      "sha256": "f285ff291bb9170d847293295e09552a6a1ae37fc9755ba65ae83d9bba72d296",
+      "size": 11614,
+      "source": "src/apps/daemon/internal/runtime/proxy/cloudflare_workers_proxy.go",
+      "target": "labs/daemon/proxy/cloudflare_workers_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/conductor.go",
+      "kind": "production",
+      "sha256": "8977992b7c403214a34068de712538f71512462c560f6479feffeb5719f144d0",
+      "size": 2402,
+      "source": "src/apps/daemon/internal/runtime/proxy/conductor.go",
+      "target": "labs/daemon/proxy/conductor.go"
+    },
+    {
+      "baseline": "server/internal/proxy/config_migration_helper.go",
+      "kind": "production",
+      "sha256": "79a0b8885eda203ef8706cf0f77ff13aa67c987e1db5ea9c8f9fb9a3833f7b9f",
+      "size": 528,
+      "source": "src/apps/daemon/internal/runtime/proxy/config_migration_helper.go",
+      "target": "labs/daemon/proxy/config_migration_helper.go"
+    },
+    {
+      "baseline": "server/internal/proxy/connectivity_checker.go",
+      "kind": "production",
+      "sha256": "ecf16e56bb61bbf9c1cb429d5aee7cea52a383a44c8b7e2346ead987940b206c",
+      "size": 2310,
+      "source": "src/apps/daemon/internal/runtime/proxy/connectivity_checker.go",
+      "target": "labs/daemon/proxy/connectivity_checker.go"
+    },
+    {
+      "baseline": "server/internal/proxy/custom_routing_rules.go",
+      "kind": "production",
+      "sha256": "0fb86082a9dc03b8268e67efe17376e907e2b5b66b7e77e15d33e4952450f4ee",
+      "size": 2470,
+      "source": "src/apps/daemon/internal/runtime/proxy/custom_routing_rules.go",
+      "target": "labs/daemon/proxy/custom_routing_rules.go"
+    },
+    {
+      "baseline": "server/internal/proxy/direct_outbound_setup.go",
+      "kind": "production",
+      "sha256": "a5dcb8dac7732021ffd25ea01c45de8f7c7f511566614e1bc77d7dbe2d46e17e",
+      "size": 710,
+      "source": "src/apps/daemon/internal/runtime/proxy/direct_outbound_setup.go",
+      "target": "labs/daemon/proxy/direct_outbound_setup.go"
+    },
+    {
+      "baseline": "server/internal/proxy/dns_scaling.go",
+      "kind": "production",
+      "sha256": "cef22d69d8893a647b6a76d589064799da3a4366f1dc63526932c7928e01719b",
+      "size": 2691,
+      "source": "src/apps/daemon/internal/runtime/proxy/dns_scaling.go",
+      "target": "labs/daemon/proxy/dns_scaling.go"
+    },
+    {
+      "baseline": "server/internal/proxy/dns_scanner.go",
+      "kind": "production",
+      "sha256": "43ad620314f1d7f53bfa95ad847c4a48f453ca8971d0d7920e9894b6b1dc622f",
+      "size": 8375,
+      "source": "src/apps/daemon/internal/runtime/proxy/dns_scanner.go",
+      "target": "labs/daemon/proxy/dns_scanner.go"
+    },
+    {
+      "baseline": "server/internal/proxy/dns_spoof_blocklist_resolver.go",
+      "kind": "production",
+      "sha256": "790710efb126959b61d339ffc01c1204b71650b2355c3ba57191a555857a985a",
+      "size": 7002,
+      "source": "src/apps/daemon/internal/runtime/proxy/dns_spoof_blocklist_resolver.go",
+      "target": "labs/daemon/proxy/dns_spoof_blocklist_resolver.go"
+    },
+    {
+      "baseline": "server/internal/proxy/dnstt.go",
+      "kind": "production",
+      "sha256": "3fb22dc06d1e6d2488706ddd59e282c941b56af16eac0649122ae1bd517e5bc8",
+      "size": 615,
+      "source": "src/apps/daemon/internal/runtime/proxy/dnstt.go",
+      "target": "labs/daemon/proxy/dnstt.go"
+    },
+    {
+      "baseline": "server/internal/proxy/doh_worker.go",
+      "kind": "production",
+      "sha256": "8db85dfea6bb6d4c30a816a5cdeff8ada97708561a52b46ad12e0be59d9a0f1f",
+      "size": 6157,
+      "source": "src/apps/daemon/internal/runtime/proxy/doh_worker.go",
+      "target": "labs/daemon/proxy/doh_worker.go"
+    },
+    {
+      "baseline": "server/internal/proxy/domainfront_gas.go",
+      "kind": "production",
+      "sha256": "c5e49b3b278dcbac775ea2179ad8205ca2664224737bed93ddd3d9e7f0ef5427",
+      "size": 682,
+      "source": "src/apps/daemon/internal/runtime/proxy/domainfront_gas.go",
+      "target": "labs/daemon/proxy/domainfront_gas.go"
+    },
+    {
+      "baseline": "server/internal/proxy/dual_proxy_server.go",
+      "kind": "production",
+      "sha256": "645b0b7494e7aa44d412e03290e2388246ed95b41ddf48a93a7df563176ddd3b",
+      "size": 8246,
+      "source": "src/apps/daemon/internal/runtime/proxy/dual_proxy_server.go",
+      "target": "labs/daemon/proxy/dual_proxy_server.go"
+    },
+    {
+      "baseline": "server/internal/proxy/ech_tunnel.go",
+      "kind": "production",
+      "sha256": "dcfc8b6a1ee166c5e5e111bfaed840ea79bfe7ac5a3b5cc49dd203c5b05892ba",
+      "size": 669,
+      "source": "src/apps/daemon/internal/runtime/proxy/ech_tunnel.go",
+      "target": "labs/daemon/proxy/ech_tunnel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/edge_auth.go",
+      "kind": "production",
+      "sha256": "fe7deeed0fc3c5051dd8dc3adcd63b6476fdd917b495255cbe7e49912d4b7c00",
+      "size": 5967,
+      "source": "src/apps/daemon/internal/runtime/proxy/edge_auth.go",
+      "target": "labs/daemon/proxy/edge_auth.go"
+    },
+    {
+      "baseline": "server/internal/proxy/edge_control_panel.go",
+      "kind": "production",
+      "sha256": "d29aa59453a7ba90a548ef89b3e9bada8bdb7e78d7f8feccb40fd168d9e895a7",
+      "size": 3583,
+      "source": "src/apps/daemon/internal/runtime/proxy/edge_control_panel.go",
+      "target": "labs/daemon/proxy/edge_control_panel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/edge_trojan_gateway.go",
+      "kind": "production",
+      "sha256": "d0bd2663227d7a50d99cf33973f35b914e663784d2be427d09b930560be43b43",
+      "size": 893,
+      "source": "src/apps/daemon/internal/runtime/proxy/edge_trojan_gateway.go",
+      "target": "labs/daemon/proxy/edge_trojan_gateway.go"
+    },
+    {
+      "baseline": "server/internal/proxy/edgetunnel.go",
+      "kind": "production",
+      "sha256": "b2333bef412311df5f39b94a5965f7cf0bb9ae60781ada16dca6bee5e7792ad8",
+      "size": 8492,
+      "source": "src/apps/daemon/internal/runtime/proxy/edgetunnel.go",
+      "target": "labs/daemon/proxy/edgetunnel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/ens_resolver.go",
+      "kind": "production",
+      "sha256": "534cdaedb2f29d72e87f7f5c39fa762469bdc76f7dd0f0424e8f337881d97b6b",
+      "size": 1902,
+      "source": "src/apps/daemon/internal/runtime/proxy/ens_resolver.go",
+      "target": "labs/daemon/proxy/ens_resolver.go"
+    },
+    {
+      "baseline": "server/internal/proxy/env_drift.go",
+      "kind": "production",
+      "sha256": "286644a204775c18f6be1b236d8ba249dad385b7856d5900c2ed51921c2d0817",
+      "size": 1884,
+      "source": "src/apps/daemon/internal/runtime/proxy/env_drift.go",
+      "target": "labs/daemon/proxy/env_drift.go"
+    },
+    {
+      "baseline": "server/internal/proxy/envoy_proxy.go",
+      "kind": "production",
+      "sha256": "558eca5df003b9c86ed63ceba050fc9013aee3217306708edeefe7e02f6bf74f",
+      "size": 3730,
+      "source": "src/apps/daemon/internal/runtime/proxy/envoy_proxy.go",
+      "target": "labs/daemon/proxy/envoy_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/fallback_dns_pool.go",
+      "kind": "production",
+      "sha256": "68a86e80d49e943c91b5e20cbe3ab8f889403abb7495d28709ee7fc505aca199",
+      "size": 350,
+      "source": "src/apps/daemon/internal/runtime/proxy/fallback_dns_pool.go",
+      "target": "labs/daemon/proxy/fallback_dns_pool.go"
+    },
+    {
+      "baseline": "server/internal/proxy/fec_codec.go",
+      "kind": "production",
+      "sha256": "08557c257d441b7d3a0abdf0907998374274aa1edb9e4bd26c950ec7cd3c0653",
+      "size": 2035,
+      "source": "src/apps/daemon/internal/runtime/proxy/fec_codec.go",
+      "target": "labs/daemon/proxy/fec_codec.go"
+    },
+    {
+      "baseline": "server/internal/proxy/firewalla.go",
+      "kind": "production",
+      "sha256": "d0ca055e73b01e992576531fc6dd19fad8d6a8cf763f9fd8a67c761e4b863e47",
+      "size": 594,
+      "source": "src/apps/daemon/internal/runtime/proxy/firewalla.go",
+      "target": "labs/daemon/proxy/firewalla.go"
+    },
+    {
+      "baseline": "server/internal/proxy/forcerun.go",
+      "kind": "production",
+      "sha256": "7179b3b2fe9f1eecc5fce3e729340d61b4ea5041a2a61e1ca1d8a239d5ec1b23",
+      "size": 6421,
+      "source": "src/apps/daemon/internal/runtime/proxy/forcerun.go",
+      "target": "labs/daemon/proxy/forcerun.go"
+    },
+    {
+      "baseline": "server/internal/proxy/format_transform_proxy.go",
+      "kind": "production",
+      "sha256": "7d74f6023a14bc95c735cbd9d5c249d7e1ca2b0779d959a8972a7071e9dcc8ef",
+      "size": 586,
+      "source": "src/apps/daemon/internal/runtime/proxy/format_transform_proxy.go",
+      "target": "labs/daemon/proxy/format_transform_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/format_transformer.go",
+      "kind": "production",
+      "sha256": "1f66b9ac21b3fe4d5c7c4f14a61a6a091a3267de743f845c7f1525c0230bfb28",
+      "size": 8066,
+      "source": "src/apps/daemon/internal/runtime/proxy/format_transformer.go",
+      "target": "labs/daemon/proxy/format_transformer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/fptn_codec.go",
+      "kind": "production",
+      "sha256": "c4398f07333bc9a99276a3ced0366e11d4dc6a6fe9238aa33858f4c2b8914052",
+      "size": 7085,
+      "source": "src/apps/daemon/internal/runtime/proxy/fptn_codec.go",
+      "target": "labs/daemon/proxy/fptn_codec.go"
+    },
+    {
+      "baseline": "server/internal/proxy/freenet.go",
+      "kind": "production",
+      "sha256": "fb203404557c1b529a8b23e3f244c5857a92e0c0a3668854b9bb602dbeea9ffa",
+      "size": 9709,
+      "source": "src/apps/daemon/internal/runtime/proxy/freenet.go",
+      "target": "labs/daemon/proxy/freenet.go"
+    },
+    {
+      "baseline": "server/internal/proxy/freenet_agent_runner.go",
+      "kind": "production",
+      "sha256": "78cc5daff5c891ed0ff1f14d8fc437973e4235b7acca1a38e74d3027714855f0",
+      "size": 651,
+      "source": "src/apps/daemon/internal/runtime/proxy/freenet_agent_runner.go",
+      "target": "labs/daemon/proxy/freenet_agent_runner.go"
+    },
+    {
+      "baseline": "server/internal/proxy/freenet_mail.go",
+      "kind": "production",
+      "sha256": "e9880c47eb1d86f90b5ad6bf52cfa88959c3158dfc60fb239a52e0fde5f6e6d4",
+      "size": 9344,
+      "source": "src/apps/daemon/internal/runtime/proxy/freenet_mail.go",
+      "target": "labs/daemon/proxy/freenet_mail.go"
+    },
+    {
+      "baseline": "server/internal/proxy/frp.go",
+      "kind": "production",
+      "sha256": "06cc5c9c82dc49e6951081358a364e426c62bf2bfd6b490dc63d3f0f7a1ecfb4",
+      "size": 566,
+      "source": "src/apps/daemon/internal/runtime/proxy/frp.go",
+      "target": "labs/daemon/proxy/frp.go"
+    },
+    {
+      "baseline": "server/internal/proxy/frp_tunnel.go",
+      "kind": "production",
+      "sha256": "3bacc85b7278a0d52472415e0d9b73e65a60858c49b28e3a8a18e44e7fddb917",
+      "size": 12358,
+      "source": "src/apps/daemon/internal/runtime/proxy/frp_tunnel.go",
+      "target": "labs/daemon/proxy/frp_tunnel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gas_relay_assets.go",
+      "kind": "production",
+      "sha256": "fef3cec1d5943f17957307224dc4cdc8e684376e0845e9954783b232387a1afc",
+      "size": 622,
+      "source": "src/apps/daemon/internal/runtime/proxy/gas_relay_assets.go",
+      "target": "labs/daemon/proxy/gas_relay_assets.go"
+    },
+    {
+      "baseline": "server/internal/proxy/generic_proxy_tunnel.go",
+      "kind": "production",
+      "sha256": "9a30362e72041f1a18eff96c926a49bcacc60e0934a666e52e90e2805d57b165",
+      "size": 3909,
+      "source": "src/apps/daemon/internal/runtime/proxy/generic_proxy_tunnel.go",
+      "target": "labs/daemon/proxy/generic_proxy_tunnel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gfw_resist_https.go",
+      "kind": "production",
+      "sha256": "75420071d5a23f8c6b40438764bbb9d37bb5251c154dd7c9484497b0410d623f",
+      "size": 6470,
+      "source": "src/apps/daemon/internal/runtime/proxy/gfw_resist_https.go",
+      "target": "labs/daemon/proxy/gfw_resist_https.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gfw_resist_tcp.go",
+      "kind": "production",
+      "sha256": "6cb59c4000599cc6409107a7906651b66b51052761eb06349dd8157fb1de941a",
+      "size": 2707,
+      "source": "src/apps/daemon/internal/runtime/proxy/gfw_resist_tcp.go",
+      "target": "labs/daemon/proxy/gfw_resist_tcp.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gfw_resist_tls.go",
+      "kind": "production",
+      "sha256": "68d7b3fd24b1128d8a3e27996dbf9fa23478a93cbe7f977401155f48456a8844",
+      "size": 570,
+      "source": "src/apps/daemon/internal/runtime/proxy/gfw_resist_tls.go",
+      "target": "labs/daemon/proxy/gfw_resist_tls.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gfw_whitelist.go",
+      "kind": "production",
+      "sha256": "c8bde0de415d6055973ef106d4acd5323c10ac4cee33dfdb2e91ca6bfda5b637",
+      "size": 588,
+      "source": "src/apps/daemon/internal/runtime/proxy/gfw_whitelist.go",
+      "target": "labs/daemon/proxy/gfw_whitelist.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gfwlist_parser.go",
+      "kind": "production",
+      "sha256": "95541a686304ee897bdd7ffc883ea2d3b2c319da54ea75f5c23302516a08221d",
+      "size": 5894,
+      "source": "src/apps/daemon/internal/runtime/proxy/gfwlist_parser.go",
+      "target": "labs/daemon/proxy/gfwlist_parser.go"
+    },
+    {
+      "baseline": "server/internal/proxy/go_cidr.go",
+      "kind": "production",
+      "sha256": "bd0d876a60571feba0a42cedded28125b34a7e6502304b61d7b6cca0af5397d5",
+      "size": 5443,
+      "source": "src/apps/daemon/internal/runtime/proxy/go_cidr.go",
+      "target": "labs/daemon/proxy/go_cidr.go"
+    },
+    {
+      "baseline": "server/internal/proxy/go_mitm_tls.go",
+      "kind": "production",
+      "sha256": "e648eeeb289083b834f3e6192dd74a70402102e83dfe348902dc9dbaf59cf48b",
+      "size": 535,
+      "source": "src/apps/daemon/internal/runtime/proxy/go_mitm_tls.go",
+      "target": "labs/daemon/proxy/go_mitm_tls.go"
+    },
+    {
+      "baseline": "server/internal/proxy/go_mitmproxy.go",
+      "kind": "production",
+      "sha256": "c42bcac7080a1548779304069b5619dadb5512b7a6c74802041efca342b163e8",
+      "size": 689,
+      "source": "src/apps/daemon/internal/runtime/proxy/go_mitmproxy.go",
+      "target": "labs/daemon/proxy/go_mitmproxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/go_ss2.go",
+      "kind": "production",
+      "sha256": "7d9d1a79473ea7dc0cfe0a91dd80b09ed72b500b7510a56d9c2b1b00d244ecff",
+      "size": 538,
+      "source": "src/apps/daemon/internal/runtime/proxy/go_ss2.go",
+      "target": "labs/daemon/proxy/go_ss2.go"
+    },
+    {
+      "baseline": "server/internal/proxy/go_tun2socks.go",
+      "kind": "production",
+      "sha256": "a02956d83faf0e6eb32bd53e73a5801a3c68eaff52e3d847925fb9692f06271d",
+      "size": 566,
+      "source": "src/apps/daemon/internal/runtime/proxy/go_tun2socks.go",
+      "target": "labs/daemon/proxy/go_tun2socks.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gohop.go",
+      "kind": "production",
+      "sha256": "092bf3ce47d2923f13756d27a17a41fd027cdf0cc95f511799b7c31b83bdacd6",
+      "size": 620,
+      "source": "src/apps/daemon/internal/runtime/proxy/gohop.go",
+      "target": "labs/daemon/proxy/gohop.go"
+    },
+    {
+      "baseline": "server/internal/proxy/google_drive_tunnel.go",
+      "kind": "production",
+      "sha256": "e9a29f8191af9a9190b092782a41d8b6c4e33f1257b6cb4a9aecac527bc6cb3a",
+      "size": 659,
+      "source": "src/apps/daemon/internal/runtime/proxy/google_drive_tunnel.go",
+      "target": "labs/daemon/proxy/google_drive_tunnel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/google_relay.go",
+      "kind": "production",
+      "sha256": "35879351a69cc0c35a6c6ef6acd802aef18c9a9fd1d60de0b2c72a78ce870098",
+      "size": 696,
+      "source": "src/apps/daemon/internal/runtime/proxy/google_relay.go",
+      "target": "labs/daemon/proxy/google_relay.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gopacket.go",
+      "kind": "production",
+      "sha256": "5e030c23876f3645e105268484fc21ee4e594c9f706cf694e474829f2d99bdbf",
+      "size": 678,
+      "source": "src/apps/daemon/internal/runtime/proxy/gopacket.go",
+      "target": "labs/daemon/proxy/gopacket.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gost_chain.go",
+      "kind": "production",
+      "sha256": "f49d016f6466fc8408fc46ae8cc88fb9d2f03b1cd464676ff317df2c98e6e99a",
+      "size": 4719,
+      "source": "src/apps/daemon/internal/runtime/proxy/gost_chain.go",
+      "target": "labs/daemon/proxy/gost_chain.go"
+    },
+    {
+      "baseline": "server/internal/proxy/graceful_listener.go",
+      "kind": "production",
+      "sha256": "1985e28daa2a5679719323efe322dfa7b9cb51ee48071c319c9b470051bbc46a",
+      "size": 1692,
+      "source": "src/apps/daemon/internal/runtime/proxy/graceful_listener.go",
+      "target": "labs/daemon/proxy/graceful_listener.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gvisor_lwip.go",
+      "kind": "production",
+      "sha256": "0b9671ff6fd67cf5d81226113b0145a2ecea0c2adce0d1dd6583a3b9dd4e1a63",
+      "size": 7908,
+      "source": "src/apps/daemon/internal/runtime/proxy/gvisor_lwip.go",
+      "target": "labs/daemon/proxy/gvisor_lwip.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gvisor_stack.go",
+      "kind": "production",
+      "sha256": "56d6a0a771892ab9b6da97191e946c173fc5e5b310c32bfa38cdfc7a92ec2b79",
+      "size": 1911,
+      "source": "src/apps/daemon/internal/runtime/proxy/gvisor_stack.go",
+      "target": "labs/daemon/proxy/gvisor_stack.go"
+    },
+    {
+      "baseline": "server/internal/proxy/handshake_fingerprint.go",
+      "kind": "production",
+      "sha256": "15285a7446d2da44fc8aa7d137ef714e897ca1eb69dffb2f8efef1b7df4acd8e",
+      "size": 18314,
+      "source": "src/apps/daemon/internal/runtime/proxy/handshake_fingerprint.go",
+      "target": "labs/daemon/proxy/handshake_fingerprint.go"
+    },
+    {
+      "baseline": "server/internal/proxy/harness_metrics_reporters.go",
+      "kind": "production",
+      "sha256": "ce8b93bd32936fe7f4bb32f8c57743a469445bbee7a7feb355ec31fef057b3b4",
+      "size": 119176,
+      "source": "src/apps/daemon/internal/runtime/proxy/harness_metrics_reporters.go",
+      "target": "labs/daemon/proxy/harness_metrics_reporters.go"
+    },
+    {
+      "baseline": "server/internal/proxy/hiddify_manager.go",
+      "kind": "production",
+      "sha256": "36e6b1d605610fde6ad08a4a7e072d086530b9995a512c7feea832d7636bd077",
+      "size": 2045,
+      "source": "src/apps/daemon/internal/runtime/proxy/hiddify_manager.go",
+      "target": "labs/daemon/proxy/hiddify_manager.go"
+    },
+    {
+      "baseline": "server/internal/proxy/hosts_override.go",
+      "kind": "production",
+      "sha256": "5bea401cf759cb753fab7e5f88aa6852749bacfc644bddb569e904ca7e41bfd4",
+      "size": 5879,
+      "source": "src/apps/daemon/internal/runtime/proxy/hosts_override.go",
+      "target": "labs/daemon/proxy/hosts_override.go"
+    },
+    {
+      "baseline": "server/internal/proxy/hping.go",
+      "kind": "production",
+      "sha256": "2675aa19af50fa7f896315e434bce976f5ecca7bbfe40c6222d0046233756a8b",
+      "size": 509,
+      "source": "src/apps/daemon/internal/runtime/proxy/hping.go",
+      "target": "labs/daemon/proxy/hping.go"
+    },
+    {
+      "baseline": "server/internal/proxy/http_load_balancer.go",
+      "kind": "production",
+      "sha256": "020f809674c481cd62578107b1114b389927969120c9b9f06a1984135bb1fb1b",
+      "size": 4043,
+      "source": "src/apps/daemon/internal/runtime/proxy/http_load_balancer.go",
+      "target": "labs/daemon/proxy/http_load_balancer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/http_proxy_listener.go",
+      "kind": "production",
+      "sha256": "3a8a416d74874641f4700215d15387ccff6a9f874fcb7b87cba3337678feb085",
+      "size": 1931,
+      "source": "src/apps/daemon/internal/runtime/proxy/http_proxy_listener.go",
+      "target": "labs/daemon/proxy/http_proxy_listener.go"
+    },
+    {
+      "baseline": "server/internal/proxy/httun.go",
+      "kind": "production",
+      "sha256": "3a674292b589844a012c2d3046d0843c76293797637a151039d94b50f593eb20",
+      "size": 559,
+      "source": "src/apps/daemon/internal/runtime/proxy/httun.go",
+      "target": "labs/daemon/proxy/httun.go"
+    },
+    {
+      "baseline": "server/internal/proxy/httun_transport.go",
+      "kind": "production",
+      "sha256": "67ebf3fbab8235e62d99c522cd3b3571c8a3c2ab3224a661b039ff125bed60de",
+      "size": 10653,
+      "source": "src/apps/daemon/internal/runtime/proxy/httun_transport.go",
+      "target": "labs/daemon/proxy/httun_transport.go"
+    },
+    {
+      "baseline": "server/internal/proxy/i2p_client.go",
+      "kind": "production",
+      "sha256": "13b2037ecc03390da7bba49997e12a3b7e7545f705853937b3a87cfaea7d43d9",
+      "size": 2041,
+      "source": "src/apps/daemon/internal/runtime/proxy/i2p_client.go",
+      "target": "labs/daemon/proxy/i2p_client.go"
+    },
+    {
+      "baseline": "server/internal/proxy/i2p_core.go",
+      "kind": "production",
+      "sha256": "1651a1395d694b8e8a6c7690a725e413a48a49dddebc4905c1814443b51bf100",
+      "size": 596,
+      "source": "src/apps/daemon/internal/runtime/proxy/i2p_core.go",
+      "target": "labs/daemon/proxy/i2p_core.go"
+    },
+    {
+      "baseline": "server/internal/proxy/icmp_tunnel.go",
+      "kind": "production",
+      "sha256": "54d1c62979b3ee1e15b916dc42e237092ae05d3386991066c0367b643dd29a63",
+      "size": 3006,
+      "source": "src/apps/daemon/internal/runtime/proxy/icmp_tunnel.go",
+      "target": "labs/daemon/proxy/icmp_tunnel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/inbound_panel_adapter.go",
+      "kind": "production",
+      "sha256": "fdd477a97e8c7fdb244735eb3f0db4fee88c65bd282dcb524cfb659b8baec153",
+      "size": 6825,
+      "source": "src/apps/daemon/internal/runtime/proxy/inbound_panel_adapter.go",
+      "target": "labs/daemon/proxy/inbound_panel_adapter.go"
+    },
+    {
+      "baseline": "server/internal/proxy/ip_trie.go",
+      "kind": "production",
+      "sha256": "3733be801f5a6ca793166a17b16e0184a8f2c22a92cf012edeaedbad4a253218",
+      "size": 1489,
+      "source": "src/apps/daemon/internal/runtime/proxy/ip_trie.go",
+      "target": "labs/daemon/proxy/ip_trie.go"
+    },
+    {
+      "baseline": "server/internal/proxy/ipsec.go",
+      "kind": "production",
+      "sha256": "6a89aa249614351086f9c8557df384c27107e62614ae4072db4ded05b01236c7",
+      "size": 844,
+      "source": "src/apps/daemon/internal/runtime/proxy/ipsec.go",
+      "target": "labs/daemon/proxy/ipsec.go"
+    },
+    {
+      "baseline": "server/internal/proxy/isolated_routing_enclave.go",
+      "kind": "production",
+      "sha256": "849a47c76edcec5ac4d4651be88b79b98e0b6664e019717be664e6bebd0edd06",
+      "size": 1403,
+      "source": "src/apps/daemon/internal/runtime/proxy/isolated_routing_enclave.go",
+      "target": "labs/daemon/proxy/isolated_routing_enclave.go"
+    },
+    {
+      "baseline": "server/internal/proxy/isolated_routing_unix.go",
+      "kind": "production",
+      "sha256": "55fda62e809e2510d9c8ab7f5c55c6090f8509c9b22695172765d9fdcabc719d",
+      "size": 437,
+      "source": "src/apps/daemon/internal/runtime/proxy/isolated_routing_unix.go",
+      "target": "labs/daemon/proxy/isolated_routing_unix.go"
+    },
+    {
+      "baseline": "server/internal/proxy/isolated_routing_windows.go",
+      "kind": "production",
+      "sha256": "30fb64c511ea2526d31668d9361242058f1ef708c548762b81c951e47fccb9d6",
+      "size": 238,
+      "source": "src/apps/daemon/internal/runtime/proxy/isolated_routing_windows.go",
+      "target": "labs/daemon/proxy/isolated_routing_windows.go"
+    },
+    {
+      "baseline": "server/internal/proxy/jjtcprelay_config.go",
+      "kind": "production",
+      "sha256": "dece141f07c8e44cd14c4694c9173b9383097a877c2c270fc0d6b74e6424214b",
+      "size": 9914,
+      "source": "src/apps/daemon/internal/runtime/proxy/jjtcprelay_config.go",
+      "target": "labs/daemon/proxy/jjtcprelay_config.go"
+    },
+    {
+      "baseline": "server/internal/proxy/json_filter.go",
+      "kind": "production",
+      "sha256": "bfcb7ab8bba68a90e88419360f7e1a8f1048e1244e4d7c473c0bb178f9d5ad99",
+      "size": 1304,
+      "source": "src/apps/daemon/internal/runtime/proxy/json_filter.go",
+      "target": "labs/daemon/proxy/json_filter.go"
+    },
+    {
+      "baseline": "server/internal/proxy/kcp_dialer.go",
+      "kind": "production",
+      "sha256": "15fbcb5caf4504c2a9d5aedfbb33708e57be917b14a19409281b27e17ccf47c5",
+      "size": 712,
+      "source": "src/apps/daemon/internal/runtime/proxy/kcp_dialer.go",
+      "target": "labs/daemon/proxy/kcp_dialer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/kcp_fec.go",
+      "kind": "production",
+      "sha256": "8160625dbfc3eece6b72c9b94e6853ce7b982ed5707b7ccff029ede679459bc0",
+      "size": 3146,
+      "source": "src/apps/daemon/internal/runtime/proxy/kcp_fec.go",
+      "target": "labs/daemon/proxy/kcp_fec.go"
+    },
+    {
+      "baseline": "server/internal/proxy/kcp_go.go",
+      "kind": "production",
+      "sha256": "00c4fe26993ce802b6990fb9b57031cac69128d6671633b487d8268d206f2809",
+      "size": 593,
+      "source": "src/apps/daemon/internal/runtime/proxy/kcp_go.go",
+      "target": "labs/daemon/proxy/kcp_go.go"
+    },
+    {
+      "baseline": "server/internal/proxy/keepalive_heartbeat.go",
+      "kind": "production",
+      "sha256": "b9a9e3f532f722b0a85312ddf504d23ef1bbb5a3971bb69d466e227f436c0b50",
+      "size": 247,
+      "source": "src/apps/daemon/internal/runtime/proxy/keepalive_heartbeat.go",
+      "target": "labs/daemon/proxy/keepalive_heartbeat.go"
+    },
+    {
+      "baseline": "server/internal/proxy/l7mp_listener.go",
+      "kind": "production",
+      "sha256": "fb8835eb627c047db1e85cbc620cc5ab44ae537dca024ab7678c887efcf6e0e3",
+      "size": 1933,
+      "source": "src/apps/daemon/internal/runtime/proxy/l7mp_listener.go",
+      "target": "labs/daemon/proxy/l7mp_listener.go"
+    },
+    {
+      "baseline": "server/internal/proxy/l7mp_offload.go",
+      "kind": "production",
+      "sha256": "7bf2952b194e265e14a24b4baae74a83ee1ffd51874b5fbd7e68f00026c21df5",
+      "size": 1523,
+      "source": "src/apps/daemon/internal/runtime/proxy/l7mp_offload.go",
+      "target": "labs/daemon/proxy/l7mp_offload.go"
+    },
+    {
+      "baseline": "server/internal/proxy/l7mp_session.go",
+      "kind": "production",
+      "sha256": "15800fe8f86734e8edcd2d23384e09f31ca5cc446eeffe7509205f9ee0c68cc0",
+      "size": 2494,
+      "source": "src/apps/daemon/internal/runtime/proxy/l7mp_session.go",
+      "target": "labs/daemon/proxy/l7mp_session.go"
+    },
+    {
+      "baseline": "server/internal/proxy/landing_disguise.go",
+      "kind": "production",
+      "sha256": "eed962897f159b61316d4bf01ef8e4f82385b9fd3802eaf08c38374fe04063fe",
+      "size": 686,
+      "source": "src/apps/daemon/internal/runtime/proxy/landing_disguise.go",
+      "target": "labs/daemon/proxy/landing_disguise.go"
+    },
+    {
+      "baseline": "server/internal/proxy/lantern.go",
+      "kind": "production",
+      "sha256": "16263c3cfab3dc838eea45533e840b3fec97469878bc324773955a38836a9e48",
+      "size": 532,
+      "source": "src/apps/daemon/internal/runtime/proxy/lantern.go",
+      "target": "labs/daemon/proxy/lantern.go"
+    },
+    {
+      "baseline": "server/internal/proxy/lantern_bridge.go",
+      "kind": "production",
+      "sha256": "e5af0c6e1c017a134ddc5541a95d89988fbc83c04ce5a9c76ed8f800cb811f9c",
+      "size": 3071,
+      "source": "src/apps/daemon/internal/runtime/proxy/lantern_bridge.go",
+      "target": "labs/daemon/proxy/lantern_bridge.go"
+    },
+    {
+      "baseline": "server/internal/proxy/latency_variance_monitor.go",
+      "kind": "production",
+      "sha256": "7c81606cdfbd81afb3ddf23af5dda42462d40a28df55e22ac7974629406f0fb1",
+      "size": 6662,
+      "source": "src/apps/daemon/internal/runtime/proxy/latency_variance_monitor.go",
+      "target": "labs/daemon/proxy/latency_variance_monitor.go"
+    },
+    {
+      "baseline": "server/internal/proxy/layer7_mesh_adapter.go",
+      "kind": "production",
+      "sha256": "27504b488aff5e955af0ff314406547560cc57347e791cfa67480e63766ba7eb",
+      "size": 544,
+      "source": "src/apps/daemon/internal/runtime/proxy/layer7_mesh_adapter.go",
+      "target": "labs/daemon/proxy/layer7_mesh_adapter.go"
+    },
+    {
+      "baseline": "server/internal/proxy/layer7_proxy_mesh.go",
+      "kind": "production",
+      "sha256": "cc8a604aa14f9685a522c5c19c66077c952e3f062305fb2d854a662e9121304c",
+      "size": 541,
+      "source": "src/apps/daemon/internal/runtime/proxy/layer7_proxy_mesh.go",
+      "target": "labs/daemon/proxy/layer7_proxy_mesh.go"
+    },
+    {
+      "baseline": "server/internal/proxy/libxray.go",
+      "kind": "production",
+      "sha256": "61d692330ba20f24229db3869e7aff652cf8a634319b8cbcdf982bd0c5bcc64f",
+      "size": 618,
+      "source": "src/apps/daemon/internal/runtime/proxy/libxray.go",
+      "target": "labs/daemon/proxy/libxray.go"
+    },
+    {
+      "baseline": "server/internal/proxy/live_logs.go",
+      "kind": "production",
+      "sha256": "992b00160bc8824ddea8d8584b64b725ec600b9293a9fc572b4caef726b44fb3",
+      "size": 1469,
+      "source": "src/apps/daemon/internal/runtime/proxy/live_logs.go",
+      "target": "labs/daemon/proxy/live_logs.go"
+    },
+    {
+      "baseline": "server/internal/proxy/load_balancer.go",
+      "kind": "production",
+      "sha256": "7d2742c9e957c5c507311972d53b500b1ec3611f11b5788bb84530ad6daadbb4",
+      "size": 590,
+      "source": "src/apps/daemon/internal/runtime/proxy/load_balancer.go",
+      "target": "labs/daemon/proxy/load_balancer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/marzban.go",
+      "kind": "production",
+      "sha256": "05c7ecc24d447ef45d2cc2ffa1aaa4e4e340b8a2475e14479185035a80deeaa0",
+      "size": 5361,
+      "source": "src/apps/daemon/internal/runtime/proxy/marzban.go",
+      "target": "labs/daemon/proxy/marzban.go"
+    },
+    {
+      "baseline": "server/internal/proxy/masque_dialer.go",
+      "kind": "production",
+      "sha256": "187e211fb7c356897d122fc0c412c9faf6b2a1825a3b55629d3ab4030a9b4605",
+      "size": 10102,
+      "source": "src/apps/daemon/internal/runtime/proxy/masque_dialer.go",
+      "target": "labs/daemon/proxy/masque_dialer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/master_http_relay_client.go",
+      "kind": "production",
+      "sha256": "56d6e2d3449675211c6a68d6e30f2ed4b814fc43cbfb78c5c47cd3ef6a37d76c",
+      "size": 8013,
+      "source": "src/apps/daemon/internal/runtime/proxy/master_http_relay_client.go",
+      "target": "labs/daemon/proxy/master_http_relay_client.go"
+    },
+    {
+      "baseline": "server/internal/proxy/master_http_relay_config.go",
+      "kind": "production",
+      "sha256": "b0494ffd0e384b1ebb1b8766aad89b602b7fcf22c0ebd06b808882e96d5500bd",
+      "size": 11031,
+      "source": "src/apps/daemon/internal/runtime/proxy/master_http_relay_config.go",
+      "target": "labs/daemon/proxy/master_http_relay_config.go"
+    },
+    {
+      "baseline": "server/internal/proxy/master_http_relay_quota.go",
+      "kind": "production",
+      "sha256": "76c009ac0aea89dbf4f496a781a4761f1dae1bbac8c347f0cda03cd4b3c251e6",
+      "size": 8264,
+      "source": "src/apps/daemon/internal/runtime/proxy/master_http_relay_quota.go",
+      "target": "labs/daemon/proxy/master_http_relay_quota.go"
+    },
+    {
+      "baseline": "server/internal/proxy/masterdnsvpn_inflight.go",
+      "kind": "production",
+      "sha256": "2c3cb58826b3eef276a4013ed4a54c30f63ff2e5a73c5e5528c47e256e88d7d4",
+      "size": 3975,
+      "source": "src/apps/daemon/internal/runtime/proxy/masterdnsvpn_inflight.go",
+      "target": "labs/daemon/proxy/masterdnsvpn_inflight.go"
+    },
+    {
+      "baseline": "server/internal/proxy/mitm_detector.go",
+      "kind": "production",
+      "sha256": "0e63e3b1c516fc2baad265773953b2c9457c1f6a5f5fb4a59e6aae130b0589cc",
+      "size": 3837,
+      "source": "src/apps/daemon/internal/runtime/proxy/mitm_detector.go",
+      "target": "labs/daemon/proxy/mitm_detector.go"
+    },
+    {
+      "baseline": "server/internal/proxy/mitm_domain_fronting_repacker.go",
+      "kind": "production",
+      "sha256": "b14c4ac214cb36b306a29afa0e9910d12a20e40c49fc7d8e0f4334dd4478de63",
+      "size": 9419,
+      "source": "src/apps/daemon/internal/runtime/proxy/mitm_domain_fronting_repacker.go",
+      "target": "labs/daemon/proxy/mitm_domain_fronting_repacker.go"
+    },
+    {
+      "baseline": "server/internal/proxy/mitm_tls_proxy.go",
+      "kind": "production",
+      "sha256": "1bbb08af4bff6ddb176611320b8ee4064e26d83999d1866f9d2880113cdf1730",
+      "size": 657,
+      "source": "src/apps/daemon/internal/runtime/proxy/mitm_tls_proxy.go",
+      "target": "labs/daemon/proxy/mitm_tls_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/mobile_sni_spoofer.go",
+      "kind": "production",
+      "sha256": "f03ba2a5ded705bc8513431440a42cdf03ed2865824ea5e2edaff26c153732e3",
+      "size": 2288,
+      "source": "src/apps/daemon/internal/runtime/proxy/mobile_sni_spoofer.go",
+      "target": "labs/daemon/proxy/mobile_sni_spoofer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/mtproto.go",
+      "kind": "production",
+      "sha256": "60069b0172e8b0165987d07e17f09a141c965e5379e8a12844ec8507d68769c0",
+      "size": 11760,
+      "source": "src/apps/daemon/internal/runtime/proxy/mtproto.go",
+      "target": "labs/daemon/proxy/mtproto.go"
+    },
+    {
+      "baseline": "server/internal/proxy/multi_inbound_panel.go",
+      "kind": "production",
+      "sha256": "d3c33d6500d81496eb91d9483a80b25eef6c06f2e208901b94d1455994029e99",
+      "size": 1858,
+      "source": "src/apps/daemon/internal/runtime/proxy/multi_inbound_panel.go",
+      "target": "labs/daemon/proxy/multi_inbound_panel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/multi_path_balancer.go",
+      "kind": "production",
+      "sha256": "a932995239d0cc0d47d75ae877a0f9b2b3551fde8720180c84781de5fa3d7fd0",
+      "size": 447,
+      "source": "src/apps/daemon/internal/runtime/proxy/multi_path_balancer.go",
+      "target": "labs/daemon/proxy/multi_path_balancer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/multihost_parser.go",
+      "kind": "production",
+      "sha256": "1e5171820fd9d8a880ea7fe4a6ffa20bdae66b38aafee7e18bc4f9de60fa2ad7",
+      "size": 645,
+      "source": "src/apps/daemon/internal/runtime/proxy/multihost_parser.go",
+      "target": "labs/daemon/proxy/multihost_parser.go"
+    },
+    {
+      "baseline": "server/internal/proxy/naive.go",
+      "kind": "production",
+      "sha256": "096f67ded5b2fe5d1d0487422a57af5b9b21ed7c7c57c2760b2c9b494f68596c",
+      "size": 642,
+      "source": "src/apps/daemon/internal/runtime/proxy/naive.go",
+      "target": "labs/daemon/proxy/naive.go"
+    },
+    {
+      "baseline": "server/internal/proxy/naive_padding_conn.go",
+      "kind": "production",
+      "sha256": "490ea2fc10ce01189322b55e1eaedfe3560d01877f8ff05c66502915b998c958",
+      "size": 2771,
+      "source": "src/apps/daemon/internal/runtime/proxy/naive_padding_conn.go",
+      "target": "labs/daemon/proxy/naive_padding_conn.go"
+    },
+    {
+      "baseline": "server/internal/proxy/nested_wireguard.go",
+      "kind": "production",
+      "sha256": "fb94a8a1184add05321b5ef54283f066ee18cb5ad455032d591ad23c286fd0cd",
+      "size": 3058,
+      "source": "src/apps/daemon/internal/runtime/proxy/nested_wireguard.go",
+      "target": "labs/daemon/proxy/nested_wireguard.go"
+    },
+    {
+      "baseline": "server/internal/proxy/netgovpn_client.go",
+      "kind": "production",
+      "sha256": "2450944f5b378b482b5c8036d2c94dabcfdc4e3695ccf3c313febe8fee31e29f",
+      "size": 9088,
+      "source": "src/apps/daemon/internal/runtime/proxy/netgovpn_client.go",
+      "target": "labs/daemon/proxy/netgovpn_client.go"
+    },
+    {
+      "baseline": "server/internal/proxy/netgovpn_logger.go",
+      "kind": "production",
+      "sha256": "92c882e1a7be02a1a6dca17d12eea548e2bc75ca1d1ee55b8957a8324ab61cae",
+      "size": 3257,
+      "source": "src/apps/daemon/internal/runtime/proxy/netgovpn_logger.go",
+      "target": "labs/daemon/proxy/netgovpn_logger.go"
+    },
+    {
+      "baseline": "server/internal/proxy/nexus_proxy.go",
+      "kind": "production",
+      "sha256": "52c1a7c1e7daf780934e794bad250c3fabfadc044a431ddd3476be7ea326082f",
+      "size": 571,
+      "source": "src/apps/daemon/internal/runtime/proxy/nexus_proxy.go",
+      "target": "labs/daemon/proxy/nexus_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/nipo_obfuscator.go",
+      "kind": "production",
+      "sha256": "2cdb3878d17b9034f4d142739ae338cac1c9561dc30157b8aca8254b20c72dde",
+      "size": 3569,
+      "source": "src/apps/daemon/internal/runtime/proxy/nipo_obfuscator.go",
+      "target": "labs/daemon/proxy/nipo_obfuscator.go"
+    },
+    {
+      "baseline": "server/internal/proxy/node_mitm_proxy.go",
+      "kind": "production",
+      "sha256": "c5db448ed710b9c1dc29006114ee16e3b0fa0ea16d03422b6a42b304e0d356a8",
+      "size": 6618,
+      "source": "src/apps/daemon/internal/runtime/proxy/node_mitm_proxy.go",
+      "target": "labs/daemon/proxy/node_mitm_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/node_unblocker.go",
+      "kind": "production",
+      "sha256": "5b59a9b4b7bf7797bfada0efb1cbe2ea669f3aefa8595dec9cc5e7b565d321b2",
+      "size": 6476,
+      "source": "src/apps/daemon/internal/runtime/proxy/node_unblocker.go",
+      "target": "labs/daemon/proxy/node_unblocker.go"
+    },
+    {
+      "baseline": "server/internal/proxy/nomore_walls_domain_tree.go",
+      "kind": "production",
+      "sha256": "6e17089b2bf24b70ed8a600834db6c75cc39f79e78a80744e6e6df107baedaae",
+      "size": 10513,
+      "source": "src/apps/daemon/internal/runtime/proxy/nomore_walls_domain_tree.go",
+      "target": "labs/daemon/proxy/nomore_walls_domain_tree.go"
+    },
+    {
+      "baseline": "server/internal/proxy/non_portable_wrappers.go",
+      "kind": "production",
+      "sha256": "79d187564d2e3459df12288f13899f411e08df2b5d364a3a7679062272e70075",
+      "size": 1877,
+      "source": "src/apps/daemon/internal/runtime/proxy/non_portable_wrappers.go",
+      "target": "labs/daemon/proxy/non_portable_wrappers.go"
+    },
+    {
+      "baseline": "server/internal/proxy/obfs4_icmp_transport.go",
+      "kind": "production",
+      "sha256": "5faec36254673000326140ad90cf2c2da05137a44a819b42b11996043414949d",
+      "size": 2531,
+      "source": "src/apps/daemon/internal/runtime/proxy/obfs4_icmp_transport.go",
+      "target": "labs/daemon/proxy/obfs4_icmp_transport.go"
+    },
+    {
+      "baseline": "server/internal/proxy/obfuscated_ssh.go",
+      "kind": "production",
+      "sha256": "7a1fc5319eb19fcc2788a30858521fe7dd8629fbdd7626d1bbfd6de08b540abe",
+      "size": 670,
+      "source": "src/apps/daemon/internal/runtime/proxy/obfuscated_ssh.go",
+      "target": "labs/daemon/proxy/obfuscated_ssh.go"
+    },
+    {
+      "baseline": "server/internal/proxy/onion_bridge.go",
+      "kind": "production",
+      "sha256": "2edd2985ea145b0a83b3ddc809903e72a3e229152f3cb12f78466ac6e717318a",
+      "size": 552,
+      "source": "src/apps/daemon/internal/runtime/proxy/onion_bridge.go",
+      "target": "labs/daemon/proxy/onion_bridge.go"
+    },
+    {
+      "baseline": "server/internal/proxy/onion_hop.go",
+      "kind": "production",
+      "sha256": "37485a761c7930291df662e4daf22ae98ca16972b418a0cb8d11ed926a03ca46",
+      "size": 505,
+      "source": "src/apps/daemon/internal/runtime/proxy/onion_hop.go",
+      "target": "labs/daemon/proxy/onion_hop.go"
+    },
+    {
+      "baseline": "server/internal/proxy/openvpn_config_patcher.go",
+      "kind": "production",
+      "sha256": "9fb97a9391d6f5186a0c5577526fcbd8636d7f7641dd89af810690ff8c24d584",
+      "size": 6158,
+      "source": "src/apps/daemon/internal/runtime/proxy/openvpn_config_patcher.go",
+      "target": "labs/daemon/proxy/openvpn_config_patcher.go"
+    },
+    {
+      "baseline": "server/internal/proxy/outline_client.go",
+      "kind": "production",
+      "sha256": "9e50e10e9d63b5f44255fc095bffe66b96d73cf93346fc74c741d84ca366dbb8",
+      "size": 594,
+      "source": "src/apps/daemon/internal/runtime/proxy/outline_client.go",
+      "target": "labs/daemon/proxy/outline_client.go"
+    },
+    {
+      "baseline": "server/internal/proxy/outline_server.go",
+      "kind": "production",
+      "sha256": "4990781ee437a188b067ef8c4e364b939157e9b1e6a8d316c6e5e00a75518768",
+      "size": 2522,
+      "source": "src/apps/daemon/internal/runtime/proxy/outline_server.go",
+      "target": "labs/daemon/proxy/outline_server.go"
+    },
+    {
+      "baseline": "server/internal/proxy/outline_ss.go",
+      "kind": "production",
+      "sha256": "50542f065812a8e3c707921610d6626bbef492fc5a7767758f3aae3b5e2ce2b6",
+      "size": 593,
+      "source": "src/apps/daemon/internal/runtime/proxy/outline_ss.go",
+      "target": "labs/daemon/proxy/outline_ss.go"
+    },
+    {
+      "baseline": "server/internal/proxy/p2p_hypercore_feed.go",
+      "kind": "production",
+      "sha256": "2a0ec57fcd4312849bba0ec6e311e34fcce8d40fc2b6cdac7bf210b046ad4c1a",
+      "size": 1060,
+      "source": "src/apps/daemon/internal/runtime/proxy/p2p_hypercore_feed.go",
+      "target": "labs/daemon/proxy/p2p_hypercore_feed.go"
+    },
+    {
+      "baseline": "server/internal/proxy/paas_argo.go",
+      "kind": "production",
+      "sha256": "9f1fc3eef92942cf5139ddefddd276bb252a819cf68899301aa30c74067c6d1b",
+      "size": 2430,
+      "source": "src/apps/daemon/internal/runtime/proxy/paas_argo.go",
+      "target": "labs/daemon/proxy/paas_argo.go"
+    },
+    {
+      "baseline": "server/internal/proxy/packet_ring_queue.go",
+      "kind": "production",
+      "sha256": "03eb7e241fd950014cb7576ba0c8d38e4bd9eb7c663cddf506a344d77fce741d",
+      "size": 1909,
+      "source": "src/apps/daemon/internal/runtime/proxy/packet_ring_queue.go",
+      "target": "labs/daemon/proxy/packet_ring_queue.go"
+    },
+    {
+      "baseline": "server/internal/proxy/panel_client_manager.go",
+      "kind": "production",
+      "sha256": "cd0bcf726da4aa00099b679545df0665f06ef57005986688cde9ff6d28858021",
+      "size": 4676,
+      "source": "src/apps/daemon/internal/runtime/proxy/panel_client_manager.go",
+      "target": "labs/daemon/proxy/panel_client_manager.go"
+    },
+    {
+      "baseline": "server/internal/proxy/panel_node_client.go",
+      "kind": "production",
+      "sha256": "dd779dfa76759b6e18076a330b7d94d3b73ee879a4a27a227ce01de8a1f204a7",
+      "size": 852,
+      "source": "src/apps/daemon/internal/runtime/proxy/panel_node_client.go",
+      "target": "labs/daemon/proxy/panel_node_client.go"
+    },
+    {
+      "baseline": "server/internal/proxy/parsa_panel.go",
+      "kind": "production",
+      "sha256": "07a183f23a1796b791b2aecd2b085b5f4e1998d9c1301fd31061655f77a11014",
+      "size": 14524,
+      "source": "src/apps/daemon/internal/runtime/proxy/parsa_panel.go",
+      "target": "labs/daemon/proxy/parsa_panel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/pathfinder.go",
+      "kind": "production",
+      "sha256": "291ceaa713ad4b89b4d90e50fcfaa1d90ed6bc00ccdc3c55e6f4c1a9f92f5905",
+      "size": 3247,
+      "source": "src/apps/daemon/internal/runtime/proxy/pathfinder.go",
+      "target": "labs/daemon/proxy/pathfinder.go"
+    },
+    {
+      "baseline": "server/internal/proxy/phishing_verifier.go",
+      "kind": "production",
+      "sha256": "5ff2a6fc130b638e3f3d8d07f83ff633adcf94a34503456c4e2cb4c970bdef3b",
+      "size": 2275,
+      "source": "src/apps/daemon/internal/runtime/proxy/phishing_verifier.go",
+      "target": "labs/daemon/proxy/phishing_verifier.go"
+    },
+    {
+      "baseline": "server/internal/proxy/php_proxy_web.go",
+      "kind": "production",
+      "sha256": "8796c61252aaec0a93e710d4302ee78ed844045aa30d9478ec5a64f507c23807",
+      "size": 5648,
+      "source": "src/apps/daemon/internal/runtime/proxy/php_proxy_web.go",
+      "target": "labs/daemon/proxy/php_proxy_web.go"
+    },
+    {
+      "baseline": "server/internal/proxy/pion_dtls.go",
+      "kind": "production",
+      "sha256": "7a34a5331a92bd413e97a31e0c8b84cb8abcffaef31a51ac230e98326056da9b",
+      "size": 615,
+      "source": "src/apps/daemon/internal/runtime/proxy/pion_dtls.go",
+      "target": "labs/daemon/proxy/pion_dtls.go"
+    },
+    {
+      "baseline": "server/internal/proxy/pion_transport.go",
+      "kind": "production",
+      "sha256": "8f154f29f0985b2b8b41a82a9403b0d6b140f67edadd5e9be46bbb3829b22b67",
+      "size": 659,
+      "source": "src/apps/daemon/internal/runtime/proxy/pion_transport.go",
+      "target": "labs/daemon/proxy/pion_transport.go"
+    },
+    {
+      "baseline": "server/internal/proxy/port_bridge.go",
+      "kind": "production",
+      "sha256": "6040ef0407902321b8db58cbbf32ff8c53e1f102c17ae0d15493caa9c350760e",
+      "size": 570,
+      "source": "src/apps/daemon/internal/runtime/proxy/port_bridge.go",
+      "target": "labs/daemon/proxy/port_bridge.go"
+    },
+    {
+      "baseline": "server/internal/proxy/prefix_list.go",
+      "kind": "production",
+      "sha256": "f3e544c227f44515275fa25a2ac41eb34266607288afba4b30a79d5840fa2f8b",
+      "size": 2327,
+      "source": "src/apps/daemon/internal/runtime/proxy/prefix_list.go",
+      "target": "labs/daemon/proxy/prefix_list.go"
+    },
+    {
+      "baseline": "server/internal/proxy/profile_morpher.go",
+      "kind": "production",
+      "sha256": "baf4bf7954516af832e72648bf3e0c671a8bfc11c7ad18bfa3f512e0a2323cb2",
+      "size": 3260,
+      "source": "src/apps/daemon/internal/runtime/proxy/profile_morpher.go",
+      "target": "labs/daemon/proxy/profile_morpher.go"
+    },
+    {
+      "baseline": "server/internal/proxy/protobuf_codec.go",
+      "kind": "production",
+      "sha256": "0fb8a4355f8d9ce8a35aff7d35582572315142f0b6c669b4ae5865be8cc8788c",
+      "size": 555,
+      "source": "src/apps/daemon/internal/runtime/proxy/protobuf_codec.go",
+      "target": "labs/daemon/proxy/protobuf_codec.go"
+    },
+    {
+      "baseline": "server/internal/proxy/proxy2singbox.go",
+      "kind": "production",
+      "sha256": "eea12dcd252a101fc55ca3d5724a4384a08666dd40abb898f5699519fad57bc5",
+      "size": 7951,
+      "source": "src/apps/daemon/internal/runtime/proxy/proxy2singbox.go",
+      "target": "labs/daemon/proxy/proxy2singbox.go"
+    },
+    {
+      "baseline": "server/internal/proxy/proxy_chain_manager.go",
+      "kind": "production",
+      "sha256": "9fe0b08aa367f94c44e29598ab36f0c6fd22c40df46fc0ad8d449672f0dd5a36",
+      "size": 608,
+      "source": "src/apps/daemon/internal/runtime/proxy/proxy_chain_manager.go",
+      "target": "labs/daemon/proxy/proxy_chain_manager.go"
+    },
+    {
+      "baseline": "server/internal/proxy/proxy_cluster.go",
+      "kind": "production",
+      "sha256": "0a93ccb692b654ef977d4395e42d1b333db7e7016d5ef0cfa8530dbf5d461631",
+      "size": 2590,
+      "source": "src/apps/daemon/internal/runtime/proxy/proxy_cluster.go",
+      "target": "labs/daemon/proxy/proxy_cluster.go"
+    },
+    {
+      "baseline": "server/internal/proxy/proxy_core_daemon.go",
+      "kind": "production",
+      "sha256": "6f2b8ad3c78cdc5cab16bb13f170fddad6b862a67ec29021c872a95de0b0acb0",
+      "size": 547,
+      "source": "src/apps/daemon/internal/runtime/proxy/proxy_core_daemon.go",
+      "target": "labs/daemon/proxy/proxy_core_daemon.go"
+    },
+    {
+      "baseline": "server/internal/proxy/proxy_harvester.go",
+      "kind": "production",
+      "sha256": "00e2527262c9839fe4f78c4dcd182ce0797ece1a6ad4ebb298f6e34feefd0659",
+      "size": 2922,
+      "source": "src/apps/daemon/internal/runtime/proxy/proxy_harvester.go",
+      "target": "labs/daemon/proxy/proxy_harvester.go"
+    },
+    {
+      "baseline": "server/internal/proxy/proxy_panel_bridge.go",
+      "kind": "production",
+      "sha256": "6d985f94d6d9540d17e82f57d54bcb4508cc97f3eff6689f98d052716148bbb9",
+      "size": 3183,
+      "source": "src/apps/daemon/internal/runtime/proxy/proxy_panel_bridge.go",
+      "target": "labs/daemon/proxy/proxy_panel_bridge.go"
+    },
+    {
+      "baseline": "server/internal/proxy/proxychains.go",
+      "kind": "production",
+      "sha256": "2afc20a1eb8c517c37267da1226e3ba501c40afba5cae51f24e503855580d259",
+      "size": 645,
+      "source": "src/apps/daemon/internal/runtime/proxy/proxychains.go",
+      "target": "labs/daemon/proxy/proxychains.go"
+    },
+    {
+      "baseline": "server/internal/proxy/psiphon_chain.go",
+      "kind": "production",
+      "sha256": "b20eb54394d4981585e7e7de5d36c4df8380554e73c72c47c0066d63a8653cc1",
+      "size": 652,
+      "source": "src/apps/daemon/internal/runtime/proxy/psiphon_chain.go",
+      "target": "labs/daemon/proxy/psiphon_chain.go"
+    },
+    {
+      "baseline": "server/internal/proxy/qlearning.go",
+      "kind": "production",
+      "sha256": "a7ef16cfd781961dcafd0d1550c77100e80c19282e431409570a78426fc063fd",
+      "size": 1984,
+      "source": "src/apps/daemon/internal/runtime/proxy/qlearning.go",
+      "target": "labs/daemon/proxy/qlearning.go"
+    },
+    {
+      "baseline": "server/internal/proxy/qtun.go",
+      "kind": "production",
+      "sha256": "5143e34eedc08125cd5dfd6d4799cda121ff0ce8de1f3e238ad89e2a0510dd2e",
+      "size": 2410,
+      "source": "src/apps/daemon/internal/runtime/proxy/qtun.go",
+      "target": "labs/daemon/proxy/qtun.go"
+    },
+    {
+      "baseline": "server/internal/proxy/quic_congestion_manager.go",
+      "kind": "production",
+      "sha256": "4d172e1d425c0d5c39e1a957e7d7b100d3301e0d1d38ffdc3c116b7b7443ce95",
+      "size": 802,
+      "source": "src/apps/daemon/internal/runtime/proxy/quic_congestion_manager.go",
+      "target": "labs/daemon/proxy/quic_congestion_manager.go"
+    },
+    {
+      "baseline": "server/internal/proxy/quic_sniffer.go",
+      "kind": "production",
+      "sha256": "8f2115cbc38592e7998c2a6a0ec0f3174e6c100ea0bce029061621df54ea6660",
+      "size": 9548,
+      "source": "src/apps/daemon/internal/runtime/proxy/quic_sniffer.go",
+      "target": "labs/daemon/proxy/quic_sniffer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/r2_storage_gateway.go",
+      "kind": "production",
+      "sha256": "1c72c3f59b7ca6f5eefb667ff6dc01b4be221b7f37839720da0503775223abc0",
+      "size": 8669,
+      "source": "src/apps/daemon/internal/runtime/proxy/r2_storage_gateway.go",
+      "target": "labs/daemon/proxy/r2_storage_gateway.go"
+    },
+    {
+      "baseline": "server/internal/proxy/reality_core.go",
+      "kind": "production",
+      "sha256": "7a2ee3e0d1e3a43317ed18e4d33b24cbe9bd3db0eea6329e3052bea271ea4327",
+      "size": 677,
+      "source": "src/apps/daemon/internal/runtime/proxy/reality_core.go",
+      "target": "labs/daemon/proxy/reality_core.go"
+    },
+    {
+      "baseline": "server/internal/proxy/restricted_gateway.go",
+      "kind": "production",
+      "sha256": "81914e9ec1afc89cf5fc9e526934a153cff09f201ea454675ea8c10525938d29",
+      "size": 3534,
+      "source": "src/apps/daemon/internal/runtime/proxy/restricted_gateway.go",
+      "target": "labs/daemon/proxy/restricted_gateway.go"
+    },
+    {
+      "baseline": "server/internal/proxy/reverse_tcp_bridge.go",
+      "kind": "production",
+      "sha256": "c50f31f504308d902481be8f030962bd612a6e74d3750cce162356ba8f19738d",
+      "size": 684,
+      "source": "src/apps/daemon/internal/runtime/proxy/reverse_tcp_bridge.go",
+      "target": "labs/daemon/proxy/reverse_tcp_bridge.go"
+    },
+    {
+      "baseline": "server/internal/proxy/reverse_tunnel.go",
+      "kind": "production",
+      "sha256": "e68e22e728ffa42c60294543b7ded626ba836afe1f9521e3b3678492ec0e8bb5",
+      "size": 3708,
+      "source": "src/apps/daemon/internal/runtime/proxy/reverse_tunnel.go",
+      "target": "labs/daemon/proxy/reverse_tunnel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/route_optimizer.go",
+      "kind": "production",
+      "sha256": "7670f4d37ca339304f3174b41a1123104b450dbbb3886de5966bade13d20d3ba",
+      "size": 765,
+      "source": "src/apps/daemon/internal/runtime/proxy/route_optimizer.go",
+      "target": "labs/daemon/proxy/route_optimizer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/s3_signer.go",
+      "kind": "production",
+      "sha256": "eaa86b6849f7e8734d6c0cadc6ad5c68bc0cdeefc1e9f9798e26275dc7bf4cba",
+      "size": 6944,
+      "source": "src/apps/daemon/internal/runtime/proxy/s3_signer.go",
+      "target": "labs/daemon/proxy/s3_signer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/scan_telemetry.go",
+      "kind": "production",
+      "sha256": "f871b2d8b0cb6965861b5109b3e3ff33941a381a66192f5c4e6512f839f3f5ff",
+      "size": 747,
+      "source": "src/apps/daemon/internal/runtime/proxy/scan_telemetry.go",
+      "target": "labs/daemon/proxy/scan_telemetry.go"
+    },
+    {
+      "baseline": "server/internal/proxy/session_authority_manager.go",
+      "kind": "production",
+      "sha256": "08057dc162858779f766c096497962db2698cdb0951d5430e7575f8edfb8a88c",
+      "size": 8289,
+      "source": "src/apps/daemon/internal/runtime/proxy/session_authority_manager.go",
+      "target": "labs/daemon/proxy/session_authority_manager.go"
+    },
+    {
+      "baseline": "server/internal/proxy/shadowsocks_macos.go",
+      "kind": "production",
+      "sha256": "02c89e2b2a2b900ecd67f4e05211f47d4ef9841488b91d6da10ce9062b421947",
+      "size": 676,
+      "source": "src/apps/daemon/internal/runtime/proxy/shadowsocks_macos.go",
+      "target": "labs/daemon/proxy/shadowsocks_macos.go"
+    },
+    {
+      "baseline": "server/internal/proxy/shadowsocks_multiplex_client.go",
+      "kind": "production",
+      "sha256": "d7129e230d0c13509f6aed82406d38572b561cff4c488cf4f9716a7b25582ae7",
+      "size": 5962,
+      "source": "src/apps/daemon/internal/runtime/proxy/shadowsocks_multiplex_client.go",
+      "target": "labs/daemon/proxy/shadowsocks_multiplex_client.go"
+    },
+    {
+      "baseline": "server/internal/proxy/shahan.go",
+      "kind": "production",
+      "sha256": "e8237f423afe42d50437713f373c3c66dd4bb4342d4726c451eb553d9713d875",
+      "size": 18617,
+      "source": "src/apps/daemon/internal/runtime/proxy/shahan.go",
+      "target": "labs/daemon/proxy/shahan.go"
+    },
+    {
+      "baseline": "server/internal/proxy/sidecar_desync.go",
+      "kind": "production",
+      "sha256": "5c64affc6cf63468ba51cf325191af60bc17857cb07defe4dd234efe641c7b12",
+      "size": 9380,
+      "source": "src/apps/daemon/internal/runtime/proxy/sidecar_desync.go",
+      "target": "labs/daemon/proxy/sidecar_desync.go"
+    },
+    {
+      "baseline": "server/internal/proxy/simple_obfs.go",
+      "kind": "production",
+      "sha256": "da5a0758fe87f5750040227f93ef4455997130c5f98daaf7b239c0e1f4940446",
+      "size": 631,
+      "source": "src/apps/daemon/internal/runtime/proxy/simple_obfs.go",
+      "target": "labs/daemon/proxy/simple_obfs.go"
+    },
+    {
+      "baseline": "server/internal/proxy/sing_cloudflared.go",
+      "kind": "production",
+      "sha256": "dfd4a992db70e945c311099453b2cae3b94c02e46a507c374db122ddd5110f38",
+      "size": 614,
+      "source": "src/apps/daemon/internal/runtime/proxy/sing_cloudflared.go",
+      "target": "labs/daemon/proxy/sing_cloudflared.go"
+    },
+    {
+      "baseline": "server/internal/proxy/sing_mux.go",
+      "kind": "production",
+      "sha256": "e785a001c19c741c3f5f747991d1f4692762faf96c9b012bcb8b2b441852dcb9",
+      "size": 505,
+      "source": "src/apps/daemon/internal/runtime/proxy/sing_mux.go",
+      "target": "labs/daemon/proxy/sing_mux.go"
+    },
+    {
+      "baseline": "server/internal/proxy/sing_quic.go",
+      "kind": "production",
+      "sha256": "23b8e5697933d999adffdba5be2caefbd2c1058d584c1eff32eb13fcbb981f1d",
+      "size": 511,
+      "source": "src/apps/daemon/internal/runtime/proxy/sing_quic.go",
+      "target": "labs/daemon/proxy/sing_quic.go"
+    },
+    {
+      "baseline": "server/internal/proxy/sing_vmess_compat.go",
+      "kind": "production",
+      "sha256": "08f27c8ff03afc09570f05a33e861d6d373942dc42c0c34db9f923995df7ad31",
+      "size": 620,
+      "source": "src/apps/daemon/internal/runtime/proxy/sing_vmess_compat.go",
+      "target": "labs/daemon/proxy/sing_vmess_compat.go"
+    },
+    {
+      "baseline": "server/internal/proxy/singbox_core.go",
+      "kind": "production",
+      "sha256": "a7c346fdf421023dc2c44ee3124459ed627bd7e199a61ec2aaffc9fd37cff2d5",
+      "size": 585,
+      "source": "src/apps/daemon/internal/runtime/proxy/singbox_core.go",
+      "target": "labs/daemon/proxy/singbox_core.go"
+    },
+    {
+      "baseline": "server/internal/proxy/singbox_tun.go",
+      "kind": "production",
+      "sha256": "3ccd4cc7e4720011d3e6067cdd1ac641d7954713be1b17ddd9c570f1f6de9d3f",
+      "size": 652,
+      "source": "src/apps/daemon/internal/runtime/proxy/singbox_tun.go",
+      "target": "labs/daemon/proxy/singbox_tun.go"
+    },
+    {
+      "baseline": "server/internal/proxy/smux_pool.go",
+      "kind": "production",
+      "sha256": "d8c9a96504bafa9da756896a633c47a14ba0b1585412814049c130e8c8bd1819",
+      "size": 1140,
+      "source": "src/apps/daemon/internal/runtime/proxy/smux_pool.go",
+      "target": "labs/daemon/proxy/smux_pool.go"
+    },
+    {
+      "baseline": "server/internal/proxy/snell_manager.go",
+      "kind": "production",
+      "sha256": "60912151a17149ba7438e60e758c00b987d04188f8c0693d7077450f81ec1a64",
+      "size": 2151,
+      "source": "src/apps/daemon/internal/runtime/proxy/snell_manager.go",
+      "target": "labs/daemon/proxy/snell_manager.go"
+    },
+    {
+      "baseline": "server/internal/proxy/sni_injector.go",
+      "kind": "production",
+      "sha256": "01cdf9f67cb203d57f1a8d1c17a53327bd17840e801c4a6df47ab458ef9db448",
+      "size": 671,
+      "source": "src/apps/daemon/internal/runtime/proxy/sni_injector.go",
+      "target": "labs/daemon/proxy/sni_injector.go"
+    },
+    {
+      "baseline": "server/internal/proxy/sni_injector_rust.go",
+      "kind": "production",
+      "sha256": "6d744d600ac2e1d4972827f5665fc93813e42ef2abe8536e76bb25ff519a9361",
+      "size": 695,
+      "source": "src/apps/daemon/internal/runtime/proxy/sni_injector_rust.go",
+      "target": "labs/daemon/proxy/sni_injector_rust.go"
+    },
+    {
+      "baseline": "server/internal/proxy/sni_proxy.go",
+      "kind": "production",
+      "sha256": "89bdd512fbd7755a8accbd60224c3945ca8f434a5db9bb64d870817b21cba190",
+      "size": 3372,
+      "source": "src/apps/daemon/internal/runtime/proxy/sni_proxy.go",
+      "target": "labs/daemon/proxy/sni_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/socks5_isolation.go",
+      "kind": "production",
+      "sha256": "e2a116dba47205b22355f97d938d36c770ca1935df1ccacc1d644a488db74e71",
+      "size": 2946,
+      "source": "src/apps/daemon/internal/runtime/proxy/socks5_isolation.go",
+      "target": "labs/daemon/proxy/socks5_isolation.go"
+    },
+    {
+      "baseline": "server/internal/proxy/srsc_redirector.go",
+      "kind": "production",
+      "sha256": "ece532a21785930834eb827eae7106fc157f256f1b5652d5a159ad1ad946fb12",
+      "size": 585,
+      "source": "src/apps/daemon/internal/runtime/proxy/srsc_redirector.go",
+      "target": "labs/daemon/proxy/srsc_redirector.go"
+    },
+    {
+      "baseline": "server/internal/proxy/stream_scheduler.go",
+      "kind": "production",
+      "sha256": "dd52665aff868a973f49bf8e7d4841ea04fc1820382e26315920c876b25cf720",
+      "size": 3468,
+      "source": "src/apps/daemon/internal/runtime/proxy/stream_scheduler.go",
+      "target": "labs/daemon/proxy/stream_scheduler.go"
+    },
+    {
+      "baseline": "server/internal/proxy/syp_multiplexer.go",
+      "kind": "production",
+      "sha256": "df4ff6c03b77272b5f7286a5a94a510eac83002eb60a4531280ea4411777bf4c",
+      "size": 626,
+      "source": "src/apps/daemon/internal/runtime/proxy/syp_multiplexer.go",
+      "target": "labs/daemon/proxy/syp_multiplexer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tcp_brutal.go",
+      "kind": "production",
+      "sha256": "1f23270341e3c389f196117f6dd5e62968c4e2d34cdcf7ec7c1ba57ec6b2b9fa",
+      "size": 721,
+      "source": "src/apps/daemon/internal/runtime/proxy/tcp_brutal.go",
+      "target": "labs/daemon/proxy/tcp_brutal.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tcp_relay.go",
+      "kind": "production",
+      "sha256": "4ea184165b26aa5749e28067320c5fe759fa56b4833525e94fc6e22c0138f7dd",
+      "size": 500,
+      "source": "src/apps/daemon/internal/runtime/proxy/tcp_relay.go",
+      "target": "labs/daemon/proxy/tcp_relay.go"
+    },
+    {
+      "baseline": "server/internal/proxy/telegram_bot.go",
+      "kind": "production",
+      "sha256": "563d2f624885dbd9d35f4f905fe24bcd862bf018732f9bd282f47e29ce83fc14",
+      "size": 2416,
+      "source": "src/apps/daemon/internal/runtime/proxy/telegram_bot.go",
+      "target": "labs/daemon/proxy/telegram_bot.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tinydns.go",
+      "kind": "production",
+      "sha256": "17bc2e8a1d3db73a9efd330b6b0e6c38c7a06d15e5d2f776c9b88a2b3370f011",
+      "size": 4045,
+      "source": "src/apps/daemon/internal/runtime/proxy/tinydns.go",
+      "target": "labs/daemon/proxy/tinydns.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tls_fragment_tunnel.go",
+      "kind": "production",
+      "sha256": "1229b6b4b0eb14778acb4cbba598baa7650e3498555060059d50ef08b84f95f6",
+      "size": 1593,
+      "source": "src/apps/daemon/internal/runtime/proxy/tls_fragment_tunnel.go",
+      "target": "labs/daemon/proxy/tls_fragment_tunnel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tor_client.go",
+      "kind": "production",
+      "sha256": "3c8513322a7da9fc607bbe4e041bc5d73b25211853e23233d3a8bb98114d8374",
+      "size": 3057,
+      "source": "src/apps/daemon/internal/runtime/proxy/tor_client.go",
+      "target": "labs/daemon/proxy/tor_client.go"
+    },
+    {
+      "baseline": "server/internal/proxy/triple_proxy_ui_manager.go",
+      "kind": "production",
+      "sha256": "03f4691eed2c5b04863e468a0b0bce52e7a0f0faa6f5a4be34d135022a8f9d2a",
+      "size": 1663,
+      "source": "src/apps/daemon/internal/runtime/proxy/triple_proxy_ui_manager.go",
+      "target": "labs/daemon/proxy/triple_proxy_ui_manager.go"
+    },
+    {
+      "baseline": "server/internal/proxy/trojan_panel_controller.go",
+      "kind": "production",
+      "sha256": "1d6c619f22bcb9359face4e5df3c8515c79d1f714de0a934682327ad66033ad8",
+      "size": 17165,
+      "source": "src/apps/daemon/internal/runtime/proxy/trojan_panel_controller.go",
+      "target": "labs/daemon/proxy/trojan_panel_controller.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tuic_transport.go",
+      "kind": "production",
+      "sha256": "269226f46b6da5e6429ba49c8d25f02cdb8947589060280ec8ba17dead6fcd3b",
+      "size": 592,
+      "source": "src/apps/daemon/internal/runtime/proxy/tuic_transport.go",
+      "target": "labs/daemon/proxy/tuic_transport.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tun2socks_hev_adapter.go",
+      "kind": "production",
+      "sha256": "d554227feb70773a60b1c04b00bed28f7ae46efb62f2e55bdb00716aeeb90e44",
+      "size": 664,
+      "source": "src/apps/daemon/internal/runtime/proxy/tun2socks_hev_adapter.go",
+      "target": "labs/daemon/proxy/tun2socks_hev_adapter.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tunl_relay.go",
+      "kind": "production",
+      "sha256": "3b0a40a1fa7b2940c4d73ac95a3992a2c030a23f38b84959c2cbad5ae3ac9fa3",
+      "size": 6797,
+      "source": "src/apps/daemon/internal/runtime/proxy/tunl_relay.go",
+      "target": "labs/daemon/proxy/tunl_relay.go"
+    },
+    {
+      "baseline": "server/internal/proxy/udp_table.go",
+      "kind": "production",
+      "sha256": "2872a6010cd41f219db07704dfd50cfe988f347adbde1d1b425b259268cbcacf",
+      "size": 4578,
+      "source": "src/apps/daemon/internal/runtime/proxy/udp_table.go",
+      "target": "labs/daemon/proxy/udp_table.go"
+    },
+    {
+      "baseline": "server/internal/proxy/upstream_test_suites.go",
+      "kind": "production",
+      "sha256": "12e06456029f185fdafeb1846458ea40e44ccaae87367a8c4f55d42feb58d9f1",
+      "size": 68135,
+      "source": "src/apps/daemon/internal/runtime/proxy/upstream_test_suites.go",
+      "target": "labs/daemon/proxy/upstream_test_suites.go"
+    },
+    {
+      "baseline": "server/internal/proxy/utls_bootstrap.go",
+      "kind": "production",
+      "sha256": "078a3af7bb31892f1e1bd44959071c5aae4c8400b5cca59dcf02228a16b64b37",
+      "size": 3048,
+      "source": "src/apps/daemon/internal/runtime/proxy/utls_bootstrap.go",
+      "target": "labs/daemon/proxy/utls_bootstrap.go"
+    },
+    {
+      "baseline": "server/internal/proxy/utls_dialer.go",
+      "kind": "production",
+      "sha256": "4d18fbb4620c9927191b0030a63a4b13fafba5c3aecee54d9435b6eb3a3ec4a4",
+      "size": 1419,
+      "source": "src/apps/daemon/internal/runtime/proxy/utls_dialer.go",
+      "target": "labs/daemon/proxy/utls_dialer.go"
+    },
+    {
+      "baseline": "server/internal/proxy/v2board.go",
+      "kind": "production",
+      "sha256": "7494b5f1347192868e2faa9c2e16c485048d32da62cb6c858ce8c8a47e1a0076",
+      "size": 4508,
+      "source": "src/apps/daemon/internal/runtime/proxy/v2board.go",
+      "target": "labs/daemon/proxy/v2board.go"
+    },
+    {
+      "baseline": "server/internal/proxy/v2ray_dat_compiler.go",
+      "kind": "production",
+      "sha256": "ebba9ed7a4c2945a17928cf3642812c760f21b5bec6dd07caedc09fc5755bf71",
+      "size": 2683,
+      "source": "src/apps/daemon/internal/runtime/proxy/v2ray_dat_compiler.go",
+      "target": "labs/daemon/proxy/v2ray_dat_compiler.go"
+    },
+    {
+      "baseline": "server/internal/proxy/v2ray_go.go",
+      "kind": "production",
+      "sha256": "0ef43b00f84457389525a7f27e9a00b16c8d78b55478dbbdbd31c566f9b2ed20",
+      "size": 2303,
+      "source": "src/apps/daemon/internal/runtime/proxy/v2ray_go.go",
+      "target": "labs/daemon/proxy/v2ray_go.go"
+    },
+    {
+      "baseline": "server/internal/proxy/v2raya.go",
+      "kind": "production",
+      "sha256": "b1e66e780d23a335bdd20fc46b8f111295623b4d8bf61e76d4ff562ad6ab1cf6",
+      "size": 1973,
+      "source": "src/apps/daemon/internal/runtime/proxy/v2raya.go",
+      "target": "labs/daemon/proxy/v2raya.go"
+    },
+    {
+      "baseline": "server/internal/proxy/v2rayn_config_helpers.go",
+      "kind": "production",
+      "sha256": "e69da78edea28ca21b7f68dd082bc9cbf51cc1a3c26a537e5caa0e8ba47987ad",
+      "size": 18818,
+      "source": "src/apps/daemon/internal/runtime/proxy/v2rayn_config_helpers.go",
+      "target": "labs/daemon/proxy/v2rayn_config_helpers.go"
+    },
+    {
+      "baseline": "server/internal/proxy/v2rayng.go",
+      "kind": "production",
+      "sha256": "b48f2a8504c86f2410940a5e2d77622027c7d144108d651e74e0ead109f71ce6",
+      "size": 16849,
+      "source": "src/apps/daemon/internal/runtime/proxy/v2rayng.go",
+      "target": "labs/daemon/proxy/v2rayng.go"
+    },
+    {
+      "baseline": "server/internal/proxy/v2rayng_config_helpers.go",
+      "kind": "production",
+      "sha256": "87f26ef40b0ca3f93a2ee24a3727a7a921a956ce8819bd81f063b6a792ab6baf",
+      "size": 17280,
+      "source": "src/apps/daemon/internal/runtime/proxy/v2rayng_config_helpers.go",
+      "target": "labs/daemon/proxy/v2rayng_config_helpers.go"
+    },
+    {
+      "baseline": "server/internal/proxy/v2rayng_panel.go",
+      "kind": "production",
+      "sha256": "565c716ff5cccd85e7540de3339571bb8be6e8576c5a140ad65655da99574b0c",
+      "size": 2884,
+      "source": "src/apps/daemon/internal/runtime/proxy/v2rayng_panel.go",
+      "target": "labs/daemon/proxy/v2rayng_panel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/vless_proxy.go",
+      "kind": "production",
+      "sha256": "b32508d075df00892e0bdc2f1b193126314412f9ce96a646a38361b61efd059f",
+      "size": 12347,
+      "source": "src/apps/daemon/internal/runtime/proxy/vless_proxy.go",
+      "target": "labs/daemon/proxy/vless_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/voidtunnel.go",
+      "kind": "production",
+      "sha256": "825ba3f4b8b9f7549af0b2b7412a54839b7253c7f4f38da93ed727629acbf88a",
+      "size": 8716,
+      "source": "src/apps/daemon/internal/runtime/proxy/voidtunnel.go",
+      "target": "labs/daemon/proxy/voidtunnel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/web_routing.go",
+      "kind": "production",
+      "sha256": "5c3d25d0144b5c2602032c9f5bdba4973cc2bcd2a7da6c9ade8fe592db232b9e",
+      "size": 14503,
+      "source": "src/apps/daemon/internal/runtime/proxy/web_routing.go",
+      "target": "labs/daemon/proxy/web_routing.go"
+    },
+    {
+      "baseline": "server/internal/proxy/wgsocks.go",
+      "kind": "production",
+      "sha256": "db4572dbd861c8e6ae4db3fe530c1ca84f6b8fe32fbaeb95defe30e6e01f655a",
+      "size": 598,
+      "source": "src/apps/daemon/internal/runtime/proxy/wgsocks.go",
+      "target": "labs/daemon/proxy/wgsocks.go"
+    },
+    {
+      "baseline": "server/internal/proxy/windows_proxy_client.go",
+      "kind": "production",
+      "sha256": "826d8870497dbbe8b839cd67ba90fd220c5e24a1af799dcfea118d1f9aa66c39",
+      "size": 5091,
+      "source": "src/apps/daemon/internal/runtime/proxy/windows_proxy_client.go",
+      "target": "labs/daemon/proxy/windows_proxy_client.go"
+    },
+    {
+      "baseline": "server/internal/proxy/wireguard_go.go",
+      "kind": "production",
+      "sha256": "768a34c75e88828421f5a39f4c2967eecd781cc6de75555252177a5fcbdc07af",
+      "size": 664,
+      "source": "src/apps/daemon/internal/runtime/proxy/wireguard_go.go",
+      "target": "labs/daemon/proxy/wireguard_go.go"
+    },
+    {
+      "baseline": "server/internal/proxy/wireguard_obfuscator.go",
+      "kind": "production",
+      "sha256": "c3c3de46ab0c33d8cf85e82382bf21ca8acae13832cf2329c3e9eaf7ed929734",
+      "size": 9417,
+      "source": "src/apps/daemon/internal/runtime/proxy/wireguard_obfuscator.go",
+      "target": "labs/daemon/proxy/wireguard_obfuscator.go"
+    },
+    {
+      "baseline": "server/internal/proxy/worker_panel_controller.go",
+      "kind": "production",
+      "sha256": "16988d1e23616691f4dcaf641c443b156ce2581dc8a199a121397b1800764326",
+      "size": 6155,
+      "source": "src/apps/daemon/internal/runtime/proxy/worker_panel_controller.go",
+      "target": "labs/daemon/proxy/worker_panel_controller.go"
+    },
+    {
+      "baseline": "server/internal/proxy/worker_pool.go",
+      "kind": "production",
+      "sha256": "305ef6a724d843355bbfa51ce81f3c4958c29e56ded6d67cee84d8f5698a8919",
+      "size": 1147,
+      "source": "src/apps/daemon/internal/runtime/proxy/worker_pool.go",
+      "target": "labs/daemon/proxy/worker_pool.go"
+    },
+    {
+      "baseline": "server/internal/proxy/ws_reverse_tunnel.go",
+      "kind": "production",
+      "sha256": "46b3adece3a9d8b0d4439df0412856ce408d7aa20d7b2d6babb4ca7acbeb27db",
+      "size": 10355,
+      "source": "src/apps/daemon/internal/runtime/proxy/ws_reverse_tunnel.go",
+      "target": "labs/daemon/proxy/ws_reverse_tunnel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/wstunnel_reverse.go",
+      "kind": "production",
+      "sha256": "536ccd0cf83be1106e76306c7b407bfd77c0b2a1e13d9044ad355e2b3b4917a6",
+      "size": 2937,
+      "source": "src/apps/daemon/internal/runtime/proxy/wstunnel_reverse.go",
+      "target": "labs/daemon/proxy/wstunnel_reverse.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xhttp_azure.go",
+      "kind": "production",
+      "sha256": "9321e8c8fcd5925c7c2e0f004717a5ebe44f1a4fd6db72be2cc76f13a3dcf5f4",
+      "size": 1925,
+      "source": "src/apps/daemon/internal/runtime/proxy/xhttp_azure.go",
+      "target": "labs/daemon/proxy/xhttp_azure.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xhttp_edge_relay.go",
+      "kind": "production",
+      "sha256": "0265a09cfeda1295244b84ede829e81d545d557da28d19af75d46c246a526d3a",
+      "size": 597,
+      "source": "src/apps/daemon/internal/runtime/proxy/xhttp_edge_relay.go",
+      "target": "labs/daemon/proxy/xhttp_edge_relay.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xhttp_fastly.go",
+      "kind": "production",
+      "sha256": "fe2cbe584352ad00f53892fb4e624124527d1c7b5e9abcd89a2e98d1f5db41d6",
+      "size": 1958,
+      "source": "src/apps/daemon/internal/runtime/proxy/xhttp_fastly.go",
+      "target": "labs/daemon/proxy/xhttp_fastly.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xhttp_relay_azure.go",
+      "kind": "production",
+      "sha256": "21b24cf9e41c5fca80853b2faca205a5fb9a4ca2b77873701ecc09285a701fb8",
+      "size": 2455,
+      "source": "src/apps/daemon/internal/runtime/proxy/xhttp_relay_azure.go",
+      "target": "labs/daemon/proxy/xhttp_relay_azure.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xhttp_relay_config.go",
+      "kind": "production",
+      "sha256": "d6c8bc12cea3fbaa7367760a5945add490eb0deccd85b11335bb00dff3062b67",
+      "size": 9001,
+      "source": "src/apps/daemon/internal/runtime/proxy/xhttp_relay_config.go",
+      "target": "labs/daemon/proxy/xhttp_relay_config.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xhttp_relay_fastly.go",
+      "kind": "production",
+      "sha256": "67cdac97866959d6966c43afb388377e211606c6014a7d54dc8cd60e9f15e5b6",
+      "size": 3853,
+      "source": "src/apps/daemon/internal/runtime/proxy/xhttp_relay_fastly.go",
+      "target": "labs/daemon/proxy/xhttp_relay_fastly.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xhttp_relay_vercel_eco.go",
+      "kind": "production",
+      "sha256": "a1025116a6174ae1bcd539bb56eec4c85cd141e4f1ea6ea235a2c903aee1ca32",
+      "size": 4210,
+      "source": "src/apps/daemon/internal/runtime/proxy/xhttp_relay_vercel_eco.go",
+      "target": "labs/daemon/proxy/xhttp_relay_vercel_eco.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xtls_vision.go",
+      "kind": "production",
+      "sha256": "d71983a0187073aaa5e7c9bad913f42010238b3d899e3b0d1ffccc3c1dcea0c4",
+      "size": 8179,
+      "source": "src/apps/daemon/internal/runtime/proxy/xtls_vision.go",
+      "target": "labs/daemon/proxy/xtls_vision.go"
+    },
+    {
+      "baseline": "server/internal/proxy/censorship_api_test.go",
+      "kind": "test",
+      "sha256": "580108f098dc487b02583b5c8cfaeabfbf1f08e88a4424a7272d33f24fdcb356",
+      "size": 2056,
+      "source": "src/apps/daemon/internal/runtime/proxy/censorship_api_test.go",
+      "target": "labs/daemon/proxy/censorship_api_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/connectivity_checker_test.go",
+      "kind": "test",
+      "sha256": "fb2571da2bd0272fe888ae44899132c121244736b4e76f205190b7eb5551dec5",
+      "size": 1612,
+      "source": "src/apps/daemon/internal/runtime/proxy/connectivity_checker_test.go",
+      "target": "labs/daemon/proxy/connectivity_checker_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/dns_scanner_test.go",
+      "kind": "test",
+      "sha256": "8bd411697d73fd28abacb225d74d719fc15d62d7c460e5b32b162f668b652c51",
+      "size": 2908,
+      "source": "src/apps/daemon/internal/runtime/proxy/dns_scanner_test.go",
+      "target": "labs/daemon/proxy/dns_scanner_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/dual_proxy_server_test.go",
+      "kind": "test",
+      "sha256": "e79262b509759cc19ac51b863bd3c0c111ef8937f4d12ac9fa0444045fca0a96",
+      "size": 2434,
+      "source": "src/apps/daemon/internal/runtime/proxy/dual_proxy_server_test.go",
+      "target": "labs/daemon/proxy/dual_proxy_server_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/edge_auth_test.go",
+      "kind": "test",
+      "sha256": "a6b8bfeff19a10d4097c1df55c46b429d7b46fc2067c0fa30f862f262b4b216e",
+      "size": 6683,
+      "source": "src/apps/daemon/internal/runtime/proxy/edge_auth_test.go",
+      "target": "labs/daemon/proxy/edge_auth_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/ens_resolver_test.go",
+      "kind": "test",
+      "sha256": "b4ec0a969ddc564dcd13807b8a4dacbc84b8ce74f551d8ffe2573fafe2399185",
+      "size": 1086,
+      "source": "src/apps/daemon/internal/runtime/proxy/ens_resolver_test.go",
+      "target": "labs/daemon/proxy/ens_resolver_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/fec_codec_test.go",
+      "kind": "test",
+      "sha256": "e3c42732f5cd43a2804435d18bd2859b724a75598e4912a4fb02cf8660dc2c06",
+      "size": 742,
+      "source": "src/apps/daemon/internal/runtime/proxy/fec_codec_test.go",
+      "target": "labs/daemon/proxy/fec_codec_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/format_transformer_test.go",
+      "kind": "test",
+      "sha256": "a0de5dbfc452f5fa10acb9335f6d530a8d12eebf137a64fb9bc32df3802ee0de",
+      "size": 1197,
+      "source": "src/apps/daemon/internal/runtime/proxy/format_transformer_test.go",
+      "target": "labs/daemon/proxy/format_transformer_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/fptn_codec_test.go",
+      "kind": "test",
+      "sha256": "7d871332c614394a0c859cfc6fc9b36fb1db18dfd97842e5236847b8928994e0",
+      "size": 2011,
+      "source": "src/apps/daemon/internal/runtime/proxy/fptn_codec_test.go",
+      "target": "labs/daemon/proxy/fptn_codec_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/go_cidr_test.go",
+      "kind": "test",
+      "sha256": "c12ca21c7d12f2eaf318f5f32f4df217b00539766a104c881abf6a61a7fae168",
+      "size": 1682,
+      "source": "src/apps/daemon/internal/runtime/proxy/go_cidr_test.go",
+      "target": "labs/daemon/proxy/go_cidr_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gvisor_lwip_test.go",
+      "kind": "test",
+      "sha256": "61ee7768f76306bb662b5167033966829702423ed1cd14c6f755e9c69a566470",
+      "size": 3406,
+      "source": "src/apps/daemon/internal/runtime/proxy/gvisor_lwip_test.go",
+      "target": "labs/daemon/proxy/gvisor_lwip_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gvisor_stack_test.go",
+      "kind": "test",
+      "sha256": "4da103cac0b7e1adc10b047ba677b2c9fde56d88630924289fdb6cd7e57454fb",
+      "size": 1077,
+      "source": "src/apps/daemon/internal/runtime/proxy/gvisor_stack_test.go",
+      "target": "labs/daemon/proxy/gvisor_stack_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/handshake_fingerprint_test.go",
+      "kind": "test",
+      "sha256": "3dd3105f10c0e0c357a5f69f583b37a82f9e0147f3c743435b8e1111fc146406",
+      "size": 3539,
+      "source": "src/apps/daemon/internal/runtime/proxy/handshake_fingerprint_test.go",
+      "target": "labs/daemon/proxy/handshake_fingerprint_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/httun_acme_xtls_test.go",
+      "kind": "test",
+      "sha256": "509641ba2b2e250ac94af7fff2c54881c6be48a9cf1564095666a2093c4de59c",
+      "size": 8859,
+      "source": "src/apps/daemon/internal/runtime/proxy/httun_acme_xtls_test.go",
+      "target": "labs/daemon/proxy/httun_acme_xtls_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/ip_trie_test.go",
+      "kind": "test",
+      "sha256": "188450b14fea6effe958402ea256468ec28726c96a79b0950a49d11fcf803a30",
+      "size": 967,
+      "source": "src/apps/daemon/internal/runtime/proxy/ip_trie_test.go",
+      "target": "labs/daemon/proxy/ip_trie_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/json_filter_test.go",
+      "kind": "test",
+      "sha256": "1d7b215a93182439c8b73c2b2360f24f46dfe68478a931f3a27e22fc76b277ce",
+      "size": 1225,
+      "source": "src/apps/daemon/internal/runtime/proxy/json_filter_test.go",
+      "target": "labs/daemon/proxy/json_filter_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/masque_dialer_test.go",
+      "kind": "test",
+      "sha256": "afa5a12b0093f30d6ef1a6d75ef14ab5a7b9a384b084ffa03db1c8014513ca12",
+      "size": 4477,
+      "source": "src/apps/daemon/internal/runtime/proxy/masque_dialer_test.go",
+      "target": "labs/daemon/proxy/masque_dialer_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/mitm_detector_test.go",
+      "kind": "test",
+      "sha256": "8828386e0fb9cfd7b865ac6ce10244b293a2edfeeff574bc223e336bf5cc7b6f",
+      "size": 1622,
+      "source": "src/apps/daemon/internal/runtime/proxy/mitm_detector_test.go",
+      "target": "labs/daemon/proxy/mitm_detector_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/naive_padding_conn_test.go",
+      "kind": "test",
+      "sha256": "5471d8d6d0cd6c03882437327c7f49f7da78496f359bbe548b2fcbdfaf762e41",
+      "size": 2481,
+      "source": "src/apps/daemon/internal/runtime/proxy/naive_padding_conn_test.go",
+      "target": "labs/daemon/proxy/naive_padding_conn_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/nested_wireguard_test.go",
+      "kind": "test",
+      "sha256": "9f72ac8052b9defc2c7e7fdb87133b0d715b14c2b27a323f0536198216f043d0",
+      "size": 2747,
+      "source": "src/apps/daemon/internal/runtime/proxy/nested_wireguard_test.go",
+      "target": "labs/daemon/proxy/nested_wireguard_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/nomore_walls_domain_tree_test.go",
+      "kind": "test",
+      "sha256": "20a48aa2638f6bcefa455abd625a232e1321d0af631a265dd50d43b6f3953a50",
+      "size": 2681,
+      "source": "src/apps/daemon/internal/runtime/proxy/nomore_walls_domain_tree_test.go",
+      "target": "labs/daemon/proxy/nomore_walls_domain_tree_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/non_portable_wrappers_test.go",
+      "kind": "test",
+      "sha256": "bb7ee4d71205d0958438ad7b07a9a497480296a43aa155743cd2e48c886a55fe",
+      "size": 792,
+      "source": "src/apps/daemon/internal/runtime/proxy/non_portable_wrappers_test.go",
+      "target": "labs/daemon/proxy/non_portable_wrappers_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/openvpn_config_patcher_test.go",
+      "kind": "test",
+      "sha256": "b9865c4cb552eb7dd7d3c00704b0e3abb6d55788fbd7db08049de44f4df15515",
+      "size": 4334,
+      "source": "src/apps/daemon/internal/runtime/proxy/openvpn_config_patcher_test.go",
+      "target": "labs/daemon/proxy/openvpn_config_patcher_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/pathfinder_test.go",
+      "kind": "test",
+      "sha256": "528a0d4579a28e6db3fca6b2b479f10fb978ee1df287d7d6eac0e5574d411d24",
+      "size": 1508,
+      "source": "src/apps/daemon/internal/runtime/proxy/pathfinder_test.go",
+      "target": "labs/daemon/proxy/pathfinder_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/phishing_verifier_test.go",
+      "kind": "test",
+      "sha256": "10ef06be101f98e9959ddce99ed9a7d50ccba126d083560819e739b92174c0be",
+      "size": 1352,
+      "source": "src/apps/daemon/internal/runtime/proxy/phishing_verifier_test.go",
+      "target": "labs/daemon/proxy/phishing_verifier_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/profile_morpher_test.go",
+      "kind": "test",
+      "sha256": "bb3086b51db8d3f0942496178de7676a8d06d2f090fbbe07a8785cafac29ec40",
+      "size": 1360,
+      "source": "src/apps/daemon/internal/runtime/proxy/profile_morpher_test.go",
+      "target": "labs/daemon/proxy/profile_morpher_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/proxy_cluster_test.go",
+      "kind": "test",
+      "sha256": "bc818db4b87d8513c1afb556c754b17132769cc57fe276c5c11840a8ee91b375",
+      "size": 1006,
+      "source": "src/apps/daemon/internal/runtime/proxy/proxy_cluster_test.go",
+      "target": "labs/daemon/proxy/proxy_cluster_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/qlearning_test.go",
+      "kind": "test",
+      "sha256": "8083bd63e5fbd20b4d419f306312d572f1605f653872291b228d3b2dd5f0aa89",
+      "size": 604,
+      "source": "src/apps/daemon/internal/runtime/proxy/qlearning_test.go",
+      "target": "labs/daemon/proxy/qlearning_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/quic_sniffer_test.go",
+      "kind": "test",
+      "sha256": "a084d1c0f0c30f41484bf6e993e84c0e2497cd28bfda7d9c3e9faab673129ed5",
+      "size": 5627,
+      "source": "src/apps/daemon/internal/runtime/proxy/quic_sniffer_test.go",
+      "target": "labs/daemon/proxy/quic_sniffer_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/stream_scheduler_test.go",
+      "kind": "test",
+      "sha256": "6d6811562e40ebf4c066f1be27874b285bd9f21b80837baad5991bfaa38b8a27",
+      "size": 2141,
+      "source": "src/apps/daemon/internal/runtime/proxy/stream_scheduler_test.go",
+      "target": "labs/daemon/proxy/stream_scheduler_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tinydoh_test.go",
+      "kind": "test",
+      "sha256": "653d96177307bed430a2dcab09adfdc6c28d48beaf613a60c45b85af907b5b9f",
+      "size": 2303,
+      "source": "src/apps/daemon/internal/runtime/proxy/tinydoh_test.go",
+      "target": "labs/daemon/proxy/tinydoh_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tunl_relay_test.go",
+      "kind": "test",
+      "sha256": "66b696ab3d456ea4d9a823947895fce6120b2366409e81572513463a2bde22d2",
+      "size": 8698,
+      "source": "src/apps/daemon/internal/runtime/proxy/tunl_relay_test.go",
+      "target": "labs/daemon/proxy/tunl_relay_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/utls_dialer_test.go",
+      "kind": "test",
+      "sha256": "0f0d7fb0441d20b2ab6d42a4608b4a06d7f585ee44df5bf77bf00b1d0713b31f",
+      "size": 1914,
+      "source": "src/apps/daemon/internal/runtime/proxy/utls_dialer_test.go",
+      "target": "labs/daemon/proxy/utls_dialer_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/v2ray_dat_compiler_test.go",
+      "kind": "test",
+      "sha256": "2826dce2a58ce7838fd0838bf9df240b10e093586dcae44159e0e1830b44db53",
+      "size": 1091,
+      "source": "src/apps/daemon/internal/runtime/proxy/v2ray_dat_compiler_test.go",
+      "target": "labs/daemon/proxy/v2ray_dat_compiler_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/web_routing_test.go",
+      "kind": "test",
+      "sha256": "e3287ed7ddbda16e3f070ae17b6cddfb7e48b49a7fedc198d66e7c19338fcc46",
+      "size": 6016,
+      "source": "src/apps/daemon/internal/runtime/proxy/web_routing_test.go",
+      "target": "labs/daemon/proxy/web_routing_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/wireguard_obfuscator_test.go",
+      "kind": "test",
+      "sha256": "4e72583fb0b3e2312b156ca219208811f56a4560c14e4dae5d7ed9b96c2175b1",
+      "size": 2504,
+      "source": "src/apps/daemon/internal/runtime/proxy/wireguard_obfuscator_test.go",
+      "target": "labs/daemon/proxy/wireguard_obfuscator_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/worker_pool_test.go",
+      "kind": "test",
+      "sha256": "ee554a291f367fcad6ca74f4f3c126ba1c99d9f9dbb9ade1e6926e538e3b2087",
+      "size": 488,
+      "source": "src/apps/daemon/internal/runtime/proxy/worker_pool_test.go",
+      "target": "labs/daemon/proxy/worker_pool_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/ws_reverse_tunnel_test.go",
+      "kind": "test",
+      "sha256": "a776f965e1c79c0f7f97efe042021e56eed6102476b00febdc74cc4ea30e32ed",
+      "size": 2746,
+      "source": "src/apps/daemon/internal/runtime/proxy/ws_reverse_tunnel_test.go",
+      "target": "labs/daemon/proxy/ws_reverse_tunnel_test.go"
+    }
+  ],
+  "retained": [
+    {
+      "file": "brook_transport.go",
+      "reasons": [
+        "package-initialization"
+      ]
+    },
+    {
+      "file": "censorship_doctor.go",
+      "reasons": [
+        "outside-package-consumer"
+      ]
+    },
+    {
+      "file": "clean_ip_prober.go",
+      "reasons": [
+        "outside-package-consumer"
+      ]
+    },
+    {
+      "file": "config_watcher.go",
+      "reasons": [
+        "mixed-test-owner"
+      ]
+    },
+    {
+      "file": "ech_tls_tunnel.go",
+      "reasons": [
+        "package-initialization"
+      ]
+    },
+    {
+      "file": "evasion_oob_test_unix.go",
+      "reasons": [
+        "mixed-test-owner"
+      ]
+    },
+    {
+      "file": "evasion_oob_test_windows.go",
+      "reasons": [
+        "mixed-test-owner"
+      ]
+    },
+    {
+      "file": "fallback_router.go",
+      "reasons": [
+        "compatibility-or-independent-peer"
+      ]
+    },
+    {
+      "file": "genyconnect_link_parser.go",
+      "reasons": [
+        "package-initialization"
+      ]
+    },
+    {
+      "file": "geosite_routing_matcher.go",
+      "reasons": [
+        "outside-package-consumer"
+      ]
+    },
+    {
+      "file": "hysteria_binding.go",
+      "reasons": [
+        "native-export-boundary"
+      ]
+    },
+    {
+      "file": "ip_security_analyzer.go",
+      "reasons": [
+        "outside-package-consumer"
+      ]
+    },
+    {
+      "file": "masterdnsvpn_codec.go",
+      "reasons": [
+        "package-initialization"
+      ]
+    },
+    {
+      "file": "masterdnsvpn_vpnproto.go",
+      "reasons": [
+        "package-initialization"
+      ]
+    },
+    {
+      "file": "mobile_bind_windows.go",
+      "reasons": [
+        "platform-or-shared-declaration"
+      ]
+    },
+    {
+      "file": "presets.go",
+      "reasons": [
+        "outside-package-consumer"
+      ]
+    },
+    {
+      "file": "provider_corpus.go",
+      "reasons": [
+        "outside-package-consumer"
+      ]
+    },
+    {
+      "file": "reality_detector.go",
+      "reasons": [
+        "compatibility-or-independent-peer"
+      ]
+    },
+    {
+      "file": "reality_scanner.go",
+      "reasons": [
+        "mixed-test-owner"
+      ]
+    },
+    {
+      "file": "redact.go",
+      "reasons": [
+        "outside-package-consumer"
+      ]
+    },
+    {
+      "file": "relay_server.go",
+      "reasons": [
+        "compatibility-or-independent-peer"
+      ]
+    },
+    {
+      "file": "smart_dns.go",
+      "reasons": [
+        "outside-package-consumer"
+      ]
+    },
+    {
+      "file": "ss_cipher_compat.go",
+      "reasons": [
+        "package-initialization",
+        "platform-or-shared-declaration"
+      ]
+    },
+    {
+      "file": "tarpit.go",
+      "reasons": [
+        "compatibility-or-independent-peer"
+      ]
+    },
+    {
+      "file": "udpgw.go",
+      "reasons": [
+        "compatibility-or-independent-peer"
+      ]
+    },
+    {
+      "file": "vpn_service_bridge.go",
+      "reasons": [
+        "outside-package-consumer"
+      ]
+    },
+    {
+      "file": "warp_noise.go",
+      "reasons": [
+        "outside-package-consumer"
+      ]
+    }
+  ],
+  "retired_after_deep_audit": [
+    {
+      "file": "apps_script_front.go",
+      "reason": "zero production/test consumer after deep-module and capability-truth review"
+    },
+    {
+      "file": "dispatcher.go",
+      "reason": "retired after exact liveness/capability-truth review; zero product consumer or simulation-only false runtime"
+    },
+    {
+      "file": "dispatcher_test.go",
+      "reason": "retired after exact liveness/capability-truth review; zero product consumer or simulation-only false runtime"
+    },
+    {
+      "file": "dns_tunnel.go",
+      "reason": "retired after exact liveness/capability-truth review; zero product consumer or simulation-only false runtime"
+    },
+    {
+      "file": "dns_tunnel_test.go",
+      "reason": "retired after exact liveness/capability-truth review; zero product consumer or simulation-only false runtime"
+    },
+    {
+      "file": "multi_wireguard.go",
+      "reason": "retired after exact liveness/capability-truth review; zero product consumer or simulation-only false runtime"
+    },
+    {
+      "file": "multi_wireguard_test.go",
+      "reason": "retired after exact liveness/capability-truth review; zero product consumer or simulation-only false runtime"
+    }
+  ],
+  "schema": 1,
+  "verification": {
+    "guard_falsification": [
+      "live-owner-reintroduction rejected",
+      "missing preserved experiment rejected",
+      "missing retained live exception rejected"
+    ],
+    "pre_commit": "691f8de",
+    "typecheck_error_comparison": {
+      "goos": [
+        "linux",
+        "windows",
+        "darwin"
+      ],
+      "new_live_undefined_errors": 0
+    }
+  },
+  "wave": 20
+}

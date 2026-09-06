@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/analysis/peerdiscovery
+
+## Purpose
+Daemon peerdiscovery implementation module.
+
+## Architectural role
+- Daemon dependency band: `analysis` (rank 3; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (4): `bep42.go`, `bep42_test.go`, `planner.go`, `planner_test.go`
+
+## Interfaces and dependencies
+- Go package: `peerdiscovery`.
+- Notable exported surface: `BuildPlan`, `Candidate`, `GenerateIPv4NodeID`, `NodeID`, `NodeIDSize`, `ParseNodeID`, `Plan`, `PlanRequest`, `PlannedPeer`, `RejectedPeer` …
+- Daemon-local dependencies: `internal/foundation/netpolicy`.
+- Direct daemon callers: `internal/adapters/api`.
+
+## Invariants
+- `analysis` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

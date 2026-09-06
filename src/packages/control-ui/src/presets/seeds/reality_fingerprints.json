@@ -1,0 +1,66 @@
+[
+  {
+    "hostname": "www.apple.com",
+    "fingerprint": "chrome120",
+    "dest": "www.apple.com",
+    "x25519_pub": "3b58f47c1ca70f7a44e50f4c3c1b3f9d8a7c6e4f5b3a2c1d0e9f8a7b6c5d4e",
+    "short_id": "a1b2c3d4",
+    "notes": "Apple CDN — high reputation, TLS 1.3, globally available"
+  },
+  {
+    "hostname": "www.microsoft.com",
+    "fingerprint": "chrome120",
+    "dest": "www.microsoft.com",
+    "x25519_pub": "a7c6e4f5b3a2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7",
+    "short_id": "e5f6a7b8",
+    "notes": "Microsoft Azure CDN — fast, 1.3, large certificate rotation"
+  },
+  {
+    "hostname": "www.cloudflare.com",
+    "fingerprint": "firefox117",
+    "dest": "www.cloudflare.com",
+    "x25519_pub": "c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4",
+    "short_id": "b3c4d5e6",
+    "notes": "Cloudflare — excellent availability, CDN-backed"
+  },
+  {
+    "hostname": "www.amazon.com",
+    "fingerprint": "chrome120",
+    "dest": "www.amazon.com",
+    "x25519_pub": "d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5",
+    "short_id": "f1e2d3c4",
+    "notes": "Amazon AWS/CloudFront — high bandwidth, TLS 1.3"
+  },
+  {
+    "hostname": "www.google.com",
+    "fingerprint": "chrome120",
+    "dest": "www.google.com",
+    "x25519_pub": "e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5",
+    "short_id": "c9d0e1f2",
+    "notes": "Google GFE — excellent, 1.3, largest cert rotation"
+  },
+  {
+    "hostname": "www.facebook.com",
+    "fingerprint": "safari17_2",
+    "dest": "www.facebook.com",
+    "x25519_pub": "f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1d0e9f8a7b6",
+    "short_id": "d7e8f9a0",
+    "notes": "Meta CDN — fast, TLS 1.3, good certificate freshness"
+  },
+  {
+    "hostname": "www.netflix.com",
+    "fingerprint": "chrome120",
+    "dest": "www.netflix.com",
+    "x25519_pub": "b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1d0",
+    "short_id": "a5b6c7d8",
+    "notes": "Netflix CDN — TLS 1.3, high traffic volume"
+  },
+  {
+    "hostname": "www.twitter.com",
+    "fingerprint": "firefox117",
+    "dest": "www.twitter.com",
+    "x25519_pub": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4",
+    "short_id": "e9f0a1b2",
+    "notes": "X/Twitter CDN — TLS 1.3, large certificate"
+  }
+]

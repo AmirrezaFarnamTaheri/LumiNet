@@ -1,0 +1,3 @@
+# Post-refactor-232 state machines
+
+DNS campaign planning models idle, running, paused, stopping, completed and error with closed transitions: start from idle/completed/error, pause only from running, resume only from paused, stop from running/paused, and complete from stopping. Multipath scheduling admits only caller-observed healthy+ready paths and uses explicit backpressure/reject-new queue overflow. Outline distinguishes static local admission from unresolved dynamic remote configuration. DNSTT deployment is modeled as preflight -> ordered mutation proposal -> explicit rollback proposal without executing state changes.

@@ -1,0 +1,9 @@
+supersession_id,eighth_order_record_ids,target_winner,reason,validation_status
+E8-SUP-001,E8-0001;E8-0002;E8-0003;E8-0004;E8-0005,automatic mutation retry + bounded DNS resilience planes,Donor-specific retry/cache helpers are decomposed into target-owned remoteaction and DNS cache owners.,verified
+E8-SUP-002,E8-0006;E8-0007;E8-0008;E8-0009;E8-0010,target process/host-network/scheduler authority,Desired-state and restart invariants are absorbed without adding donor-specific supervisors/schedulers.,verified
+E8-SUP-003,E8-0011;E8-0012,target DNS cache/fallback owners,Shallower DNS prefetch/proxy mechanisms lose to the CoreDNS-informed target-native composition.,verified
+E8-SUP-004,E8-0013;E8-0014;E8-0015;E8-0018,existing live LumiNet implementations,Prior target ports already supersede donor implementations and remain the single owners.,verified
+E8-SUP-005,E8-0016;E8-0017;E8-0024;E8-0025;E8-0026,target rule/profile/deployment grammar,Generator/config/deployment corpora inform target semantics without becoming runtime authority.,verified
+E8-SUP-006,E8-0020;E8-0021;E8-0023;E8-0022,existing target API/scanner/product architecture,Peers add no stronger missing runtime primitive after granular review.,reviewed
+E8-SUP-007,E8-0027;E8-0028;E8-0029,safety guardrails and bounded diagnostic owners,Offensive persistence/bounce/MITM mechanics are explicitly rejected rather than converged into production capability.,verified
+E8-SUP-008,E8-0019,fail-closed transactional/idempotent mutation ownership,AOF/ring partial-write mismatch is retained as a negative invariant rather than copied.,verified

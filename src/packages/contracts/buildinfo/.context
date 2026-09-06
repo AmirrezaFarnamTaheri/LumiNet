@@ -1,0 +1,20 @@
+# src/packages/contracts/buildinfo
+
+## Purpose
+Build/version identity contract injected at build time.
+
+## Contents
+- Direct files (2): `buildinfo.go`, `buildinfo_test.go`
+
+## Interfaces and dependencies
+- Go package: `buildinfo`.
+- Notable exported surface: `Current`, `Info`.
+- Daemon-local dependencies: none.
+- Direct daemon callers: none detected.
+
+## Invariants
+- Keep behavior local to the named module; move cross-cutting policy to its canonical owner instead of duplicating it here.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

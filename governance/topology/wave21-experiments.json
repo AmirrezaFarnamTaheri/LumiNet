@@ -1,0 +1,501 @@
+{
+  "analysis": {
+    "components_moved": 16,
+    "production_files": 43,
+    "tests": 5
+  },
+  "classification": "connected-dormant-proxy-preservation",
+  "invariant": "move only externally unowned connected components whose imports are stdlib-only, whose tests close over the component, and whose combined package passes Linux tests plus Windows/Darwin cross-compilation",
+  "moved": [
+    {
+      "baseline": "server/internal/proxy/begzar.go",
+      "component": "component-begzar",
+      "kind": "production",
+      "sha256": "22cd145a8a22e50c4d16f64dc6e4a8c86f89cd3c0291a60f7dd2f3de1114b20d",
+      "size": 693,
+      "source": "src/apps/daemon/internal/runtime/proxy/begzar.go",
+      "target": "labs/daemon/proxy/begzar.go"
+    },
+    {
+      "baseline": "server/internal/proxy/split_tunnel_bypass.go",
+      "component": "component-begzar",
+      "kind": "production",
+      "sha256": "f042e1d8cc3f31ed2129a02302acdf308f0488f990a6f652e373448d72d92b20",
+      "size": 579,
+      "source": "src/apps/daemon/internal/runtime/proxy/split_tunnel_bypass.go",
+      "target": "labs/daemon/proxy/split_tunnel_bypass.go"
+    },
+    {
+      "baseline": "server/internal/proxy/cf_worker_trojan.go",
+      "component": "component-cf_worker_trojan",
+      "kind": "production",
+      "sha256": "7b0c7734348373d997f408feae049356fd6a2177b9cf28a1d977b961fa589049",
+      "size": 1199,
+      "source": "src/apps/daemon/internal/runtime/proxy/cf_worker_trojan.go",
+      "target": "labs/daemon/proxy/cf_worker_trojan.go"
+    },
+    {
+      "baseline": "server/internal/proxy/cf_worker_url.go",
+      "component": "component-cf_worker_trojan",
+      "kind": "production",
+      "sha256": "9e0ac7549b559149807718519080d7fb40d214987eaa118c21b8218166a7cfeb",
+      "size": 932,
+      "source": "src/apps/daemon/internal/runtime/proxy/cf_worker_url.go",
+      "target": "labs/daemon/proxy/cf_worker_url.go"
+    },
+    {
+      "baseline": "server/internal/proxy/cf_worker_vless.go",
+      "component": "component-cf_worker_trojan",
+      "kind": "production",
+      "sha256": "317f320a43750051d04f8a7a8419f6ad572e4076577bc22a467f3a96762d5e92",
+      "size": 1411,
+      "source": "src/apps/daemon/internal/runtime/proxy/cf_worker_vless.go",
+      "target": "labs/daemon/proxy/cf_worker_vless.go"
+    },
+    {
+      "baseline": "server/internal/proxy/cf_worker_url_test.go",
+      "component": "component-cf_worker_trojan",
+      "kind": "test",
+      "sha256": "ef97a66aa5197859611074a6b1744f11fc530b272fb77945a728faa7296990d3",
+      "size": 1053,
+      "source": "src/apps/daemon/internal/runtime/proxy/cf_worker_url_test.go",
+      "target": "labs/daemon/proxy/cf_worker_url_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/clash_worker.go",
+      "component": "component-clash_worker",
+      "kind": "production",
+      "sha256": "aa3095608c701b1e2ffefa9b4f6d2b51b138f5342c99d15d5640191a09d65afa",
+      "size": 16555,
+      "source": "src/apps/daemon/internal/runtime/proxy/clash_worker.go",
+      "target": "labs/daemon/proxy/clash_worker.go"
+    },
+    {
+      "baseline": "server/internal/proxy/snell_panel.go",
+      "component": "component-clash_worker",
+      "kind": "production",
+      "sha256": "3bd3ab5b34f7b54be5230b228ed5b6d02c3bedd71ee56d26f7680e75b697697f",
+      "size": 13166,
+      "source": "src/apps/daemon/internal/runtime/proxy/snell_panel.go",
+      "target": "labs/daemon/proxy/snell_panel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gc_tuning.go",
+      "component": "component-gc_tuning",
+      "kind": "production",
+      "sha256": "48769398f4d45fafcd7d86b5d789b74cee02b6711d8590be61dbb96f25d98728",
+      "size": 1098,
+      "source": "src/apps/daemon/internal/runtime/proxy/gc_tuning.go",
+      "target": "labs/daemon/proxy/gc_tuning.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gc_tuning_linux.go",
+      "component": "component-gc_tuning",
+      "kind": "production",
+      "sha256": "923e0876e8ad1894be2bb36349fa4ef59f7bbd0d98e0f795ad63348128688836",
+      "size": 547,
+      "source": "src/apps/daemon/internal/runtime/proxy/gc_tuning_linux.go",
+      "target": "labs/daemon/proxy/gc_tuning_linux.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gc_tuning_other.go",
+      "component": "component-gc_tuning",
+      "kind": "production",
+      "sha256": "8da73ea54c89ad180a6405f810c317ad666fd149424096eb801f22af6c17281f",
+      "size": 95,
+      "source": "src/apps/daemon/internal/runtime/proxy/gc_tuning_other.go",
+      "target": "labs/daemon/proxy/gc_tuning_other.go"
+    },
+    {
+      "baseline": "server/internal/proxy/gc_tuning_windows.go",
+      "component": "component-gc_tuning",
+      "kind": "production",
+      "sha256": "e7ae2c307cd7c0db57bf19157b287bf5820f2fb96e0f15ce6014e95c4f90a22a",
+      "size": 724,
+      "source": "src/apps/daemon/internal/runtime/proxy/gc_tuning_windows.go",
+      "target": "labs/daemon/proxy/gc_tuning_windows.go"
+    },
+    {
+      "baseline": "server/internal/proxy/managed_config_process.go",
+      "component": "component-managed_config_process",
+      "kind": "production",
+      "sha256": "abf53799f8d695e72cf766c5d8733652420be4a65cfd6437ebfb026b1d804b24",
+      "size": 1475,
+      "source": "src/apps/daemon/internal/runtime/proxy/managed_config_process.go",
+      "target": "labs/daemon/proxy/managed_config_process.go"
+    },
+    {
+      "baseline": "server/internal/proxy/v2ray_core.go",
+      "component": "component-managed_config_process",
+      "kind": "production",
+      "sha256": "f160a05ebe6c5d877e1046d30c2f2bc9a5093dcbfd5664957823935858b19e73",
+      "size": 2435,
+      "source": "src/apps/daemon/internal/runtime/proxy/v2ray_core.go",
+      "target": "labs/daemon/proxy/v2ray_core.go"
+    },
+    {
+      "baseline": "server/internal/proxy/v2ray_core_fork.go",
+      "component": "component-managed_config_process",
+      "kind": "production",
+      "sha256": "b2f2a2604ffb220b63f98f46926258c4242c0ff626194132978ef6e9a25c9d66",
+      "size": 1703,
+      "source": "src/apps/daemon/internal/runtime/proxy/v2ray_core_fork.go",
+      "target": "labs/daemon/proxy/v2ray_core_fork.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xray_core.go",
+      "component": "component-managed_config_process",
+      "kind": "production",
+      "sha256": "365c4624fb315ea32038d34ed98a939c9ef762330aad40c66ebde377442ac919",
+      "size": 1630,
+      "source": "src/apps/daemon/internal/runtime/proxy/xray_core.go",
+      "target": "labs/daemon/proxy/xray_core.go"
+    },
+    {
+      "baseline": "server/internal/proxy/mitm_decryptor.go",
+      "component": "component-mitm_decryptor",
+      "kind": "production",
+      "sha256": "d4bb92b70ef8f198bd914e84b20f45a4d0db1211f1be1f3b29e4a0f68d4dd10d",
+      "size": 2926,
+      "source": "src/apps/daemon/internal/runtime/proxy/mitm_decryptor.go",
+      "target": "labs/daemon/proxy/mitm_decryptor.go"
+    },
+    {
+      "baseline": "server/internal/proxy/mitm_proxy.go",
+      "component": "component-mitm_decryptor",
+      "kind": "production",
+      "sha256": "92e0ab78f6d5cca2bc3bc5011dd16a602c063b8b4497aeca5779f87d8d828389",
+      "size": 3293,
+      "source": "src/apps/daemon/internal/runtime/proxy/mitm_proxy.go",
+      "target": "labs/daemon/proxy/mitm_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/nova_backend.go",
+      "component": "component-nova_backend",
+      "kind": "production",
+      "sha256": "18f1ca061e27948a4b9da8e550921d9b8c8895f99237b6e72e2cdf65f3004e5c",
+      "size": 450,
+      "source": "src/apps/daemon/internal/runtime/proxy/nova_backend.go",
+      "target": "labs/daemon/proxy/nova_backend.go"
+    },
+    {
+      "baseline": "server/internal/proxy/subscription_backend_client.go",
+      "component": "component-nova_backend",
+      "kind": "production",
+      "sha256": "3ea1a7aa2ad2375709bf4d5706a2d8f08f691c4aa34127472f4ded9d9074520c",
+      "size": 782,
+      "source": "src/apps/daemon/internal/runtime/proxy/subscription_backend_client.go",
+      "target": "labs/daemon/proxy/subscription_backend_client.go"
+    },
+    {
+      "baseline": "server/internal/proxy/nova_proxy.go",
+      "component": "component-nova_proxy",
+      "kind": "production",
+      "sha256": "bd315f89b521a1f15b1e7ac8b3a5075dc2205d8a0b0658addca7aa24c10e4291",
+      "size": 439,
+      "source": "src/apps/daemon/internal/runtime/proxy/nova_proxy.go",
+      "target": "labs/daemon/proxy/nova_proxy.go"
+    },
+    {
+      "baseline": "server/internal/proxy/proxy_node_rotator.go",
+      "component": "component-nova_proxy",
+      "kind": "production",
+      "sha256": "82be0d19cdc33f986c8b88ea2e43a03ee3a7b97d80512ecf4751c7b25230f39e",
+      "size": 1232,
+      "source": "src/apps/daemon/internal/runtime/proxy/proxy_node_rotator.go",
+      "target": "labs/daemon/proxy/proxy_node_rotator.go"
+    },
+    {
+      "baseline": "server/internal/proxy/nova_wizard.go",
+      "component": "component-nova_wizard",
+      "kind": "production",
+      "sha256": "6a2bfccd8a2b11ead0cf0e8310da94440a74b0b251fa296d99f25290ff5a2698",
+      "size": 8686,
+      "source": "src/apps/daemon/internal/runtime/proxy/nova_wizard.go",
+      "target": "labs/daemon/proxy/nova_wizard.go"
+    },
+    {
+      "baseline": "server/internal/proxy/proxy_setup_wizard.go",
+      "component": "component-nova_wizard",
+      "kind": "production",
+      "sha256": "c52595751592c6cca772936e1379ef52e23bac88aa42eb539ee0c14ef9bbafaa",
+      "size": 12448,
+      "source": "src/apps/daemon/internal/runtime/proxy/proxy_setup_wizard.go",
+      "target": "labs/daemon/proxy/proxy_setup_wizard.go"
+    },
+    {
+      "baseline": "server/internal/proxy/sing_brutal.go",
+      "component": "component-sing_brutal",
+      "kind": "production",
+      "sha256": "c879fa64ee392111b8fd8b6535873f119ada8a2c1726d45b0ad61ef0b2eacd38",
+      "size": 2187,
+      "source": "src/apps/daemon/internal/runtime/proxy/sing_brutal.go",
+      "target": "labs/daemon/proxy/sing_brutal.go"
+    },
+    {
+      "baseline": "server/internal/proxy/socks5_limiter.go",
+      "component": "component-sing_brutal",
+      "kind": "production",
+      "sha256": "7c0e8772316e84353a1c116274844bed949f60ea47926444e7f446577dd445de",
+      "size": 4727,
+      "source": "src/apps/daemon/internal/runtime/proxy/socks5_limiter.go",
+      "target": "labs/daemon/proxy/socks5_limiter.go"
+    },
+    {
+      "baseline": "server/internal/proxy/systemd_manager.go",
+      "component": "component-systemd_manager",
+      "kind": "production",
+      "sha256": "73e141ca29a5628f1090f329a8aca20b472dcd74e74b23ecde42c39cd5c6be15",
+      "size": 1504,
+      "source": "src/apps/daemon/internal/runtime/proxy/systemd_manager.go",
+      "target": "labs/daemon/proxy/systemd_manager.go"
+    },
+    {
+      "baseline": "server/internal/proxy/systemd_manager_linux.go",
+      "component": "component-systemd_manager",
+      "kind": "production",
+      "sha256": "6457d155094f93826bac164eaceb7063cc004983df7461915422adf45095f47c",
+      "size": 2166,
+      "source": "src/apps/daemon/internal/runtime/proxy/systemd_manager_linux.go",
+      "target": "labs/daemon/proxy/systemd_manager_linux.go"
+    },
+    {
+      "baseline": "server/internal/proxy/systemd_manager_stub.go",
+      "component": "component-systemd_manager",
+      "kind": "production",
+      "sha256": "90eaef3e5de0c82d796a2eed955e0995eb265f1a44e352876e518ca5cfd7c2f2",
+      "size": 486,
+      "source": "src/apps/daemon/internal/runtime/proxy/systemd_manager_stub.go",
+      "target": "labs/daemon/proxy/systemd_manager_stub.go"
+    },
+    {
+      "baseline": "server/internal/proxy/systemd_manager_test.go",
+      "component": "component-systemd_manager",
+      "kind": "test",
+      "sha256": "8a90018506944a84c39fb9c4f2c15be918783e8e64815f51347bd9b9e9751b68",
+      "size": 1592,
+      "source": "src/apps/daemon/internal/runtime/proxy/systemd_manager_test.go",
+      "target": "labs/daemon/proxy/systemd_manager_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tc_shaper.go",
+      "component": "component-tc_shaper",
+      "kind": "production",
+      "sha256": "4243f11425e400843f2604883cfd3a571e7d35f50bb50d4b1f99c3ea2e7634f7",
+      "size": 662,
+      "source": "src/apps/daemon/internal/runtime/proxy/tc_shaper.go",
+      "target": "labs/daemon/proxy/tc_shaper.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tc_shaper_linux.go",
+      "component": "component-tc_shaper",
+      "kind": "production",
+      "sha256": "993076b333aa3443fa2c2c4ea14f41c8e6775443a720ad60fa492a99c82450f7",
+      "size": 3979,
+      "source": "src/apps/daemon/internal/runtime/proxy/tc_shaper_linux.go",
+      "target": "labs/daemon/proxy/tc_shaper_linux.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tc_shaper_stub.go",
+      "component": "component-tc_shaper",
+      "kind": "production",
+      "sha256": "7c184906d42d11d9b47030772829e4d909700e39e25c832756fd1c849d84ae85",
+      "size": 612,
+      "source": "src/apps/daemon/internal/runtime/proxy/tc_shaper_stub.go",
+      "target": "labs/daemon/proxy/tc_shaper_stub.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tc_shaper_test.go",
+      "component": "component-tc_shaper",
+      "kind": "test",
+      "sha256": "c92fc8ea30aad1861a6cd73cdfa2f48a7bdab598eb47003d02acfbbc96c1cd49",
+      "size": 756,
+      "source": "src/apps/daemon/internal/runtime/proxy/tc_shaper_test.go",
+      "target": "labs/daemon/proxy/tc_shaper_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tun_device.go",
+      "component": "component-tun_device",
+      "kind": "production",
+      "sha256": "fd8b967a5611a3029ceb02fdd67e6dffee9d94eba2559cc8718d0badc09abafc",
+      "size": 15994,
+      "source": "src/apps/daemon/internal/runtime/proxy/tun_device.go",
+      "target": "labs/daemon/proxy/tun_device.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tun_device_linux.go",
+      "component": "component-tun_device",
+      "kind": "production",
+      "sha256": "1ebe57e019b952c87aa172e55a5655b0761e61d3815606e96064c456697f25c7",
+      "size": 1258,
+      "source": "src/apps/daemon/internal/runtime/proxy/tun_device_linux.go",
+      "target": "labs/daemon/proxy/tun_device_linux.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tun_device_stub.go",
+      "component": "component-tun_device",
+      "kind": "production",
+      "sha256": "095a573b05a741b680462fee8e329c3dcfcdb15bbcedb04e05e0172310854567",
+      "size": 801,
+      "source": "src/apps/daemon/internal/runtime/proxy/tun_device_stub.go",
+      "target": "labs/daemon/proxy/tun_device_stub.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tun_device_windows.go",
+      "component": "component-tun_device",
+      "kind": "production",
+      "sha256": "1b577a200f7550de09386ba1b4369e95bdce4baf38dc4bd7ad91ea78090c4e53",
+      "size": 1457,
+      "source": "src/apps/daemon/internal/runtime/proxy/tun_device_windows.go",
+      "target": "labs/daemon/proxy/tun_device_windows.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tun_packet_filter.go",
+      "component": "component-tun_device",
+      "kind": "production",
+      "sha256": "814271080388de72a0cf1daa780a4a594f8a83c0e901ba7e0daeeda0356c51fe",
+      "size": 1384,
+      "source": "src/apps/daemon/internal/runtime/proxy/tun_packet_filter.go",
+      "target": "labs/daemon/proxy/tun_packet_filter.go"
+    },
+    {
+      "baseline": "server/internal/proxy/tun_packet_filter_test.go",
+      "component": "component-tun_device",
+      "kind": "test",
+      "sha256": "162c875442b8d3bf8a74dca5ad99ef204d24d07d3904cb661ee7b5cd8f051261",
+      "size": 2234,
+      "source": "src/apps/daemon/internal/runtime/proxy/tun_packet_filter_test.go",
+      "target": "labs/daemon/proxy/tun_packet_filter_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/voidtunnel_manager.go",
+      "component": "component-voidtunnel_manager",
+      "kind": "production",
+      "sha256": "dfb2cb4f9e86705ae8bebdac05e3c156bec838fa9a140b84579fea7001a07709",
+      "size": 6624,
+      "source": "src/apps/daemon/internal/runtime/proxy/voidtunnel_manager.go",
+      "target": "labs/daemon/proxy/voidtunnel_manager.go"
+    },
+    {
+      "baseline": "server/internal/proxy/voidtunnel_manager_linux.go",
+      "component": "component-voidtunnel_manager",
+      "kind": "production",
+      "sha256": "cff2eb6208c613e50906c3c278a07b17873f7e0ec8fb3abf9780fbc194bc551a",
+      "size": 317,
+      "source": "src/apps/daemon/internal/runtime/proxy/voidtunnel_manager_linux.go",
+      "target": "labs/daemon/proxy/voidtunnel_manager_linux.go"
+    },
+    {
+      "baseline": "server/internal/proxy/voidtunnel_manager_other.go",
+      "component": "component-voidtunnel_manager",
+      "kind": "production",
+      "sha256": "670eaa7d3441624304109bb62822af9e1a5c41a691cc8f73c4085f8c8cf2dacb",
+      "size": 65,
+      "source": "src/apps/daemon/internal/runtime/proxy/voidtunnel_manager_other.go",
+      "target": "labs/daemon/proxy/voidtunnel_manager_other.go"
+    },
+    {
+      "baseline": "server/internal/proxy/voidtunnel_manager_test.go",
+      "component": "component-voidtunnel_manager",
+      "kind": "test",
+      "sha256": "e6cef1afd78f73bc851bfb176e9d5d34b36beb2f3a3eb928eea9ffcccd653414",
+      "size": 1894,
+      "source": "src/apps/daemon/internal/runtime/proxy/voidtunnel_manager_test.go",
+      "target": "labs/daemon/proxy/voidtunnel_manager_test.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xhttp_relay.go",
+      "component": "component-xhttp_relay",
+      "kind": "production",
+      "sha256": "d630d81c7cd4780004024e060d282ffe0ab81b2274a3759be632d4df8fe3ca7a",
+      "size": 1857,
+      "source": "src/apps/daemon/internal/runtime/proxy/xhttp_relay.go",
+      "target": "labs/daemon/proxy/xhttp_relay.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xhttp_relay_vercel.go",
+      "component": "component-xhttp_relay",
+      "kind": "production",
+      "sha256": "fcb678dbc82179eecd92135fc76ed2584fbb308b20a54621641a0519755c1723",
+      "size": 990,
+      "source": "src/apps/daemon/internal/runtime/proxy/xhttp_relay_vercel.go",
+      "target": "labs/daemon/proxy/xhttp_relay_vercel.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xui_panel_manager.go",
+      "component": "component-xui_panel_manager",
+      "kind": "production",
+      "sha256": "a4cdf991857676b610a675ac757f64d1645f4e50e3773ded89b4c5da3cf06859",
+      "size": 2165,
+      "source": "src/apps/daemon/internal/runtime/proxy/xui_panel_manager.go",
+      "target": "labs/daemon/proxy/xui_panel_manager.go"
+    },
+    {
+      "baseline": "server/internal/proxy/xui_pro.go",
+      "component": "component-xui_panel_manager",
+      "kind": "production",
+      "sha256": "d6463d3ffcfb2a54bb5876283143e49f7eedacc10270a1f621c26bc846e6d459",
+      "size": 759,
+      "source": "src/apps/daemon/internal/runtime/proxy/xui_pro.go",
+      "target": "labs/daemon/proxy/xui_pro.go"
+    }
+  ],
+  "retained_components": [
+    {
+      "files": [
+        "evasion_netlink_linux.go",
+        "evasion_netlink_stub.go"
+      ],
+      "reason": "depends on external netlink/netns packages"
+    },
+    {
+      "files": [
+        "package_exclusions.go",
+        "package_exclusions_jni.go"
+      ],
+      "reason": "native/JNI boundary"
+    },
+    {
+      "files": [
+        "singbox_core_embed.go",
+        "singbox_core_stub.go"
+      ],
+      "reason": "optional embedded sing-box dependency boundary"
+    },
+    {
+      "files": [
+        "xray_core_embed.go",
+        "xray_core_stub.go"
+      ],
+      "reason": "optional embedded Xray dependency boundary"
+    }
+  ],
+  "retired_after_deep_audit": [
+    {
+      "files": [
+        "rules_compile.go",
+        "rules_router.go"
+      ],
+      "reason": "retired by final deep-module audit after exact whole-daemon zero-consumer proof; rules files had no product caller after route/subscription convergence"
+    }
+  ],
+  "schema": 1,
+  "verification": {
+    "darwin_cross_compile": "passed",
+    "guard_falsification": {
+      "live_reintroduction": "rejected",
+      "missing_experiment": "rejected",
+      "missing_retained_component": "rejected"
+    },
+    "linux_tests": "passed",
+    "live_symbol_delta": {
+      "linux_windows_darwin_new_undefined_or_missing_method_errors": 0,
+      "method": "go/types tolerant fake-importer comparison with installed Go 1.23.2; not release toolchain equivalence",
+      "post_error_count": 234,
+      "pre_error_count": 236
+    },
+    "pre_commit": "23e4fc1",
+    "windows_cross_compile": "passed"
+  },
+  "wave": 21
+}

@@ -1,0 +1,5 @@
+donor,path,target,mode
+outline_apps,client/electron/AGENTS.md,README.md,0o777
+outline_apps,client/go/outline/configregistry/AGENTS.md,README.md,0o777
+outline_apps,client/src/cordova/android/AGENTS.md,README.md,0o777
+outline_apps,client/src/cordova/apple/AGENTS.md,README.md,0o777

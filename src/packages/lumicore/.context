@@ -1,0 +1,18 @@
+# src/packages/lumicore
+
+## Purpose
+Rust native-core crate. Cargo is the compile/link authority; host ABI changes require Cargo plus Go ABI verification.
+
+## Contents
+- Direct files (2): `Cargo.lock`, `Cargo.toml`
+- Child folders: `src/`, `tests/`.
+
+## Interfaces and dependencies
+- See direct files and parent context for the interface consumed by sibling/parent modules.
+
+## Invariants
+- Do not advertise or promote dormant native surfaces without the Cargo/ABI/CGO verification gate.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/foundation/config
+
+## Purpose
+Daemon configuration schemas, defaults, templates, and config normalization; configuration knowledge is centralized here rather than duplicated in callers.
+
+## Architectural role
+- Daemon dependency band: `foundation` (rank 0; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (10): `atomic_file.go`, `atomic_file_test.go`, `config.go`, `config_secret_refs_test.go`, `defaults.go`, `quarantine.go`, `quarantine_test.go`, `revision_test.go`, `tpm_lifecycle.go`, `tpm_lifecycle_test.go`
+
+## Interfaces and dependencies
+- Go package: `config`.
+- Notable exported surface: `CaptchaSolverConfig`, `Config`, `DDNSConfig`, `DecoyTrafficConfig`, `DefaultConfig`, `DefaultDBPath`, `DefaultLogLevel`, `DefaultPluginsDir`, `DefaultServerAddr`, `ErrConfigNotFound` …
+- Daemon-local dependencies: `internal/foundation/crypto`, `internal/foundation/secrets`.
+- Direct daemon callers: `cmd`, `internal/adapters/api`, `internal/runtime/proxy`.
+
+## Invariants
+- `foundation` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

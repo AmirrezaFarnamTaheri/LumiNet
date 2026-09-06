@@ -1,0 +1,24 @@
+donor,archive,archive_sha256,members,files,symlinks,uncompressed_bytes,archive_root,validation
+sni-bypass,SNI-ByPass-main.zip,2819abb6c91b45076d98db65bc29552bb09e7a7a5761ff08b935eadbb9e95dba,47,32,0,92883,SNI-ByPass-main,verified-safe+crc+byte-equal
+sni-spoofing-go,SNI-Spoofing-Go-main.zip,eeaf7a4e6a948f7711b1e5746bcebc1975624d717860e8963f07d1c53efa9cbd,131,107,0,606946,SNI-Spoofing-Go-main,verified-safe+crc+byte-equal
+sni-spoofing-python,SNI-Spoofing-main.zip,68e9dba6fac8322ee162d560984e60ffc96be9809b50a9acd8c341ffcee1d80b,13,11,0,66235,SNI-Spoofing-main,verified-safe+crc+byte-equal
+snispf-hj,SNISPF-HJ-main.zip,bda237485368cc038d9145390c029e2b36d1d1bd80807c23fc66d602ceec130b,77,55,0,336653,SNISPF-HJ-main,verified-safe+crc+byte-equal
+mitm-proxy,mitm-proxy-main.zip,f3923382f8f28259d58e066d89d8d718e3ebbfe77b2c6ca2b5ea649eb729eca7,16,14,0,33547,mitm-proxy-main,verified-safe+crc+byte-equal
+mitm-relay,mitm_relay-master.zip,235a9eaeb775e644932794f5e4f3d3ce55c8bc6c147bf9bed14dcae20c5b8d07,7,6,0,36825,mitm_relay-master,verified-safe+crc+byte-equal
+sing-box-rules,sing-box-rules-main.zip,e789d07e2ddb4c4b9e17d682c6f38597783873269b67f89af4489fc7d79de976,20,15,0,49715,sing-box-rules-main,verified-safe+crc+byte-equal
+sing-dns,sing-dns-main.zip,1b2e3a41185ee9fbe341e87dec2251ee1901befb58b431dc362b964ebf4f8f00,34,30,0,69087,sing-dns-main,verified-safe+crc+byte-equal
+sing-mux,sing-mux-main (1).zip,9e2f799ccd55144e24bd0553341a6a5e467d5cf935c78f182e659377b2d2925b,29,26,0,64570,sing-mux-main,verified-safe+crc+byte-equal
+routing-list,v2rayCustomRoutingList-master(3).zip,c8c4409446f4523bec0b1a530efa23eac33c039658aea44366b8894e16a44d94,11,10,0,41407,v2rayCustomRoutingList-master,verified-safe+crc+byte-equal
+v2rayng,v2rayNG-master(3).zip,593b077d904ff6e6b0bb45db5037b23b4ba96684bf010aba8afed9bf5d50ceec,467,383,0,1807607,v2rayNG-master,verified-safe+crc+byte-equal
+v2raya-scoop,v2raya-scoop-main(2).zip,7b949e9a3a7c0882b2edaabcbd3de7cf32f32c312529f03859c36ad645f43964,49,40,0,52273,v2raya-scoop-main,verified-safe+crc+byte-equal
+tun2socket,tun2socket-main(3).zip,ee112086b5c6a6d1b178ed946ec4b013a573e4ea887e7a57bb51bf27100974de,27,24,0,26126,tun2socket-main,verified-safe+crc+byte-equal
+udp-ring-queue,udp-ring-queue-master(3).zip,1efa1cfa84bf93b4412352068437665ba50990ac5b6e5023d65c0cc9c8614701,23,16,0,52453,udp-ring-queue-master,verified-safe+crc+byte-equal
+uptimeflare,UptimeFlare-main(3).zip,cd408b09e04423c68bc158bd1816b2a85ca31b8396aef65961aa12f481f6af39,94,72,0,1648863,UptimeFlare-main,verified-safe+crc+byte-equal
+utls,utls-master(3).zip,4c7ea19bfea01840df8c5fde2dcc1142b9eed9547e5bde524bedc70d9cd5a0aa,331,309,0,2767193,utls-master,verified-safe+crc+byte-equal
+warpscanner-android,WarpScanner-android-GUI-main.zip,fbaf3031035209f686a2ebf9fae7e11fa847f44278d384290fd8214633d71f35,138,104,0,1914714,WarpScanner-android-GUI-main,verified-safe+crc+byte-equal
+wintun,wintun-master.zip,85e4ee9475ca4779479a048e1926ad3b595aa0d5408a096c0714f4f92f85629e,53,48,0,303916,wintun-master,verified-safe+crc+byte-equal
+wireguard-go,wireguard-go-tailscale.zip,c62cdcb782062580709bbf7c2bc73b9184e6c88eb2dbb9664abafe113f1aa656,176,150,0,895071,wireguard-go-tailscale,verified-safe+crc+byte-equal
+wormhole,wormhole-master.zip,ca8733eec6357ec5fb0a5141e597d9d255985211c51e2a83024cb1cd6fd3e86e,60,45,0,197720,wormhole-master,verified-safe+crc+byte-equal
+tt,tt-main(2).zip,80a1a7aaa9cafab185a7a340c0f190117c40f4326cad28c8bcb94256d0fb23ef,5,4,0,41204,tt-main,verified-safe+crc+byte-equal
+tuic-impl,tuic-main(3).zip,5467876df5712a5a5632e4a0e502806abe7018f4b0d979d745255f373d60fb5d,51,38,0,191913,tuic-main,verified-safe+crc+byte-equal
+tuic-spec,tuic-master(3).zip,125ce840c342497db96db2aab35b55a0aeb3dc4037101b34da21718c5e4b34ee,12,9,0,54640,tuic-master,verified-safe+crc+byte-equal

@@ -1,0 +1,26 @@
+# src/apps/daemon/internal/integrations/sub
+
+## Purpose
+Subscription ingestion owner: safe remote fetch, format detection/normalization, profile state, and daemon-owned refresh lifetime.
+
+## Architectural role
+- Daemon dependency band: `integrations` (rank 3; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (42): `aggregate.go`, `aggregate_concurrency_test.go`, `aggregate_test.go`, `candyconnect_presets.go`, `clashconfig.go`, `client_configs_list.go`, `convert.go`, `convert_test.go`, `deeplink.go`, `deeplink_test.go`, `dohot_frp_presets.go`, `egress.go` …
+
+## Interfaces and dependencies
+- Go package: `sub`.
+- Notable exported surface: `AggregateSubscriptions`, `BuildClashYAML`, `CandyConnectPreset`, `CandyConnectPresets`, `CandyConnectProtocol`, `ClashConfig`, `ClientConfigsList`, `ContentParser`, `ConversionIssue`, `ConversionReport` …
+- Daemon-local dependencies: `internal/foundation/netpolicy`, `internal/foundation/redact`, `internal/foundation/resourcebudget`, `internal/integrations/captchaclient`, `internal/networking/geoip`, `internal/networking/proxyconfig`.
+- Direct daemon callers: `cmd`, `internal/adapters/api`.
+
+## Invariants
+- Remote subscription fetch, parsing/normalization, profile state, and refresh lifetime have one owner.
+- Per-node semantics use networking/proxyconfig rather than another parser representation.
+- `integrations` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

@@ -1,0 +1,44 @@
+donor,license_posture,source_reuse_policy
+3xui-telegram-bot-main,MIT,direct adaptation permitted with attribution
+AgentDNS-main,"no explicit LICENSE in archive; README claims MIT, treated as unverified/no-license for source reuse",no direct source reuse; concepts/negative evidence/reference only
+Auto_Tor_IP_changer-master(2),no explicit license; exact-byte duplicate of sixth-order donor archive,no source copying; evidence/reference/independent rederivation only
+BPB-Warp-Scanner-main,"GPL-3.0; selected semantics independently rederived, no source copied",no source copying; evidence/reference/independent rederivation only
+BWLimiter-main,no explicit license; negative/guardrail evidence only,no source copying; evidence/reference/independent rederivation only
+DNS-Persist-master,MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+Go-netowrking-tools-main,no explicit license,no direct source reuse; concepts/negative evidence/reference only
+GodMode-main,MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+GoodbyeDPI-master,Apache-2.0,direct adaptation permitted with attribution
+InterceptSuite-main,no explicit license,no direct source reuse; concepts/negative evidence/reference only
+InviZible-master,GPL-family copyleft; target uses independent target-native semantics only,no direct donor source reuse for eighth-order changes; independent target-native rederivation/evidence only unless pre-existing compatible boundary already exists
+Marzban-master,"AGPL-3.0; selected semantics independently rederived, no source copied",no source copying; evidence/reference/independent rederivation only
+Proxy-client-collection-main,no explicit license; descriptive reference only,no source copying; evidence/reference/independent rederivation only
+Se7en-Pro-1.0.0,MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+Serverless-for-Iran-main,"GPL-3.0; preset concepts only, no source/config copied",no source copying; evidence/reference/independent rederivation only
+Subnet-Divider-main,no explicit license,no direct source reuse; concepts/negative evidence/reference only
+V2RayN-PRO-main(1),GPL-family copyleft plus bundled third-party binaries/notices; target does not copy source/binaries,no direct donor source reuse for eighth-order changes; independent target-native rederivation/evidence only unless pre-existing compatible boundary already exists
+V2ray-for-Doprax-main(1),no explicit root license in archive,no direct source reuse; concepts/negative evidence/reference only
+bia-pain-bache-main,GPL-2.0; evidence/independent comparison only,no source copying; evidence/reference/independent rederivation only
+caddy-master,Apache-2.0,direct adaptation permitted with attribution
+coredns-master,Apache-2.0,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+defyxVPN-main(1),MIT,direct adaptation permitted with attribution
+dns-over-https-proxy-master,Apache-2.0,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+ev-master_(1),no explicit license; evidence only,no source copying; evidence/reference/independent rederivation only
+eve-xui-manager-main,no explicit license; evidence only,no source copying; evidence/reference/independent rederivation only
+firewalla-master,AGPL-3.0; target independently rederives selected semantics,no direct donor source reuse for eighth-order changes; independent target-native rederivation/evidence only unless pre-existing compatible boundary already exists
+ftpscan-master,no explicit license,no direct source reuse; concepts/negative evidence/reference only
+godnsagent-master(1),MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+gologin-main,MIT,direct adaptation permitted with attribution
+incy-platforms-main,no explicit license; descriptive reference only,no source copying; evidence/reference/independent rederivation only
+lossyconn-master,MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+nahan-main(1),no explicit license; new revision evidence only,no source copying; evidence/reference/independent rederivation only
+openssl-cffi-master,Apache-2.0,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+sing-geoip-main,GPL-family copyleft; target does not copy generator source,no direct donor source reuse for eighth-order changes; independent target-native rederivation/evidence only unless pre-existing compatible boundary already exists
+sing-geosite-main,GPL-family copyleft; target does not copy generator source,no direct donor source reuse for eighth-order changes; independent target-native rederivation/evidence only unless pre-existing compatible boundary already exists
+snowbox-master,no explicit license; test-environment reference only,no source copying; evidence/reference/independent rederivation only
+sysproxy-main,MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+torrequest-master,metadata declares MIT,no source copying; evidence/reference/independent rederivation only
+unique-queue-master,no explicit license,no direct source reuse; concepts/negative evidence/reference only
+v2rayng-panel-main(1),no explicit license,no direct source reuse; concepts/negative evidence/reference only
+vps-warp-main(1),MIT,"permissive source eligible for comparison/adaptation, but target-native authority and correctness gates still apply"
+x-ui-pro-master,no explicit license; operational guardrail/reference only,no source copying; evidence/reference/independent rederivation only
+zeus-main(1),no explicit license; selected concepts independently rederived only,no source copying; evidence/reference/independent rederivation only

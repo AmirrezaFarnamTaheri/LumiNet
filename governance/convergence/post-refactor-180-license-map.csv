@@ -1,0 +1,21 @@
+donor,license,direct_source_reuse,note
+IPRadar2ForLinux,MIT,not wholesale,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+SNI-Spoofing-Go,GPL-3.0,no,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+SNI-Spoofing-Pro,GPL-3.0,no,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+Sanaei-3xui-v2ray,GPL-3.0,no,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+Scrapling,BSD-3-Clause,not wholesale,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+Shin-TG-V2ray-Collector,unknown/no root license,no,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+Throne,GPL-3.0,no,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+V2RayDAR,AGPL-3.0,no,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+Vwarp,AGPL-3.0,no,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+WarpScanner,GPL-3.0,no,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+Yacd-meta,MIT (package.json),not wholesale,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+gotk4,MPL-2.0 root; subcomponents vary,not wholesale,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+ipscan,GPL-2.0,no,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+libcrafter,MIT,not wholesale,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+mylg,MIT,not wholesale,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+obfuscated-openssh,BSD-family/OpenSSH composite,not wholesale,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+okhttp,Apache-2.0,not wholesale,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+subconverter,GPL-3.0,no,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+tailscale-rs,BSD-3-Clause,not wholesale,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.
+tsidp,BSD-3-Clause,not wholesale,Restricted/unclear donors are evidence only; implemented semantics are independently target-native and no donor subtree was copied.

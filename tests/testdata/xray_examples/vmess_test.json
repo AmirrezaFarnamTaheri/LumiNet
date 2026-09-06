@@ -1,0 +1,147 @@
+{
+  "description": "VMess proxy test fixture. A complete VMess URI broken out into its JSON constituent fields, matching the v2rayN / v2fly / Xray internal data model.",
+  "version": "2",
+  "protocol": "vmess",
+  "remark": "US-1 via V2Ray.com",
+  "address": "203.0.113.42",
+  "port": 443,
+  "uuid": "11111111-2222-3333-4444-555555555555",
+  "alterId": 0,
+  "security": "auto",
+  "network": "tcp",
+  "serverName": "",
+  "流控": "stream",
+  "tls": {
+    "serverName": "v2ray.example.com",
+    "allowInsecure": false,
+    "alpn": ["h2", "http/1.1"],
+    "fingerprint": "chrome",
+    "publicKey": "",
+    "shortId": "",
+    " spiderX": ""
+  },
+  "transport": {
+    "type": "tcp",
+    "host": "",
+    "path": "",
+    "headers": {}
+  },
+  "mux": {
+    "enabled": true,
+    "concurrency": 8,
+    "xudp": false
+  },
+  "udpOverTcp": false,
+  "subscriptionId": "sub-v2rayn-pro-001",
+  "testResult": {
+    "latency": 142,
+    "lastTested": "2026-08-27T10:30:00Z",
+    "status": "ok"
+  },
+  "uriDecoded": {
+    "originalVmessUri": "vmess://eyJ2IjoiMiIsInBzIjoidXMtMSIsImFkZCI6IjIwMy4wLjExMy40MiIsInBvcnQiOiI0NDMiLCJpZCI6IjExMTExMTExLTIyMjItMzMzMy00NDQ0LTU1NTU1NTU1NTU1NTUiLCJhaWQiOiIwIiwibmV0IjoidGNwIiwidHlwZSI6Im5vbmUiLCJob3N0IjoiIiwiZmluZ2VycHJpbnQiOiJjaHJvbWUiLCJhbHQiOiIiLCJ4bWxzc2wiOiIiLCJ0bHMiOiJ0bHMifQ==",
+    "scheme": "vmess",
+    "base64Payload": "eyJ2IjoiMiIsInBzIjoidXMtMSIsImFkZCI6IjIwMy4wLjExMy40MiIsInBvcnQiOiI0NDMiLCJpZCI6IjExMTExMTExLTIyMjItMzMzMy00NDQ0LTU1NTU1NTU1NTU1NTUiLCJhaWQiOiIwIiwibmV0IjoidGNwIiwidHlwZSI6Im5vbmUiLCJob3N0IjoiIiwiZmluZ2VycHJpbnQiOiJjaHJvbWUiLCJhbHQiOiIiLCJ4bWxzc2wiOiIiLCJ0bHMiOiJ0bHMifQ=="
+  },
+  "uriJson": {
+    "v": "2",
+    "ps": "us-1",
+    "add": "203.0.113.42",
+    "port": "443",
+    "id": "11111111-2222-3333-4444-555555555555",
+    "aid": "0",
+    "net": "tcp",
+    "type": "none",
+    "host": "",
+    "fingerprint": "chrome",
+    "alts": ["h2", "http/1.1"],
+    "tls": "tls"
+  },
+  "websocketTransport": {
+    "v": "2",
+    "ps": "us-ws",
+    "add": "203.0.113.42",
+    "port": "443",
+    "id": "11111111-2222-3333-4444-555555555555",
+    "aid": "0",
+    "net": "ws",
+    "type": "none",
+    "host": "ws.example.com",
+    "path": "/v2/ws",
+    "tls": "tls"
+  },
+  "grpcTransport": {
+    "v": "2",
+    "ps": "us-grpc",
+    "add": "203.0.113.42",
+    "port": "443",
+    "id": "11111111-2222-3333-4444-555555555555",
+    "aid": "0",
+    "net": "grpc",
+    "type": "gun",
+    "host": "grpc.example.com",
+    "path": "LumiNet-service",
+    "tls": "tls"
+  },
+  "http2Transport": {
+    "v": "2",
+    "ps": "us-h2",
+    "add": "203.0.113.42",
+    "port": "443",
+    "id": "11111111-2222-3333-4444-555555555555",
+    "aid": "0",
+    "net": "h2",
+    "type": "none",
+    "host": "h2.example.com",
+    "path": "/",
+    "tls": "tls"
+  },
+  "realityTransport": {
+    "v": "2",
+    "ps": "us-reality",
+    "add": "203.0.113.42",
+    "port": 443,
+    "id": "11111111-2222-3333-4444-555555555555",
+    "aid": "0",
+    "net": "tcp",
+    "type": "none",
+    "host": "",
+    "path": "",
+    "tls": "reality",
+    "fingerprint": "chrome",
+    "sni": "www.microsoft.com",
+    "net": "tcp"
+  },
+  "edgeCases": {
+    "zeroAlterId": {
+      "alterId": 0,
+      "expected": "ok"
+    },
+    "largeAlterId": {
+      "alterId": 65535,
+      "expected": "ok"
+    },
+    "unicodeRemark": {
+      "remark": "东京节点-01",
+      "expected": "ok"
+    },
+    "veryLongUuid": {
+      "uuid": "11111111-2222-3333-4444-555555555555",
+      "expected": "ok"
+    },
+    "portRange": [
+      {"port": 1, "expected": "ok"},
+      {"port": 80, "expected": "ok"},
+      {"port": 443, "expected": "ok"},
+      {"port": 65535, "expected": "ok"}
+    ],
+    "emptyHostHeader": {
+      "host": "",
+      "expected": "ok"
+    },
+    "ipv6Address": {
+      "address": "2001:db8::1",
+      "expected": "ok"
+    }
+  }
+}

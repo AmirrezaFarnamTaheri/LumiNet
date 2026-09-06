@@ -1,0 +1,1450 @@
+{
+  "classification": "deep-module-final-prune",
+  "evidence": "zero cross-file references across all daemon production Go; no init registration; protected native/build-tag seams excluded; dedicated tests removed with their retired subject",
+  "preserved_corpus": [
+    {
+      "bytes": 1691,
+      "reason": "historical-value convergence behavior retained as governed non-product corpus after zero-consumer proof",
+      "sha256": "12ac179383cf80e41bc8303586954e940b5936d6c0a4ff3b6f9e67d96d229546",
+      "source": "src/apps/daemon/internal/networking/routing/domain_dynamic_matcher.go",
+      "target": "labs/daemon/routing-alternates/domain_dynamic_matcher.go"
+    },
+    {
+      "bytes": 968,
+      "reason": "historical-value convergence behavior retained as governed non-product corpus after zero-consumer proof",
+      "sha256": "0debcc82ca12be9086f6e0e9b5f6f43b4cb79e598d38408e8192bf32389b4a33",
+      "source": "src/apps/daemon/internal/networking/routing/domain_dynamic_matcher_test.go",
+      "target": "labs/daemon/routing-alternates/domain_dynamic_matcher_test.go"
+    }
+  ],
+  "retained_stop_conditions": [
+    "src/apps/daemon/internal/native/bridge/streaming.go: cgo + build-tag ABI seam",
+    "src/apps/daemon/internal/runtime/proxy/package_exclusions_jni.go: cgo/JNI entry seam",
+    "src/apps/daemon/internal/platform/system/netns_tunnel.go: platform build-tag seam"
+  ],
+  "retired": [
+    {
+      "bytes": 3388,
+      "path": "src/apps/daemon/api/types/onion_service.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "86d17365923c29dade50d9b9dffcfb3264d569dc4c36cd60311e283e8c141df4"
+    },
+    {
+      "bytes": 934,
+      "path": "src/apps/daemon/cmd/watchdog_process.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no command registration or caller",
+      "sha256": "ad3409b78f14db3159fd0700856bdc61028e9e5a4efe37ef781010694b814e11"
+    },
+    {
+      "bytes": 1109,
+      "path": "src/apps/daemon/deploy/compatibility_test.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "caa065a0fe7119e2551ff14c9d26d34fc0f950b89fb0491bd10253c22f75a644"
+    },
+    {
+      "bytes": 4085,
+      "path": "src/apps/daemon/deploy/home_assistant.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "2d506cf2dffd5359491e42a6a38f18c859cef60e055826274976cb18e5bf9403"
+    },
+    {
+      "bytes": 4117,
+      "path": "src/apps/daemon/deploy/openwrt_luci.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "16efe3bcfe221eee78ee1a867467d6a06368d9382aa1fb87d05c50089f52b7db"
+    },
+    {
+      "bytes": 1745,
+      "path": "src/apps/daemon/internal/adapters/api/auth_session.go",
+      "reason": "final conservative liveness retirement: zero production consumer after exact manual trace; dedicated tests retired with subject where applicable",
+      "sha256": "3c407806524d5d889db882417b9e66b44ce23c4903cfaf0e3f1a03221b1a84d9"
+    },
+    {
+      "bytes": 11248,
+      "path": "src/apps/daemon/internal/adapters/api/authboss_auth.go",
+      "reason": "final conservative liveness retirement: zero production consumer after exact manual trace; dedicated tests retired with subject where applicable",
+      "sha256": "10652992c956d7d01c31c3bb2ee44318b27f1501c59fb39ac6446b37a6068399"
+    },
+    {
+      "bytes": 1916,
+      "path": "src/apps/daemon/internal/adapters/api/authboss_lock.go",
+      "reason": "final conservative liveness retirement: zero production consumer after exact manual trace; dedicated tests retired with subject where applicable",
+      "sha256": "2885af3d92893e3eb8dc2b46735d6211974737f4eb1d37b6b9f491fe011128d3"
+    },
+    {
+      "bytes": 8398,
+      "path": "src/apps/daemon/internal/adapters/api/authgate_core.go",
+      "reason": "final conservative liveness retirement: zero production consumer after exact manual trace; dedicated tests retired with subject where applicable",
+      "sha256": "f3bea7254e8ef67448799897a126c9cdede039b92acb345ae6d4c0326e244d8e"
+    },
+    {
+      "bytes": 3049,
+      "path": "src/apps/daemon/internal/adapters/api/authgate_services.go",
+      "reason": "final conservative liveness retirement: zero production consumer after exact manual trace; dedicated tests retired with subject where applicable",
+      "sha256": "4838f1fd0bcf355a298a1b4519cc01b75cb8c80bb059980c895448d0ecee2ce3"
+    },
+    {
+      "bytes": 5985,
+      "path": "src/apps/daemon/internal/adapters/api/contracts.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "bbeb0afca1715351a60ddbd7b67c7220f52630401bec6688d15db69ddc1be81f"
+    },
+    {
+      "bytes": 2079,
+      "path": "src/apps/daemon/internal/adapters/api/errors_envelope.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "ec190f9f99ab188e265c75ccc0832f0b7d62a193b43c9fe302e10a97f0517248"
+    },
+    {
+      "bytes": 21071,
+      "path": "src/apps/daemon/internal/adapters/api/panel_routes.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "5086844a76efcb14db988d86caf620296785ea0a8f44b8b6f938b12051bf94c5"
+    },
+    {
+      "bytes": 2734,
+      "path": "src/apps/daemon/internal/analysis/diagnostics/mylg_suite.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "42b7d55d4b9b72f323049671d44d5fa6c0aa92009d9017caf0988386ade583bb"
+    },
+    {
+      "bytes": 1546,
+      "path": "src/apps/daemon/internal/analysis/diagnostics/runbook.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "dffddcb3450cde61b1f9c7c27c68983612e36293d4b81a09008fa030e64b16f2"
+    },
+    {
+      "bytes": 1966,
+      "path": "src/apps/daemon/internal/analysis/provider/observation.go",
+      "reason": "final conservative liveness retirement: zero production consumer after exact manual trace; dedicated tests retired with subject where applicable",
+      "sha256": "51e3b3eebf2f727c85ce238f81c00fe66fc42582208733b4b23526513a08de01"
+    },
+    {
+      "bytes": 1587,
+      "path": "src/apps/daemon/internal/analysis/provider/observation_test.go",
+      "reason": "final conservative liveness retirement: zero production consumer after exact manual trace; dedicated tests retired with subject where applicable",
+      "sha256": "07b5acdbdf6aae49bdf3da1de0235f8370b11a2e3f341e9f4ee991f749b0cbb7"
+    },
+    {
+      "bytes": 2114,
+      "path": "src/apps/daemon/internal/analysis/provider/radix.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "03efd78aa57e2cfc8cfc56312da5a98b95a2b89b48ae04c4416899c57feb2aa6"
+    },
+    {
+      "bytes": 3080,
+      "path": "src/apps/daemon/internal/analysis/scanner/bandwidth_agent.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "9d72caa91157d96ac32fa7ff3053b94274ce633e035b78ec2d27b910d9eb76f0"
+    },
+    {
+      "bytes": 456,
+      "path": "src/apps/daemon/internal/analysis/scanner/bandwidth_agent_test.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "b670ae04bd1dc7adc115d6ec0730ff8584b625a7153eec66a8f3ef87d1568895"
+    },
+    {
+      "bytes": 2865,
+      "path": "src/apps/daemon/internal/analysis/scanner/cf_warp_reg.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "5bfb497a894d6c6b19238fb6f62a97057023d520c940aa9791591b5ef87027de"
+    },
+    {
+      "bytes": 3337,
+      "path": "src/apps/daemon/internal/analysis/scanner/cloudflare_detector.go",
+      "reason": "final conservative liveness retirement: zero production consumer after exact manual trace; dedicated tests retired with subject where applicable",
+      "sha256": "7f2d8a32d1f60ae6440094f0e839feb1db43f6155bb70b52f48e3a52f15d7645"
+    },
+    {
+      "bytes": 7670,
+      "path": "src/apps/daemon/internal/analysis/scanner/doh_dot_scanner.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "0ba8deed1b63a9efa438d42cc63c9d022a6d141560c8df77e49f907c0f84f5ae"
+    },
+    {
+      "bytes": 5009,
+      "path": "src/apps/daemon/internal/analysis/scanner/doh_dot_scanner_test.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "4e7e3ecdfd02b500c02b6e344d74739657e585c997cbcb8463dc350fef61ee37"
+    },
+    {
+      "bytes": 534,
+      "path": "src/apps/daemon/internal/analysis/scanner/ftp_scanner.go",
+      "reason": "capability-truth retirement: placeholder implementation only logged porting intent and had zero production/test consumer",
+      "sha256": "cf80d9541e6a8089bbf972048a38422f33c7d26754999efc2b9987ea3b2e690a"
+    },
+    {
+      "bytes": 1762,
+      "path": "src/apps/daemon/internal/analysis/scanner/l7_classifier.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "9837eff93bcee5982180106d0868b38c5bc14b58625b755812e7198c75171eb5"
+    },
+    {
+      "bytes": 9883,
+      "path": "src/apps/daemon/internal/analysis/scanner/masterdnsvpn_domain.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "1b809c93454a304830688e63401da67b773ffc7643671f9477b139d099fb8690"
+    },
+    {
+      "bytes": 1407,
+      "path": "src/apps/daemon/internal/analysis/scanner/masterdnsvpn_errors.go",
+      "reason": "second-order exact zero-consumer retirement after deep-module audit",
+      "sha256": "a4d24d5cc787dcc507b49569b2a142f9bdadfd66bedcd1191dc5cb85c7974932"
+    },
+    {
+      "bytes": 11223,
+      "path": "src/apps/daemon/internal/analysis/scanner/masterdnsvpn_packet.go",
+      "reason": "final exported-interface audit: MasterDnsVPN packet model had zero production/test/non-Go consumer and no registration/native/build-tag seam",
+      "sha256": "69f80adfd89aca01fa05971360d91f35fc2a03b8ecee922f20c33b3603a180be"
+    },
+    {
+      "bytes": 7160,
+      "path": "src/apps/daemon/internal/analysis/scanner/netflow_packet_marshaller.go",
+      "reason": "capability-truth retirement: self-contained simulator with zero production/test consumer",
+      "sha256": "0df29b622eb7d1198ef52337955eecc5eecb46d805e9dc64d05e71f805f22c08"
+    },
+    {
+      "bytes": 3108,
+      "path": "src/apps/daemon/internal/analysis/scanner/netflow_simulator.go",
+      "reason": "capability-truth retirement: self-contained simulator with zero production/test consumer",
+      "sha256": "240258dbb2e630ae0fb807d575d10120bc7ed1932f64fd8a967a1ee4b8c1f235"
+    },
+    {
+      "bytes": 535,
+      "path": "src/apps/daemon/internal/analysis/scanner/netprobe.go",
+      "reason": "capability-truth retirement: placeholder implementation only logged porting intent and had zero production/test consumer",
+      "sha256": "7412d725b1ceeb4004accd8538115cd3095518eb0cee8c0b274abbf41412ff9f"
+    },
+    {
+      "bytes": 1882,
+      "path": "src/apps/daemon/internal/analysis/scanner/netprobe_metrics.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "711026991921613793b74cdd364f01313b9ae9e9e41360dd842ce294e4ddc4c9"
+    },
+    {
+      "bytes": 3923,
+      "path": "src/apps/daemon/internal/analysis/scanner/network_index.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "d17f81ac6461a8fc763ab0e599adb6917011bc3096fbf654b2de897f9546707f"
+    },
+    {
+      "bytes": 1346,
+      "path": "src/apps/daemon/internal/analysis/scanner/network_index_test.go",
+      "reason": "dedicated test for retired zero-consumer implementation",
+      "sha256": "7d0410346adb3a61bde40eefbc0b581c709fb0bc0e84ecd1cca813a2a236ccb4"
+    },
+    {
+      "bytes": 2553,
+      "path": "src/apps/daemon/internal/analysis/scanner/network_sniffer.go",
+      "reason": "capability-truth retirement: zero-consumer network sniffer fabricated packet traces instead of observing traffic",
+      "sha256": "8e4af2dd1f6caade9da1347d419c0ad49a527f8475495546bb8c82866d9946ed"
+    },
+    {
+      "bytes": 4386,
+      "path": "src/apps/daemon/internal/analysis/scanner/origin_probe.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "11fac9e459f9e805a355f931b57fe97df1bcd735c3805917c4fe31d3fe6f012d"
+    },
+    {
+      "bytes": 2285,
+      "path": "src/apps/daemon/internal/analysis/scanner/packet_prober.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "075751fe98ce65cad033602867fb66169521bdda7d20f47d007c587becdc6ebf"
+    },
+    {
+      "bytes": 529,
+      "path": "src/apps/daemon/internal/analysis/scanner/pentest_suite.go",
+      "reason": "capability-truth retirement: placeholder implementation only logged porting intent and had zero production/test consumer",
+      "sha256": "9b222bf259cc2ebfd08adad7b31e315c8ab736c512c1fd897825c591b784f451"
+    },
+    {
+      "bytes": 1423,
+      "path": "src/apps/daemon/internal/analysis/scanner/port_scanner.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "483b562bf6339af94b62cf2a5696da614d7165b0341a6fa0a15fb9215332d89e"
+    },
+    {
+      "bytes": 607,
+      "path": "src/apps/daemon/internal/analysis/scanner/probe_engine.go",
+      "reason": "capability-truth retirement: placeholder implementation only logged porting intent and had zero production/test consumer",
+      "sha256": "e753c743945efd2b862c2e30b061a8c35c28ea540d89ad28bac20357ca63af23"
+    },
+    {
+      "bytes": 8526,
+      "path": "src/apps/daemon/internal/analysis/scanner/proxy_route.go",
+      "reason": "second-order exact zero-consumer retirement after deep-module audit",
+      "sha256": "cf399ccc3ad264b3b8cb12c4c234c86165361dd5ab84820c872063a5540dcab6"
+    },
+    {
+      "bytes": 7139,
+      "path": "src/apps/daemon/internal/analysis/scanner/range_scout.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "d78a28a9902122021da7103d4608ebd956c65130bcbdf1ed95e89798683c4f7d"
+    },
+    {
+      "bytes": 4194,
+      "path": "src/apps/daemon/internal/analysis/scanner/range_scout_test.go",
+      "reason": "dedicated test for retired zero-consumer implementation",
+      "sha256": "7e6e66ac194970e599f1e29e8ca00a1c8c8cb428d62379f8c348e7858690064f"
+    },
+    {
+      "bytes": 30394,
+      "path": "src/apps/daemon/internal/analysis/scanner/scanner_session.go",
+      "reason": "second-order exact zero-consumer retirement after deep-module audit",
+      "sha256": "dba3509037df26678d9dec874dc08e27685e6ab33ee25235a1338f5f74891ff9"
+    },
+    {
+      "bytes": 5586,
+      "path": "src/apps/daemon/internal/analysis/scanner/securityscripts_checker.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "b6403873de0317a5a20a3d9a0813328ee086c51458a4200bac6f49a62d888548"
+    },
+    {
+      "bytes": 2882,
+      "path": "src/apps/daemon/internal/analysis/scanner/sidecar_control.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "67042e6efc06ea481e86e2baa483e1761c3ffb92f31c12ca1314a970bcba3caa"
+    },
+    {
+      "bytes": 1939,
+      "path": "src/apps/daemon/internal/analysis/scanner/sidecar_http_errors.go",
+      "reason": "deep-module prune: scanner-sidecar HTTP surface was retired; stable error helpers had no remaining served/product caller",
+      "sha256": "45c795f9806ead61a0f889fd67e4c11fc18192bf915cba0c915f2adc3b3c36bb"
+    },
+    {
+      "bytes": 749,
+      "path": "src/apps/daemon/internal/analysis/scanner/sidecar_http_errors_test.go",
+      "reason": "test retired with unreachable scanner-sidecar error interface",
+      "sha256": "8371ef2405421dba24e287e64ee912d3fa8b639abcfd0da15359b941b9c16d58"
+    },
+    {
+      "bytes": 11354,
+      "path": "src/apps/daemon/internal/analysis/scanner/sidecar_http_handlers.go",
+      "reason": "deep-module prune: unregistered historical scanner-sidecar HTTP/dashboard handlers removed from active scanner implementation",
+      "sha256": "8f6060dc4802bb3db51d0704166cf59c36a49c5bac581889823be88d5a5d714b"
+    },
+    {
+      "bytes": 1938,
+      "path": "src/apps/daemon/internal/analysis/scanner/subdomain_scanner.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "7693ac903f21196eeccf72917e94ae8aad0c1cf40661a4021ae0443007095ada"
+    },
+    {
+      "bytes": 636,
+      "path": "src/apps/daemon/internal/analysis/scanner/termux_scanner.go",
+      "reason": "capability-truth retirement: placeholder implementation only logged porting intent and had zero production/test consumer",
+      "sha256": "1a6b20cd806c5d8704a74092888c03bbbf5c279b0f4bda4601ae384b75d42583"
+    },
+    {
+      "bytes": 3949,
+      "path": "src/apps/daemon/internal/analysis/scanner/uptime_config.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "51c319f2100db6f47c156f1f5035181b8ffed9ac458078f31d31c5136892673c"
+    },
+    {
+      "bytes": 4061,
+      "path": "src/apps/daemon/internal/analysis/scanner/warp_client.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "3aa437dcbd39aa941944665a19ac49f575873006220c942ebda2bd5380186a4c"
+    },
+    {
+      "bytes": 4466,
+      "path": "src/apps/daemon/internal/analysis/scanner/warp_scanner.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "4e2259ff6518da4c64fd6e11b0b7f72d1a4f5293f442a6b825d65cfab9af3807"
+    },
+    {
+      "bytes": 619,
+      "path": "src/apps/daemon/internal/foundation/config/examples_reference.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "d82b2f0c75ff510d01982c1bc839177870d98c844ed681cb7f472262b2c545ae"
+    },
+    {
+      "bytes": 692,
+      "path": "src/apps/daemon/internal/foundation/config/subscription_converter.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "6be815d37bd41c19a917768e08b901aebb3fb4985747255091cbf0f87e70bfc9"
+    },
+    {
+      "bytes": 667,
+      "path": "src/apps/daemon/internal/foundation/config/telegram_bot_proxy.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "a3dd3e193f26369e02bd0e40ef60de01404f0acebcece629067b2e5073342d15"
+    },
+    {
+      "bytes": 542,
+      "path": "src/apps/daemon/internal/foundation/config/templates.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "66ed5bb9ba1ef71469438ccbe88603f00074794c1a5903954386a19057bb610d"
+    },
+    {
+      "bytes": 590,
+      "path": "src/apps/daemon/internal/foundation/config/v2b_billing.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "2fbd3188e86a8c2e52db461acdb49d30137a2b28b45c73d9111f4f0212341abe"
+    },
+    {
+      "bytes": 9475,
+      "path": "src/apps/daemon/internal/foundation/crypto/blackrock.go",
+      "reason": "final conservative liveness retirement: zero production consumer after exact manual trace; dedicated tests retired with subject where applicable",
+      "sha256": "75dcebc861b626ac718ef3be1771b7eb4e4610fbdc0989a6dfa1cc5971249ea1"
+    },
+    {
+      "bytes": 1038,
+      "path": "src/apps/daemon/internal/foundation/crypto/blackrock_test.go",
+      "reason": "final conservative liveness retirement: zero production consumer after exact manual trace; dedicated tests retired with subject where applicable",
+      "sha256": "a9e764d52c0611ec715ad8cbd00b548455363ce1bd361da81dad9556838b34ed"
+    },
+    {
+      "bytes": 2345,
+      "path": "src/apps/daemon/internal/foundation/crypto/ca.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "30f2930a7c9d12d89d05cc65be294c82e7719dce1b338267c46310ca3205257f"
+    },
+    {
+      "bytes": 979,
+      "path": "src/apps/daemon/internal/foundation/crypto/ca_test.go",
+      "reason": "dedicated test for retired zero-consumer implementation",
+      "sha256": "f8986cb5012de6fbc6c593e3f0fdf657fa9c345fe788ec5e69911c730adaf557"
+    },
+    {
+      "bytes": 5400,
+      "path": "src/apps/daemon/internal/foundation/crypto/cloak_obfs.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "5b09df61be766475f8509ee7c973d0379027442d9538b06308362d74b6e6662a"
+    },
+    {
+      "bytes": 1074,
+      "path": "src/apps/daemon/internal/foundation/crypto/qpp.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "3f8997d65c7ba62188601de14c0c461b0b2df039b745f6761e5f4e586ba7a8b2"
+    },
+    {
+      "bytes": 859,
+      "path": "src/apps/daemon/internal/foundation/crypto/qpp_test.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "c2ec03f22245319d2b05837f04816047b949e0a5e9d3eea809e0cbb2c1e9a7a0"
+    },
+    {
+      "bytes": 5750,
+      "path": "src/apps/daemon/internal/foundation/evidence/repository.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "4d2ed784595dd7f68d1dd9a2ea3d4cf383f2f1ed45412ae3cc145cfce6f73774"
+    },
+    {
+      "bytes": 3001,
+      "path": "src/apps/daemon/internal/foundation/store/cf_r2_uploader.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "944bee88ae7554d8d0748a273956e045460a913cb6df6024014ec9a56ecd51c7"
+    },
+    {
+      "bytes": 212,
+      "path": "src/apps/daemon/internal/integrations/management/android_panel_controller.js",
+      "reason": "second-order zero-consumer package retirement after management facade removal",
+      "sha256": "6912455ee412dcd1f32b94251154585aad321550685a4d143e05e19ef591c687"
+    },
+    {
+      "bytes": 5500,
+      "path": "src/apps/daemon/internal/integrations/management/cloak_manager.go",
+      "reason": "second-order zero-consumer package retirement after management facade removal",
+      "sha256": "e42263cedf904ddeacdca7699daf8dc9eb44d4c46a2b2704ea9a0ac9b4cd9df0"
+    },
+    {
+      "bytes": 6784,
+      "path": "src/apps/daemon/internal/integrations/management/cloudflare_mitigator.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "cd44605a43b4869eb51f016c7b933fc5c98b0cd16181c91b1605a4ff99a8ff15"
+    },
+    {
+      "bytes": 1182,
+      "path": "src/apps/daemon/internal/integrations/management/enterprise.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "fedac8e2330d7296201cff40900c22394ac707e102e2cb5542187b3a34c3beef"
+    },
+    {
+      "bytes": 4592,
+      "path": "src/apps/daemon/internal/integrations/management/fernet.go",
+      "reason": "second-order zero-consumer package retirement after management facade removal",
+      "sha256": "0bc87e468ba1a8dcef560e200a02d2806001b1bbdb0c0ae5cd5e5268a7fcadfb"
+    },
+    {
+      "bytes": 5774,
+      "path": "src/apps/daemon/internal/integrations/management/hiddify_orchestrator.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "0ff052dfc4baeda15d92374790b0fe41604a64d13e2c5f60cb66c4705c4d1ff8"
+    },
+    {
+      "bytes": 2559,
+      "path": "src/apps/daemon/internal/integrations/management/hiddify_orchestrator_test.go",
+      "reason": "dedicated test for retired zero-consumer implementation",
+      "sha256": "9c118890dfbcc6956f80ffc6c472df1f3f14c3b2e6e87fa1c349496daaa7e065"
+    },
+    {
+      "bytes": 21146,
+      "path": "src/apps/daemon/internal/integrations/management/inbound_service.go",
+      "reason": "second-order zero-consumer package retirement after management facade removal",
+      "sha256": "533ae86dba01e09ea801fc81b6884d85cb3851b35f3f2e53a0dc78aad3f693f0"
+    },
+    {
+      "bytes": 634,
+      "path": "src/apps/daemon/internal/integrations/management/metapi_gateway.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "3f0df21c7d39eac7adea173d0fe7a5fd1030d65c2bdb3f7c48c3994c05f459e5"
+    },
+    {
+      "bytes": 13575,
+      "path": "src/apps/daemon/internal/integrations/management/mtproto_panel.go",
+      "reason": "second-order zero-consumer package retirement after management facade removal",
+      "sha256": "4bbe887cf7b3f12024c2585bdb48a4824a50927473724d9e870baa3274d826b1"
+    },
+    {
+      "bytes": 8049,
+      "path": "src/apps/daemon/internal/integrations/management/multipanel_service.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "f241fa1910110207dd9ee7a168c7f9d0250fe3033d41311224efd70f26d9901b"
+    },
+    {
+      "bytes": 4968,
+      "path": "src/apps/daemon/internal/integrations/management/panel_controller.go",
+      "reason": "second-order zero-consumer package retirement after management facade removal",
+      "sha256": "2dee1bd0d1bc8b6ef16f3c6c97221a4e0a8a49a183fbd7d09ac4cfb89c8aca71"
+    },
+    {
+      "bytes": 699,
+      "path": "src/apps/daemon/internal/integrations/management/panel_node_orchestrator.go",
+      "reason": "second-order zero-consumer package retirement after management facade removal",
+      "sha256": "bce754dc273b9c6e84a01ebdd9b7644b96a679c15a698f546d222d9c88054fe2"
+    },
+    {
+      "bytes": 281,
+      "path": "src/apps/daemon/internal/integrations/management/snell_panel.ts",
+      "reason": "second-order zero-consumer package retirement after management facade removal",
+      "sha256": "785340aad0be95205151b1745828a96dc1954569c2533f5feb748260955a6c62"
+    },
+    {
+      "bytes": 659,
+      "path": "src/apps/daemon/internal/integrations/management/ssh_panel_manager.go",
+      "reason": "second-order zero-consumer package retirement after management facade removal",
+      "sha256": "356d693a7717c208a299fb363a2cef7c912bf02fe81eb6d93c03e039d910890d"
+    },
+    {
+      "bytes": 1851,
+      "path": "src/apps/daemon/internal/integrations/management/v2rayng_panel.js",
+      "reason": "second-order zero-consumer package retirement after management facade removal",
+      "sha256": "02f93bf09772e6bb74b5f8ffe41319f47b0a5838fe9313fa130f5e165a4525e3"
+    },
+    {
+      "bytes": 632,
+      "path": "src/apps/daemon/internal/integrations/management/wireguard_mesh.go",
+      "reason": "second-order zero-consumer package retirement after management facade removal",
+      "sha256": "e165c0f512e9d4e3b51e5522806ee90e4019a3069ef0c9f4aa45a79b93bc78da"
+    },
+    {
+      "bytes": 10855,
+      "path": "src/apps/daemon/internal/integrations/provision/terraform_provider.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "9d85e83c0aefd7048768b9e53f0893caf30878ba2d41ad8ef9b4871108d33305"
+    },
+    {
+      "bytes": 12734,
+      "path": "src/apps/daemon/internal/integrations/sub/edge_sub_fetcher.go",
+      "reason": "capability-truth retirement: placeholder implementation only logged porting intent and had zero production/test consumer",
+      "sha256": "1b000424340efdca0cbc54f8d7fb8d2f974e3e5a6dc5c74c4d8801ad54c99ddc"
+    },
+    {
+      "bytes": 12381,
+      "path": "src/apps/daemon/internal/integrations/sub/generator.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "d504c9a71ab05c074e940cd4e4bfc7b533332ccaf09e3a1fecacfd1501207e1a"
+    },
+    {
+      "bytes": 4632,
+      "path": "src/apps/daemon/internal/integrations/sub/geosite_database.go",
+      "reason": "second-order exact zero-consumer retirement after deep-module audit",
+      "sha256": "97e57670ac8d92f2d6c9ecbae4e9c5d214b530bd59f192092f296739c30b0e40"
+    },
+    {
+      "bytes": 6169,
+      "path": "src/apps/daemon/internal/integrations/sub/mullvad_servers.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "cbe6080790b36f10f111b01f83ea72deb18366da70e509f5cca148124bd9d402"
+    },
+    {
+      "bytes": 11950,
+      "path": "src/apps/daemon/internal/integrations/sub/nacl_sub_provider.go",
+      "reason": "capability-truth retirement: placeholder implementation only logged porting intent and had zero production/test consumer",
+      "sha256": "1f54bfb84dc719f4c5bcd9cb0b2b99e12df197502f5e18be087dedd2e0e8db10"
+    },
+    {
+      "bytes": 3062,
+      "path": "src/apps/daemon/internal/integrations/sub/pac_provider.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "f2e833c50cf5b2312850dd50b4e1a0cc5eaa21de2a6c6bd4a340a37406ff951e"
+    },
+    {
+      "bytes": 10318,
+      "path": "src/apps/daemon/internal/integrations/sub/panel_client.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "62695e10810d173b70020737d65f186482b19f8776105fb90fcd383c66b41d92"
+    },
+    {
+      "bytes": 5851,
+      "path": "src/apps/daemon/internal/integrations/sub/panel_client_test.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "d694d51556edab8f4a86d9eb7ef903f2c30187fb0d9cd6bc064637169225e31f"
+    },
+    {
+      "bytes": 2334,
+      "path": "src/apps/daemon/internal/integrations/sub/subconverter_cpp.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "9396b1ba62ff9f104d1cd88fccbe73d418eedaf471972a7c259607f9a97ab5e6"
+    },
+    {
+      "bytes": 1729,
+      "path": "src/apps/daemon/internal/native/bridge/core_test.go",
+      "reason": "test retired with zero-consumer Go PadClientHello convenience wrapper; native ABI remains unchanged",
+      "sha256": "a604472ea6ca9f92e9ca07576d34e04ccffa1d9a1232197e29a3bd9d182c11df"
+    },
+    {
+      "bytes": 2540,
+      "path": "src/apps/daemon/internal/native/bridge/shm.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "344b04a0a6bea6843bd225b620cef48f0e3379bf8908ac532067fdb9ead11ec2"
+    },
+    {
+      "bytes": 946,
+      "path": "src/apps/daemon/internal/native/bridge/shm_test.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "60afec2cc661374566d201238ef541fa8988f1d2bed83c972a8e4cea6a8e6821"
+    },
+    {
+      "bytes": 5523,
+      "path": "src/apps/daemon/internal/networking/dns/acme_issuer.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "0b81e1f55cb3fa93ac7df520e2170647409171173be6598130d919a0f9df26a9"
+    },
+    {
+      "bytes": 2992,
+      "path": "src/apps/daemon/internal/networking/dns/blocklists.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "f03b87d7aa02634dad23e3fe783a70b6ad68e7c1aa65f62ee976bfe4869d0c46"
+    },
+    {
+      "bytes": 3047,
+      "path": "src/apps/daemon/internal/networking/dns/dns_interceptor.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "8440ce667b063a2c70350fc11d90424e399cc994a274b682d74b00e1a691173f"
+    },
+    {
+      "bytes": 580,
+      "path": "src/apps/daemon/internal/networking/dns/dns_resolver.go",
+      "reason": "capability-truth retirement: placeholder implementation only logged porting intent and had zero production/test consumer",
+      "sha256": "45e693c53447aacff3dbfc38ff482de333f729b6a468246a127bde3e051c7cfb"
+    },
+    {
+      "bytes": 18624,
+      "path": "src/apps/daemon/internal/networking/dns/dnssec_validator.go",
+      "reason": "final capability-truth/deep-module review: zero production/test/non-Go consumer and no external/init/build-tag/cgo seam; retired rather than preserved as active source",
+      "sha256": "874d5c25de38a26bb26aa9c69008884840e1ab031a567f8fd20f492227574a38"
+    },
+    {
+      "bytes": 548,
+      "path": "src/apps/daemon/internal/networking/dns/golink_resolver.go",
+      "reason": "capability-truth retirement: placeholder implementation only logged porting intent and had zero production/test consumer",
+      "sha256": "af8755b067723f68bb25a531e452f911379adc8d2ee5543971ed3691726ed590"
+    },
+    {
+      "bytes": 517,
+      "path": "src/apps/daemon/internal/networking/dns/netfoil_proxy.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "1a578c8f1b927aa056567e176e40692e5d55c66b04124fc51b8c04c5082e1f22"
+    },
+    {
+      "bytes": 565,
+      "path": "src/apps/daemon/internal/networking/dns/pcdn_resolver.go",
+      "reason": "capability-truth retirement: placeholder implementation only logged porting intent and had zero production/test consumer",
+      "sha256": "824279ecb858b1864b75a09e351ad723111c273356a0c5dee4d10b198f6b6c2f"
+    },
+    {
+      "bytes": 595,
+      "path": "src/apps/daemon/internal/networking/dns/pihole_sync.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "f13ba07a64c1c9e3c78021c7b699e6ed838d4e04d6ba061a034d1dcb0b67a3f8"
+    },
+    {
+      "bytes": 556,
+      "path": "src/apps/daemon/internal/networking/dns/pingo_dns.go",
+      "reason": "capability-truth retirement: placeholder implementation only logged porting intent and had zero production/test consumer",
+      "sha256": "005e6217f4eda9d3ec935fe311e49ddf66fe4fc02ffe47e7b2360ac56b1a2db9"
+    },
+    {
+      "bytes": 529,
+      "path": "src/apps/daemon/internal/networking/dns/vpn_dns.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "f8fe9d0102f16ba2d1c5fed6f7213a702ec1977a726e65c3c16e063520511425"
+    },
+    {
+      "bytes": 7165,
+      "path": "src/apps/daemon/internal/networking/geoip/govblocklist.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "e11b65fc64871ec2e7ac9899ff549e221d76cb7787b58d15ba93ff27b0b70b60"
+    },
+    {
+      "bytes": 433,
+      "path": "src/apps/daemon/internal/networking/proxyconfig/cdn_fronting.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "f4a9a81c3f13a84dbe74fbfbcf672bc37edd4203234760bc52de7fa2632a94ef"
+    },
+    {
+      "bytes": 6711,
+      "path": "src/apps/daemon/internal/networking/routing/rule_store.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "7eb188ddb1d3763b343e1aa4d9d0f00b199e6fd435ea97d517d5969816f0df64"
+    },
+    {
+      "bytes": 3253,
+      "path": "src/apps/daemon/internal/platform/evasion/clienthello_fragmenter.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "6c4c9772bd4ce689a85da6a6b8661295df1feb137fd4bd7e8520bb3ba15fc010"
+    },
+    {
+      "bytes": 2388,
+      "path": "src/apps/daemon/internal/platform/evasion/cloak_browser_fingerprint.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "1c16e35b42ef23a1ec19ae1d20ef0fb6ece0376505fb27e6a31e0e27a2eca923"
+    },
+    {
+      "bytes": 2050,
+      "path": "src/apps/daemon/internal/platform/evasion/cloak_manager_db.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "25045af157b63fc1f59813216d6051869b911bf8b7215a67a8f38309cf3f0c59"
+    },
+    {
+      "bytes": 5041,
+      "path": "src/apps/daemon/internal/platform/evasion/configs_parser.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "4148a4dd9f60debd73053595553376737395c0341ed49ed2f61219cecfcaa75e"
+    },
+    {
+      "bytes": 2055,
+      "path": "src/apps/daemon/internal/platform/evasion/context_compressor.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "a23cd92144bd240aa0ec8f1c60d4fb33d11e2906ce88086c8ffa963c9dad7652"
+    },
+    {
+      "bytes": 3263,
+      "path": "src/apps/daemon/internal/platform/evasion/dhcp6_hijack.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "a4b3551f69bf0ddc2c564cb93360d50a1ead10dfd74aaae8b39b7f12f1816363"
+    },
+    {
+      "bytes": 1010,
+      "path": "src/apps/daemon/internal/platform/evasion/divert_filter.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "1920e605dd97cc916138b1e040fae127927739298b1fbe32303b94d640927111"
+    },
+    {
+      "bytes": 2347,
+      "path": "src/apps/daemon/internal/platform/evasion/evil_packet.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "e33ddfd5cb217bb9490c6d56eef7518cd8a62da8be71d6b51d2ebbffa2c6f4fc"
+    },
+    {
+      "bytes": 13361,
+      "path": "src/apps/daemon/internal/platform/evasion/icmp_tunnel.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "ed41b018c02526228d7969d0bc12d51578f6e5ea5e300973923950ac5c9b82dc"
+    },
+    {
+      "bytes": 601,
+      "path": "src/apps/daemon/internal/platform/evasion/packet_morpher.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "e5b143e8cdda4a90cb290f8904b19acef611c53a39387405d5e0cd282f3aa19d"
+    },
+    {
+      "bytes": 629,
+      "path": "src/apps/daemon/internal/platform/evasion/sing_box_fork.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "1663a9c16c0f5ba48c051c3c16207a2b0510d6ea7426efdd403aa2b81543d75f"
+    },
+    {
+      "bytes": 3074,
+      "path": "src/apps/daemon/internal/platform/system/android_jni_adapter.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "1e2931266b31146b019310a1564d9b80acf629e55d2a0af2ec130ea1f0aec901"
+    },
+    {
+      "bytes": 2369,
+      "path": "src/apps/daemon/internal/platform/system/android_log_clipboard.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "f1f16bfe66ad7338eb4a57c52f5a7364d23f7bcac1ed2eaa49d17f88b88b5d8b"
+    },
+    {
+      "bytes": 11054,
+      "path": "src/apps/daemon/internal/platform/system/asn_engine.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "b95175bf51a036854418ea321dbbb7e2dd0ec0a66ee29e9be15d1c752fef56e7"
+    },
+    {
+      "bytes": 1463,
+      "path": "src/apps/daemon/internal/platform/system/browser_native_messaging.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "5d6e791e150bea9beb2138ddfae7816067c367d359e45bfc5f27b0167a4d0b14"
+    },
+    {
+      "bytes": 253,
+      "path": "src/apps/daemon/internal/platform/system/build_info.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "d35ab785880b815ca291a97c0a63a3beec26ef34b2823704bbfc57bbfa5e3122"
+    },
+    {
+      "bytes": 609,
+      "path": "src/apps/daemon/internal/platform/system/bw_limiter.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "c4c7af424a9c2048c28790bbb9e399aa768b7144d3a4e5e209284fd84c49db3a"
+    },
+    {
+      "bytes": 1799,
+      "path": "src/apps/daemon/internal/platform/system/cert_generator.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "7a45f1605e3ab09d1b0bf2b4e5dcd32436c6094e3adac0e52efd7b0a98b1720d"
+    },
+    {
+      "bytes": 5175,
+      "path": "src/apps/daemon/internal/platform/system/cert_installer.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "60448b82a7deefb8415330aff14f9271e5ac0307144b13e4dce337665b0d634f"
+    },
+    {
+      "bytes": 352,
+      "path": "src/apps/daemon/internal/platform/system/cloudflare_dns_manager.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "bc378f993d465ce5ab4455389807ecaf79e91e8270d845457e2b4492f1b7f974"
+    },
+    {
+      "bytes": 877,
+      "path": "src/apps/daemon/internal/platform/system/country_detector.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "ce9719493d9b3785db160e74c4aca8ff0f71f590e4864c79fa7c9e3a1626dd6d"
+    },
+    {
+      "bytes": 245,
+      "path": "src/apps/daemon/internal/platform/system/dns_leak_wfp_other.go",
+      "reason": "deep-module prune: standalone WFP DNS-protection interface had zero caller; active TUN DNS protection uses firewall_* owner",
+      "sha256": "83b03c97f3b626711ecac20a38fdc2d788976a45bd5612df11210854a8f05bfb"
+    },
+    {
+      "bytes": 4161,
+      "path": "src/apps/daemon/internal/platform/system/dns_leak_wfp_windows.go",
+      "reason": "deep-module prune: standalone WFP DNS-protection implementation had zero caller; active TUN DNS protection uses firewall_* owner",
+      "sha256": "239f8463286c1040c1cd1c622a3f7d079904b86b07951958f3303a5806e4e245"
+    },
+    {
+      "bytes": 4159,
+      "path": "src/apps/daemon/internal/platform/system/dns_router.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "4f4130f2c8532e4f3ce8aa8e13d7ce4f6057a1740da932d99f08c0662c666ef1"
+    },
+    {
+      "bytes": 1725,
+      "path": "src/apps/daemon/internal/platform/system/dns_tor_vpn_bridge.go",
+      "reason": "final capability-truth/deep-module review: zero production/test/non-Go consumer and no external/init/build-tag/cgo seam; retired rather than preserved as active source",
+      "sha256": "21779a5849504e1a1f8f598fedbe77eabbd93eabb14fa2e2d48dd6c876270925"
+    },
+    {
+      "bytes": 2432,
+      "path": "src/apps/daemon/internal/platform/system/ebpf_redirector.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "ff055502a42b53049b92678e7e56be0222d4ed8b2fd8b6c2b96d113176884a9c"
+    },
+    {
+      "bytes": 2618,
+      "path": "src/apps/daemon/internal/platform/system/envoy.go",
+      "reason": "deep-module prune: zero-consumer Envoy-style event loop/filter/pool implementation",
+      "sha256": "a7b0b9237ef01afc60c703d204d92d3103c15a8af38d99b86107362e1ddeee38"
+    },
+    {
+      "bytes": 1803,
+      "path": "src/apps/daemon/internal/platform/system/exclave_android.go",
+      "reason": "capability-truth retirement: unbound fake gomobile bridge with synthetic stats and no product/non-Go consumer",
+      "sha256": "54cef405ad9438f8f88905f12436e219dc2de71c29cda0d9d17da1b9bd5bf012"
+    },
+    {
+      "bytes": 1693,
+      "path": "src/apps/daemon/internal/platform/system/flow_aggregator.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "b5edd232ed9f7c9b7ad8da92badd890849d37c7dfab46fd4018b4f11e448a69f"
+    },
+    {
+      "bytes": 965,
+      "path": "src/apps/daemon/internal/platform/system/homograph.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "fbc7c51a7aac8dff9c63f86acf6c1a9e369350dd911c59ae7d8c72cb3ea87be1"
+    },
+    {
+      "bytes": 1489,
+      "path": "src/apps/daemon/internal/platform/system/hosts_cidr_helpers.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "b01ea228ee945b7c2e7e9060bb0b94da7c4f43ad6a05d99ba4a77649e209d5db"
+    },
+    {
+      "bytes": 4219,
+      "path": "src/apps/daemon/internal/platform/system/hosts_updater.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "a810eec70db2df8137d299f43c5a13f575caac121a9528705d9c620bdc219969"
+    },
+    {
+      "bytes": 8212,
+      "path": "src/apps/daemon/internal/platform/system/ip_scanner.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "1f492fa6acb450e83ff7ffd33376dce525c0eca4b96fd4bd14c2941ccd3de52d"
+    },
+    {
+      "bytes": 1676,
+      "path": "src/apps/daemon/internal/platform/system/ipc_daemon_client.go",
+      "reason": "deep-module prune: legacy standalone IPC client had zero product/test/non-Go consumers after daemon transport convergence",
+      "sha256": "8fc8f7fb02efd6e4118d75e9a2ebd26c1b26b7d3fe66345156d02cb850c2f51d"
+    },
+    {
+      "bytes": 395,
+      "path": "src/apps/daemon/internal/platform/system/job_object_unix.go",
+      "reason": "deep-module prune: standalone JobObject abstraction had zero production/test consumers; Windows process guard owns its own job lifetime",
+      "sha256": "77bc21fc8228138fe6233246ba847f8a8cd0ca5c66c52132116670ab6283792f"
+    },
+    {
+      "bytes": 2681,
+      "path": "src/apps/daemon/internal/platform/system/job_object_windows.go",
+      "reason": "deep-module prune: standalone JobObject abstraction had zero production/test consumers; Windows process guard owns its own job lifetime",
+      "sha256": "6c0c55655aa0ad013e2be92c19343a66c8be5fa57499f6633cf67a9358ec400b"
+    },
+    {
+      "bytes": 449,
+      "path": "src/apps/daemon/internal/platform/system/keepalive_config.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "fb4450f12d27db6119796d26b5f1cb191fd6b283a2c83b58de02250273d5334e"
+    },
+    {
+      "bytes": 579,
+      "path": "src/apps/daemon/internal/platform/system/log_sanitizer.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "8c3c883053353d4518ca656c99572286eac09920ec3c8075eaa25647df66b422"
+    },
+    {
+      "bytes": 1291,
+      "path": "src/apps/daemon/internal/platform/system/lwip_stack.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "56c5770c9aca69869f290008ec083b03440af1d28e452c69278c718cf4051050"
+    },
+    {
+      "bytes": 2769,
+      "path": "src/apps/daemon/internal/platform/system/mesh_stub.go",
+      "reason": "capability-truth retirement: mock Reticulum mesh seeded synthetic residential peers and was reachable from residential cloaking",
+      "sha256": "64f7e7a2b6dfe6d3377f13989a7879e47ebb6fdfe08ab0781d9f93042e9306c7"
+    },
+    {
+      "bytes": 979,
+      "path": "src/apps/daemon/internal/platform/system/mesh_test.go",
+      "reason": "capability-truth retirement: mock Reticulum mesh seeded synthetic residential peers and was reachable from residential cloaking",
+      "sha256": "ba1f2405d4b716bc6470266379afdc6b68eb5633b8feea7b610d4060e4ad06c3"
+    },
+    {
+      "bytes": 3417,
+      "path": "src/apps/daemon/internal/platform/system/mitm_manual.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "73e4c2b9f26a88c11c78baaa0534034d26b0d71766459a38aceccb9d50dc048f"
+    },
+    {
+      "bytes": 4564,
+      "path": "src/apps/daemon/internal/platform/system/nat/nat_traversal.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "3331fa1bdf7bb121f2acb2edead83dc068c559e68adacc393e67cf7109807fa7"
+    },
+    {
+      "bytes": 1518,
+      "path": "src/apps/daemon/internal/platform/system/nat/nat_traversal_test.go",
+      "reason": "dedicated test for retired zero-consumer implementation",
+      "sha256": "bbb7263ab466c5fc23fa215a8babe406eced0e83cb5a9b7eacbf3b291341fd49"
+    },
+    {
+      "bytes": 3020,
+      "path": "src/apps/daemon/internal/platform/system/netbridge_logs.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "81478cfb9397c033f6d7efa2d1451e9b33b926837e663abb5273db55c29a6925"
+    },
+    {
+      "bytes": 9772,
+      "path": "src/apps/daemon/internal/platform/system/netbridge_model.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "2490fd098f817aaa5d56b166c8ed8c5d9c64fddacd5b9f9c063f26008ce2df87"
+    },
+    {
+      "bytes": 7810,
+      "path": "src/apps/daemon/internal/platform/system/netfoil_dns_helper.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "2ccd548aa0f28d6c4f2295596d3ac2bd458aaed1dc190e10edec90ddf6737053"
+    },
+    {
+      "bytes": 9068,
+      "path": "src/apps/daemon/internal/platform/system/netlink_core.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "a1ab67fadaff253e000b5a6e890d162480b6211c4a5d8aa4ad471e467707dc10"
+    },
+    {
+      "bytes": 7545,
+      "path": "src/apps/daemon/internal/platform/system/netns_linux_handle.go",
+      "reason": "final conservative liveness retirement: zero production consumer after exact manual trace; dedicated tests retired with subject where applicable",
+      "sha256": "44e4572d872313d4dbe8c2d54fc0edcc95c15771462a6907e50f4dac10924b0f"
+    },
+    {
+      "bytes": 528,
+      "path": "src/apps/daemon/internal/platform/system/network_repair_manager.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "4bd2b9579b1020446125eb968e2def7b41bc2b90e4065885ea76d334826f50dc"
+    },
+    {
+      "bytes": 4908,
+      "path": "src/apps/daemon/internal/platform/system/networking_toolbox.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "c9326558cf858bdc702faccd374f4f60c04b0744d5176c4367e72e8a393110fd"
+    },
+    {
+      "bytes": 3581,
+      "path": "src/apps/daemon/internal/platform/system/nfdriver_windows.go",
+      "reason": "final capability-truth/deep-module review: zero production/test/non-Go consumer and no external/init/build-tag/cgo seam; retired rather than preserved as active source",
+      "sha256": "ab64f852ceaa96ed6e9f048cf77e0c121ba630ef31ddbda3aa326bc65350e93a"
+    },
+    {
+      "bytes": 3094,
+      "path": "src/apps/daemon/internal/platform/system/obfuscated_ssh_interceptor.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "6356c96452dac8bc98c3a6a4cea23124bfb70bd867cc308d735b67d11696be4e"
+    },
+    {
+      "bytes": 777,
+      "path": "src/apps/daemon/internal/platform/system/offline_dns_resolver.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "207e0ec2d966a37f287dcffe8e568467d6a02f6fe32b539e96b9e356a16e84d0"
+    },
+    {
+      "bytes": 1007,
+      "path": "src/apps/daemon/internal/platform/system/os_helpers.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "1ae4224a5620655e30adfa5ef268be747e9f996a8193b8f9fa2fe7dd3fd6e837"
+    },
+    {
+      "bytes": 2074,
+      "path": "src/apps/daemon/internal/platform/system/ping_manager.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "ff62303aa4ed2a16699799a406c547e90565ec5a9e8854a31279744b1c8a8574"
+    },
+    {
+      "bytes": 920,
+      "path": "src/apps/daemon/internal/platform/system/ping_manager_test.go",
+      "reason": "dedicated test for retired zero-consumer implementation",
+      "sha256": "d1fd7821728a6013aead255e1f3f8c40a6ddbb8666b835c75856a7217b476262"
+    },
+    {
+      "bytes": 764,
+      "path": "src/apps/daemon/internal/platform/system/port_selector.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "a3ff7f7071e820bcc1f4000eb67daf85f45d75cf42f5cb6b00c397af37930187"
+    },
+    {
+      "bytes": 1304,
+      "path": "src/apps/daemon/internal/platform/system/privilege.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "85b7a1150e8a9b63a779e9b01fa7b77900b683762399c2c03c4b7cdb7d182f26"
+    },
+    {
+      "bytes": 728,
+      "path": "src/apps/daemon/internal/platform/system/privilege_checker.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "e1257e9b8975449b34e7a057e939b0e8fc934b719673d16d53eb7fd324579a61"
+    },
+    {
+      "bytes": 1976,
+      "path": "src/apps/daemon/internal/platform/system/raw_terminal.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "63cc505f4d49b5431c73ab435c0177abb824b7ca62a65c33241d3417f0dbd0ba"
+    },
+    {
+      "bytes": 443,
+      "path": "src/apps/daemon/internal/platform/system/service_unix.go",
+      "reason": "deep-module prune: Windows-service registration interface had zero product/test consumers",
+      "sha256": "e3801108c79b4d29cc67d4a0e6c2b7d038dcc95c324be743fa440dfcb55a11e3"
+    },
+    {
+      "bytes": 1598,
+      "path": "src/apps/daemon/internal/platform/system/service_windows.go",
+      "reason": "deep-module prune: Windows-service registration implementation had zero product/test consumers",
+      "sha256": "d060e98a36a4fd5445a47ea4f6dee86374ddefea1d73b7bf070181309a403180"
+    },
+    {
+      "bytes": 1396,
+      "path": "src/apps/daemon/internal/platform/system/split_tunnel_webdav.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "7ce4977cf6597a5ad1b88c26f493fc284e945821cfa27d48838023d176fe3fd8"
+    },
+    {
+      "bytes": 1357,
+      "path": "src/apps/daemon/internal/platform/system/system_unix.go",
+      "reason": "deep-module prune: fake-IP ICMP DNAT and ipset restore platform helpers had zero product/test consumers",
+      "sha256": "70531a9e0605b76d024574a42f8b59dfeef716147a5363ae47e0f5899d239898"
+    },
+    {
+      "bytes": 471,
+      "path": "src/apps/daemon/internal/platform/system/system_windows_stubs.go",
+      "reason": "deep-module prune: Windows compatibility counterparts existed only for zero-consumer fake-IP/ipset helpers",
+      "sha256": "a57676667e78310e491dcb405309c69666ed20451f5227506fa44ede73a87860"
+    },
+    {
+      "bytes": 1731,
+      "path": "src/apps/daemon/internal/platform/system/tailscale_api.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "4fd76cb6fc73012ed334fb4dc37ff6f5acf78c2946735b4a80d1fe8ebd11bf78"
+    },
+    {
+      "bytes": 567,
+      "path": "src/apps/daemon/internal/platform/system/timezone_spoof_manager.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "a072b26000a6e0f1575639e7408520f2681d9332fd7a08ad5e564f19bb7a61f7"
+    },
+    {
+      "bytes": 8698,
+      "path": "src/apps/daemon/internal/platform/system/tor_diagnostics.go",
+      "reason": "second-order exact zero-consumer retirement after deep-module audit",
+      "sha256": "1ed29d2fb2b827738261f6dc62f4fec8f0436348efbbee4bfb5a28f68cc46c50"
+    },
+    {
+      "bytes": 457,
+      "path": "src/apps/daemon/internal/platform/system/url_normalizer.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "143e4a301288a5932528171540e77b375e815bf05cea8293afe91bb12b183b0c"
+    },
+    {
+      "bytes": 4115,
+      "path": "src/apps/daemon/internal/platform/system/usbip_driver.go",
+      "reason": "deep-module prune: USB/IP implementation had zero product consumer and only self-tests",
+      "sha256": "e3fed38596f565ea35f55ab814142eae1309013afb5e790ea983e1d5bc785c75"
+    },
+    {
+      "bytes": 2237,
+      "path": "src/apps/daemon/internal/platform/system/usbip_driver_test.go",
+      "reason": "test retired with zero-consumer USB/IP implementation",
+      "sha256": "ba08f10872649b9a11b56186b153fdf9c46f7e5b72378cbf94f1f9989baddc8d"
+    },
+    {
+      "bytes": 2179,
+      "path": "src/apps/daemon/internal/platform/system/vm_check.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "c357ced3b93bda31778738be1f1c342dbc0f9ef8c4b3f1cfc70a0177c33d45c1"
+    },
+    {
+      "bytes": 1796,
+      "path": "src/apps/daemon/internal/platform/system/warp_vps.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "c3a4ce074dc2d45c9ab267ee28f510a38b83c4ed459e2cd2c8f12a0b66b4e77d"
+    },
+    {
+      "bytes": 5041,
+      "path": "src/apps/daemon/internal/platform/system/worker_deployer.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "db016a91fb1b19e6dc4ab2d0fa67adbf0338c3ccd16247e31c4ec4ae49adcb57"
+    },
+    {
+      "bytes": 2012,
+      "path": "src/apps/daemon/internal/platform/system/worker_deployer_test.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "c5a91c6f148e895d7d76496520b52832598475c8f8c2bc39bc3a0a70d653c1dc"
+    },
+    {
+      "bytes": 3325,
+      "path": "src/apps/daemon/internal/platform/system/yacd_dashboard.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "ae1e6a4b7392306eed973a898ba46aec181fca3c46790ecd77400277614d79f2"
+    },
+    {
+      "bytes": 5193,
+      "path": "src/apps/daemon/internal/protocols/fptn/client.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "9cee93afafd8111ae85afc125ba68358a7307f81c99e3f1be6bbaa96d4640726"
+    },
+    {
+      "bytes": 1439,
+      "path": "src/apps/daemon/internal/protocols/fptn/protocol.go",
+      "reason": "capability-truth retirement: FPTN simulator removed from active source; compatibility routes fail closed",
+      "sha256": "02eb332a109a3c8264dcfaf630066c5232ee160e21eef4da58e339611b7797fd"
+    },
+    {
+      "bytes": 3382,
+      "path": "src/apps/daemon/internal/protocols/fptn/server.go",
+      "reason": "capability-truth retirement: FPTN simulator removed from active source; compatibility routes fail closed",
+      "sha256": "872e62bddecd0bca92f77be8a38cd8bc6c6cf39be6fd11b1d8b29a007f551f9a"
+    },
+    {
+      "bytes": 4278,
+      "path": "src/apps/daemon/internal/protocols/fptn/server_test.go",
+      "reason": "capability-truth retirement: FPTN simulator removed from active source; compatibility routes fail closed",
+      "sha256": "205057848942885a5d64a5f32b4178095d6539eca4f1cae2a1c4da98deab0cef"
+    },
+    {
+      "bytes": 2645,
+      "path": "src/apps/daemon/internal/runtime/proxy/adaptive_throttle.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "ecbfcfbf4f79c93d6f5893d0bc8529ed5352d38c6077cd9faa8ea95f3793ab31"
+    },
+    {
+      "bytes": 3709,
+      "path": "src/apps/daemon/internal/runtime/proxy/apps_script_front.go",
+      "reason": "deep-module prune: zero production/test consumer after whole-daemon caller trace",
+      "sha256": "0e9c3945723f88fe5ace7395b8d111a2448a58a924959f7fefe36d4b1e5ad79a"
+    },
+    {
+      "bytes": 249,
+      "path": "src/apps/daemon/internal/runtime/proxy/crypto_vault_stub.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "b70b596a23effeaeb2f0e1d2971715df55ccda49d3a433c3e4c23debf846a0cb"
+    },
+    {
+      "bytes": 2108,
+      "path": "src/apps/daemon/internal/runtime/proxy/crypto_vault_windows.go",
+      "reason": "deep-module simplification: Windows OpenSSL fallback could never succeed and only delegated to canonical Go AES-GCM",
+      "sha256": "9f2841131b9027bce9bc6c8fa2179c4334db366fbbd0ad8790eb592939edd053"
+    },
+    {
+      "bytes": 2453,
+      "path": "src/apps/daemon/internal/runtime/proxy/dispatcher.go",
+      "reason": "capability-truth retirement: zero-product-consumer mock protocol dispatcher returned net.Pipe connections as fake protocol success",
+      "sha256": "07a586ccfb290c1178b7a358539a26a9729044d4f38cabb8021e0d968917614d"
+    },
+    {
+      "bytes": 885,
+      "path": "src/apps/daemon/internal/runtime/proxy/dispatcher_test.go",
+      "reason": "test retired with mock-only dispatcher subject",
+      "sha256": "520f1d880f9ce690541206662f492f4e9380941d8d5f619647c282f8dfdcdc4d"
+    },
+    {
+      "bytes": 3771,
+      "path": "src/apps/daemon/internal/runtime/proxy/dns_tunnel.go",
+      "reason": "capability-truth retirement: simulation-only DNS tunnel removed; compatibility mode remains fail-closed in evasion contract/dial",
+      "sha256": "7981d907be7484c3df4287440ee476b963cc68e06e9f55869be233bf43bd1ce4"
+    },
+    {
+      "bytes": 1967,
+      "path": "src/apps/daemon/internal/runtime/proxy/dns_tunnel_test.go",
+      "reason": "test retired with simulation-only DNS tunnel subject",
+      "sha256": "f0b308119bd0ce1d86ab2c80f31315fc7376dbd1dfdc58d9ff37e7c41f9bb030"
+    },
+    {
+      "bytes": 9869,
+      "path": "src/apps/daemon/internal/runtime/proxy/doh_dns_resolver.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "2daa67ff4131a26b7bf9bdfcd9a99883bc6473581b81d49779b02957b891385c"
+    },
+    {
+      "bytes": 7152,
+      "path": "src/apps/daemon/internal/runtime/proxy/ech_tls_tunnel.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "5f0cc1692168fd6ec5e49ceca58677b066832884e70dce41d7621a68fab8c38e"
+    },
+    {
+      "bytes": 15228,
+      "path": "src/apps/daemon/internal/runtime/proxy/homographic_detector.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "0f19beb7d6b09bd517765879b9859378d5b116735943c10e94361e30f986ea7c"
+    },
+    {
+      "bytes": 10268,
+      "path": "src/apps/daemon/internal/runtime/proxy/l7_telemetry.go",
+      "reason": "second-order exact zero-consumer retirement after deep-module audit",
+      "sha256": "d36e247f5904350f0b5336b6ed7e77c237ccd116560d4f7154de54b24da130fd"
+    },
+    {
+      "bytes": 4600,
+      "path": "src/apps/daemon/internal/runtime/proxy/masterdnsvpn_codec.go",
+      "reason": "second-order exact zero-consumer retirement after deep-module audit",
+      "sha256": "de428c820f1d0d65184282e44dc4d4b6fd1120b1f2568b5403125ce69f17260e"
+    },
+    {
+      "bytes": 5939,
+      "path": "src/apps/daemon/internal/runtime/proxy/masterdnsvpn_vpnproto.go",
+      "reason": "second-order exact zero-consumer retirement after deep-module audit",
+      "sha256": "8c96f0e6e79db681b3e97f1be29f311719bca19770a83a74a2b9e6770d48f68d"
+    },
+    {
+      "bytes": 1426,
+      "path": "src/apps/daemon/internal/runtime/proxy/multi_wireguard.go",
+      "reason": "capability-truth retirement: zero-product-consumer router dialed endpoint TCP directly rather than through WireGuard",
+      "sha256": "6ce3164e0e2d28549a684b209e8be76d1cbc8347f8c52a51cf609fe27e1bb333"
+    },
+    {
+      "bytes": 1824,
+      "path": "src/apps/daemon/internal/runtime/proxy/multi_wireguard_test.go",
+      "reason": "test retired with false WireGuard routing subject",
+      "sha256": "f7251ae39e41461676afc60299b1c1e26d44ef767d3945e09002df44a0a29abe"
+    },
+    {
+      "bytes": 3518,
+      "path": "src/apps/daemon/internal/runtime/proxy/namespace_lb.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "84a2e7964f43e12e98ca45b1b959819735a5f5c61b8097455c14af843531dd55"
+    },
+    {
+      "bytes": 2268,
+      "path": "src/apps/daemon/internal/runtime/proxy/path_bonding.go",
+      "reason": "capability-truth retirement: multipath stream implementation was not stream-correct and only backed a compatibility doctor route; route now fails closed",
+      "sha256": "3f0f07fbdf9505a9b21bd22993dbe1e519b9abc52d25be184974d9f668c453fc"
+    },
+    {
+      "bytes": 3335,
+      "path": "src/apps/daemon/internal/runtime/proxy/pool.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "3a42de0760d7166592fa31b53e837d86db60335ec3523f28a88005b6320f3d01"
+    },
+    {
+      "bytes": 14981,
+      "path": "src/apps/daemon/internal/runtime/proxy/purvpn_preset.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "19fdc47557bc9d154df04426d0e2af95c52868f2b023bd12ba25c8c2e4695631"
+    },
+    {
+      "bytes": 4348,
+      "path": "src/apps/daemon/internal/runtime/proxy/reality_scanner.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "3830124a8142b4823ab3edb7aa19b59b886c149c7e8ab24421a79afc0d9aabeb"
+    },
+    {
+      "bytes": 6591,
+      "path": "src/apps/daemon/internal/runtime/proxy/rules_compile.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "cd1bea1ba51336e0c8a6e6ac1afbe324529aafd75f6dcfb5dc80e6d30d50cecc"
+    },
+    {
+      "bytes": 6290,
+      "path": "src/apps/daemon/internal/runtime/proxy/rules_router.go",
+      "reason": "second-order exact zero-consumer retirement after deep-module audit",
+      "sha256": "06b89dbcfb60217ac5daee415df624037f27306996ec78f21410c6d36184ff8f"
+    },
+    {
+      "bytes": 3759,
+      "path": "src/apps/daemon/internal/runtime/proxy/sidecar_server.go",
+      "reason": "deep-module prune: zero production consumer; standalone sidecar server existed only for its own tests",
+      "sha256": "e9f7f5bb640ce53dcbaadeab99d87e80d0b773ae781c1908bf3a0470342c942a"
+    },
+    {
+      "bytes": 3783,
+      "path": "src/apps/daemon/internal/runtime/proxy/sidecar_server_test.go",
+      "reason": "test retired with zero-consumer sidecar runtime subject",
+      "sha256": "40fa41d9cf17d4d56d5a8757ba4c76b7b0e7f5dcf05a7e0a93f8da5b53ee0097"
+    },
+    {
+      "bytes": 4755,
+      "path": "src/apps/daemon/internal/runtime/proxy/simulation_comparison_report.md",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "0191d86bbc1e0b6b02c751bede2160b1d6add943943e9f37ce2760166bc48795"
+    },
+    {
+      "bytes": 16081,
+      "path": "src/apps/daemon/internal/runtime/proxy/simulation_harness_test.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "40fc37892b2da1fa96a62f1064ba3147e370153c220aa0ce314fdf7feba47eed"
+    },
+    {
+      "bytes": 1078,
+      "path": "src/apps/daemon/internal/runtime/proxy/singbox_ruleset_manager.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "0a1ea3f058a4d00ca6d31ba75e898b81786a60ac986868eee4ff553642072d69"
+    },
+    {
+      "bytes": 1731,
+      "path": "src/apps/daemon/internal/runtime/proxy/socks_dialer.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "4232f16cc126695a6cf2d8b57734581f85db069798b32d491f92c21de46bfd7a"
+    },
+    {
+      "bytes": 4107,
+      "path": "src/apps/daemon/internal/runtime/proxy/ss_cipher_compat.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "d8afa7b3490788eed6e48628810f066a80b66fe3599837eebf5332df71b9f4a5"
+    },
+    {
+      "bytes": 1320,
+      "path": "src/apps/daemon/internal/runtime/proxy/state_config_types.go",
+      "reason": "second-order exact zero-consumer retirement after deep-module audit",
+      "sha256": "2b68478ceffba01dc1c03a8ecf2870d1631700bb4562d43a41f45992fd6d420e"
+    },
+    {
+      "bytes": 1957,
+      "path": "src/apps/daemon/internal/runtime/proxy/state_manager.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "ecbb50116ae1e9bb698180ae0b3e0b4f8f2926c01752ec23f7bf3e83b0a823af"
+    },
+    {
+      "bytes": 13753,
+      "path": "src/apps/daemon/internal/runtime/proxy/tailscale_adapter.go",
+      "reason": "capability-truth retirement: embedded Tailscale mock runtime is unsupported and compatibility routes fail closed",
+      "sha256": "b9cc28fdc0529864f303e5a2920d14f13f77e8ef1eb05a83406603bcc0190802"
+    },
+    {
+      "bytes": 2979,
+      "path": "src/apps/daemon/internal/runtime/proxy/tailscale_adapter_test.go",
+      "reason": "capability-truth retirement: embedded Tailscale mock runtime is unsupported and compatibility routes fail closed",
+      "sha256": "2a0088bfc96a183e91dacce6e139aeaee227e57cf0dc4b9eb86f784aa9ce7cde"
+    },
+    {
+      "bytes": 1310,
+      "path": "src/apps/daemon/internal/runtime/proxy/tailscale_preset.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "8efd3b619006d0336e19f38634c2291eceedd587dea7e06c28ff92221ddc40d5"
+    },
+    {
+      "bytes": 13553,
+      "path": "src/apps/daemon/internal/runtime/proxy/tunnel_server.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "fa240de2268ade98ac051242faf2f03e2039e276d79a955896efa2ba4b70a13f"
+    },
+    {
+      "bytes": 92,
+      "path": "src/apps/daemon/internal/runtime/proxy/udpgw.go",
+      "reason": "second-order zero-consumer retirement after deep-module convergence; no product/non-Go consumer or registration seam",
+      "sha256": "4ad75b133c8c534f932a0ce41f5d8b0ad67503a0bce4cd82769e599b16341442"
+    },
+    {
+      "bytes": 880,
+      "path": "src/apps/daemon/internal/runtime/proxy/unimplemented_stubs.go",
+      "reason": "second-order exact zero-consumer retirement after deep-module audit",
+      "sha256": "9fd241c0f1ff01692469b4a1cc4b81588436086f3d43ebacc04b4c7d04d5986d"
+    },
+    {
+      "bytes": 17103,
+      "path": "src/apps/daemon/internal/runtime/proxy/v2rayn_preset.go",
+      "reason": "Deep architecture omission pass: zero production consumer or self-test-only pseudo-capability; retired after deletion-test review.",
+      "sha256": "ca909f3e171d73d9dc20721e965b5b696d577d003af69c6f91df42352303fbc5"
+    },
+    {
+      "bytes": 19182,
+      "path": "src/apps/daemon/internal/runtime/proxy/vworkers.go",
+      "reason": "capability-truth retirement: self-contained simulator with zero production/test consumer",
+      "sha256": "d0e7ac3a9cee8721a05667f2b97a72f4cf34a1831dfd1f01e5c29eac83c90355"
+    },
+    {
+      "bytes": 7570,
+      "path": "src/apps/daemon/internal/runtime/routingplugin/windscribe_adapter.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "52836131ee809ec265b3407106ee320e2c5fad7d25ff0940e46e23b7769f9785"
+    },
+    {
+      "bytes": 16320,
+      "path": "src/apps/daemon/internal/runtime/warp/vwarp_controller.go",
+      "reason": "exact zero-consumer retirement after final deep-module audit",
+      "sha256": "416d873ef15d4e18ff7e5978af7c9e847dfdfc4b75fede72c8ddc22e01c8d3a7"
+    },
+    {
+      "bytes": 5347,
+      "path": "src/apps/daemon/internal/runtime/warp/xray_warp_builder.go",
+      "reason": "zero daemon production consumer after deep-module architecture review",
+      "sha256": "e505643f092fec7c8615322e1f4db49b8863f2de2566039649be3ee1f2c43a1b"
+    }
+  ],
+  "schema": 1
+}

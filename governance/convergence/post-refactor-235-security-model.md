@@ -1,0 +1,3 @@
+# Post-refactor-235 security model
+
+All new surfaces consume caller-supplied metadata and are side-effect-free. Unknown evidence never becomes pass/clean. Sensitive authorization, cookie and API-key header names are omitted from inferred API schema fields. Config fallback skips only explicit unsupported candidates; invalid/error states stop fallback. DNS-only interception planning never creates a base transport session. Tor evidence never controls Tor or selects circuits. DNSCrypt planning never fetches sources or mutates system DNS. Kernel extensions, bundled binaries, media watchers, browser credential stores, mutable remote feeds and donor runtime owners remain rejected/superseded.

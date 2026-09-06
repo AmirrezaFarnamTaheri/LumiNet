@@ -1,0 +1,29 @@
+archive,sha256,role,canonical_donor,duplicate_of,resolution
+Aether-GUI-main(1).zip,e2c174002c5c4cbe698bbf751546ca10f0d962e29861ee016a11b75c25d13df5,donor,Aether-GUI-main(1).zip,n/a,unique donor archive extracted and inventoried
+Aether-main(1).zip,7cdb092bef0540c8fc2dbe6cb70603fcd65ec306b8bcbd20ccf1d8f6aacb8700,donor,Aether-main(1).zip,n/a,unique donor archive extracted and inventoried
+Captcha_hacking-master.zip,620622d30bfa6280c08f025ffc2ee2130c54c2080d715159502d565f1d58406f,donor,Captcha_hacking-master.zip,n/a,unique donor archive extracted and inventoried
+DNS-Persist-master(1).zip,0396f84ecbd482d9e84ca7b9862513fdf5475740dfb7854e4cbebf2adedb0778,donor,DNS-Persist-master(1).zip,n/a,unique donor archive extracted and inventoried
+Deanonymizing-quietly-all-of-Tor-main.zip,44d7b35a2fb0856478e87d41cb1e8fe122700cc58b4184b8ea190b243fe313e8,donor,Deanonymizing-quietly-all-of-Tor-main.zip,n/a,unique donor archive extracted and inventoried
+EDtunnel-main.zip,e961cd3d95fb24a2c63758f1fb8077d476bad9bfd88678bb0e086647a6307c69,donor,EDtunnel-main.zip,n/a,unique donor archive extracted and inventoried
+HackingDetectingSystemOfUnauthorizedLoginDevices-master.zip,a1675b6d1536b604851916a850e2a09128deac2ecbb4bf3f3615e8b0806de16d,donor,HackingDetectingSystemOfUnauthorizedLoginDevices-master.zip,n/a,unique donor archive extracted and inventoried
+Kloak_platform-master(1).zip,5b71d70201a5b467eb63ade6645d23c6f54569105a529cb43fb029191b69075a,donor,Kloak_platform-master(1).zip,n/a,unique donor archive extracted and inventoried
+Kloak_platform-master.zip,5b71d70201a5b467eb63ade6645d23c6f54569105a529cb43fb029191b69075a,donor,Kloak_platform-master(1).zip,Kloak_platform-master(1).zip,exact duplicate upload collapsed to one extracted donor
+LumiNet-convergence-pass-221.tar.gz,24db4253756f32c8a96cdb6783d498dd38bf076ac6bc5ff2a98536f152c96df2,target-baseline-or-prior-artifact,LumiNet,n/a,"target/prior artifact, not donor input"
+LumiNet-convergence-pass.tar.gz,9e5c221f682cb88f08b424c229682cca37af17cbd42a40457ad08c5c0f25c6dc,target-baseline-or-prior-artifact,LumiNet,n/a,"target/prior artifact, not donor input"
+LumiNet-post-refactor-220-converged-working-tree (1).tar.gz,c8b8b2c03e67caefa84514b92fd821ffe30dcb6fe6844dc29ad8285460b841af,target-baseline-or-prior-artifact,LumiNet,n/a,"target/prior artifact, not donor input"
+Marz-main.zip,5f9da88968b1167e4a696e3364d6cda765a527d68e96b036b62e26aa1d530e4a,donor,Marz-main.zip,n/a,unique donor archive extracted and inventoried
+Marzban-node-master.zip,d038b404e4e55bb59916b132c5d793d7ef99a9e01a877b0afce29133d8e69065,donor,Marzban-node-master.zip,n/a,unique donor archive extracted and inventoried
+Nabzram-master.zip,a4f84f73f6a5cb70cb67635d5b0f7e2c8be6872638bd99632c1f5a37655ff258,donor,Nabzram-master.zip,n/a,unique donor archive extracted and inventoried
+TaoConnect-main.zip,bdbab777c2e1a8298873d7df5b597f726e14542693bf8d8a29afc03aed9f2983,donor,TaoConnect-main.zip,n/a,unique donor archive extracted and inventoried
+VpnDad-main.zip,4fbcbca4b76f041e0ed8b81559f14d82aedb7a4eceac9c7d9a9266990981337e,donor,VpnDad-main.zip,n/a,unique donor archive extracted and inventoried
+ZedPass-main(1).zip,e1218a1d83d582221c82cbe55e4a6df662a867f7592d845e1eb9c72d8dc8d39c,donor,ZedPass-main(1).zip,n/a,unique donor archive extracted and inventoried
+bittorrent-nodeid-master.zip,ddd01fb310cdbd85505838a263f4d6183daafccb5093b07a75e65d082214da05,donor,bittorrent-nodeid-master.zip,n/a,unique donor archive extracted and inventoried
+cdin-main.zip,0260385738301b53ff9d513354b373ea29b23e4ae10b5d8254c4c5312634e8e1,donor,cdin-main.zip,n/a,unique donor archive extracted and inventoried
+coredns-master(1).zip,99a1da842b6a5144590f526e7fe65835077255bc17c2f413aaefddc9c3d030f9,donor,coredns-master(1).zip,n/a,unique donor archive extracted and inventoried
+defyxVPN-main.zip,064e083e1333124f1c94a2c2b30ca83d27ba9cc0350aa46b2b7e3b75d2e604ae,donor,defyxVPN-main.zip,n/a,unique donor archive extracted and inventoried
+dns-over-https-proxy-master(1).zip,2aa075051e81ed0daae1d3bb3db666e16a9b4e4358f5b16043caed40bcfee84f,donor,dns-over-https-proxy-master(1).zip,n/a,unique donor archive extracted and inventoried
+goida-vpn-configs-main.zip,e3f4d0fc05d6adc0121decfa73af6605d1567a355683a5fabeef22e97d88902d,donor,goida-vpn-configs-main.zip,n/a,unique donor archive extracted and inventoried
+mission-improbable-master.zip,5b46ca1f1473c6b47994c87a6e833db71c50af16e9282ecf3bd513029919d63d,donor,mission-improbable-master.zip,n/a,unique donor archive extracted and inventoried
+stealthspanner-master(1).zip,23d03626b554c256a5de6ceafa9b7d189df01509d7977db3999eec310c8efcc9,donor,stealthspanner-master(1).zip,n/a,unique donor archive extracted and inventoried
+stealthspanner-master.zip,23d03626b554c256a5de6ceafa9b7d189df01509d7977db3999eec310c8efcc9,donor,stealthspanner-master(1).zip,stealthspanner-master(1).zip,exact duplicate upload collapsed to one extracted donor
+torrent-live-master(1).zip,7061135e69d856c27f5244328426cc648874376fb8117441744cd599bf791f4e,donor,torrent-live-master(1).zip,n/a,unique donor archive extracted and inventoried

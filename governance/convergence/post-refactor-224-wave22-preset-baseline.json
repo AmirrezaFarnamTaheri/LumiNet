@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "release": "post-refactor-224",
+  "historical_wave": 22,
+  "owner": "src/apps/daemon/internal/integrations/presets/presets.go",
+  "pre_224_sha256": "16d6e88f7f07ef34e5120348f240da5e5fe2ee3e98f15faa131ca9d4e313ed35",
+  "wave22_normalized_sha256": "7d4e795f3de72365ae5dcc3b4f3561a4bb4ccfecc6d0fac927ce2f8a59c5600b",
+  "wave22_normalized_size": 39267,
+  "reason": "Post-refactor-224 intentionally extends the canonical DoH preset catalog; Wave 22 ownership is validated against the exact frozen pre-224 successor baseline."
+}

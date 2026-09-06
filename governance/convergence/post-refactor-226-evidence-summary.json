@@ -1,0 +1,16 @@
+{
+  "archive_members": 1557,
+  "directories_excluding_roots": 244,
+  "directory_merkle_records": 258,
+  "donors": 14,
+  "files": 1299,
+  "focused_file_records": 745,
+  "focused_module_records": 134,
+  "high_signal_surfaces": 745,
+  "high_signal_without_focused_record": 0,
+  "rich_cpp_symbols": 159,
+  "semantic_records": 893,
+  "surfaces": 1299,
+  "symbols": 15975,
+  "symlinks": 0
+}

@@ -1,0 +1,52 @@
+{
+  "classification": "active-diagnostic-ownership",
+  "convergence_retained_native_boundaries": [
+    "src/apps/daemon/internal/runtime/proxy/package_exclusions.go",
+    "src/apps/daemon/internal/runtime/proxy/package_exclusions_jni.go",
+    "src/apps/daemon/internal/runtime/proxy/hysteria_binding.go"
+  ],
+  "convergence_reviewed": [
+    "apps/daemon/internal/proxy/provider_corpus.go",
+    "apps/daemon/internal/proxy/geosite_routing_matcher.go"
+  ],
+  "convergence_status": "reviewed",
+  "direct_callers": [
+    "src/apps/daemon/internal/runtime/proxy/adaptive_dialer.go",
+    "src/apps/daemon/internal/analysis/diagnostics/sni_matrix.go",
+    "src/apps/daemon/internal/adapters/api/handlers_diagnostic_doctor.go"
+  ],
+  "guard_falsification": {
+    "adaptive_dialer_fallback_to_facade": "rejected",
+    "full_tls_implementation_resurrection": "rejected",
+    "retained_native_or_transitional_loss": "rejected"
+  },
+  "invariant": "TLS fragmentation and censorship diagnosis have canonical owners; byte-equivalent moves retain baseline-byte validation, while reviewed deepened owners are validated through live dependency and behavior gates.",
+  "post_snapshot": {
+    "facade_matches_pre": true,
+    "sha256": "838e9176fc5e279c298dbc5d4bf067c4e51b4b199df5a715791f63020ca2197a"
+  },
+  "pre_snapshot": {
+    "sha256": "838e9176fc5e279c298dbc5d4bf067c4e51b4b199df5a715791f63020ca2197a"
+  },
+  "schema": 1,
+  "sources": [
+    {
+      "baseline": "server/internal/proxy/utls_fragment.go",
+      "owner": "src/apps/daemon/internal/protocols/tlsfragment/utls_fragment.go",
+      "package": "tlsfragment",
+      "provenance": "git-baseline-d73453f:server/internal/proxy/utls_fragment.go",
+      "sha256": "80473601f5dbf33522fe439105032ee54eb6df4f4e2e415a36ed881954d76636",
+      "size": 4628
+    },
+    {
+      "baseline": "server/internal/proxy/censorship_doctor.go",
+      "owner": "src/apps/daemon/internal/analysis/diagnostics/censorship_diagnosis.go",
+      "owner_validation": "reviewed-transform",
+      "package": "diagnostics",
+      "provenance": "git-baseline-d73453f:server/internal/proxy/censorship_doctor.go",
+      "sha256": "ec510530777b14a25f061fc822c39da075f255d72456e187d4b7742257a4f384",
+      "size": 3093
+    }
+  ],
+  "wave": 24
+}

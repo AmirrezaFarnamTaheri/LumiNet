@@ -1,0 +1,18 @@
+# src/packages/contracts
+
+## Purpose
+Small dependency-neutral Go contracts shared by daemon and desktop hosts.
+
+## Contents
+- Direct files (1): `go.mod`
+- Child folders: `buildinfo/`, `session/`.
+
+## Interfaces and dependencies
+- See direct files and parent context for the interface consumed by sibling/parent modules.
+
+## Invariants
+- Keep behavior local to the named module; move cross-cutting policy to its canonical owner instead of duplicating it here.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

@@ -1,0 +1,18 @@
+# src/apps/android
+
+## Purpose
+Android application build root and Gradle configuration for the generated Go mobile binding.
+
+## Contents
+- Direct files (4): `README.md`, `build.gradle.kts`, `gradle.properties`, `settings.gradle.kts`
+- Child folders: `app/`.
+
+## Interfaces and dependencies
+- Android/Gradle source or build metadata; runtime calls enter the generated Go mobile binding rather than a second native runtime.
+
+## Invariants
+- Android lifecycle authority remains VpnEngineService → generated Go mobile binding → canonical daemon/system owners.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

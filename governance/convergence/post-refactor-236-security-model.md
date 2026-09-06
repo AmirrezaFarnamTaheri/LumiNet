@@ -1,0 +1,3 @@
+# Post-refactor-236 security model
+
+All new planner APIs are deterministic transforms over caller-supplied evidence. Negative donor mechanisms are explicit guardrails: NJUConnect certificate-verification bypass/TLS1.1/RC4 is rejected; INCY shared-key crypt1 remains obfuscation rather than a trust root; FPTN list-order server selection is rejected as quality authority; Proxychains LD_PRELOAD interception is not imported; donor Tor/DNS/VPN/server runtimes remain superseded. Existing ECS is never overwritten, random proxy-chain mode requires an explicit deterministic seed, REALITY short IDs are bounded hexadecimal prefixes, undeclared secret lookup fails closed, stale secret cache remains visible, and unknown/degraded child evidence can only degrade aggregate trust.

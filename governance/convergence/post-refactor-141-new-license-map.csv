@@ -1,0 +1,5 @@
+wave,donor,license_posture,source_reuse_policy
+post-refactor-4d,ZedSecure-main,GPL-3.0 with additional terms; bundled components separately licensed,no direct source reuse; independently rederive concepts/tests only
+post-refactor-4d,geospoof-main,MIT,direct adaptation legally possible with attribution; this release uses reference/negative evidence only
+post-refactor-4d,i2p.i2p-master,mixed: public-domain core plus BSD/LGPL/GPL/Apache/other component licenses,no broad direct source reuse; per-file provenance required; concepts/tests/reference only in this release
+post-refactor-4d,metapi-main,MIT,direct adaptation legally possible with attribution; live target hardening is independently rederived

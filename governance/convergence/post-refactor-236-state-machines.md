@@ -1,0 +1,3 @@
+# Post-refactor-236 state machines
+
+Tor lab evidence distinguishes running from fully bootstrapped and applies explicit allowed-failure/consensus thresholds. Proxy chains distinguish strict, dynamic, deterministic-random and round-robin failure semantics. Replay evidence distinguishes fresh, replayed, stale and capacity-exceeded observations. Secret refresh distinguishes blocked-undeclared, fresh, update-available and stale cache states with bounded jittered polling. Service recovery orders backup/stage/validate/apply/health and moves unhealthy post-change state to rollback-required when recovery is available. Existing automatic configuration mutation retry remains single-owned by foundation/config.Manager.Mutate and is not duplicated.

@@ -1,0 +1,24 @@
+# src/apps/daemon/internal/foundation/updateadmission
+
+## Purpose
+Daemon updateadmission implementation module.
+
+## Architectural role
+- Daemon dependency band: `foundation` (rank 0; lower rank = deeper implementation).
+- Cross-band imports may point only to a lower rank. Same-band imports are allowed when they remain within one architectural layer.
+
+## Contents
+- Direct files (11): `discover.go`, `discover_test.go`, `post_refactor_229_test.go`, `replace_stage_file_unix.go`, `replace_stage_file_windows.go`, `stage.go`, `stage_test.go`, `sync_stage_dir_unix.go`, `sync_stage_dir_windows.go`, `updateadmission.go`, `updateadmission_test.go`
+
+## Interfaces and dependencies
+- Go package: `updateadmission`.
+- Notable exported surface: `Discover`, `Envelope`, `Manifest`, `NewVerifier`, `Plan`, `Stage`, `StageResult`, `Verifier`.
+- Daemon-local dependencies: none.
+- Direct daemon callers: `internal/adapters/api`.
+
+## Invariants
+- `foundation` code must not import a higher-rank daemon band.
+
+## Navigation
+- Read this file first, then direct child `.context` files before editing a deeper folder.
+- Update this context when ownership, supported interfaces, or child-folder meaning changes; do not use it as a changelog.

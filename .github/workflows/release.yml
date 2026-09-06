@@ -1,0 +1,583 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+env:
+  GO_VERSION: '1.26.5'
+
+jobs:
+  verify-release:
+    name: Verify Release Admission
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@4360b52568e2003a75bf9bc1d59f33a8e3fc893c # pinned action
+        with:
+          toolchain: 1.97.1
+          components: clippy, rustfmt
+
+      - name: Setup Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '22.16.0'
+          cache: npm
+          cache-dependency-path: src/packages/control-ui/package-lock.json
+
+      - name: Install pinned dependency-audit tools
+        run: |
+          go install golang.org/x/vuln/cmd/govulncheck@v1.6.0
+          cargo install cargo-audit --version 0.22.2 --locked
+
+      - name: Resolve preservation base
+        shell: bash
+        run: |
+          previous_tag="$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || true)"
+          if [ -n "$previous_tag" ]; then
+            base_sha="$(git rev-list -n 1 "$previous_tag")"
+          else
+            base_sha="$(git hash-object -t tree -w --stdin </dev/null)"
+          fi
+          if [[ ! "$base_sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Invalid preservation base SHA: $base_sha" >&2
+            exit 1
+          fi
+          echo "PRESERVATION_BASE_SHA=$base_sha" >> "$GITHUB_ENV"
+
+      - name: Verify release admission
+        run: make verify-release
+
+      - name: Upload verified control UI bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: luminet-control-ui
+          path: src/packages/control-ui/dist
+
+  # ---------------------------------------------------------------------------
+  # Linux amd64
+  # ---------------------------------------------------------------------------
+  build-linux:
+    name: Build (Linux amd64)
+    needs: verify-release
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Clear bootstrap control UI
+        shell: bash
+        run: rm -rf src/packages/control-ui/dist && mkdir -p src/packages/control-ui/dist
+
+      - name: Download canonical control UI
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: luminet-control-ui
+          path: src/packages/control-ui/dist
+
+      - name: Prepare build directory
+        shell: bash
+        run: mkdir -p build
+
+      - name: Setup Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@4360b52568e2003a75bf9bc1d59f33a8e3fc893c # pinned action
+        with:
+          toolchain: 1.97.1
+
+      - name: Build Rust core
+        run: cargo build --release --locked --manifest-path src/packages/lumicore/Cargo.toml
+
+      - name: Resolve LumiCore static link flags
+        shell: bash
+        run: echo "CGO_LDFLAGS=$(python3 scripts/checks/lumicore_link.py --profile release)" >> "$GITHUB_ENV"
+
+      - name: Build luminet
+        env:
+          CGO_ENABLED: '1'
+        run: |
+          VERSION="$GITHUB_REF_NAME"
+          COMMIT="$GITHUB_SHA"
+          BUILD_DATE="$(git show -s --format=%cI "$GITHUB_SHA")"
+          LDFLAGS="-s -w -X github.com/maybeknott/luminet/contracts/buildinfo.Version=$VERSION -X github.com/maybeknott/luminet/contracts/buildinfo.Commit=$COMMIT -X github.com/maybeknott/luminet/contracts/buildinfo.BuildDate=$BUILD_DATE"
+          cd src/apps/daemon
+          CGO_ENABLED=1 go build -trimpath -ldflags "$LDFLAGS" -o ../../../build/luminet .
+
+      - name: Build watchdog
+        run: |
+          VERSION="$GITHUB_REF_NAME"
+          COMMIT="$GITHUB_SHA"
+          BUILD_DATE="$(git show -s --format=%cI "$GITHUB_SHA")"
+          LDFLAGS="-s -w -X github.com/maybeknott/luminet/contracts/buildinfo.Version=$VERSION -X github.com/maybeknott/luminet/contracts/buildinfo.Commit=$COMMIT -X github.com/maybeknott/luminet/contracts/buildinfo.BuildDate=$BUILD_DATE"
+          cd src/apps/daemon
+          CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o ../../../build/watchdog ./cmd/watchdog
+
+      - name: Build desktop
+        run: |
+          cd src/apps/desktop
+          go build -trimpath -o ../../../build/luminet-desktop .
+
+      - name: Package artifact
+        run: tar -czf luminet-linux-amd64.tar.gz -C build luminet watchdog luminet-desktop
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: luminet-linux-amd64
+          path: luminet-linux-amd64.tar.gz
+
+  # ---------------------------------------------------------------------------
+  # Windows amd64
+  # ---------------------------------------------------------------------------
+  build-windows:
+    name: Build (Windows amd64)
+    needs: verify-release
+    runs-on: windows-2025
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Clear bootstrap control UI
+        shell: bash
+        run: rm -rf src/packages/control-ui/dist && mkdir -p src/packages/control-ui/dist
+
+      - name: Download canonical control UI
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: luminet-control-ui
+          path: src/packages/control-ui/dist
+
+      - name: Prepare build directory
+        shell: bash
+        run: mkdir -p build
+
+      - name: Setup Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@4360b52568e2003a75bf9bc1d59f33a8e3fc893c # pinned action
+        with:
+          toolchain: 1.97.1
+
+      - name: Build Rust core
+        shell: bash
+        run: |
+          rustup target add x86_64-pc-windows-gnu
+          cargo build --release --locked --target x86_64-pc-windows-gnu --manifest-path src/packages/lumicore/Cargo.toml
+
+      - name: Resolve LumiCore static link flags
+        shell: bash
+        run: echo "CGO_LDFLAGS=$(python scripts/checks/lumicore_link.py --profile release --target x86_64-pc-windows-gnu)" >> "$GITHUB_ENV"
+
+      - name: Vet and test Windows daemon
+        shell: bash
+        env:
+          CGO_ENABLED: '1'
+        run: |
+          cd src/apps/daemon
+          go vet ./...
+          go test ./... -count=1
+
+      - name: Build luminet
+        shell: bash
+        env:
+          CGO_ENABLED: '1'
+        run: |
+          VERSION="$GITHUB_REF_NAME"
+          COMMIT="$GITHUB_SHA"
+          BUILD_DATE="$(git show -s --format=%cI "$GITHUB_SHA")"
+          LDFLAGS="-s -w -X github.com/maybeknott/luminet/contracts/buildinfo.Version=$VERSION -X github.com/maybeknott/luminet/contracts/buildinfo.Commit=$COMMIT -X github.com/maybeknott/luminet/contracts/buildinfo.BuildDate=$BUILD_DATE"
+          cd src/apps/daemon
+          CGO_ENABLED=1 go build -trimpath -ldflags "$LDFLAGS" -o ../../../build/luminet.exe .
+
+      - name: Build watchdog
+        shell: bash
+        run: |
+          VERSION="$GITHUB_REF_NAME"
+          COMMIT="$GITHUB_SHA"
+          BUILD_DATE="$(git show -s --format=%cI "$GITHUB_SHA")"
+          LDFLAGS="-s -w -X github.com/maybeknott/luminet/contracts/buildinfo.Version=$VERSION -X github.com/maybeknott/luminet/contracts/buildinfo.Commit=$COMMIT -X github.com/maybeknott/luminet/contracts/buildinfo.BuildDate=$BUILD_DATE"
+          cd src/apps/daemon
+          CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o ../../../build/watchdog.exe ./cmd/watchdog
+
+      - name: Build desktop
+        shell: bash
+        run: |
+          cd src/apps/desktop
+          go build -trimpath -o ../../../build/luminet-desktop.exe .
+
+      - name: Package artifact
+        shell: pwsh
+        run: Compress-Archive -Path build\luminet.exe, build\watchdog.exe, build\luminet-desktop.exe -DestinationPath luminet-windows-amd64.zip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: luminet-windows-amd64
+          path: luminet-windows-amd64.zip
+
+  # ---------------------------------------------------------------------------
+  # macOS amd64 (Intel)
+  # ---------------------------------------------------------------------------
+  build-macos-amd64:
+    name: Build (macOS amd64)
+    needs: verify-release
+    runs-on: macos-15-intel
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Clear bootstrap control UI
+        shell: bash
+        run: rm -rf src/packages/control-ui/dist && mkdir -p src/packages/control-ui/dist
+
+      - name: Download canonical control UI
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: luminet-control-ui
+          path: src/packages/control-ui/dist
+
+      - name: Prepare build directory
+        shell: bash
+        run: mkdir -p build
+
+      - name: Setup Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@4360b52568e2003a75bf9bc1d59f33a8e3fc893c # pinned action
+        with:
+          toolchain: 1.97.1
+
+      - name: Build Rust core
+        run: cargo build --release --locked --manifest-path src/packages/lumicore/Cargo.toml
+
+      - name: Resolve LumiCore static link flags
+        shell: bash
+        run: echo "CGO_LDFLAGS=$(python3 scripts/checks/lumicore_link.py --profile release)" >> "$GITHUB_ENV"
+
+      - name: Build luminet
+        env:
+          CGO_ENABLED: '1'
+        run: |
+          VERSION="$GITHUB_REF_NAME"
+          COMMIT="$GITHUB_SHA"
+          BUILD_DATE="$(git show -s --format=%cI "$GITHUB_SHA")"
+          LDFLAGS="-s -w -X github.com/maybeknott/luminet/contracts/buildinfo.Version=$VERSION -X github.com/maybeknott/luminet/contracts/buildinfo.Commit=$COMMIT -X github.com/maybeknott/luminet/contracts/buildinfo.BuildDate=$BUILD_DATE"
+          cd src/apps/daemon
+          CGO_ENABLED=1 go build -trimpath -ldflags "$LDFLAGS" -o ../../../build/luminet .
+
+      - name: Build watchdog
+        run: |
+          VERSION="$GITHUB_REF_NAME"
+          COMMIT="$GITHUB_SHA"
+          BUILD_DATE="$(git show -s --format=%cI "$GITHUB_SHA")"
+          LDFLAGS="-s -w -X github.com/maybeknott/luminet/contracts/buildinfo.Version=$VERSION -X github.com/maybeknott/luminet/contracts/buildinfo.Commit=$COMMIT -X github.com/maybeknott/luminet/contracts/buildinfo.BuildDate=$BUILD_DATE"
+          cd src/apps/daemon
+          CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o ../../../build/watchdog ./cmd/watchdog
+
+      - name: Build desktop
+        run: |
+          cd src/apps/desktop
+          go build -trimpath -o ../../../build/luminet-desktop .
+
+      - name: Package artifact
+        run: tar -czf luminet-darwin-amd64.tar.gz -C build luminet watchdog luminet-desktop
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: luminet-darwin-amd64
+          path: luminet-darwin-amd64.tar.gz
+
+  # ---------------------------------------------------------------------------
+  # macOS arm64 (Apple Silicon)
+  # ---------------------------------------------------------------------------
+  build-macos-arm64:
+    name: Build (macOS arm64)
+    needs: verify-release
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Clear bootstrap control UI
+        shell: bash
+        run: rm -rf src/packages/control-ui/dist && mkdir -p src/packages/control-ui/dist
+
+      - name: Download canonical control UI
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: luminet-control-ui
+          path: src/packages/control-ui/dist
+
+      - name: Prepare build directory
+        shell: bash
+        run: mkdir -p build
+
+      - name: Setup Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@4360b52568e2003a75bf9bc1d59f33a8e3fc893c # pinned action
+        with:
+          toolchain: 1.97.1
+
+      - name: Build Rust core
+        run: cargo build --release --locked --manifest-path src/packages/lumicore/Cargo.toml
+
+      - name: Resolve LumiCore static link flags
+        shell: bash
+        run: echo "CGO_LDFLAGS=$(python3 scripts/checks/lumicore_link.py --profile release)" >> "$GITHUB_ENV"
+
+      - name: Test native Keychain provider
+        env:
+          CGO_ENABLED: '1'
+        run: |
+          cd src/apps/daemon
+          go test -count=1 ./internal/foundation/secrets
+
+      - name: Build luminet
+        env:
+          CGO_ENABLED: '1'
+        run: |
+          VERSION="$GITHUB_REF_NAME"
+          COMMIT="$GITHUB_SHA"
+          BUILD_DATE="$(git show -s --format=%cI "$GITHUB_SHA")"
+          LDFLAGS="-s -w -X github.com/maybeknott/luminet/contracts/buildinfo.Version=$VERSION -X github.com/maybeknott/luminet/contracts/buildinfo.Commit=$COMMIT -X github.com/maybeknott/luminet/contracts/buildinfo.BuildDate=$BUILD_DATE"
+          cd src/apps/daemon
+          CGO_ENABLED=1 go build -trimpath -ldflags "$LDFLAGS" -o ../../../build/luminet .
+
+      - name: Build watchdog
+        run: |
+          VERSION="$GITHUB_REF_NAME"
+          COMMIT="$GITHUB_SHA"
+          BUILD_DATE="$(git show -s --format=%cI "$GITHUB_SHA")"
+          LDFLAGS="-s -w -X github.com/maybeknott/luminet/contracts/buildinfo.Version=$VERSION -X github.com/maybeknott/luminet/contracts/buildinfo.Commit=$COMMIT -X github.com/maybeknott/luminet/contracts/buildinfo.BuildDate=$BUILD_DATE"
+          cd src/apps/daemon
+          CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o ../../../build/watchdog ./cmd/watchdog
+
+      - name: Build desktop
+        run: |
+          cd src/apps/desktop
+          go build -trimpath -o ../../../build/luminet-desktop .
+
+      - name: Package artifact
+        run: tar -czf luminet-darwin-arm64.tar.gz -C build luminet watchdog luminet-desktop
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: luminet-darwin-arm64
+          path: luminet-darwin-arm64.tar.gz
+
+  # ---------------------------------------------------------------------------
+  # Android (AAR via gomobile)
+  # ---------------------------------------------------------------------------
+  build-android:
+    name: Build (Android)
+    needs: verify-release
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Setup Java 17
+        uses: actions/setup-java@03ad4de0992f5dab5e18fcb136590ce7c4a0ac95 # v5.6.0
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Gradle 9.5.0
+        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6.2.0
+        with:
+          gradle-version: '9.5.0'
+          cache-provider: basic
+
+      - name: Setup Android SDK/NDK
+        uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407 # v3
+
+      - name: Install Android platform and NDK
+        shell: bash
+        run: |
+          sdkmanager "platforms;android-37" "build-tools;36.0.0" "ndk;28.2.13676358"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/28.2.13676358" >> "$GITHUB_ENV"
+
+      - name: Install gomobile
+        run: |
+          go install golang.org/x/mobile/cmd/gomobile@v0.0.0-20260709172247-6129f5bee9d5
+          gomobile init
+
+      - name: Build generated AAR
+        env:
+          CGO_ENABLED: '1'
+        run: |
+          mkdir -p build src/apps/android/app/libs
+          (cd src/apps/daemon && gomobile bind -v -o ../../../build/luminet.aar -javapkg=com.luminet -target=android github.com/maybeknott/luminet/internal/adapters/mobilebind)
+          cp build/luminet.aar src/apps/android/app/libs/luminet.aar
+
+      - name: Build linked unsigned release APK
+        shell: bash
+        run: |
+          cd src/apps/android
+          gradle --no-daemon :app:assembleRelease
+          mapfile -t apks < <(find app/build/outputs/apk/release -maxdepth 1 -type f -name '*.apk' -print)
+          if [ "${#apks[@]}" -ne 1 ]; then
+            printf 'expected exactly one release APK, found %s\n' "${#apks[@]}" >&2
+            printf '%s\n' "${apks[@]}" >&2
+            exit 1
+          fi
+          cp "${apks[0]}" ../../../../build/luminet-android-unsigned.apk
+
+      - name: Upload Android artifacts
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: luminet-android
+          path: |
+            build/luminet.aar
+            build/luminet-android-unsigned.apk
+
+  # ---------------------------------------------------------------------------
+  # Create GitHub Release + SBOM + Provenance (O-03)
+  # ---------------------------------------------------------------------------
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-24.04
+    needs:
+      - build-linux
+      - build-windows
+      - build-macos-amd64
+      - build-macos-arm64
+      - build-android
+
+    permissions:
+      contents: write
+      id-token: write   # required for SLSA provenance attestation
+      attestations: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: List artifacts
+        run: ls -lhR artifacts/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
+        with:
+          generate_release_notes: true
+          files: |
+            artifacts/luminet-linux-amd64.tar.gz
+            artifacts/luminet-windows-amd64.zip
+            artifacts/luminet-darwin-amd64.tar.gz
+            artifacts/luminet-darwin-arm64.tar.gz
+            artifacts/luminet.aar
+            artifacts/luminet-android-unsigned.apk
+
+      # ── O-03: SBOM Generation (Syft) ────────────────────────────────────
+      - name: Setup Syft
+        id: syft
+        uses: anchore/sbom-action/download-syft@e22c389904149dbc22b58101806040fa8d37a610 # v0.24.0
+        with:
+          syft-version: v1.44.0
+
+      - name: Generate SBOM for Linux artifact
+        run: ${{ steps.syft.outputs.cmd }} artifacts/luminet-linux-amd64.tar.gz -o spdx-json=sbom-linux-amd64.spdx.json
+
+      - name: Generate SBOM for Windows artifact
+        run: ${{ steps.syft.outputs.cmd }} artifacts/luminet-windows-amd64.zip -o spdx-json=sbom-windows-amd64.spdx.json
+
+      - name: Generate SBOM for macOS amd64 artifact
+        run: ${{ steps.syft.outputs.cmd }} artifacts/luminet-darwin-amd64.tar.gz -o spdx-json=sbom-darwin-amd64.spdx.json
+
+      - name: Generate SBOM for macOS arm64 artifact
+        run: ${{ steps.syft.outputs.cmd }} artifacts/luminet-darwin-arm64.tar.gz -o spdx-json=sbom-darwin-arm64.spdx.json
+
+      - name: Generate SBOM for Android AAR
+        run: ${{ steps.syft.outputs.cmd }} artifacts/luminet.aar -o spdx-json=sbom-android-aar.spdx.json
+
+      - name: Generate SBOM for Android APK
+        run: ${{ steps.syft.outputs.cmd }} artifacts/luminet-android-unsigned.apk -o spdx-json=sbom-android-apk.spdx.json
+
+      - name: Upload SBOMs to release
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
+        with:
+          files: |
+            sbom-linux-amd64.spdx.json
+            sbom-windows-amd64.spdx.json
+            sbom-darwin-amd64.spdx.json
+            sbom-darwin-arm64.spdx.json
+            sbom-android-aar.spdx.json
+            sbom-android-apk.spdx.json
+
+      # ── O-03: SLSA Provenance Attestation ───────────────────────────────
+      - name: Attest Linux artifact
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
+        with:
+          subject-path: artifacts/luminet-linux-amd64.tar.gz
+
+      - name: Attest Windows artifact
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
+        with:
+          subject-path: artifacts/luminet-windows-amd64.zip
+
+      - name: Attest macOS amd64 artifact
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
+        with:
+          subject-path: artifacts/luminet-darwin-amd64.tar.gz
+
+      - name: Attest macOS arm64 artifact
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
+        with:
+          subject-path: artifacts/luminet-darwin-arm64.tar.gz
+
+      - name: Attest Android AAR
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
+        with:
+          subject-path: artifacts/luminet.aar
+
+      - name: Attest Android APK
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
+        with:
+          subject-path: artifacts/luminet-android-unsigned.apk

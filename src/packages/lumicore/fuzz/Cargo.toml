@@ -1,0 +1,21 @@
+[package]
+name = "lumicore-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+notes = "R5 hardening: cargo-fuzz targets. Run with: cargo +nightly fuzz run quic_initial_parse -- -max_len=4096"
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.lumicore]
+path = ".."
+
+[[bin]]
+name = "quic_initial_parse"
+path = "fuzz_targets/quic_initial_parse.rs"
+test = false
+doc = false
+bench = false
