@@ -94,3 +94,60 @@ export class CompositeRuleCompiler {
     return ((parts[0]! << 24) | (parts[1]! << 16) | (parts[2]! << 8) | parts[3]!) >>> 0;
   }
 }
+
+/**
+ * AutoProxy & GFWList ruleset parser and URL evaluator.
+ * Ported and refactored from donor AutoProxyRulesetMatcher.kt.
+ */
+export class AutoProxyRulesetMatcher {
+  private directRules: string[] = [];
+  private proxyRules: string[] = [];
+
+  parseLine(rawLine: string): boolean {
+    const trimmed = rawLine.trim();
+    if (!trimmed || trimmed.startsWith('!') || trimmed.startsWith('[')) {
+      return false;
+    }
+
+    if (trimmed.startsWith('@@')) {
+      const rule = trimmed
+        .replace(/^@@/, '')
+        .replace(/^\|\|/, '')
+        .replace(/^\|/, '')
+        .toLowerCase();
+      if (rule) {
+        this.directRules.push(rule);
+        return true;
+      }
+    } else {
+      const rule = trimmed
+        .replace(/^\|\|/, '')
+        .replace(/^\|/, '')
+        .toLowerCase();
+      if (rule) {
+        this.proxyRules.push(rule);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  match(url: string): ControlRuleAction | undefined {
+    const lower = url.toLowerCase();
+    for (const r of this.directRules) {
+      if (lower.includes(r)) return 'DIRECT';
+    }
+    for (const r of this.proxyRules) {
+      if (lower.includes(r)) return 'PROXY';
+    }
+    return undefined;
+  }
+
+  rulesCount(): { direct: number; proxy: number } {
+    return {
+      direct: this.directRules.length,
+      proxy: this.proxyRules.length,
+    };
+  }
+}
+

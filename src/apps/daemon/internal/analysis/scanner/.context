@@ -1,7 +1,7 @@
 # src/apps/daemon/internal/analysis/scanner
 
 ## Purpose
-Active scanner implementation: supported scan/session logic, throttling, protocol probes, progress, and result models.
+Active scanner implementation: supported scan/session logic, throttling, protocol probes, progress, result models, and bounded diagnostics planning.
 
 ## Architectural role
 - Daemon dependency band: `analysis` (rank 3; lower rank = deeper implementation).
