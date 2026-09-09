@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type ComponentType } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   Activity,
   Boxes,
@@ -11,6 +11,7 @@ import {
   Search,
   Settings,
   Shield,
+  type LucideIcon,
 } from 'lucide-react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { CommandPalette } from './CommandPalette';
@@ -26,7 +27,7 @@ const connectionPresentation: Record<TelemetryConnectionState, { label: string; 
   retrying: { label: 'RETRYING', dot: 'bg-warning' },
 };
 
-const iconByPath: Record<NavigationPath, ComponentType<{ size?: number; className?: string; 'aria-hidden'?: boolean | 'true' | 'false' }>> = {
+const iconByPath: Record<NavigationPath, LucideIcon> = {
   '/': LayoutDashboard,
   '/health': HeartPulse,
   '/rules': Activity,
@@ -109,8 +110,7 @@ export function AppLayout() {
                 </h2>
                 <ul className="m-0 flex list-none gap-1 md:block md:space-y-1">
                   {items.map((item) => {
-                    const isActive = location.pathname === item.path
-                      || (item.path !== '/' && location.pathname.startsWith(item.path));
+                    const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
                     const Icon = iconByPath[item.path];
                     return (
                       <li key={item.path}>
@@ -118,9 +118,7 @@ export function AppLayout() {
                           to={item.path}
                           aria-current={isActive ? 'page' : undefined}
                           className={`flex min-h-11 items-center gap-3 rounded-md px-3 py-2 text-sm font-medium outline-none transition-colors ${
-                            isActive
-                              ? 'bg-accent/10 text-accent'
-                              : 'text-text-secondary hover:bg-white/5 hover:text-text-primary focus-visible:ring-2 focus-visible:ring-accent'
+                            isActive ? 'bg-accent/10 text-accent' : 'text-text-secondary hover:bg-white/5 hover:text-text-primary focus-visible:ring-2 focus-visible:ring-accent'
                           }`}
                         >
                           <Icon size={18} className={isActive ? 'text-accent' : 'text-text-muted'} aria-hidden="true" />
