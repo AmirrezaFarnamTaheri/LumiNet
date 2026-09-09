@@ -13,9 +13,6 @@ func normalizeEvasionConfig(cfg EvasionConfig) EvasionConfig {
 		cfg.CovertMode = "direct"
 	}
 	cfg.StegoMode = strings.ToLower(strings.TrimSpace(cfg.StegoMode))
-	// Preserve the documented historical CLI spelling at the control boundary,
-	// but store one canonical runtime value so validation and the dial graph
-	// cannot silently disagree.
 	if cfg.StegoMode == "pixel_stego" {
 		cfg.StegoMode = "pixel"
 	}
@@ -36,18 +33,13 @@ func validateEvasionConfig(cfg EvasionConfig) error {
 			}
 		case "pixel":
 			if cfg.StegoWebRTCSDPSpoof {
-				return fmt.Errorf("steganography_webrtc_sdp_spoof is only meaningful for WebRTC and is not a supported production capability")
+				return fmt.Errorf("steganography_webrtc_sdp_spoof is not a supported production capability")
 			}
 		default:
 			return fmt.Errorf("unsupported steganography mode %q; supported modes are webrtc_voip and pixel", cfg.StegoMode)
 		}
-	} else if cfg.StegoWebRTCSDPSpoof {
-		return fmt.Errorf("steganography_webrtc_sdp_spoof cannot be enabled without an implemented steganography data-plane consumer")
 	}
 
-	// The reconnect wrapper is not installed in the canonical desktop proxy dial
-	// path. Reject an enabled control rather than reporting a capability that has
-	// no execution consumer.
 	if cfg.AutoReconnectEnabled {
 		return fmt.Errorf("auto reconnect is not production-supported in the canonical proxy dial path")
 	}
