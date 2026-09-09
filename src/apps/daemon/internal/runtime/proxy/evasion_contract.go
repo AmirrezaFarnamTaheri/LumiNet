@@ -12,6 +12,13 @@ func normalizeEvasionConfig(cfg EvasionConfig) EvasionConfig {
 	if cfg.CovertMode == "" {
 		cfg.CovertMode = "direct"
 	}
+	cfg.StegoMode = strings.ToLower(strings.TrimSpace(cfg.StegoMode))
+	// Preserve the documented historical CLI spelling at the control boundary,
+	// but store one canonical runtime value so validation and the dial graph
+	// cannot silently disagree.
+	if cfg.StegoMode == "pixel_stego" {
+		cfg.StegoMode = "pixel"
+	}
 	return cfg
 }
 
@@ -20,6 +27,31 @@ func validateEvasionConfig(cfg EvasionConfig) error {
 	if cfg.UpgenEnabled && cfg.UpgenQuicExhaustionRate != 0 {
 		return fmt.Errorf("UPGen QUIC exhaustion is not a production-supported capability; upgen_quic_exhaustion_rate must be 0")
 	}
+
+	if cfg.StegoEnabled {
+		switch cfg.StegoMode {
+		case "webrtc_voip":
+			if cfg.StegoWebRTCSDPSpoof {
+				return fmt.Errorf("WebRTC SDP spoofing is not implemented in the production data plane; disable steganography_webrtc_sdp_spoof")
+			}
+		case "pixel":
+			if cfg.StegoWebRTCSDPSpoof {
+				return fmt.Errorf("steganography_webrtc_sdp_spoof is only meaningful for WebRTC and is not a supported production capability")
+			}
+		default:
+			return fmt.Errorf("unsupported steganography mode %q; supported modes are webrtc_voip and pixel", cfg.StegoMode)
+		}
+	} else if cfg.StegoWebRTCSDPSpoof {
+		return fmt.Errorf("steganography_webrtc_sdp_spoof cannot be enabled without an implemented steganography data-plane consumer")
+	}
+
+	// The reconnect wrapper is not installed in the canonical desktop proxy dial
+	// path. Reject an enabled control rather than reporting a capability that has
+	// no execution consumer.
+	if cfg.AutoReconnectEnabled {
+		return fmt.Errorf("auto reconnect is not production-supported in the canonical proxy dial path")
+	}
+
 	switch cfg.CovertMode {
 	case "direct", "paqet":
 		return nil
@@ -80,14 +112,10 @@ func redactedEvasionConfig(cfg EvasionConfig) EvasionConfig {
 	return cfg
 }
 
-// GetRedactedConfig returns a copy safe for status, export, and logs.
 func (m *EvasionTunnelManager) GetRedactedConfig() EvasionConfig {
 	return redactedEvasionConfig(m.GetConfig())
 }
 
-// RestoreRedactedSecrets replaces redaction sentinels with the current runtime
-// secrets. Transport adapters can round-trip a redacted status snapshot without
-// learning or retrieving the stored secret values themselves.
 func (m *EvasionTunnelManager) RestoreRedactedSecrets(cfg EvasionConfig) EvasionConfig {
 	current := m.GetConfig()
 	if cfg.CovertGsaKey == redactedEvasionSecret {
