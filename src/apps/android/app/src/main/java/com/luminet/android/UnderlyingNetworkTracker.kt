@@ -21,8 +21,10 @@ internal class UnderlyingNetworkTracker(
         vpnService.getSystemService(ConnectivityManager::class.java),
 ) {
     private val lock = Any()
+    private val platformLock = Any()
     private val candidates = mutableMapOf<Network, NetworkCapabilities>()
     private var started = false
+    private var generation = 0L
     private var appliedHandle = UNAPPLIED_HANDLE
 
     private val request = NetworkRequest.Builder()
@@ -62,7 +64,9 @@ internal class UnderlyingNetworkTracker(
         if (!registered) return false
 
         synchronized(lock) {
+            generation += 1
             started = true
+            appliedHandle = UNAPPLIED_HANDLE
         }
 
         // Seed state after registration so an event racing with this snapshot is
@@ -79,6 +83,7 @@ internal class UnderlyingNetworkTracker(
             if (!started) {
                 false
             } else {
+                generation += 1
                 started = false
                 candidates.clear()
                 appliedHandle = UNAPPLIED_HANDLE
@@ -88,8 +93,14 @@ internal class UnderlyingNetworkTracker(
         if (shouldUnregister) {
             runCatching { connectivity.unregisterNetworkCallback(callback) }
         }
-        // null means that LumiNet no longer asserts an underlying network.
-        runCatching { vpnService.setUnderlyingNetworks(null) }
+
+        // Serialize the platform mutation with callback-driven applications. If a
+        // callback was already inside setUnderlyingNetworks(), teardown waits for
+        // it and then clears the assertion. If it was only queued, its generation
+        // check below fails before it can reassert a stale network.
+        synchronized(platformLock) {
+            runCatching { vpnService.setUnderlyingNetworks(null) }
+        }
     }
 
     private fun refresh(network: Network) {
@@ -117,30 +128,42 @@ internal class UnderlyingNetworkTracker(
     }
 
     private fun applyBestCandidate() {
-        val selected = synchronized(lock) {
+        val snapshot = synchronized(lock) {
             if (!started) return
-            chooseBestCandidate(candidates, runCatching { connectivity.activeNetwork }.getOrNull())
+            val selected = chooseBestCandidate(candidates, runCatching { connectivity.activeNetwork }.getOrNull())
+            val selectedHandle = selected?.networkHandle ?: NO_NETWORK_HANDLE
+            if (appliedHandle == selectedHandle) return
+            ApplySnapshot(selected, selectedHandle, generation)
         }
-        val selectedHandle = selected?.networkHandle ?: NO_NETWORK_HANDLE
 
-        val changed = synchronized(lock) {
-            started && appliedHandle != selectedHandle
-        }
-        if (!changed) return
-
-        val applied = runCatching {
-            if (selected == null) {
-                vpnService.setUnderlyingNetworks(null)
-            } else {
-                vpnService.setUnderlyingNetworks(arrayOf(selected))
+        synchronized(platformLock) {
+            val stillCurrent = synchronized(lock) {
+                started && generation == snapshot.generation && appliedHandle != snapshot.selectedHandle
             }
-        }.isSuccess
-        if (applied) {
+            if (!stillCurrent) return
+
+            val applied = runCatching {
+                if (snapshot.selected == null) {
+                    vpnService.setUnderlyingNetworks(null)
+                } else {
+                    vpnService.setUnderlyingNetworks(arrayOf(snapshot.selected))
+                }
+            }.isSuccess
+            if (!applied) return
+
             synchronized(lock) {
-                if (started) appliedHandle = selectedHandle
+                if (started && generation == snapshot.generation) {
+                    appliedHandle = snapshot.selectedHandle
+                }
             }
         }
     }
+
+    private data class ApplySnapshot(
+        val selected: Network?,
+        val selectedHandle: Long,
+        val generation: Long,
+    )
 
     companion object {
         private const val UNAPPLIED_HANDLE = Long.MIN_VALUE
