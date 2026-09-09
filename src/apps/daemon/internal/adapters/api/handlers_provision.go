@@ -17,6 +17,10 @@ type VpsProvisionRequest struct {
 	Domain           string `json:"domain"`
 	CFToken          string `json:"cf_token"`
 	CFAccountID      string `json:"cf_account_id"`
+	ThreeXUIImage    string `json:"three_xui_image" binding:"required"`
+	PostgresImage    string `json:"postgres_image" binding:"required"`
+	AlpineImage      string `json:"alpine_image" binding:"required"`
+	TorAPKVersion    string `json:"tor_apk_version" binding:"required"`
 }
 
 type EdgeDeployRequest struct {
@@ -39,7 +43,12 @@ func (s *Server) StartVpsProvision(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	cfg := provision.VpsConfig{IP: req.IP, SSHUser: req.SSHUser, SSHPassword: req.SSHPassword, SSHKey: req.SSHKey, SSHHostKeySHA256: req.SSHHostKeySHA256, Domain: req.Domain, CFToken: req.CFToken, CFAccountID: req.CFAccountID}
+	cfg := provision.VpsConfig{
+		IP: req.IP, SSHUser: req.SSHUser, SSHPassword: req.SSHPassword, SSHKey: req.SSHKey,
+		SSHHostKeySHA256: req.SSHHostKeySHA256, Domain: req.Domain, CFToken: req.CFToken,
+		CFAccountID: req.CFAccountID, ThreeXUIImage: req.ThreeXUIImage,
+		PostgresImage: req.PostgresImage, AlpineImage: req.AlpineImage, TorAPKVersion: req.TorAPKVersion,
+	}
 	jobID, err := s.createAndStartJob(jobs.VpsProvisionIntent{Config: cfg})
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
