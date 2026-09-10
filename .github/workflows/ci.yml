@@ -154,7 +154,7 @@ jobs:
           GRAPHIFY_QUERY_LOG_DISABLE: '1'
         run: |
           source "$RUNNER_TEMP/graphify-venv/bin/activate"
-          ./scripts/graphify.sh
+          bash ./scripts/graphify.sh
 
   daemon-macos-nocgo:
     name: Test Go Daemon (macOS arm64 / Non-CGO)
@@ -205,7 +205,7 @@ jobs:
       - name: Install Android platform and NDK
         shell: bash
         run: |
-          sdkmanager "platforms;android-37" "build-tools;36.0.0" "ndk;28.2.13676358"
+          sdkmanager "platforms;android-36" "build-tools;36.0.0" "ndk;28.2.13676358"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/28.2.13676358" >> "$GITHUB_ENV"
 
       - name: Install gomobile
