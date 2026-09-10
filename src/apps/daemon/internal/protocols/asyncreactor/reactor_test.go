@@ -264,3 +264,37 @@ func TestObserverReportsDirectionsAndClose(t *testing.T) {
 		t.Fatalf("closed=%d", closed.Load())
 	}
 }
+
+func TestObserverCloseCallbackRunsOutsideReactorLock(t *testing.T) {
+	reactor, err := NewAsyncReactor()
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer reactor.Close()
+
+	clientSide, clientPeer := tcpSocketPair(t)
+	targetSide, targetPeer := tcpSocketPair(t)
+	defer targetPeer.Close()
+
+	callbackDone := make(chan struct{}, 1)
+	if err := reactor.RegisterObserved(clientSide, targetSide, Observer{
+		OnClose: func() {
+			// A lifecycle observer may inspect reactor-owned state. This would
+			// deadlock if OnClose were invoked while release held reactor.mu.
+			reactor.mu.Lock()
+			reactor.mu.Unlock()
+			callbackDone <- struct{}{}
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+
+	if err := clientPeer.Close(); err != nil {
+		t.Fatal(err)
+	}
+	select {
+	case <-callbackDone:
+	case <-time.After(2 * time.Second):
+		t.Fatal("OnClose could not re-enter reactor lifecycle state; callback likely ran under reactor.mu")
+	}
+}
