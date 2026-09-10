@@ -10,6 +10,7 @@ const Logs = lazy(() => import('./pages/Logs').then((module) => ({ default: modu
 const Connections = lazy(() => import('./pages/Connections').then((module) => ({ default: module.Connections })));
 const Capabilities = lazy(() => import('./pages/Capabilities').then((module) => ({ default: module.Capabilities })));
 const Operations = lazy(() => import('./pages/Operations').then((module) => ({ default: module.Operations })));
+const Deployment = lazy(() => import('./pages/Deployment').then((module) => ({ default: module.Deployment })));
 const Profiles = lazy(() => import('./pages/Profiles').then((module) => ({ default: module.Profiles })));
 const Rules = lazy(() => import('./pages/Rules').then((module) => ({ default: module.Rules })));
 const Settings = lazy(() => import('./pages/Settings').then((module) => ({ default: module.Settings })));
@@ -47,6 +48,7 @@ function App() {
             <Route path="connections" element={<Connections />} />
             <Route path="capabilities" element={<Capabilities />} />
             <Route path="operations" element={<Operations />} />
+            <Route path="deployment" element={<Deployment />} />
             <Route path="profiles" element={<Profiles />} />
             <Route path="settings" element={<Settings />} />
             <Route path="*" element={<Navigate to="/" replace />} />
