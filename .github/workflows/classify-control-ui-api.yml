@@ -1,0 +1,47 @@
+name: Classify Control UI API
+
+on:
+  push:
+    branches: [audit/three-report-remediation]
+    paths:
+      - .github/workflows/classify-control-ui-api.yml
+
+permissions:
+  contents: write
+
+jobs:
+  classify:
+    if: github.repository == 'AmirrezaFarnamTaheri/LumiNet'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout remediation branch
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: audit/three-report-remediation
+          fetch-depth: 0
+
+      - name: Compute import graph
+        run: python3 scripts/remediation/classify_control_ui_api.py
+
+      - name: Sanity-check authority manifest
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('governance/control-ui-api-authority.json').read_text())
+          assert data['api_total'] == data['api_reachable'] + data['api_unreachable']
+          assert data['api_total'] > 0
+          assert data['api_reachable'] > 0
+          PY
+          git diff --check
+
+      - name: Commit manifest and remove one-shot machinery
+        shell: bash
+        run: |
+          git config user.name 'Farnam'
+          git config user.email 'taheri.farnam@gmail.com'
+          git rm .github/workflows/classify-control-ui-api.yml scripts/remediation/classify_control_ui_api.py
+          git add governance/control-ui-api-authority.json
+          git commit -m 'audit(control-ui): classify canonical API reachability'
+          git push origin HEAD:audit/three-report-remediation
