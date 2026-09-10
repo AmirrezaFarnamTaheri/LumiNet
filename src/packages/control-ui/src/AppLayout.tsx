@@ -36,6 +36,7 @@ const iconByPath: Record<NavigationPath, LucideIcon> = {
   '/connections': Network,
   '/capabilities': Boxes,
   '/operations': Gauge,
+  '/deployment': Gauge,
   '/profiles': RadioTower,
   '/settings': Settings,
 };
