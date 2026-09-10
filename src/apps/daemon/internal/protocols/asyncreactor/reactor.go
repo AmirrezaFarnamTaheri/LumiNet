@@ -111,13 +111,15 @@ func (r *AsyncReactor) reactorLoop() {
 }
 
 func (r *AsyncReactor) handleEvent(res gaio.OpResult) {
+	// Pair membership and Closed are one lifecycle state protected by mu. The
+	// previous unlocked Closed read raced Close/freePair under -race.
 	r.mu.Lock()
 	pair, exists := r.pairs[res.Conn]
-	r.mu.Unlock()
-
 	if !exists || pair.Closed {
+		r.mu.Unlock()
 		return
 	}
+	r.mu.Unlock()
 
 	if res.Error != nil {
 		r.mu.Lock()
@@ -144,7 +146,7 @@ func (r *AsyncReactor) handleEvent(res gaio.OpResult) {
 			} else if pair.observer.OnTargetToClient != nil {
 				pair.observer.OnTargetToClient(res.Size)
 			}
-			// Submit async write to the peer connection
+			// Submit async write to the peer connection.
 			writeBuf := make([]byte, res.Size)
 			copy(writeBuf, res.Buffer[:res.Size])
 
@@ -155,7 +157,7 @@ func (r *AsyncReactor) handleEvent(res gaio.OpResult) {
 				return
 			}
 
-			// Submit next read on the same connection immediately to keep the read pump active
+			// Submit next read on the same connection immediately to keep the read pump active.
 			readBuf := make([]byte, 4096)
 			if err := r.watcher.Read(nil, res.Conn, readBuf); err != nil {
 				r.mu.Lock()
@@ -163,7 +165,7 @@ func (r *AsyncReactor) handleEvent(res gaio.OpResult) {
 				r.mu.Unlock()
 			}
 		} else {
-			// EOF read, tear down connection pair
+			// EOF read, tear down connection pair.
 			r.mu.Lock()
 			r.freePair(pair)
 			r.mu.Unlock()
@@ -174,6 +176,7 @@ func (r *AsyncReactor) handleEvent(res gaio.OpResult) {
 	}
 }
 
+// freePair releases a pair. r.mu must be held by the caller.
 func (r *AsyncReactor) freePair(pair *ConnectionPair) {
 	if pair.Closed {
 		return
