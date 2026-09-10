@@ -22,7 +22,10 @@ type SSHRunner struct {
 
 const maxSSHCommandOutput = 1 << 20 // 1 MiB per remote command
 
-var aptPackageVersionPattern = regexp.MustCompile(`^[A-Za-z0-9][A-Za-z0-9.+:~_-]*$`)
+var (
+	aptPackageVersionPattern = regexp.MustCompile(`^[A-Za-z0-9][A-Za-z0-9.+:~_-]*$`)
+	runtimeImageIDPattern    = regexp.MustCompile(`^sha256:[a-fA-F0-9]{64}$`)
+)
 
 type remoteCommandRunner interface {
 	Run(context.Context, string) (string, error)
@@ -34,6 +37,37 @@ func aptCandidateVersion(output string) (string, error) {
 		return "", fmt.Errorf("invalid apt package candidate version %q", version)
 	}
 	return version, nil
+}
+
+func validateRuntimeImageEvidence(output string) error {
+	expected := map[string]bool{
+		"3xui_app":      false,
+		"3xui_tor":      false,
+		"3xui_postgres": false,
+	}
+	for _, line := range strings.Split(strings.TrimSpace(output), "\n") {
+		if strings.TrimSpace(line) == "" {
+			continue
+		}
+		fields := strings.Fields(line)
+		if len(fields) != 2 {
+			return fmt.Errorf("malformed deployed image evidence line %q", line)
+		}
+		name := strings.TrimPrefix(fields[0], "/")
+		if _, ok := expected[name]; !ok {
+			return fmt.Errorf("unexpected deployed container %q in image evidence", name)
+		}
+		if !runtimeImageIDPattern.MatchString(fields[1]) {
+			return fmt.Errorf("container %s reported non-immutable image ID %q", name, fields[1])
+		}
+		expected[name] = true
+	}
+	for name, seen := range expected {
+		if !seen {
+			return fmt.Errorf("missing deployed image ID for container %s", name)
+		}
+	}
+	return nil
 }
 
 func installDockerFromTrustedRepo(ctx context.Context, runner remoteCommandRunner, logger *ProvisionLogger) error {
@@ -366,11 +400,21 @@ DataDirectory /var/lib/tor`
 	case <-time.After(10 * time.Second):
 	}
 
-	logger.Log("Verifying 3x-ui port listening on VPS...")
+	logger.Log("Verifying running VPS containers and immutable image identities...")
 	out, err := runner.Run(ctx, "docker ps --format '{{.Names}} - {{.Status}}'")
-	if err == nil {
-		logger.Logf("Running containers:\n%s", out)
+	if err != nil {
+		return fmt.Errorf("verify running containers: %w", err)
 	}
+	logger.Logf("Running containers:\n%s", out)
+
+	imageEvidence, err := runner.Run(ctx, "docker inspect --format '{{.Name}} {{.Image}}' 3xui_app 3xui_tor 3xui_postgres")
+	if err != nil {
+		return fmt.Errorf("capture deployed image IDs: %w", err)
+	}
+	if err := validateRuntimeImageEvidence(imageEvidence); err != nil {
+		return fmt.Errorf("invalid deployed image evidence: %w", err)
+	}
+	logger.Logf("Deployed image IDs:\n%s", imageEvidence)
 
 	return nil
 }
