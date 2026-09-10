@@ -1,3 +1,4 @@
+# One-shot authority migration: touching this workflow intentionally triggers relocation, then the job deletes itself.
 name: Apply Control UI API Authority
 
 on:
