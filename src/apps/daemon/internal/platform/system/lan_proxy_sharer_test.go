@@ -9,6 +9,8 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/maybeknott/luminet/internal/foundation/boundedio"
 )
 
 // startEchoCarrier starts a minimal SOCKS5 echo server for testing.
