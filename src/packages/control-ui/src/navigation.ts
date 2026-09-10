@@ -8,9 +8,10 @@ export const navigationItems = [
   { path: '/rules', label: 'Rules & Routing', section: 'Network policy', keywords: ['rules', 'routes', 'policy'] },
   { path: '/dns', label: 'DNS & Security', section: 'Network policy', keywords: ['dns', 'resolver', 'security', 'blocklist', 'dns leak', 'clean ip', 'resolver health', 'poisoning', 'injection', 'udp tcp dns'] },
   { path: '/profiles', label: 'Profiles', section: 'Network policy', keywords: ['subscriptions', 'profiles', 'import', 'export', 'subscription node', 'local socks', 'hidden node', 'provider feed', 'subscription health', 'certificate failure'] },
-  { path: '/operations', label: 'Operations', section: 'Operations', keywords: ['doctor', 'engines', 'diagnostics', 'updates', 'deployment', 'planner', 'warp scanner', 'endpoint rank', 'transport truth', 'fec', 'arq', 'packet loss', 'egress country'] },
+  { path: '/operations', label: 'Operations', section: 'Operations', keywords: ['doctor', 'engines', 'diagnostics', 'updates', 'planner', 'transport truth', 'fec', 'arq', 'packet loss', 'egress country'] },
+  { path: '/deployment', label: 'Deployment & Remote', section: 'Operations', keywords: ['deployment', 'cloudflare', 'worker', 'warp', 'tailnet', 'rollout', 'remote'] },
   { path: '/capabilities', label: 'Capabilities', section: 'System', keywords: ['coverage', 'runtime', 'availability'] },
-  { path: '/settings', label: 'Settings', section: 'System', keywords: ['configuration', 'preferences', 'kill switch', 'fail closed', 'system proxy', 'route recovery'] },
+  { path: '/settings', label: 'Settings', section: 'System', keywords: ['configuration', 'preferences', 'appearance', 'evasion', 'utls'] },
 ] as const;
 
 export const navigationSections: NavigationSection[] = ['Overview', 'Observe', 'Network policy', 'Operations', 'System'];
