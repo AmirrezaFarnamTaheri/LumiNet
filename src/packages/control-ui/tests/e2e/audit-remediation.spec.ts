@@ -138,6 +138,51 @@ test('Connections bounds initial DOM rows and expands only on request', async ({
   await expect(table.locator('tr')).toHaveCount(200);
 });
 
+test('Connections confirms owner teardown and removes a successfully closed flow', async ({ page }) => {
+  await mockConnectionCompanions(page);
+  let closed = false;
+  let deleteSeen = false;
+  await page.route('**/api/system/flows*', async (route) => {
+    const request = route.request();
+    const pathname = new URL(request.url()).pathname;
+    if (request.method() === 'DELETE' && pathname.endsWith('/close-me')) {
+      deleteSeen = true;
+      closed = true;
+      await route.fulfill({ status: 200, json: { status: 'closed' } });
+      return;
+    }
+    await route.fulfill({ json: flowList(closed ? [] : [flow('close-me', 'close-me.example')]) });
+  });
+  page.on('dialog', (dialog) => void dialog.accept());
+
+  await page.goto('/#/connections');
+  const row = page.getByRole('row').filter({ hasText: 'close-me.example:443' });
+  await expect(row).toBeVisible();
+  await row.getByRole('button', { name: 'Close' }).click();
+
+  await expect.poll(() => deleteSeen).toBe(true);
+  await expect(page.getByText('close-me.example:443')).toHaveCount(0);
+});
+
+test('Connections exposes a degraded daemon failure and recovers on explicit retry', async ({ page }) => {
+  await mockConnectionCompanions(page);
+  let degraded = true;
+  await page.route('**/api/system/flows*', (route) => {
+    if (degraded) {
+      return route.fulfill({ status: 503, json: { error: 'daemon warming up' } });
+    }
+    return route.fulfill({ json: flowList([flow('recovered', 'recovered.example')]) });
+  });
+
+  await page.goto('/#/connections');
+  await expect(page.getByRole('alert')).toContainText('status 503: daemon warming up');
+
+  degraded = false;
+  await page.getByRole('button', { name: 'Refresh' }).click();
+  await expect(page.getByText('recovered.example:443')).toBeVisible();
+  await expect(page.getByRole('alert')).toHaveCount(0);
+});
+
 test('Settings exposes accessible sensitive fields and announces upload outcome', async ({ page }) => {
   await page.route('**/api/system/evasion-tunnel', (route) => route.fulfill({
     json: {
