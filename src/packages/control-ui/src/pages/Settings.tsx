@@ -12,15 +12,15 @@ import {
 } from '../api/contracts';
 import { parseBrowserProxyHandoffPlan, parseTailnetTransactionPlan, parseUpdateRolloutPlan, type BrowserProxyHandoffPlan, type TailnetTransactionPlan, type UpdateRolloutPlan } from '../api/planners';
 
-const DEFAULT_WORKER_SCRIPT = `// Standard VLESS Workers script for Cloudflare
+const DEFAULT_WORKER_SCRIPT = `// Generic Cloudflare Worker upload template.
+// This template is intentionally not presented as a VLESS implementation.
 export default {
-  async fetch(request, env) {
+  async fetch(request) {
     const url = new URL(request.url);
     if (url.pathname === "/health") {
       return new Response("OK", { status: 200 });
     }
-    // Forward connections to target VLESS outbound
-    return new Response("VLESS outbound active", { status: 200 });
+    return new Response("LumiNet custom Worker online", { status: 200 });
   }
 };`;
 
@@ -127,7 +127,7 @@ export function Settings() {
       if (!res.ok) {
         throw new Error(`Cloudflare Worker deployment failed with status ${res.status}`);
       }
-      setMessage('Cloudflare Workers VLESS script successfully deployed.');
+      setMessage('Cloudflare accepted the Worker script upload. This action does not verify VLESS or other runtime protocol behavior.');
     } catch (caught) {
       setError(errorMessage(caught, 'Error deploying Workers script.'));
     } finally {
@@ -214,13 +214,13 @@ export function Settings() {
       </header>
 
       {error && (
-        <div className="p-4 bg-error/20 border border-error/50 text-text-primary rounded-md text-sm">
+        <div role="alert" aria-live="assertive" className="p-4 bg-error/20 border border-error/50 text-text-primary rounded-md text-sm">
           {error}
         </div>
       )}
 
       {message && (
-        <div className="p-4 bg-success/20 border border-success/50 text-text-primary rounded-md text-sm">
+        <div role="status" aria-live="polite" className="p-4 bg-success/20 border border-success/50 text-text-primary rounded-md text-sm">
           {message}
         </div>
       )}
@@ -287,11 +287,11 @@ export function Settings() {
               />
             </label>
 
-            <div>
-              <div className="flex justify-between mb-1">
+            <label className="block">
+              <span className="flex justify-between mb-1">
                 <span className="text-text-secondary">ClientHello Split Offset</span>
                 <span className="mono text-cyan">{splitBytes} bytes</span>
-              </div>
+              </span>
               <input
                 type="range"
                 min="1"
@@ -300,13 +300,13 @@ export function Settings() {
                 onChange={e => setSplitBytes(parseInt(e.target.value))}
                 className="w-full accent-accent"
               />
-            </div>
+            </label>
 
-            <div>
-              <div className="flex justify-between mb-1">
+            <label className="block">
+              <span className="flex justify-between mb-1">
                 <span className="text-text-secondary">Inter-packet Desync Delay</span>
                 <span className="mono text-cyan">{delayMs} ms</span>
-              </div>
+              </span>
               <input
                 type="range"
                 min="0"
@@ -315,7 +315,7 @@ export function Settings() {
                 onChange={e => setDelayMs(parseInt(e.target.value))}
                 className="w-full accent-accent"
               />
-            </div>
+            </label>
 
             <label className="flex items-center justify-between p-2 rounded-md hover:bg-bg-secondary cursor-pointer">
               <div>
@@ -359,7 +359,7 @@ export function Settings() {
             </div>
 
             {wsUseUtls && (
-              <div className="p-2 space-y-1">
+              <label className="block p-2 space-y-1">
                 <span className="text-text-secondary">Browser Fingerprint Type</span>
                 <select
                   value={wsFingerprint}
@@ -372,7 +372,7 @@ export function Settings() {
                   <option value="edge">Edge 120</option>
                   <option value="randomized">Randomized Anti-Detect</option>
                 </select>
-              </div>
+              </label>
             )}
           </div>
         </div>
@@ -435,27 +435,28 @@ export function Settings() {
           )}
         </div>
 
-        {/* Cloudflare Workers Deployer */}
+        {/* Generic Worker upload. This surface makes no protocol-readiness claim. */}
         <div className="card space-y-4 lg:col-span-2">
           <div className="flex items-center justify-between border-b border-border-color pb-3">
             <h3 className="text-lg text-text-primary m-0 flex items-center gap-2">
-              <Cloud size={18} className="text-yellow-500" /> Cloudflare Workers Deployer
+              <Cloud size={18} className="text-yellow-500" aria-hidden="true" /> Custom Cloudflare Worker upload
             </h3>
             <button
+              type="button"
               disabled={deployingWorker}
               onClick={deployWorkersScript}
               className="btn btn-primary px-3 py-1.5 flex items-center gap-1.5"
             >
-              {deployingWorker ? <RefreshCw size={14} className="animate-spin" /> : <Play size={14} />} Deploy Script
+              {deployingWorker ? <RefreshCw size={14} className="animate-spin" aria-hidden="true" /> : <Play size={14} aria-hidden="true" />} Upload Script
             </button>
           </div>
 
           <p className="text-xs text-text-secondary leading-relaxed">
-            Deploy clean VLESS-on-Workers script nodes automatically to your Cloudflare account to bypass ISP blocks.
+            Upload the exact JavaScript shown below. Success means Cloudflare accepted the source; this action does not claim that VLESS, WebSocket, or any other protocol is operational.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-            <div className="space-y-1">
+            <label className="space-y-1">
               <span className="text-text-secondary">Auth Email</span>
               <input
                 type="email"
@@ -464,18 +465,19 @@ export function Settings() {
                 placeholder="user@example.com"
                 className="w-full bg-bg-secondary text-text-primary border border-border-color rounded p-2 outline-none"
               />
-            </div>
-            <div className="space-y-1">
-              <span className="text-text-secondary">Global API Token</span>
+            </label>
+            <label className="space-y-1">
+              <span className="text-text-secondary">API Token</span>
               <input
                 type="password"
                 value={cfToken}
                 onChange={e => setCfToken(e.target.value)}
                 placeholder="Paste API token..."
+                autoComplete="off"
                 className="w-full bg-bg-secondary text-text-primary border border-border-color rounded p-2 outline-none"
               />
-            </div>
-            <div className="space-y-1">
+            </label>
+            <label className="space-y-1">
               <span className="text-text-secondary">Account ID</span>
               <input
                 type="text"
@@ -484,25 +486,27 @@ export function Settings() {
                 placeholder="Paste Account ID..."
                 className="w-full bg-bg-secondary text-text-primary border border-border-color rounded p-2 outline-none"
               />
-            </div>
+            </label>
           </div>
 
           <div className="space-y-2 text-xs">
-            <div className="flex justify-between items-center">
-              <span className="text-text-secondary font-semibold">Worker Script Template</span>
+            <label className="flex justify-between items-center gap-3">
+              <span className="text-text-secondary font-semibold">Worker script name</span>
               <input
                 type="text"
                 value={cfWorkerName}
                 onChange={e => setCfWorkerName(e.target.value)}
                 className="w-48 bg-bg-secondary text-text-primary border border-border-color rounded px-2 py-1 outline-none font-mono text-[10px]"
-                title="Script Subdomain Route Name"
               />
-            </div>
-            <textarea
-              value={cfScriptBody}
-              onChange={e => setCfScriptBody(e.target.value)}
-              className="w-full h-40 bg-bg-secondary text-text-primary border border-border-color rounded p-2 font-mono text-[11px] outline-none"
-            />
+            </label>
+            <label className="block space-y-1">
+              <span className="text-text-secondary font-semibold">Worker JavaScript source</span>
+              <textarea
+                value={cfScriptBody}
+                onChange={e => setCfScriptBody(e.target.value)}
+                className="w-full h-40 bg-bg-secondary text-text-primary border border-border-color rounded p-2 font-mono text-[11px] outline-none"
+              />
+            </label>
           </div>
         </div>
 
