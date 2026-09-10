@@ -91,11 +91,14 @@ func (s *Server) StartEdgeDeploy(c *gin.Context) {
 }
 
 type VLESSDevcontainerRequest struct {
-	UUID        string `json:"uuid" binding:"required"`
-	XrayVersion string `json:"xray_version" binding:"required"`
-	Port        int    `json:"port"`
-	Path        string `json:"path"`
-	Mode        string `json:"mode"`
+	UUID            string `json:"uuid" binding:"required"`
+	XrayVersion     string `json:"xray_version" binding:"required"`
+	BaseImage       string `json:"base_image" binding:"required"`
+	XraySHA256AMD64 string `json:"xray_sha256_amd64" binding:"required"`
+	XraySHA256ARM64 string `json:"xray_sha256_arm64" binding:"required"`
+	Port            int    `json:"port"`
+	Path            string `json:"path"`
+	Mode            string `json:"mode"`
 }
 
 // GenerateVLESSDevcontainer handles a read-only deployment-template request.
@@ -108,7 +111,9 @@ func (s *Server) GenerateVLESSDevcontainer(c *gin.Context) {
 		return
 	}
 	bundle, err := provision.GenerateVLESSDevcontainer(provision.VLESSDevcontainerSpec{
-		UUID: req.UUID, XrayVersion: req.XrayVersion, Port: req.Port, Path: req.Path, Mode: req.Mode,
+		UUID: req.UUID, XrayVersion: req.XrayVersion, BaseImage: req.BaseImage,
+		XraySHA256AMD64: req.XraySHA256AMD64, XraySHA256ARM64: req.XraySHA256ARM64,
+		Port: req.Port, Path: req.Path, Mode: req.Mode,
 	})
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})

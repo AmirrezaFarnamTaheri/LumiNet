@@ -244,6 +244,9 @@ export function Operations() {
   const [sniRankBusy, setSNIRankBusy] = useState(false);
   const [devUUID, setDevUUID] = useState('123e4567-e89b-42d3-a456-426614174000');
   const [devXrayVersion, setDevXrayVersion] = useState('v26.3.27');
+  const [devBaseImage, setDevBaseImage] = useState('');
+  const [devXraySHA256AMD64, setDevXraySHA256AMD64] = useState('');
+  const [devXraySHA256ARM64, setDevXraySHA256ARM64] = useState('');
   const [devPort, setDevPort] = useState(443);
   const [devPath, setDevPath] = useState('/xhttp');
   const [devMode, setDevMode] = useState('packet-up');
@@ -601,7 +604,7 @@ export function Operations() {
   const generateDevcontainer = async () => {
     setDevBusy(true); setOverviewError(null); setDevBundle(null);
     try {
-      const bundle=await controlTransport.json('/api/system/provision/templates/vless-devcontainer',parseDevcontainerBundle,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({uuid:devUUID.trim(),xray_version:devXrayVersion.trim(),port:devPort,path:devPath.trim(),mode:devMode})});
+      const bundle=await controlTransport.json('/api/system/provision/templates/vless-devcontainer',parseDevcontainerBundle,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({uuid:devUUID.trim(),xray_version:devXrayVersion.trim(),base_image:devBaseImage.trim(),xray_sha256_amd64:devXraySHA256AMD64.trim(),xray_sha256_arm64:devXraySHA256ARM64.trim(),port:devPort,path:devPath.trim(),mode:devMode})});
       setDevBundle(bundle);
     } catch(caught){ setOverviewError(errorMessage(caught,'Devcontainer generation failed.')); } finally { setDevBusy(false); }
   };
@@ -985,10 +988,13 @@ export function Operations() {
 
       <section className="card space-y-4" aria-labelledby="devcontainer-title">
         <h3 id="devcontainer-title" className="m-0 flex items-center gap-2 border-b border-border-color pb-3 text-lg"><ServerCog size={18} className="text-purple" /> VLESS + XHTTP devcontainer</h3>
-        <p className="m-0 text-sm text-text-secondary">Generate a reviewable Codespaces/devcontainer bundle with a pinned Xray release and first-class XHTTP settings. Generation is read-only; nothing is deployed automatically.</p>
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-5">
+        <p className="m-0 text-sm text-text-secondary">Generate a reviewable Codespaces/devcontainer bundle with immutable supply-chain inputs and first-class XHTTP settings. Generation is read-only; nothing is deployed automatically.</p>
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
           <Field label="Client UUID"><input value={devUUID} onChange={(e)=>setDevUUID(e.target.value)} className="field-input mono" /></Field>
           <Field label="Xray version"><input value={devXrayVersion} onChange={(e)=>setDevXrayVersion(e.target.value)} className="field-input mono" /></Field>
+          <Field label="Debian base image digest"><input value={devBaseImage} onChange={(e)=>setDevBaseImage(e.target.value)} placeholder="debian:bookworm-slim@sha256:<64-hex>" className="field-input mono" /></Field>
+          <Field label="Xray SHA-256 (amd64)"><input value={devXraySHA256AMD64} onChange={(e)=>setDevXraySHA256AMD64(e.target.value)} placeholder="64 hex characters" className="field-input mono" /></Field>
+          <Field label="Xray SHA-256 (arm64)"><input value={devXraySHA256ARM64} onChange={(e)=>setDevXraySHA256ARM64(e.target.value)} placeholder="64 hex characters" className="field-input mono" /></Field>
           <Field label="Port"><input type="number" min={1} max={65535} value={devPort} onChange={(e)=>setDevPort(Number(e.target.value)||443)} className="field-input" /></Field>
           <Field label="XHTTP path"><input value={devPath} onChange={(e)=>setDevPath(e.target.value)} className="field-input mono" /></Field>
           <Field label="XHTTP mode"><select value={devMode} onChange={(e)=>setDevMode(e.target.value)} className="field-input"><option value="auto">auto</option><option value="packet-up">packet-up</option><option value="stream-up">stream-up</option><option value="stream-one">stream-one</option></select></Field>
