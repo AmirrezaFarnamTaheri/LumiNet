@@ -22,9 +22,8 @@ internal class UnderlyingNetworkTracker(
 ) {
     private val lock = Any()
     private val platformLock = Any()
+    private val lifecycle = UnderlayLifecycleGate()
     private val candidates = mutableMapOf<Network, NetworkCapabilities>()
-    private var started = false
-    private var generation = 0L
     private var appliedHandle = UNAPPLIED_HANDLE
 
     private val request = NetworkRequest.Builder()
@@ -55,7 +54,7 @@ internal class UnderlyingNetworkTracker(
      */
     fun start(): Boolean {
         synchronized(lock) {
-            if (started) return true
+            if (lifecycle.active) return true
         }
 
         val registered = runCatching {
@@ -64,8 +63,7 @@ internal class UnderlyingNetworkTracker(
         if (!registered) return false
 
         synchronized(lock) {
-            generation += 1
-            started = true
+            lifecycle.start()
             appliedHandle = UNAPPLIED_HANDLE
         }
 
@@ -80,11 +78,10 @@ internal class UnderlyingNetworkTracker(
 
     fun stop() {
         val shouldUnregister = synchronized(lock) {
-            if (!started) {
+            if (!lifecycle.active) {
                 false
             } else {
-                generation += 1
-                started = false
+                lifecycle.stop()
                 candidates.clear()
                 appliedHandle = UNAPPLIED_HANDLE
                 true
@@ -117,7 +114,7 @@ internal class UnderlyingNetworkTracker(
 
     private fun updateCandidate(network: Network, capabilities: NetworkCapabilities) {
         synchronized(lock) {
-            if (!started) return
+            if (!lifecycle.active) return
             if (isPhysicalInternet(capabilities)) {
                 candidates[network] = NetworkCapabilities(capabilities)
             } else {
@@ -129,16 +126,16 @@ internal class UnderlyingNetworkTracker(
 
     private fun applyBestCandidate() {
         val snapshot = synchronized(lock) {
-            if (!started) return
+            if (!lifecycle.active) return
             val selected = chooseBestCandidate(candidates, runCatching { connectivity.activeNetwork }.getOrNull())
             val selectedHandle = selected?.networkHandle ?: NO_NETWORK_HANDLE
             if (appliedHandle == selectedHandle) return
-            ApplySnapshot(selected, selectedHandle, generation)
+            ApplySnapshot(selected, selectedHandle, lifecycle.generation)
         }
 
         synchronized(platformLock) {
             val stillCurrent = synchronized(lock) {
-                started && generation == snapshot.generation && appliedHandle != snapshot.selectedHandle
+                lifecycle.isCurrent(snapshot.generation) && appliedHandle != snapshot.selectedHandle
             }
             if (!stillCurrent) return
 
@@ -152,7 +149,7 @@ internal class UnderlyingNetworkTracker(
             if (!applied) return
 
             synchronized(lock) {
-                if (started && generation == snapshot.generation) {
+                if (lifecycle.isCurrent(snapshot.generation)) {
                     appliedHandle = snapshot.selectedHandle
                 }
             }
