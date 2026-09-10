@@ -168,9 +168,7 @@ test('Connections exposes a degraded daemon failure and recovers on explicit ret
   await mockConnectionCompanions(page);
   let degraded = true;
   await page.route('**/api/system/flows*', (route) => {
-    if (degraded) {
-      return route.fulfill({ status: 503, json: { error: 'daemon warming up' } });
-    }
+    if (degraded) return route.fulfill({ status: 503, json: { error: 'daemon warming up' } });
     return route.fulfill({ json: flowList([flow('recovered', 'recovered.example')]) });
   });
 
@@ -183,7 +181,7 @@ test('Connections exposes a degraded daemon failure and recovers on explicit ret
   await expect(page.getByRole('alert')).toHaveCount(0);
 });
 
-test('Settings exposes accessible sensitive fields and announces upload outcome', async ({ page }) => {
+test('Settings keeps local controls accessible and excludes remote deployment fields', async ({ page }) => {
   await page.route('**/api/system/evasion-tunnel', (route) => route.fulfill({
     json: {
       running: false,
@@ -195,6 +193,15 @@ test('Settings exposes accessible sensitive fields and announces upload outcome'
       ws_fingerprint: 'firefox',
     },
   }));
+
+  await page.goto('/#/settings');
+  await expect(page.getByRole('slider', { name: 'ClientHello Split Offset' })).toBeVisible();
+  await expect(page.getByRole('slider', { name: 'Inter-packet Desync Delay' })).toBeVisible();
+  await expect(page.getByRole('textbox', { name: 'Auth Email' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Upload Script' })).toHaveCount(0);
+});
+
+test('Deployment owns accessible remote Worker mutation and announces verification limits', async ({ page }) => {
   await page.route('**/api/system/cloudflare-deploy', (route) => route.fulfill({
     json: {
       status: 'success',
@@ -203,14 +210,11 @@ test('Settings exposes accessible sensitive fields and announces upload outcome'
     },
   }));
 
-  await page.goto('/#/settings');
-
+  await page.goto('/#/deployment');
   await expect(page.getByRole('textbox', { name: 'Auth Email' })).toBeVisible();
   await expect(page.getByLabel('API Token')).toBeVisible();
   await expect(page.getByRole('textbox', { name: 'Account ID' })).toBeVisible();
   await expect(page.getByRole('textbox', { name: 'Worker JavaScript source' })).toBeVisible();
-  await expect(page.getByRole('slider', { name: 'ClientHello Split Offset' })).toBeVisible();
-  await expect(page.getByRole('slider', { name: 'Inter-packet Desync Delay' })).toBeVisible();
 
   await page.getByRole('textbox', { name: 'Auth Email' }).fill('operator@example.com');
   await page.getByLabel('API Token').fill('test-token');
