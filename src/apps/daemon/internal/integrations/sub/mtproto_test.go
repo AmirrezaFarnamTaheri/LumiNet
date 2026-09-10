@@ -3,7 +3,6 @@ package sub
 import (
 	"context"
 	"errors"
-	"net"
 	"testing"
 	"time"
 )
@@ -91,38 +90,4 @@ func TestPublicMTProtoProbeRejectsInvalidPortsBeforeNetwork(t *testing.T) {
 			t.Fatalf("port %d unexpectedly accepted", port)
 		}
 	}
-}
-
-func TestPublicMTProtoProbeAllowsVettedLoopbackFixtureOnlyThroughInjectedProbe(t *testing.T) {
-	listener, err := net.Listen("tcp", "127.0.0.1:0")
-	if err != nil {
-		t.Fatalf("listen: %v", err)
-	}
-	defer listener.Close()
-
-	done := make(chan struct{})
-	go func() {
-		defer close(done)
-		conn, acceptErr := listener.Accept()
-		if acceptErr == nil {
-			_ = conn.Close()
-		}
-	}()
-
-	probe := func(ctx context.Context, proxy MTProtoProxy) (time.Duration, error) {
-		start := time.Now()
-		dialer := net.Dialer{Timeout: time.Second}
-		conn, dialErr := dialer.DialContext(ctx, "tcp", net.JoinHostPort(proxy.Host, listener.Addr().(*net.TCPAddr).PortString()))
-		if dialErr != nil {
-			return 0, dialErr
-		}
-		_ = conn.Close()
-		return time.Since(start), nil
-	}
-
-	// Keep the production function unmodified: only the injected test seam can
-	// reach the loopback fixture. The separate policy test above proves the
-	// production probe rejects this same address.
-	_ = probe
-	_ = done
 }
