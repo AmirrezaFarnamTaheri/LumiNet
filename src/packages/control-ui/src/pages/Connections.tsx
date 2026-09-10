@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Activity, ArrowDownToLine, ArrowUpFromLine, Cable, CircleAlert, CircleCheck,
   Clock3, Network, RefreshCw, Search, ShieldCheck, Unplug, X,
@@ -17,6 +17,9 @@ import {
 import { parseEndpointDispatchPlan, parseMultiplexPolicyPlan, parseWebSocketReadinessPlan, type EndpointDispatchPlan, type MultiplexPolicyPlan, type WebSocketReadinessPlan } from '../api/planners';
 
 const POLL_MS = 1500;
+const FLOW_FETCH_LIMIT = 512;
+const INITIAL_VISIBLE_FLOWS = 100;
+const VISIBLE_FLOW_STEP = 100;
 
 function formatBytes(bytes: number): string {
   if (!Number.isFinite(bytes) || bytes <= 0) return '0 B';
@@ -130,18 +133,31 @@ export function Connections() {
   const [dispatchPlan, setDispatchPlan] = useState<EndpointDispatchPlan | null>(null);
   const [dispatchBusy, setDispatchBusy] = useState(false);
   const [dispatchError, setDispatchError] = useState<string | null>(null);
+  const [visibleFlowLimit, setVisibleFlowLimit] = useState(INITIAL_VISIBLE_FLOWS);
+  const requestSequence = useRef(0);
+  const activeRequest = useRef<AbortController | null>(null);
 
   const load = useCallback(async (foreground = false) => {
+    const sequence = requestSequence.current + 1;
+    requestSequence.current = sequence;
+    activeRequest.current?.abort();
+    const controller = new AbortController();
+    activeRequest.current = controller;
     if (foreground) setLoading(true);
+    else setLoading(false);
+
     try {
-      const params = new URLSearchParams({ limit: '4096' });
+      const params = new URLSearchParams({ limit: String(FLOW_FETCH_LIMIT) });
       if (owner) params.set('owner', owner);
       if (query.trim()) params.set('q', query.trim());
+      const requestInit: RequestInit = { signal: controller.signal };
       const [flows, net, intel] = await Promise.all([
-        controlTransport.json(`/api/system/flows?${params.toString()}`, parseFlowList),
-        controlTransport.json('/api/system/network-state?history=12', parseNetworkStatus),
-        controlTransport.json('/api/system/network-intelligence', parseNetworkIntelligence),
+        controlTransport.json(`/api/system/flows?${params.toString()}`, parseFlowList, requestInit),
+        controlTransport.json('/api/system/network-state?history=12', parseNetworkStatus, requestInit),
+        controlTransport.json('/api/system/network-intelligence', parseNetworkIntelligence, requestInit),
       ]);
+      if (controller.signal.aborted || sequence !== requestSequence.current) return;
+
       setData(flows);
       setNetworkState(net);
       setIntelligence(intel);
@@ -149,34 +165,55 @@ export function Connections() {
       const live = new Set(flows.flows.map((flow) => flow.id));
       setSelected((previous) => new Set([...previous].filter((id) => live.has(id))));
     } catch (caught) {
+      if (controller.signal.aborted || sequence !== requestSequence.current) return;
       setError(errorText(caught, 'Flow observability is unavailable.'));
     } finally {
-      if (foreground) setLoading(false);
+      if (sequence === requestSequence.current) {
+        if (activeRequest.current === controller) activeRequest.current = null;
+        if (foreground) setLoading(false);
+      }
     }
   }, [owner, query]);
 
   useEffect(() => {
-    void load(true);
+    setVisibleFlowLimit(INITIAL_VISIBLE_FLOWS);
+  }, [owner, query]);
+
+  useEffect(() => {
+    let stopped = false;
     let timer: number | undefined;
-    const start = () => {
-      if (timer !== undefined || document.hidden) return;
-      timer = window.setInterval(() => void load(false), POLL_MS);
-    };
-    const stop = () => {
-      if (timer !== undefined) window.clearInterval(timer);
+
+    const stopTimer = () => {
+      if (timer !== undefined) window.clearTimeout(timer);
       timer = undefined;
     };
-    const visibility = () => {
-      if (document.hidden) stop();
-      else {
-        void load(false);
-        start();
-      }
+    const schedule = () => {
+      stopTimer();
+      if (stopped || document.hidden) return;
+      timer = window.setTimeout(() => void poll(false), POLL_MS);
     };
-    start();
+    const poll = async (foreground: boolean) => {
+      if (stopped || document.hidden) return;
+      await load(foreground);
+      schedule();
+    };
+    const visibility = () => {
+      if (document.hidden) {
+        stopTimer();
+        activeRequest.current?.abort();
+        return;
+      }
+      void poll(false);
+    };
+
+    void poll(true);
     document.addEventListener('visibilitychange', visibility);
     return () => {
-      stop();
+      stopped = true;
+      stopTimer();
+      requestSequence.current += 1;
+      activeRequest.current?.abort();
+      activeRequest.current = null;
       document.removeEventListener('visibilitychange', visibility);
     };
   }, [load]);
@@ -306,7 +343,8 @@ export function Connections() {
 
   const currentEpoch = networkState?.current.revision ?? data?.networkRevision ?? 0;
   const activeInterfaces = networkState?.current.interfaces ?? [];
-  const allVisibleSelected = Boolean(data?.flows.length) && data!.flows.filter((flow) => flow.closeable).every((flow) => selected.has(flow.id));
+  const visibleFlows = useMemo(() => data?.flows.slice(0, visibleFlowLimit) ?? [], [data, visibleFlowLimit]);
+  const allVisibleSelected = visibleFlows.some((flow) => flow.closeable) && visibleFlows.filter((flow) => flow.closeable).every((flow) => selected.has(flow.id));
 
   return (
     <div className="space-y-6">
@@ -516,7 +554,7 @@ export function Connections() {
               checked={allVisibleSelected}
               onChange={(event) => {
                 if (!data) return;
-                setSelected(event.target.checked ? new Set(data.flows.filter((flow) => flow.closeable).map((flow) => flow.id)) : new Set());
+                setSelected(event.target.checked ? new Set(visibleFlows.filter((flow) => flow.closeable).map((flow) => flow.id)) : new Set());
               }}
             />
             Select closeable visible flows
@@ -540,7 +578,7 @@ export function Connections() {
               </tr>
             </thead>
             <tbody className="divide-y divide-border-color">
-              {data?.flows.map((flow) => {
+              {visibleFlows.map((flow) => {
                 const busy = busyIDs.has(flow.id);
                 const staleEpoch = currentEpoch > 0 && flow.networkEpoch > 0 && flow.networkEpoch < currentEpoch;
                 return (
@@ -591,6 +629,23 @@ export function Connections() {
             </tbody>
           </table>
         </div>
+        {data && data.flows.length > 0 && (
+          <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-text-muted">
+            <span>
+              Rendering {Math.min(visibleFlows.length, data.flows.length)} of {data.returned} fetched flows
+              {data.matched > data.returned ? ` · ${data.matched} match the current filters; refine filters to inspect beyond the ${FLOW_FETCH_LIMIT}-flow fetch cap.` : '.'}
+            </span>
+            {visibleFlows.length < data.flows.length && (
+              <button
+                type="button"
+                className="btn btn-secondary min-h-9 px-3 py-1.5 text-xs"
+                onClick={() => setVisibleFlowLimit((current) => Math.min(current + VISIBLE_FLOW_STEP, data.flows.length))}
+              >
+                Show {Math.min(VISIBLE_FLOW_STEP, data.flows.length - visibleFlows.length)} more
+              </button>
+            )}
+          </div>
+        )}
       </section>
 
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
