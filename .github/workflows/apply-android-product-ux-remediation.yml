@@ -30,7 +30,7 @@ jobs:
           grep -q 'val actionLabel = if (isConnected) "Disconnect" else "Connect"' src/apps/android/app/src/main/java/com/luminet/android/LumiNetActivity.kt
           grep -q 'Search installed apps' src/apps/android/app/src/main/java/com/luminet/android/LumiNetActivity.kt
           grep -q '<queries>' src/apps/android/app/src/main/AndroidManifest.xml
-          ! grep -q 'QUERY_ALL_PACKAGES' src/apps/android/app/src/main/AndroidManifest.xml
+          ! grep -q 'android.permission.QUERY_ALL_PACKAGES' src/apps/android/app/src/main/AndroidManifest.xml
 
       - name: Commit source and remove one-shot machinery
         shell: bash
