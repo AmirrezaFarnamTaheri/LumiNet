@@ -14,6 +14,10 @@ const sections = [
   { id: 'planning', label: 'Planning', icon: SlidersHorizontal },
 ] as const;
 
+function revealSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'auto', block: 'start' });
+}
+
 export function Operations() {
   return (
     <div className="space-y-6">
@@ -27,9 +31,9 @@ export function Operations() {
         </div>
         <nav aria-label="Operations sections" className="flex flex-wrap gap-2">
           {sections.map(({ id, label, icon: Icon }) => (
-            <a key={id} href={`#${id}`} className="btn btn-secondary px-3 py-1.5 text-xs">
+            <button key={id} type="button" onClick={() => revealSection(id)} className="btn btn-secondary px-3 py-1.5 text-xs">
               <Icon size={14} aria-hidden="true" /> {label}
-            </a>
+            </button>
           ))}
         </nav>
       </header>
