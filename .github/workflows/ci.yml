@@ -99,7 +99,7 @@ jobs:
       - name: Go race admission
         run: |
           cd src/apps/daemon
-          CGO_ENABLED=0 go test -race ./internal/workflows/jobs ./internal/foundation/store ./internal/runtime/proxy -count=1
+          CGO_ENABLED=1 go test -race ./internal/workflows/jobs ./internal/foundation/store ./internal/runtime/proxy -count=1
 
       - name: Full Host Product Build Check
         run: make build-all
@@ -218,6 +218,7 @@ jobs:
           CGO_ENABLED: '1'
         run: |
           mkdir -p build src/apps/android/app/libs
+          (cd src/apps/daemon && go get -tool golang.org/x/mobile/cmd/gobind@v0.0.0-20260709172247-6129f5bee9d5)
           (cd src/apps/daemon && gomobile bind -v -o ../../../build/luminet.aar -javapkg=com.luminet -target=android github.com/maybeknott/luminet/internal/adapters/mobilebind)
           cp build/luminet.aar src/apps/android/app/libs/luminet.aar
 
