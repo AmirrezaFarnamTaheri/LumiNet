@@ -219,7 +219,7 @@ jobs:
         run: |
           mkdir -p build src/apps/android/app/libs
           (cd src/apps/daemon && go get -tool golang.org/x/mobile/cmd/gobind@v0.0.0-20260709172247-6129f5bee9d5)
-          (cd src/apps/daemon && gomobile bind -v -o ../../../build/luminet.aar -javapkg=com.luminet -target=android github.com/maybeknott/luminet/internal/adapters/mobilebind)
+          (cd src/apps/daemon && gomobile bind -v -androidapi=21 -o ../../../build/luminet.aar -javapkg=com.luminet -target=android github.com/maybeknott/luminet/internal/adapters/mobilebind)
           cp build/luminet.aar src/apps/android/app/libs/luminet.aar
 
       - name: Test Android lifecycle and app logic
