@@ -142,16 +142,25 @@ test('Connections confirms owner teardown and removes a successfully closed flow
   await mockConnectionCompanions(page);
   let closed = false;
   let deleteSeen = false;
+  const corsHeaders = {
+    'access-control-allow-origin': 'http://127.0.0.1:4173',
+    'access-control-allow-methods': 'GET, DELETE, OPTIONS',
+    'access-control-allow-headers': 'content-type, x-api-key',
+  };
   await page.route('**/api/system/flows*', async (route) => {
     const request = route.request();
     const pathname = new URL(request.url()).pathname;
+    if (request.method() === 'OPTIONS') {
+      await route.fulfill({ status: 204, headers: corsHeaders });
+      return;
+    }
     if (request.method() === 'DELETE' && pathname.endsWith('/close-me')) {
       deleteSeen = true;
       closed = true;
-      await route.fulfill({ status: 200, json: { status: 'closed' } });
+      await route.fulfill({ status: 200, headers: corsHeaders, json: { status: 'closed' } });
       return;
     }
-    await route.fulfill({ json: flowList(closed ? [] : [flow('close-me', 'close-me.example')]) });
+    await route.fulfill({ headers: corsHeaders, json: flowList(closed ? [] : [flow('close-me', 'close-me.example')]) });
   });
   page.on('dialog', (dialog) => void dialog.accept());
 
