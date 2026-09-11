@@ -125,7 +125,7 @@
     },
     {
       "family_id": "family:scanner-probe-diagnostics",
-      "status": "inventory",
+      "status": "characterized",
       "disposition": "compose",
       "canonical_peer_id": "peer:scanner-package",
       "peers": [
@@ -140,19 +140,23 @@
             "partial-result behavior",
             "cancellation boundaries"
           ],
-          "consumers": [],
+          "consumers": [
+            "src/apps/daemon/internal/adapters/api",
+            "src/apps/daemon/internal/runtime/routingplugin",
+            "src/apps/daemon/internal/workflows/jobs"
+          ],
           "verification_evidence": [
-            "go test ./internal/scanner"
+            "go test ./internal/analysis/scanner"
           ],
           "disposition": "compose",
           "provenance": {
             "evidence": [
-              "repository package"
+              "repository package, scanner .context ownership, and direct daemon callers"
             ]
           }
         }
       ],
-      "deletion_predicate": "Preserve every observation type until scheduling, cancellation, and result fixtures prove composition."
+      "deletion_predicate": "Preserve protocol observations, partial-result behavior, cancellation boundaries, and direct consumer contracts; scanner changes require the package verification suite to pass."
     },
     {
       "family_id": "family:warp",
