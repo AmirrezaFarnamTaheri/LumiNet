@@ -37,6 +37,29 @@ func parseDefaultRouteInterface(out string) string {
 	return ""
 }
 
+func parseNetworkServiceHeader(line string) (service string, disabled bool, ok bool) {
+	line = strings.TrimSpace(line)
+	if len(line) < 4 || line[0] != '(' {
+		return "", false, false
+	}
+	closeIndex := strings.IndexByte(line, ')')
+	if closeIndex <= 1 {
+		return "", false, false
+	}
+	for _, r := range line[1:closeIndex] {
+		if r < '0' || r > '9' {
+			return "", false, false
+		}
+	}
+	service = strings.TrimSpace(line[closeIndex+1:])
+	disabled = strings.HasPrefix(service, "*")
+	service = strings.TrimSpace(strings.TrimPrefix(service, "*"))
+	if service == "" {
+		return "", disabled, false
+	}
+	return service, disabled, true
+}
+
 func parseNetworkServiceForDevice(out, device string) string {
 	device = strings.TrimSpace(device)
 	if device == "" {
@@ -47,12 +70,9 @@ func parseNetworkServiceForDevice(out, device string) string {
 	disabled := false
 	for _, raw := range strings.Split(out, "\n") {
 		line := strings.TrimSpace(raw)
-		if strings.HasPrefix(line, "(") {
-			if closeIndex := strings.Index(line, ")"); closeIndex >= 0 {
-				service = strings.TrimSpace(line[closeIndex+1:])
-				disabled = strings.HasPrefix(service, "*")
-				service = strings.TrimSpace(strings.TrimPrefix(service, "*"))
-			}
+		if candidate, isDisabled, ok := parseNetworkServiceHeader(line); ok {
+			service = candidate
+			disabled = isDisabled
 			continue
 		}
 		if service == "" || disabled || !strings.Contains(line, "Device:") {
