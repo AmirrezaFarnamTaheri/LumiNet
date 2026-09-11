@@ -147,7 +147,7 @@ test('Connections confirms owner teardown and removes a successfully closed flow
     'access-control-allow-methods': 'GET, DELETE, OPTIONS',
     'access-control-allow-headers': 'content-type, x-api-key',
   };
-  await page.route('**/api/system/flows*', async (route) => {
+  await page.route(/\/api\/system\/flows(?:\/.*|\?.*)?$/, async (route) => {
     const request = route.request();
     const pathname = new URL(request.url()).pathname;
     if (request.method() === 'OPTIONS') {
