@@ -135,6 +135,22 @@ fn find_all_occurrences(buffer: &[u8], target: &[u8]) -> Vec<usize> {
     indices
 }
 
+fn validate_replacement(target: &[u8], replacement: &[u8]) -> io::Result<()> {
+    if target.is_empty() {
+        return Err(io::Error::new(
+            io::ErrorKind::InvalidInput,
+            "memory replacement target must not be empty",
+        ));
+    }
+    if target.len() != replacement.len() {
+        return Err(io::Error::new(
+            io::ErrorKind::InvalidInput,
+            "memory replacement must preserve byte length",
+        ));
+    }
+    Ok(())
+}
+
 /// Scans process memory and replaces all occurrences of a target byte sequence with a replacement.
 /// Returns the number of replacements made.
 #[cfg(target_os = "windows")]
@@ -145,6 +161,8 @@ pub fn scan_and_replace(pid: u32, target: &[u8], replacement: &[u8]) -> io::Resu
         OpenProcess, PROCESS_QUERY_INFORMATION, PROCESS_VM_OPERATION, PROCESS_VM_READ,
         PROCESS_VM_WRITE,
     };
+
+    validate_replacement(target, replacement)?;
 
     let handle = unsafe {
         OpenProcess(
@@ -212,6 +230,8 @@ pub fn scan_and_replace(pid: u32, target: &[u8], replacement: &[u8]) -> io::Resu
 /// Returns the number of replacements made.
 #[cfg(target_os = "linux")]
 pub fn scan_and_replace(pid: u32, target: &[u8], replacement: &[u8]) -> io::Result<usize> {
+    validate_replacement(target, replacement)?;
+
     let regions = get_process_regions(pid)?;
     let mut mem_file = std::fs::OpenOptions::new()
         .read(true)
@@ -257,13 +277,23 @@ pub fn scan_and_replace(pid: u32, target: &[u8], replacement: &[u8]) -> io::Resu
 /// Scans process memory and replaces all occurrences of a target byte sequence with a replacement.
 /// Returns the number of replacements made.
 #[cfg(not(any(target_os = "windows", target_os = "linux")))]
-pub fn scan_and_replace(_pid: u32, _target: &[u8], _replacement: &[u8]) -> io::Result<usize> {
+pub fn scan_and_replace(_pid: u32, target: &[u8], replacement: &[u8]) -> io::Result<usize> {
+    validate_replacement(target, replacement)?;
     Ok(0)
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    static UNIQUE_TARGET: [u8; 16] = [
+        0xD3, 0x91, 0x5A, 0xC7, 0x2E, 0x84, 0xF1, 0x6B,
+        0x09, 0xBD, 0x43, 0xE8, 0x72, 0x1C, 0xA5, 0xFE,
+    ];
+    static UNIQUE_REPLACEMENT: [u8; 16] = [
+        0x6C, 0x28, 0xE1, 0x4B, 0x93, 0x5D, 0x07, 0xFA,
+        0xB4, 0x31, 0x8E, 0x62, 0xC9, 0x15, 0x77, 0xA0,
+    ];
 
     #[test]
     fn test_get_process_regions() {
@@ -277,19 +307,30 @@ mod tests {
     #[test]
     fn test_scan_and_replace() {
         let pid = std::process::id();
-        let target = [0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88];
-        let replacement = [0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x11, 0x22];
+        let mut marker = UNIQUE_TARGET.to_vec();
 
-        let result = scan_and_replace(pid, &target, &replacement);
+        let result = scan_and_replace(pid, &UNIQUE_TARGET, &UNIQUE_REPLACEMENT);
 
         #[cfg(any(target_os = "windows", target_os = "linux"))]
         {
             assert!(result.is_ok());
-            let _count = result.unwrap();
+            assert!(result.unwrap() >= 1);
+            assert_eq!(marker, UNIQUE_REPLACEMENT);
         }
         #[cfg(not(any(target_os = "windows", target_os = "linux")))]
         {
             assert!(result.is_ok());
+            assert_eq!(marker, UNIQUE_TARGET);
         }
+
+        // Keep the marker alive across the external process-memory write.
+        std::hint::black_box(&mut marker);
+    }
+
+    #[test]
+    fn test_scan_and_replace_rejects_length_changes() {
+        let err = scan_and_replace(std::process::id(), b"target", b"short")
+            .expect_err("different replacement length must be rejected");
+        assert_eq!(err.kind(), io::ErrorKind::InvalidInput);
     }
 }
