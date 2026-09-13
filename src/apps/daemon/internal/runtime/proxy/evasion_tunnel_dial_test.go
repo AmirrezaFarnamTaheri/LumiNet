@@ -21,8 +21,12 @@ func TestEvasionTunnelDial_GDrive(t *testing.T) {
 		t.Fatalf("dialWithEvasion failed for gdrive covert mode: %v", err)
 	}
 	defer conn.Close()
-	if _, ok := conn.(*gdriveConn); !ok {
-		t.Fatalf("expected gdrive virtual connection, got %T", conn)
+	wrapped, ok := conn.(*evasionTunnelConn)
+	if !ok {
+		t.Fatalf("expected evasion tunnel wrapper, got %T", conn)
+	}
+	if _, ok := wrapped.Conn.(*gdriveConn); !ok {
+		t.Fatalf("expected gdrive virtual connection under wrapper, got %T", wrapped.Conn)
 	}
 
 	// Construction must validate credentials without performing a live Google
@@ -48,8 +52,12 @@ func TestEvasionTunnelDial_GDocs(t *testing.T) {
 		t.Fatalf("dialWithEvasion failed for gdocs covert mode: %v", err)
 	}
 	defer conn.Close()
-	if _, ok := conn.(*gdocsConn); !ok {
-		t.Fatalf("expected gdocs virtual connection, got %T", conn)
+	wrapped, ok := conn.(*evasionTunnelConn)
+	if !ok {
+		t.Fatalf("expected evasion tunnel wrapper, got %T", conn)
+	}
+	if _, ok := wrapped.Conn.(*gdocsConn); !ok {
+		t.Fatalf("expected gdocs virtual connection under wrapper, got %T", wrapped.Conn)
 	}
 
 	// Keep this test hermetic: exercise the routing/credential contract here,
