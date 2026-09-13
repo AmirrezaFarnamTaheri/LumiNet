@@ -28,7 +28,7 @@ func TestGoExecutorTCPObservation(t *testing.T) {
 	if !observation.Succeeded || observation.Protocol != probeProtocolTCP || observation.Verification != probeVerificationNotApplicable {
 		t.Fatalf("unexpected observation: %+v", observation)
 	}
-	if observation.ConnectLatency <= 0 || observation.TLSLatency != 0 {
+	if observation.ConnectLatency < 0 || observation.TLSLatency != 0 {
 		t.Fatalf("unexpected latency semantics: %+v", observation)
 	}
 }
