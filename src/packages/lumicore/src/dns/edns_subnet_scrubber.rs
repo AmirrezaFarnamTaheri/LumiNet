@@ -74,114 +74,94 @@ impl EdnsSubnetScrubber {
             return Err(EdnsScrubError::PacketTooShort);
         }
 
-        let mut output = packet.to_vec();
         let qdcount = u16::from_be_bytes([packet[4], packet[5]]);
         let ancount = u16::from_be_bytes([packet[6], packet[7]]);
         let nscount = u16::from_be_bytes([packet[8], packet[9]]);
         let arcount = u16::from_be_bytes([packet[10], packet[11]]);
 
         if arcount == 0 {
-            return Ok(output);
+            return Ok(packet.to_vec());
         }
 
-        // Skip header
         let mut offset = 12;
 
-        // Skip Question Section
         for _ in 0..qdcount {
             offset = Self::skip_name(packet, offset)?;
-            if offset + 4 > packet.len() {
-                return Err(EdnsScrubError::PacketTooShort);
-            }
-            offset += 4; // QTYPE + QCLASS
+            offset = offset
+                .checked_add(4)
+                .filter(|end| *end <= packet.len())
+                .ok_or(EdnsScrubError::PacketTooShort)?;
         }
 
-        // Skip Answer & Authority sections
         for _ in 0..(ancount + nscount) {
             offset = Self::skip_rr(packet, offset)?;
         }
 
-        // Now at Additional Section. Check for OPT RR (Root domain 0x00, TYPE=41)
+        let additional_start = offset;
         let mut new_additional = Vec::new();
         let mut new_arcount = 0u16;
 
         for _ in 0..arcount {
             if offset >= packet.len() {
-                break;
-            }
-            let rr_start = offset;
-            let name_end = Self::skip_name(packet, offset)?;
-            if name_end + 10 > packet.len() {
                 return Err(EdnsScrubError::MalformedOptRecord);
             }
+
+            let rr_start = offset;
+            let name_end = Self::skip_name(packet, offset)?;
+            let fixed_end = name_end
+                .checked_add(10)
+                .filter(|end| *end <= packet.len())
+                .ok_or(EdnsScrubError::MalformedOptRecord)?;
 
             let rtype = u16::from_be_bytes([packet[name_end], packet[name_end + 1]]);
             let rdlength = u16::from_be_bytes([packet[name_end + 8], packet[name_end + 9]]) as usize;
-            let rdata_start = name_end + 10;
-            let rdata_end = rdata_start + rdlength;
+            let rdata_start = fixed_end;
+            let rdata_end = rdata_start
+                .checked_add(rdlength)
+                .filter(|end| *end <= packet.len())
+                .ok_or(EdnsScrubError::MalformedOptRecord)?;
 
-            if rdata_end > packet.len() {
-                return Err(EdnsScrubError::MalformedOptRecord);
-            }
-
-            if rtype == 41 { // OPT RR
+            if rtype == 41 {
                 if !self.strip_completely {
-                    // Scrub ECS option 8 inside RDATA
                     let mut cleaned_rdata = Vec::new();
                     let mut r_off = rdata_start;
-                    while r_off + 4 <= rdata_end {
+                    while r_off < rdata_end {
+                        let option_header_end = r_off
+                            .checked_add(4)
+                            .filter(|end| *end <= rdata_end)
+                            .ok_or(EdnsScrubError::MalformedOptRecord)?;
                         let opt_code = u16::from_be_bytes([packet[r_off], packet[r_off + 1]]);
-                        let opt_len = u16::from_be_bytes([packet[r_off + 2], packet[r_off + 3]]) as usize;
-                        let opt_data_end = r_off + 4 + opt_len;
-                        if opt_data_end > rdata_end {
-                            break;
-                        }
-                        if opt_code != 8 { // Keep everything except ECS
+                        let opt_len =
+                            u16::from_be_bytes([packet[r_off + 2], packet[r_off + 3]]) as usize;
+                        let opt_data_end = option_header_end
+                            .checked_add(opt_len)
+                            .filter(|end| *end <= rdata_end)
+                            .ok_or(EdnsScrubError::MalformedOptRecord)?;
+
+                        if opt_code != 8 {
                             cleaned_rdata.extend_from_slice(&packet[r_off..opt_data_end]);
                         }
                         r_off = opt_data_end;
                     }
 
-                    // Rebuild OPT record
+                    let cleaned_len = u16::try_from(cleaned_rdata.len())
+                        .map_err(|_| EdnsScrubError::MalformedOptRecord)?;
                     new_additional.extend_from_slice(&packet[rr_start..rdata_start - 2]);
-                    new_additional.extend_from_slice(&(cleaned_rdata.len() as u16).to_be_bytes());
+                    new_additional.extend_from_slice(&cleaned_len.to_be_bytes());
                     new_additional.extend_from_slice(&cleaned_rdata);
                     new_arcount += 1;
                 }
             } else {
-                // Non-OPT RR: preserve as-is
                 new_additional.extend_from_slice(&packet[rr_start..rdata_end]);
                 new_arcount += 1;
             }
             offset = rdata_end;
         }
 
-        // Reassemble packet with new ARCOUNT
-        output.truncate(12);
-        output[10..12].copy_from_slice(&new_arcount.to_be_bytes());
-        // Append through to start of additional section
-        let header_and_body_len = packet.len() - (packet.len() - offset) - (packet.len() - offset);
-        let mut reconstructed = packet[..12].to_vec();
+        let mut reconstructed = packet[..additional_start].to_vec();
         reconstructed[10..12].copy_from_slice(&new_arcount.to_be_bytes());
-        
-        // Append question + answers + authorities
-        let initial_records_end = Self::find_additional_offset(packet, qdcount, ancount, nscount)?;
-        reconstructed.extend_from_slice(&packet[12..initial_records_end]);
         reconstructed.extend_from_slice(&new_additional);
-
         Ok(reconstructed)
-    }
-
-    fn find_additional_offset(packet: &[u8], qd: u16, an: u16, ns: u16) -> Result<usize, EdnsScrubError> {
-        let mut offset = 12;
-        for _ in 0..qd {
-            offset = Self::skip_name(packet, offset)?;
-            offset += 4;
-        }
-        for _ in 0..(an + ns) {
-            offset = Self::skip_rr(packet, offset)?;
-        }
-        Ok(offset)
     }
 
     fn skip_name(packet: &[u8], mut offset: usize) -> Result<usize, EdnsScrubError> {
@@ -191,31 +171,51 @@ impl EdnsSubnetScrubber {
                 return Ok(offset + 1);
             }
             if (len & 0xC0) == 0xC0 {
-                // Pointer
-                return Ok(offset + 2);
+                return offset
+                    .checked_add(2)
+                    .filter(|end| *end <= packet.len())
+                    .ok_or(EdnsScrubError::PacketTooShort);
             }
-            offset += (len as usize) + 1;
+            if (len & 0xC0) != 0 {
+                return Err(EdnsScrubError::InvalidHeader);
+            }
+            offset = offset
+                .checked_add((len as usize) + 1)
+                .filter(|next| *next <= packet.len())
+                .ok_or(EdnsScrubError::PacketTooShort)?;
         }
         Err(EdnsScrubError::PacketTooShort)
     }
 
     fn skip_rr(packet: &[u8], offset: usize) -> Result<usize, EdnsScrubError> {
         let name_end = Self::skip_name(packet, offset)?;
-        if name_end + 10 > packet.len() {
-            return Err(EdnsScrubError::PacketTooShort);
-        }
+        let fixed_end = name_end
+            .checked_add(10)
+            .filter(|end| *end <= packet.len())
+            .ok_or(EdnsScrubError::PacketTooShort)?;
         let rdlen = u16::from_be_bytes([packet[name_end + 8], packet[name_end + 9]]) as usize;
-        let end = name_end + 10 + rdlen;
-        if end > packet.len() {
-            return Err(EdnsScrubError::PacketTooShort);
-        }
-        Ok(end)
+        fixed_end
+            .checked_add(rdlen)
+            .filter(|end| *end <= packet.len())
+            .ok_or(EdnsScrubError::PacketTooShort)
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    fn opt_packet(rdata: &[u8]) -> Vec<u8> {
+        let mut packet = vec![0u8; 12];
+        packet[10..12].copy_from_slice(&1u16.to_be_bytes());
+        packet.push(0); // root owner name
+        packet.extend_from_slice(&41u16.to_be_bytes());
+        packet.extend_from_slice(&1232u16.to_be_bytes());
+        packet.extend_from_slice(&0u32.to_be_bytes());
+        packet.extend_from_slice(&(rdata.len() as u16).to_be_bytes());
+        packet.extend_from_slice(rdata);
+        packet
+    }
 
     #[test]
     fn test_mask_ipv4() {
@@ -228,9 +228,48 @@ mod tests {
     fn test_scrub_packet_no_opt() {
         let scrubber = EdnsSubnetScrubber::new(24, 56, false);
         let mut pkt = vec![0u8; 12];
-        pkt[0] = 0x12; pkt[1] = 0x34; // ID
+        pkt[0] = 0x12;
+        pkt[1] = 0x34;
         let res = scrubber.scrub_packet(&pkt).unwrap();
         assert_eq!(res.len(), 12);
         assert_eq!(res[0], 0x12);
+    }
+
+    #[test]
+    fn test_scrub_packet_removes_ecs_but_preserves_other_options() {
+        let scrubber = EdnsSubnetScrubber::new(24, 56, false);
+        let rdata = [
+            0, 8, 0, 4, 0, 1, 24, 0, // ECS
+            0, 12, 0, 2, 0xaa, 0xbb, // padding/other option
+        ];
+        let result = scrubber.scrub_packet(&opt_packet(&rdata)).unwrap();
+
+        assert_eq!(u16::from_be_bytes([result[10], result[11]]), 1);
+        assert_eq!(u16::from_be_bytes([result[21], result[22]]), 6);
+        assert_eq!(&result[23..], &[0, 12, 0, 2, 0xaa, 0xbb]);
+    }
+
+    #[test]
+    fn test_scrub_packet_rejects_truncated_option_header() {
+        let scrubber = EdnsSubnetScrubber::new(24, 56, false);
+        let err = scrubber.scrub_packet(&opt_packet(&[0, 8, 0])).unwrap_err();
+        assert_eq!(err, EdnsScrubError::MalformedOptRecord);
+    }
+
+    #[test]
+    fn test_scrub_packet_rejects_truncated_option_payload() {
+        let scrubber = EdnsSubnetScrubber::new(24, 56, false);
+        let err = scrubber
+            .scrub_packet(&opt_packet(&[0, 8, 0, 4, 0, 1]))
+            .unwrap_err();
+        assert_eq!(err, EdnsScrubError::MalformedOptRecord);
+    }
+
+    #[test]
+    fn test_strip_opt_updates_arcount() {
+        let scrubber = EdnsSubnetScrubber::new(24, 56, true);
+        let result = scrubber.scrub_packet(&opt_packet(&[0, 8, 0, 0])).unwrap();
+        assert_eq!(u16::from_be_bytes([result[10], result[11]]), 0);
+        assert_eq!(result.len(), 12);
     }
 }
