@@ -1093,7 +1093,7 @@ func (p *ProxyConfig) ToURI() string {
 			q.Set("idle_session_timeout", p.AnyTLSIdleSessionTimeout)
 		}
 		if p.MinIdleSessions > 0 {
-			q.Set("min_idle_session", fmt.Sprintf("%d", p.MinIdleSessions))
+			q.Set("minIdleSessions", fmt.Sprintf("%d", p.MinIdleSessions))
 		}
 		if len(q) > 0 {
 			u += "?" + q.Encode()
