@@ -6,12 +6,14 @@ import (
 	"testing"
 )
 
+const testGoogleAccessToken = "test-access-token"
+
 func TestEvasionTunnelDial_GDrive(t *testing.T) {
 	mgr := &EvasionTunnelManager{}
 	mgr.config.Store(&EvasionConfig{
 		CovertMode:             "gdrive",
 		CovertGdocsFolderId:    "folder-gdrive-123",
-		CovertGdocsAccessToken: "",
+		CovertGdocsAccessToken: testGoogleAccessToken,
 	})
 
 	cfg := mgr.GetConfig()
@@ -46,7 +48,7 @@ func TestEvasionTunnelDial_GDocs(t *testing.T) {
 	mgr.config.Store(&EvasionConfig{
 		CovertMode:             "gdocs",
 		CovertGdocsFolderId:    "folder-gdocs-456",
-		CovertGdocsAccessToken: "",
+		CovertGdocsAccessToken: testGoogleAccessToken,
 	})
 
 	cfg := mgr.GetConfig()
