@@ -94,6 +94,10 @@ func TestTorBridgeConfiguration(t *testing.T) {
 	engine.ConfigureBridges(bridges, obfs4Path)
 
 	engine.binaryPath = helperBin
+	// This test owns torrc generation, not Tor's control protocol. The helper
+	// process deliberately has no control socket, so inject the established
+	// bootstrap seam rather than waiting for a service this fixture cannot expose.
+	engine.bootstrapProbe = func(string, string) (int, error) { return 100, nil }
 
 	err := engine.Start()
 	if err != nil {
