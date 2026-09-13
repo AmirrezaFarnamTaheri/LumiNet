@@ -517,7 +517,6 @@ func TestParseProxyURI_VLESS_gRPC(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to build xray outbound config: %v", err)
 	}
-
 	streamSettings, ok := xrayOutbound["streamSettings"].(map[string]interface{})
 	if !ok {
 		t.Fatal("Failed to extract streamSettings from outbound")
@@ -667,7 +666,7 @@ func TestParseProxyURI_Nipo(t *testing.T) {
 }
 
 func TestParseProxyURI_Warp(t *testing.T) {
-	uri := "warp://A1@188.114.97.170:894?ifp=1-3&ifpm=m4#MyWarp"
+	uri := "warp://188.114.97.170:894?privatekey=AQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyA%3D&publickey=ISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0%2BP0A%3D&ifp=1-3&ifpm=m4#MyWarp"
 	cfg, err := parseProxyURI(uri)
 	if err != nil {
 		t.Fatalf("Failed to parse warp URI: %v", err)
