@@ -29,7 +29,20 @@ func TestManagerPassesTorAndPsiphonConfigurationToProcesses(t *testing.T) {
 	t.Setenv("CAPTURE_TOR", torCapture)
 	t.Setenv("CAPTURE_PSIPHON", psiCapture)
 
-	m := NewManager()
+	factory := func(req Request) (engine, error) {
+		eng, err := productionFactory(req)
+		if err != nil {
+			return nil, err
+		}
+		if tor, ok := eng.(*torEngine); ok {
+			// The fake process captures argv/config but intentionally does not
+			// implement Tor's control protocol. Preserve the production factory
+			// while injecting only the readiness probe seam for this fixture.
+			tor.bootstrapProbe = func(string, string) (int, error) { return 100, nil }
+		}
+		return eng, nil
+	}
+	m := newManagerWithFactoryAndPreflight(factory, productionPreflight)
 	defer m.Close()
 	if _, err := m.Start(Request{Engine: EngineTor, SocksPort: 19350, ControlPort: 19351}); err != nil {
 		t.Fatal(err)
