@@ -114,14 +114,18 @@ func TestResolveTorTransportExecutableRejectsNonExecutableBundleFile(t *testing.
 
 func TestProductionPreflightResolvesTransportBeforeFactory(t *testing.T) {
 	dir := t.TempDir()
-	name := "snowflake-client"
-	path := filepath.Join(dir, name)
+	requestName := "snowflake-client"
+	fileName := requestName
+	if runtime.GOOS == "windows" {
+		fileName += ".bat"
+	}
+	path := filepath.Join(dir, fileName)
 	writeExecutableForTest(t, path)
 	t.Setenv("PATH", dir)
 
 	got, err := productionPreflight(Request{
 		Engine:           EngineTor,
-		TransportPlugins: []TorTransportPlugin{{Name: "snowflake", Executable: name}},
+		TransportPlugins: []TorTransportPlugin{{Name: "snowflake", Executable: requestName}},
 	})
 	if err != nil {
 		t.Fatal(err)
