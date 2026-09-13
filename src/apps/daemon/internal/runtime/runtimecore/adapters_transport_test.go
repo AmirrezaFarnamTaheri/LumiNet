@@ -65,8 +65,16 @@ func TestResolveTorTransportExecutableFromRepositoryBundle(t *testing.T) {
 		t.Fatal(err)
 	}
 	abs, _ := filepath.Abs(path)
-	if filepath.Clean(got) != filepath.Clean(abs) {
-		t.Fatalf("resolved=%q want=%q", got, abs)
+	resolvedWant, err := filepath.EvalSymlinks(abs)
+	if err != nil {
+		t.Fatalf("resolve expected bundle path: %v", err)
+	}
+	resolvedGot, err := filepath.EvalSymlinks(got)
+	if err != nil {
+		t.Fatalf("resolve returned bundle path: %v", err)
+	}
+	if filepath.Clean(resolvedGot) != filepath.Clean(resolvedWant) {
+		t.Fatalf("resolved=%q want=%q", resolvedGot, resolvedWant)
 	}
 }
 
