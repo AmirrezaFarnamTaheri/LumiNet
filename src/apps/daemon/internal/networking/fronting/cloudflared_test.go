@@ -47,10 +47,10 @@ func TestCloudflaredTunnel_ConnectSuccess(t *testing.T) {
 	}))
 	defer srv.Close()
 
-	wssURL := strings.Replace(srv.URL, "http://", "wss://", 1)
+	wsURL := strings.Replace(srv.URL, "http://", "ws://", 1)
 
 	tun, err := NewCloudflaredTunnel(CloudflaredTunnelConfig{
-		TunnelURL:        wssURL,
+		TunnelURL:        wsURL,
 		ConnectTimeout:   2 * time.Second,
 		ReadTimeout:      1 * time.Second,
 		MaxRetryAttempts: 1,
