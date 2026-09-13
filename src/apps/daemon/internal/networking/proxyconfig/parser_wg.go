@@ -45,10 +45,22 @@ func parseWireGuard(uri string) (*ProxyConfig, error) {
 	}
 
 	q := parsed.Query()
+	if privateKey == "" {
+		privateKey = q.Get("privatekey")
+	}
+	if privateKey == "" {
+		privateKey = q.Get("private_key")
+	}
+	if privateKey == "" {
+		privateKey = q.Get("private-key")
+	}
 
 	publicKey := q.Get("publickey")
 	if publicKey == "" {
 		publicKey = q.Get("public_key")
+	}
+	if publicKey == "" {
+		publicKey = q.Get("public-key")
 	}
 
 	preSharedKey := q.Get("presharedkey")
