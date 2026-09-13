@@ -16,8 +16,6 @@ func TestCoreManager_BuildConfigs_AnyTLS(t *testing.T) {
 		Password:                       "pass123",
 		TLS:                            true,
 		SNI:                            "sni-anytls.com",
-		SkipCertVerify:                 true,
-		PinnedPeerCertSHA256:           testPeerCertSHA256,
 		AnyTLSIdleSessionCheckInterval: "15s",
 		AnyTLSIdleSessionTimeout:       "45s",
 		MinIdleSessions:                7,
@@ -44,13 +42,16 @@ func TestCoreManager_BuildConfigs_AnyTLS(t *testing.T) {
 	if !ok {
 		t.Fatalf("Expected tls map in sing-box outbound")
 	}
-	if tlsMap["enabled"] != true || tlsMap["insecure"] != true || tlsMap["server_name"] != "sni-anytls.com" {
+	if tlsMap["enabled"] != true || tlsMap["insecure"] != false || tlsMap["server_name"] != "sni-anytls.com" {
 		t.Errorf("TLS configuration invalid in sing-box AnyTLS: %v", tlsMap)
 	}
 
-	// 2. Test Xray Outbound Generation. Legacy insecure intent is permitted only
-	// when paired with the explicit peer pin above.
-	xrOut, err := mgr.buildXrayOutbound(anytlsProxy, "anytls-xr")
+	// 2. Test Xray Outbound Generation. Xray supports explicit peer pinning, so
+	// exercise the legacy insecure intent only on the Xray-specific fixture.
+	xrayProxy := *anytlsProxy
+	xrayProxy.SkipCertVerify = true
+	xrayProxy.PinnedPeerCertSHA256 = testPeerCertSHA256
+	xrOut, err := mgr.buildXrayOutbound(&xrayProxy, "anytls-xr")
 	if err != nil {
 		t.Fatalf("buildXrayOutbound failed for AnyTLS: %v", err)
 	}
@@ -79,8 +80,6 @@ func TestCoreManager_BuildConfigs_Juicity(t *testing.T) {
 		Password:              "pass-456",
 		TLS:                   true,
 		SNI:                   "sni-juicity.com",
-		SkipCertVerify:        true,
-		PinnedPeerCertSHA256:  testPeerCertSHA256,
 		CongestionControl:     "bbr",
 		PinnedCertChainSHA256: "sha256-hash",
 	}
@@ -103,8 +102,11 @@ func TestCoreManager_BuildConfigs_Juicity(t *testing.T) {
 		t.Errorf("Expected congestion 'bbr' and pinned chain 'sha256-hash', got %v, %v", sbOut["congestion_control"], sbOut["pinned_certchain_sha256"])
 	}
 
-	// 2. Test Xray Outbound Generation
-	xrOut, err := mgr.buildXrayOutbound(juicityProxy, "juicity-xr")
+	// 2. Test Xray Outbound Generation with its supported peer-pin hardening.
+	xrayProxy := *juicityProxy
+	xrayProxy.SkipCertVerify = true
+	xrayProxy.PinnedPeerCertSHA256 = testPeerCertSHA256
+	xrOut, err := mgr.buildXrayOutbound(&xrayProxy, "juicity-xr")
 	if err != nil {
 		t.Fatalf("buildXrayOutbound failed for Juicity: %v", err)
 	}
@@ -126,15 +128,13 @@ func TestCoreManager_BuildConfigs_Juicity(t *testing.T) {
 
 func TestCoreManager_BuildConfigs_JSONOutput(t *testing.T) {
 	anytlsProxy := &proxyConfig{
-		Protocol:             protocolAnyTLS,
-		Address:              "example-anytls.com",
-		Port:                 8443,
-		Password:             "pass123",
-		TLS:                  true,
-		SNI:                  "sni-anytls.com",
-		SkipCertVerify:       true,
-		PinnedPeerCertSHA256: testPeerCertSHA256,
-		MinIdleSessions:      7,
+		Protocol:        protocolAnyTLS,
+		Address:         "example-anytls.com",
+		Port:            8443,
+		Password:        "pass123",
+		TLS:             true,
+		SNI:             "sni-anytls.com",
+		MinIdleSessions: 7,
 	}
 
 	mgr := NewCoreManager(CoreTypeSingBox, "sing-box")
