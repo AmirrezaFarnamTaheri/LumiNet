@@ -34,10 +34,12 @@ func TestWebRTCStegoHandshakeAndKeepalive(t *testing.T) {
 		t.Fatalf("failed to create obfuscator: %v", err)
 	}
 
-	// Keepalive frame should be 24 bytes long
+	// Keepalives carry the 24-byte VP8+epoch header plus an XChaCha20 nonce
+	// and authentication tag so control frames and epochs cannot be forged.
 	frame := obf.EncodeKeepalive()
-	if len(frame) != 24 {
-		t.Errorf("expected keepalive frame size 24, got %d", len(frame))
+	expectedLen := KeepaliveHdrLen + webRTCNonceLen + webRTCTagLen
+	if len(frame) != expectedLen {
+		t.Errorf("expected authenticated keepalive frame size %d, got %d", expectedLen, len(frame))
 	}
 	if frame[0] != 0x30 {
 		t.Errorf("expected first byte 0x30, got 0x%02x", frame[0])
