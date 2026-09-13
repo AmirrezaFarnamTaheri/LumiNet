@@ -28,7 +28,7 @@ type CloudflaredTunnelConfig struct {
 	AuthToken string
 	// ConnectTimeout is the TCP dial + TLS handshake deadline.
 	ConnectTimeout time.Duration
-	// ReadTimeout is the per-read deadline on the long-poll HTTP response.
+	// ReadTimeout is the desired inactivity timeout for tunnel reads.
 	ReadTimeout time.Duration
 	// MaxRetryAttempts limits reconnection attempts before giving up.
 	MaxRetryAttempts int
@@ -61,12 +61,12 @@ type TunnelStats struct {
 // cloudflared transport semantics as found in LumiNet's upstream absorption
 // research. It does not contain any code from the cloudflared project itself.
 type CloudflaredTunnel struct {
-	config   CloudflaredTunnelConfig
-	stats    TunnelStats
-	mu       sync.RWMutex
-	closed   bool
-	httpCli  *http.Client
-	authKey  string
+	config  CloudflaredTunnelConfig
+	stats   TunnelStats
+	mu      sync.RWMutex
+	closed  bool
+	httpCli *http.Client
+	authKey string
 }
 
 // NewCloudflaredTunnel creates a new tunnel client from the given configuration.
@@ -102,15 +102,16 @@ func NewCloudflaredTunnel(config CloudflaredTunnelConfig) (*CloudflaredTunnel, e
 		DialContext: (&net.Dialer{
 			Timeout: cc.ConnectTimeout,
 		}).DialContext,
-		TLSHandshakeTimeout: cc.ConnectTimeout,
-		DisableKeepAlives:   false,
-		MaxIdleConns:       1,
-		IdleConnTimeout:    90 * time.Second,
+		TLSHandshakeTimeout:   cc.ConnectTimeout,
+		ResponseHeaderTimeout: cc.ConnectTimeout,
+		DisableKeepAlives:     false,
+		MaxIdleConns:          1,
+		IdleConnTimeout:       90 * time.Second,
 	}
 
 	cli := &http.Client{
 		Transport: transport,
-		Timeout:   0, // we manage deadlines per-request
+		Timeout:   0, // tunnel response bodies are intentionally long-lived
 	}
 
 	// Derive a stable auth key from the tunnel URL for relay framing.
@@ -125,9 +126,8 @@ func NewCloudflaredTunnel(config CloudflaredTunnelConfig) (*CloudflaredTunnel, e
 }
 
 // Connect establishes a session with the tunnel daemon and returns a bidirectional
-// pipe that proxies traffic through the tunnel. The context controls the initial
-// connection establishment; once connected the session persists and auto-reconnects
-// unless ctx is cancelled for shutdown.
+// pipe that proxies traffic through the tunnel. The context controls the session
+// lifetime; cancelling it tears down the underlying HTTP stream.
 func (t *CloudflaredTunnel) Connect(ctx context.Context) (*TunnelSession, error) {
 	t.mu.Lock()
 	if t.closed {
@@ -146,11 +146,18 @@ func (t *CloudflaredTunnel) Connect(ctx context.Context) (*TunnelSession, error)
 // Stats returns a copy of the current tunnel statistics.
 func (t *CloudflaredTunnel) Stats() TunnelStats {
 	t.mu.RLock()
-	defer t.mu.RUnlock()
-	return t.stats // copy
+	state := t.stats.State
+	t.mu.RUnlock()
+	return TunnelStats{
+		BytesSent:       atomic.LoadUint64(&t.stats.BytesSent),
+		BytesReceived:   atomic.LoadUint64(&t.stats.BytesReceived),
+		ReconnectCount:  atomic.LoadUint32(&t.stats.ReconnectCount),
+		LastConnectedAt: atomic.LoadInt64(&t.stats.LastConnectedAt),
+		State:           state,
+	}
 }
 
-// Close gracefully shuts down the tunnel session.
+// Close gracefully shuts down the tunnel for future connections.
 func (t *CloudflaredTunnel) Close() error {
 	t.mu.Lock()
 	defer t.mu.Unlock()
@@ -158,6 +165,7 @@ func (t *CloudflaredTunnel) Close() error {
 		return nil
 	}
 	t.closed = true
+	t.stats.State = "closed"
 	atomic.StoreUint32(&t.stats.ReconnectCount, 0)
 	return nil
 }
@@ -166,11 +174,13 @@ func (t *CloudflaredTunnel) Close() error {
 // for streaming data. The caller reads from Reader and writes to Writer; Close
 // terminates the session.
 type TunnelSession struct {
-	tunnel   *CloudflaredTunnel
-	readPipe *io.PipeReader
-	writeCh  chan []byte
-	closeCh  chan struct{}
-	doneCh   chan error
+	tunnel    *CloudflaredTunnel
+	readPipe  *io.PipeReader
+	body      io.ReadCloser
+	writeCh   chan []byte
+	closeCh   chan struct{}
+	doneCh    chan error
+	closeOnce sync.Once
 }
 
 // Read implements io.Reader on the tunnel session.
@@ -180,29 +190,48 @@ func (s *TunnelSession) Read(p []byte) (int, error) {
 
 // Write implements io.Writer on the tunnel session.
 func (s *TunnelSession) Write(p []byte) (int, error) {
+	payload := append([]byte(nil), p...)
 	select {
-	case s.writeCh <- p:
+	case s.writeCh <- payload:
 		return len(p), nil
 	case <-s.closeCh:
 		return 0, fmt.Errorf("cloudflared: session closed")
 	}
 }
 
-// Close terminates the session gracefully.
+// Close terminates the session gracefully and unblocks any pending read.
 func (s *TunnelSession) Close() error {
-	select {
-	case <-s.closeCh:
-		return nil
-	default:
+	var closeErr error
+	s.closeOnce.Do(func() {
 		close(s.closeCh)
-	}
-	return nil
+		if s.body != nil {
+			closeErr = s.body.Close()
+		}
+		_ = s.readPipe.Close()
+	})
+	return closeErr
 }
 
-// establishSession opens a new HTTP/2 stream to the tunnel ingress.
+// establishSession opens a new HTTP stream to the tunnel ingress.
 // retryCount tracks the current reconnection attempt for backoff.
 func (t *CloudflaredTunnel) establishSession(ctx context.Context, retryCount int) (*TunnelSession, error) {
-	req, err := http.NewRequestWithContext(ctx, "GET", t.config.TunnelURL, nil)
+	requestURL, err := url.Parse(t.config.TunnelURL)
+	if err != nil {
+		return nil, fmt.Errorf("cloudflared: parse tunnel URL: %w", err)
+	}
+	// net/http understands HTTP schemes, while the public tunnel contract uses
+	// WebSocket-style ws/wss URLs. This implementation models the stream as an
+	// HTTP upgrade, so map only the transport scheme and preserve host/path/query.
+	switch requestURL.Scheme {
+	case "ws":
+		requestURL.Scheme = "http"
+	case "wss":
+		requestURL.Scheme = "https"
+	default:
+		return nil, fmt.Errorf("cloudflared: unsupported tunnel URL scheme %q", requestURL.Scheme)
+	}
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, requestURL.String(), nil)
 	if err != nil {
 		return nil, fmt.Errorf("cloudflared: build request: %w", err)
 	}
@@ -214,19 +243,14 @@ func (t *CloudflaredTunnel) establishSession(ctx context.Context, retryCount int
 	req.Header.Set("Connection", "upgrade")
 	req.Header.Set("Upgrade", "tcp")
 
-	// We use a GET with a short read timeout to simulate the long-poll
-	// tunnel control channel. In production this would be a WebSocket;
-	// here we model it as an HTTP/1.1 persistent stream.
-	req = req.WithContext(ctx)
-
 	resp, err := t.httpCli.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("cloudflared: HTTP request: %w", err)
 	}
-	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK && resp.StatusCode != http.StatusSwitchingProtocols {
 		body, _ := io.ReadAll(io.LimitReader(resp.Body, 512))
+		_ = resp.Body.Close()
 		return nil, fmt.Errorf("cloudflared: unexpected status %d: %s", resp.StatusCode, string(body))
 	}
 
@@ -238,6 +262,7 @@ func (t *CloudflaredTunnel) establishSession(ctx context.Context, retryCount int
 	session := &TunnelSession{
 		tunnel:   t,
 		readPipe: readPipe,
+		body:     resp.Body,
 		writeCh:  writeCh,
 		closeCh:  closeCh,
 		doneCh:   doneCh,
@@ -246,11 +271,11 @@ func (t *CloudflaredTunnel) establishSession(ctx context.Context, retryCount int
 	// Update stats on successful connection.
 	atomic.StoreUint32(&t.stats.ReconnectCount, uint32(retryCount))
 	atomic.StoreInt64(&t.stats.LastConnectedAt, time.Now().UnixNano())
-	t.mu.RLock()
+	t.mu.Lock()
 	t.stats.State = "connected"
-	t.mu.RUnlock()
+	t.mu.Unlock()
 
-	// Spawn the read pump.
+	// The read pump owns the response body after this point.
 	go t.pumpRead(resp.Body, readWriter)
 
 	// Spawn the write pump.
@@ -260,23 +285,13 @@ func (t *CloudflaredTunnel) establishSession(ctx context.Context, retryCount int
 }
 
 // pumpRead copies from the HTTP response body into the session read pipe.
-// This models the cloudflared server-initiated stream delivery.
-func (t *CloudflaredTunnel) pumpRead(body io.Reader, w *io.PipeWriter) {
+// The request context and response-body close provide cancellation; do not create
+// and immediately cancel a synthetic read-timeout context around each blocking read.
+func (t *CloudflaredTunnel) pumpRead(body io.ReadCloser, w *io.PipeWriter) {
+	defer body.Close()
 	defer w.Close()
 	buf := make([]byte, 4096)
 	for {
-		connCtx, cancel := context.WithTimeout(context.Background(), t.config.ReadTimeout)
-		deadline := connCtx.Done()
-		cancel()
-
-		select {
-		case <-deadline:
-			// Read timeout — re-establish connection.
-			t.reconnect()
-			return
-		default:
-		}
-
 		n, readErr := body.Read(buf)
 		if n > 0 {
 			if _, wErr := w.Write(buf[:n]); wErr != nil {
@@ -325,23 +340,27 @@ func (t *CloudflaredTunnel) reconnect() {
 		if backoff > t.config.MaxBackoff {
 			backoff = t.config.MaxBackoff
 		}
-		// Add jitter to avoid thundering herd.
-		jitter := time.Duration(mathrand.Int63n(int64(backoff / 4)))
+		// Add jitter to avoid thundering herd, while remaining safe for tiny
+		// explicitly configured backoff durations.
+		var jitter time.Duration
+		if jitterWindow := backoff / 4; jitterWindow > 0 {
+			jitter = time.Duration(mathrand.Int63n(int64(jitterWindow)))
+		}
 		sleep := backoff + jitter
 
-		t.mu.RLock()
+		t.mu.Lock()
 		t.stats.State = fmt.Sprintf("reconnecting (attempt %d/%d, backoff %v)", attempt, t.config.MaxRetryAttempts, sleep)
-		t.mu.RUnlock()
+		t.mu.Unlock()
 
 		time.Sleep(sleep)
 
 		ctx, cancel := context.WithTimeout(context.Background(), t.config.ConnectTimeout)
 		session, err := t.establishSession(ctx, attempt)
-		cancel()
-
-		if err == nil {
-			// Replace the old session; the caller holds the old one
-			// and will see the read error, triggering their own reconnect.
+		if err != nil {
+			cancel()
+		} else {
+			// Keep the successful request context alive for the returned stream;
+			// the session body owns its eventual teardown.
 			_ = session
 			return
 		}
