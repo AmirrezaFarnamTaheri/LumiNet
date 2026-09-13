@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 )
 
 func writeRuntimeFake(t *testing.T, dir, name, captureEnv string) {
@@ -17,6 +18,22 @@ func writeRuntimeFake(t *testing.T, dir, name, captureEnv string) {
 	if err := os.WriteFile(path, []byte(body), 0o755); err != nil {
 		t.Fatal(err)
 	}
+}
+
+func readRuntimeCapture(t *testing.T, path string) []byte {
+	t.Helper()
+	deadline := time.Now().Add(2 * time.Second)
+	var lastErr error
+	for time.Now().Before(deadline) {
+		data, err := os.ReadFile(path)
+		if err == nil {
+			return data
+		}
+		lastErr = err
+		time.Sleep(10 * time.Millisecond)
+	}
+	t.Fatalf("runtime fixture did not capture %s: %v", path, lastErr)
+	return nil
 }
 
 func TestManagerPassesTorAndPsiphonConfigurationToProcesses(t *testing.T) {
@@ -47,10 +64,7 @@ func TestManagerPassesTorAndPsiphonConfigurationToProcesses(t *testing.T) {
 	if _, err := m.Start(Request{Engine: EngineTor, SocksPort: 19350, ControlPort: 19351}); err != nil {
 		t.Fatal(err)
 	}
-	torData, err := os.ReadFile(torCapture)
-	if err != nil {
-		t.Fatal(err)
-	}
+	torData := readRuntimeCapture(t, torCapture)
 	if !strings.Contains(string(torData), "SocksPort 127.0.0.1:19350") || !strings.Contains(string(torData), "ControlPort 127.0.0.1:19351") {
 		t.Fatalf("Tor config did not receive requested ports:\n%s", torData)
 	}
@@ -62,10 +76,7 @@ func TestManagerPassesTorAndPsiphonConfigurationToProcesses(t *testing.T) {
 	if _, err := m.Start(Request{Engine: EnginePsiphon, SocksPort: 19390, UpstreamProxy: upstream}); err != nil {
 		t.Fatal(err)
 	}
-	psiData, err := os.ReadFile(psiCapture)
-	if err != nil {
-		t.Fatal(err)
-	}
+	psiData := readRuntimeCapture(t, psiCapture)
 	var cfg map[string]any
 	if err := json.Unmarshal(psiData, &cfg); err != nil {
 		t.Fatal(err)
