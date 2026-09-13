@@ -8,7 +8,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	mathrand "math/rand"
 	"net"
 	"net/http"
 	"net/url"
@@ -300,11 +299,20 @@ func (t *CloudflaredTunnel) pumpRead(body io.ReadCloser, w *io.PipeWriter) {
 			atomic.AddUint64(&t.stats.BytesReceived, uint64(n))
 		}
 		if readErr != nil {
-			if readErr != io.EOF {
-				t.reconnect()
-			}
+			t.markDisconnected()
 			return
 		}
+	}
+}
+
+// markDisconnected records session loss without trying to manufacture an
+// unreachable replacement session. Reconnection must be initiated by a caller
+// that can receive and use the replacement TunnelSession.
+func (t *CloudflaredTunnel) markDisconnected() {
+	t.mu.Lock()
+	defer t.mu.Unlock()
+	if !t.closed {
+		t.stats.State = "disconnected"
 	}
 }
 
@@ -323,59 +331,6 @@ func (t *CloudflaredTunnel) pumpWrite(writeCh <-chan []byte, closeCh <-chan stru
 			return
 		}
 	}
-}
-
-// reconnect attempts to re-establish the session with exponential backoff.
-// It is called by pumpRead when the connection is lost.
-func (t *CloudflaredTunnel) reconnect() {
-	t.mu.RLock()
-	closed := t.closed
-	t.mu.RUnlock()
-	if closed {
-		return
-	}
-
-	for attempt := 1; attempt <= t.config.MaxRetryAttempts; attempt++ {
-		backoff := t.config.InitialBackoff * time.Duration(1<<(attempt-1))
-		if backoff > t.config.MaxBackoff {
-			backoff = t.config.MaxBackoff
-		}
-		// Add jitter to avoid thundering herd, while remaining safe for tiny
-		// explicitly configured backoff durations.
-		var jitter time.Duration
-		if jitterWindow := backoff / 4; jitterWindow > 0 {
-			jitter = time.Duration(mathrand.Int63n(int64(jitterWindow)))
-		}
-		sleep := backoff + jitter
-
-		t.mu.Lock()
-		t.stats.State = fmt.Sprintf("reconnecting (attempt %d/%d, backoff %v)", attempt, t.config.MaxRetryAttempts, sleep)
-		t.mu.Unlock()
-
-		time.Sleep(sleep)
-
-		ctx, cancel := context.WithTimeout(context.Background(), t.config.ConnectTimeout)
-		session, err := t.establishSession(ctx, attempt)
-		if err != nil {
-			cancel()
-		} else {
-			// Keep the successful request context alive for the returned stream;
-			// the session body owns its eventual teardown.
-			_ = session
-			return
-		}
-
-		t.mu.RLock()
-		closed := t.closed
-		t.mu.RUnlock()
-		if closed {
-			return
-		}
-	}
-
-	t.mu.Lock()
-	t.stats.State = "disconnected"
-	t.mu.Unlock()
 }
 
 // GetAuthKey returns the derived auth key used in relay framing.
