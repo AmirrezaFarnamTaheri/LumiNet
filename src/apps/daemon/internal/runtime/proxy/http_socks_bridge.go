@@ -110,6 +110,12 @@ func (b *httpSOCKSBridge) acceptLoop() {
 			continue
 		}
 		b.mu.Lock()
+		if b.ctx.Err() != nil {
+			b.mu.Unlock()
+			<-b.slots
+			_ = client.Close()
+			return
+		}
 		b.clients[client] = struct{}{}
 		b.mu.Unlock()
 		b.wg.Add(1)
