@@ -18,6 +18,7 @@
     "server/internal/system/wfp_dynamic_session.c": "Reviewed Windows platform remediation: the relocated WFP dynamic-session implementation intentionally differs from baseline due to privileged networking lifecycle fixes.",
     "server/internal/system/wfp_leak_prevention.c": "Reviewed Windows platform remediation: the relocated WFP leak-prevention implementation intentionally differs from baseline due to fail-safe networking and cleanup fixes.",
     "server/internal/webui/dist/favicon.svg": "Reviewed generated UI artifact change: the relocated favicon intentionally differs from baseline as a regenerated control-ui distribution artifact corresponding to the remediated frontend.",
-    "server/internal/webui/dist/icons.svg": "Reviewed generated UI artifact change: the relocated icon sprite intentionally differs from baseline as a regenerated control-ui distribution artifact corresponding to the remediated frontend."
+    "server/internal/webui/dist/icons.svg": "Reviewed generated UI artifact change: the relocated icon sprite intentionally differs from baseline as a regenerated control-ui distribution artifact corresponding to the remediated frontend.",
+    "src/apps/daemon/internal/adapters/api/handlers_telegram_test.go": "Reviewed API test remediation: the Telegram handler regression test intentionally differs from baseline to assert the hardened SSRF-safe fetching boundary without weakening production URL validation."
   }
 }
