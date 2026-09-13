@@ -7,6 +7,7 @@
     "desktop/frontend/vite.config.ts": "Reviewed build-tooling remediation: the relocated control-ui Vite configuration intentionally differs from baseline to match the consolidated frontend topology and current build contract.",
     "server/internal/api/ipc_listener_test.go": "Reviewed API test remediation: the relocated IPC listener tests intentionally differ from baseline to exercise the hardened listener/security behavior in the current daemon topology.",
     "server/internal/api/middleware_test.go": "Reviewed API test remediation: the relocated middleware tests intentionally differ from baseline to match hardened request and middleware behavior.",
+    "server/internal/api/handlers_telegram_test.go": "Reviewed API test remediation: the relocated Telegram handler regression test intentionally differs from baseline to assert the hardened SSRF-safe fetching boundary without weakening production URL validation.",
     "server/internal/bridge/shm_posix.go": "Reviewed native-boundary remediation: the relocated POSIX shared-memory bridge intentionally differs from baseline due to lifecycle and native-boundary correctness fixes.",
     "server/internal/proxy/pixel_stego.go": "Reviewed proxy remediation: the relocated pixel-steganography implementation intentionally differs from baseline due to correctness and safety fixes in the runtime proxy subsystem.",
     "server/internal/proxy/stego_test.go": "Reviewed proxy test remediation: the relocated steganography tests intentionally differ from baseline to cover the current hardened implementation.",
@@ -18,7 +19,6 @@
     "server/internal/system/wfp_dynamic_session.c": "Reviewed Windows platform remediation: the relocated WFP dynamic-session implementation intentionally differs from baseline due to privileged networking lifecycle fixes.",
     "server/internal/system/wfp_leak_prevention.c": "Reviewed Windows platform remediation: the relocated WFP leak-prevention implementation intentionally differs from baseline due to fail-safe networking and cleanup fixes.",
     "server/internal/webui/dist/favicon.svg": "Reviewed generated UI artifact change: the relocated favicon intentionally differs from baseline as a regenerated control-ui distribution artifact corresponding to the remediated frontend.",
-    "server/internal/webui/dist/icons.svg": "Reviewed generated UI artifact change: the relocated icon sprite intentionally differs from baseline as a regenerated control-ui distribution artifact corresponding to the remediated frontend.",
-    "src/apps/daemon/internal/adapters/api/handlers_telegram_test.go": "Reviewed API test remediation: the Telegram handler regression test intentionally differs from baseline to assert the hardened SSRF-safe fetching boundary without weakening production URL validation."
+    "server/internal/webui/dist/icons.svg": "Reviewed generated UI artifact change: the relocated icon sprite intentionally differs from baseline as a regenerated control-ui distribution artifact corresponding to the remediated frontend."
   }
 }
