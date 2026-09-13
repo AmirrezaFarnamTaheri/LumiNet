@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { type ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { Activity, Download, Gauge, Play, RefreshCw, Stethoscope } from 'lucide-react';
 import { controlTransport } from '../../api/ControlTransport';
 import {
@@ -13,8 +13,10 @@ import {
   type DoctorReport,
   type RuntimeEngineStatus,
 } from '../../api/contracts';
+import { parseTransportTrace, type TransportTraceSummary } from '../../api/qlog';
 
 const terminalDiagnosticStates = new Set(['completed', 'failed', 'cancelled', 'canceled']);
+const maxTraceImportBytes = 8 * 1024 * 1024;
 
 function isAbortError(error: unknown): boolean {
   return error instanceof DOMException && error.name === 'AbortError';
@@ -47,6 +49,10 @@ export function DiagnosticsOperations() {
   const [preflightPort, setPreflightPort] = useState(1080);
   const [preflightResult, setPreflightResult] = useState<ReturnType<typeof parsePortPreflight> | null>(null);
   const [preflightBusy, setPreflightBusy] = useState(false);
+
+  const [traceName, setTraceName] = useState<string | null>(null);
+  const [traceSummary, setTraceSummary] = useState<TransportTraceSummary | null>(null);
+  const [traceBusy, setTraceBusy] = useState(false);
 
   const loadOverview = useCallback(async () => {
     overviewController.current?.abort();
@@ -170,6 +176,28 @@ export function DiagnosticsOperations() {
     }
   };
 
+  const importTrace = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+    if (!file) return;
+    setTraceBusy(true);
+    setError(null);
+    try {
+      if (file.size > maxTraceImportBytes) {
+        throw new Error(`trace exceeds ${maxTraceImportBytes} byte limit`);
+      }
+      const summary = parseTransportTrace(await file.text());
+      setTraceName(file.name);
+      setTraceSummary(summary);
+    } catch (caught) {
+      setTraceName(null);
+      setTraceSummary(null);
+      setError(errorMessage(caught, 'Failed to parse transport trace.'));
+    } finally {
+      setTraceBusy(false);
+    }
+  };
+
   return (
     <div className="space-y-6">
       <section className="card space-y-4" aria-labelledby="operations-evidence-title">
@@ -215,6 +243,33 @@ export function DiagnosticsOperations() {
           <button type="button" className="btn btn-secondary" disabled={preflightBusy || !preflightHost.trim()} onClick={() => void runPreflight()}>{preflightBusy ? <RefreshCw size={15} className="animate-spin" aria-hidden="true" /> : <Play size={15} aria-hidden="true" />} Check port</button>
           {preflightResult && <EvidenceBlock value={preflightResult} />}
         </div>
+      </section>
+
+      <section className="card space-y-4" aria-labelledby="transport-trace-title">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h2 id="transport-trace-title" className="m-0 flex items-center gap-2 text-lg text-text-primary"><Activity size={18} aria-hidden="true" /> Transport trace</h2>
+            <p className="m-0 mt-1 text-xs text-text-secondary">Inspect qlog, qlog-seq, and Chromium netlog evidence locally. Trace content stays in the browser and parsing is bounded.</p>
+          </div>
+          <label className={`btn btn-secondary cursor-pointer ${traceBusy ? 'pointer-events-none opacity-60' : ''}`}>
+            <input className="sr-only" type="file" accept=".qlog,.json,.jsonl,application/json,application/x-ndjson" disabled={traceBusy} onChange={(event) => void importTrace(event)} />
+            {traceBusy ? <RefreshCw size={15} className="animate-spin" aria-hidden="true" /> : <Download size={15} aria-hidden="true" />}
+            {traceBusy ? 'Parsing…' : 'Import trace'}
+          </label>
+        </div>
+        {traceSummary ? (
+          <div className="space-y-3" role="status" aria-live="polite">
+            <p className="mono m-0 text-[11px] text-text-muted">{traceName} · {traceSummary.format} · {traceSummary.totalEvents} events</p>
+            <EvidenceBlock value={{
+              format: traceSummary.format,
+              totalEvents: traceSummary.totalEvents,
+              firstTime: traceSummary.firstTime,
+              lastTime: traceSummary.lastTime,
+              categories: traceSummary.categories,
+              retainedEvents: traceSummary.retainedEvents,
+            }} />
+          </div>
+        ) : <p className="m-0 text-xs text-text-muted">No transport trace loaded.</p>}
       </section>
     </div>
   );
