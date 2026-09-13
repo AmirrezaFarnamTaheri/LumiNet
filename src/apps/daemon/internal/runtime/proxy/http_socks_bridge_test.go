@@ -7,9 +7,9 @@ import (
 	"net"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/maybeknott/luminet/internal/foundation/boundedio"
-	"time"
 )
 
 type mockSocksObservation struct {
@@ -241,9 +241,19 @@ func TestHTTPSOCKSBridgeCloseIsPrompt(t *testing.T) {
 		t.Fatal(err)
 	}
 	_ = client.SetReadDeadline(time.Now().Add(300 * time.Millisecond))
-	_, err = client.Read(make([]byte, 1))
-	if err == nil {
-		t.Fatal("client remained connected after bridge close")
+	buf := make([]byte, 1024)
+	for {
+		_, err = client.Read(buf)
+		if err == nil {
+			// A successful read after Close can only be bytes buffered before the
+			// bridge closed the socket (for example the CONNECT 200 response).
+			// Drain them and require the connection itself to terminate promptly.
+			continue
+		}
+		if netErr, ok := err.(net.Error); ok && netErr.Timeout() {
+			t.Fatal("client remained connected after bridge close")
+		}
+		break
 	}
 	_ = client.Close()
 }
