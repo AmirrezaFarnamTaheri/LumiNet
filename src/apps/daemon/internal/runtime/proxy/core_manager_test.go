@@ -6,6 +6,8 @@ import (
 	"testing"
 )
 
+const testPeerCertSHA256 = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+
 func TestCoreManager_BuildConfigs_AnyTLS(t *testing.T) {
 	anytlsProxy := &proxyConfig{
 		Protocol:                       protocolAnyTLS,
@@ -15,6 +17,7 @@ func TestCoreManager_BuildConfigs_AnyTLS(t *testing.T) {
 		TLS:                            true,
 		SNI:                            "sni-anytls.com",
 		SkipCertVerify:                 true,
+		PinnedPeerCertSHA256:           testPeerCertSHA256,
 		AnyTLSIdleSessionCheckInterval: "15s",
 		AnyTLSIdleSessionTimeout:       "45s",
 		MinIdleSessions:                7,
@@ -45,7 +48,8 @@ func TestCoreManager_BuildConfigs_AnyTLS(t *testing.T) {
 		t.Errorf("TLS configuration invalid in sing-box AnyTLS: %v", tlsMap)
 	}
 
-	// 2. Test Xray Outbound Generation
+	// 2. Test Xray Outbound Generation. Legacy insecure intent is permitted only
+	// when paired with the explicit peer pin above.
 	xrOut, err := mgr.buildXrayOutbound(anytlsProxy, "anytls-xr")
 	if err != nil {
 		t.Fatalf("buildXrayOutbound failed for AnyTLS: %v", err)
@@ -76,6 +80,7 @@ func TestCoreManager_BuildConfigs_Juicity(t *testing.T) {
 		TLS:                   true,
 		SNI:                   "sni-juicity.com",
 		SkipCertVerify:        true,
+		PinnedPeerCertSHA256:  testPeerCertSHA256,
 		CongestionControl:     "bbr",
 		PinnedCertChainSHA256: "sha256-hash",
 	}
@@ -121,14 +126,15 @@ func TestCoreManager_BuildConfigs_Juicity(t *testing.T) {
 
 func TestCoreManager_BuildConfigs_JSONOutput(t *testing.T) {
 	anytlsProxy := &proxyConfig{
-		Protocol:        protocolAnyTLS,
-		Address:         "example-anytls.com",
-		Port:            8443,
-		Password:        "pass123",
-		TLS:             true,
-		SNI:             "sni-anytls.com",
-		SkipCertVerify:  true,
-		MinIdleSessions: 7,
+		Protocol:             protocolAnyTLS,
+		Address:              "example-anytls.com",
+		Port:                 8443,
+		Password:             "pass123",
+		TLS:                  true,
+		SNI:                  "sni-anytls.com",
+		SkipCertVerify:       true,
+		PinnedPeerCertSHA256: testPeerCertSHA256,
+		MinIdleSessions:      7,
 	}
 
 	mgr := NewCoreManager(CoreTypeSingBox, "sing-box")
